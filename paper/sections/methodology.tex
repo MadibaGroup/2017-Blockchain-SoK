@@ -3,11 +3,85 @@
 Motivation
 	Separate out the data from the hype
 	Collective knowledge of the masses
+	Justify grounded theory.
 
-Processes
-	Grounded theory
-		4 stages
-	Theory generation
-	Graph
+\subsection{Source Selection}
 
-Limitations
+\subsection{Data Analysis}
+After collecting our initial set of \textbf{UPDATE \# XXX} papers, we analyzed them using a four-stage grounded theory approach (open coding, axial coding, selective coding, and theory generation).
+Throughout the analysis of the documents we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
+Additionally, we conducted intensive discussion between the various researchers to ensure that we were correctly understanding and evaluating the source material.
+As is often the case in grounded theory, these notes and discussion were every bit as important, if not more so, than the concepts, categories, and theories we generated.
+
+\subsubsection{Step 1---Open Coding}
+In this first step, documents were assigned to one of four reviewers.
+Each reviewer would read the document, assign codes to words and sentences in the document.
+These codes were generated using a mixture of open coding (assigning a code that summarizes the document's statement) and in situ coding (using the document's own words as the code).
+To ensure that we were assigning the correct codes, we paid careful attention to the context of each statement.
+
+In particular, reviewers made sure to code the following four concepts found in documents:
+\begin{enumerate}
+	\item \textbf{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
+	\item \textbf{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
+	\item \textbf{Limitations.} What inherent limitations are their when using Blockchain technology?
+	\item \textbf{Use cases.} What use cases are suitable for Blockchain technology?
+\end{enumerate}
+
+At this stage of the grounded theory process, reviewers were instructed to avoid evaluating the validity of the coded concepts.
+Instead, every attempt was to made to include all possible codes, helping to ensure that our results were grounded in the data and not reviewers' biases.
+
+The reviewers continued reviewing documents until each felt that the last 3--5 documents they had read had no concepts that had not already been brought up by previous documents.
+This is a commonly accepted stopping criteria in grounded theory and is indicative that all core (i.e., not truly one-off) ideas have been discovered.
+In total, \textbf{UPDATE \# XXX} documents were coded in this stage.
+
+\subsubsection{Step 2---Axial Coding}
+In the second stage, our research team used the constant comparative method to group codes into concepts.
+Specifically, we collapsed distinct codes referring to the same topic (e.g., one was an open code, the other in situ) into a single code, reducing the original set of \textbf{UPDATE \# XXX} codes to a more manageable \textbf{UPDATE \# XXX} codes.
+As needed, we referred back to the original documents to ensure that our understanding of the code was fresh, and that we were assigning it to the appropriate concept.
+Also, at this stage we continued to avoid evaluating the validity of concepts, ensuring that the ideas of the reviewed documents were fully reflected in the codes.
+
+\subsection{Interlude---Additional Open Coding}
+After completing axial coding, one reviewer coded (i.e., open coding) another \textbf{UPDATE \# XXX} documents.
+These documents were all blog posts, representing the most up-to-date thinking on Blockchain technology.
+In this process, no new codes were discovered, indicating that our process had produced concepts that thoroughly describe Blockchain technology.
+
+\subsubsection{Step 3---Selective Coding}
+In the third stage, two researchers transfered all of the concepts onto sticky-notes.
+They then drew connecting lines between the concepts, describing how the concepts related to one another.
+Based on these interconnections, concepts were divided into five different categories:
+
+\begin{enumerate}
+	\item \textbf{Primitives.} These are the primitives that are used to enabled Blockchain technology. Unlike properties, they have no useful by themselves, but only when combined with other primitives to achieve specific properties. Examples include on-chain tokens, authenticated data-structures, and zero-knowledge proofs.
+	
+	\item \textbf{Technological properties.} Technological properties are the core building blocks and features of Blockchain technology. Examples include decentralized governance, append-only ledgers, and data replication.
+	
+	\item \textbf{Normative properties.} Normative properties differ from technological properties in that they are not technical, but rather represent properties that people hope to achieve through the use of Blockchain technology. Critically, these properties cannot be achieved through reliance on the technical properties alone, but require the system built on top of Blockchain technology be designed to accomplish these goals. Examples include censorship resistance, ease-of-entry for miners, low cost to participate.
+	
+	\hspace{1em}\textbf{TODO: Does this belong somewhere else? Seems to be too much commentary for here."}
+	In general, normative properties roughly correlate to the hype attached to Blockchain technology.
+	Based on our analysis, we believe that much of the confusion surrounding Blockchain technology arises from a failure to separate technological and normative properties. Conflating this two properties makes it difficult to see the technology benefits of Blockchain technology, as they are overshadowed by normative properties that are difficult to achieve in real-world applications.
+	
+	\item \textbf{Capabilities.} Capabilities are high-level features provided by Blockchain technology. Examples include on-chain asset provenance, anonymity, and resilience.
+	
+	\item \textbf{Use cases.} Use cases are the areas where the properties and capabilities of Blockchain technology would be useful in building systems. Examples include cryptocurrencies, supply chain management, and identity management.
+\end{enumerate}
+
+While we divide the concepts into five categories, we note that there were inter-category connections, indicating that concepts frequently relied on or were relied on by other concepts.
+
+At this stage of the research, we allowed researcher expertise to begin influencing the results.
+First, by its very nature drawing connections between concepts is subjective.
+As much as possible, we attempted to identify text in the underlying documents that supported our connections, but in several cases we created connections that were not explicitly mentioned in the text.
+Second, a handful of primitives were added that we determined were necessary to build some of the technological properties, but had not been discussed in the documents.
+Third, we identified several misconceptions that either shared no connections with the rest of the concepts or were obviously false (e.g., cryptographic signatures do not provide confidentiality).
+In each of these three cases, our research notes kept track of what was explicitly supported by the analyzed data and what was the result of researcher interpretation.
+
+\subsubsection{Step 4---Theory Generation}
+In the fourth and final stage, we used the categories, their connections, and our results to derive several theories (i.e., research results from our analysis) regarding Blockchain.
+First, we derived a concrete set of properties and capabilities describing precisely what Blockchain technology is, and what it isn't.
+Second, we were able to produce a clean split between Blokchain technology's technological primitives and its normative properties (i.e., hype).
+Third, we identified criteria that help determine whether a given problem can benefit from the use of Blockchain technology.
+
+\subsection{Limitations}
+Due to the nature of grounded theory, our analysis of the data represents one view on that data.
+Different researchers coding the same data may have focused on different aspects leading to differences in categories, connections, and the theories they focused on.
+To address this limitation, we will make the documents we reviewed and our coding of those documents public.
