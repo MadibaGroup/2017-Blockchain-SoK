@@ -1,37 +1,35 @@
 \section{Results (Ben)}
+In our concept dependency graph, use cases depend on capabilities, which are specific high-level functions that blockchain can provide to solve real-world problems. In turn, capabilities are enabled by technological properties, which are provided by specific primitives. See Fig. XX for an example.  The primitive \primitive{hash chain} provides the property \techproperty{append-only transaction ledger}, which in conjunction with other properties enables the capability for \capability{internal auditability}. Use cases in the provenance family require internal auditability to ensure valid provenance trails.
+\textbf{TODO: figure showing graph and style legend}
 
-Types of items
-	Primitives
-	Properties
-		Technological
-		Normative
-	Capabilities
-		Provenance
-			Off-chain physical asset provenance
-			Off-chain digital asset provenance
-			On-chain asset provenance
-		Access control for tokens
-		Data discoverability
-		Transaction rules/smart contracts
-			(Most applications rely on this)
-		Auditability
-			Internal auditability
-			Global auditability
-		
-		
-Governance is central
-Anonymity is orthogonal
-Game theory is core to decentralized governance
+We will begin with an overview of the capabilities we generated during selective coding, then discuss results gained by analyzing the construction of the graph and applying some simple heuristic analysis such as identifying nodes with especially high or low degrees of connectivity.
 
-Resilience
-	Broadly supported
-	Easy to overlook parts of this property when not taken as a whole
+\subsection{Capabilities}
+\paragraph{Provenance} These systems track and store records of how assets are created, handled, accessed, and modified. A blockchain can serve three different capabilities by associating \primitive{on-chain tokens} with different types of assets: \capability{physical off-chain asset provenance} (e.g., for real-world objects like diamonds), \capability{digital off-chain asset provenance} (e.g., copyrighted digital media like songs), or \capability{digital on-chain asset provenance} (e.g., Bitcoin), in which the tokens themselves are the asset being tracked. As events happen to an asset (e.g., it is accessed, modified, or it changes ownership), the state of the token is updated accordingly, creating a provenance ledger on the blockchain. For on-chain assets, this correspondence can be ensured, but \primitive{off-chain stapling} is necessary to ensure that events on off-chain assets are properly recorded on the blockchain.
 
-Normative and technical properties are cleanly separable
-Ledger=/data store
+Provenance capabilities all rely on an \techproperty{append-only transaction ledger}, because provenance must be immutable to be useful. The ledger consists of a series of \primitive{transactions}, which are ordered through \primitive{timestamping} and stored in an \primitive{authenticated data structure} (a \primitive{hashchain}, \primitive{hash DAG}, or \primitive{Merkle tree}). 
 
-Blockchain is not a global platform by definition
+\paragraph{Smart contracts / automatic code execution} A program stored on a blockchain can be executed automatically in response to function calls added in later transactions. These programs, sometimes called \capability{smart contracts}, can modify the global state of the blockchain (i.e., by moving Ether from one address to another). Miners enforce \techproperty{rules on transactions} to determine what types of programs the blockchain supports. This property depends on the \capability{governance} capability, its primitive dependencies \primitive{Sybil resistance} and \primitive{game theory}, and the following additional primitives: \primitive{transactions}, \primitive{authentication}, and \primitive{off-chain oracles}.
 
+\paragraph{Auditability} Blockchain-based systems operate by enforcing \techproperty{rules on transactions}, which define what state changes are valid. Because the \techproperty{append-only transaction ledger} stores the full history of state changes, it is possible to audit the system to determine what operations occurred and that they were validated. Any blockchain permits \capability{internal auditability}, meaning that participants can perform audits. Blockchains that allow \normproperty{public participation} can further support \capability{public auditability}, meaning that anyone can perform an audit.
 
-Challenges
-Limitations
+\paragraph{Resilience} Broadly speaking, resilience describes the ability of a system to recover from compromises and maintain operation even when in a compromised state. There are three key blockchain capabilities in the resilience family. First, \capability{data replication} mitigates attacks that target data at rest. Second, the properties of Blockchain as a \techproperty{distributed ledger} and an \techproperty{append-only ledger} allow for \capability{verifiable data store rebuilding}. Finally, \techproperty{decentralization} (and particularly {\capability{decentralized governance} and \primitive{peer-to-peer communication}) results in \capability{no single points of failure}, removing obvious targets for attack such as transaction processors or centralized communication servers.
+
+\paragraph{Access control for tokens} This capability permits various data sharing use cases by allowing for access control policies to be enforced using tokens. The primitives that directly support it are: \primitive{PKI}, \primitive{key management}, \primitive{authentication}, and \primitive{on-chain tokens}.
+
+\paragraph{Data discoverability} This capability relies on a \techproperty{distributed data store} to replicate data across many peers, permitting collective maintenance and access to the data. Peers agree on the contents of the store by running a \techproperty{consensus protocol}, which in turn relies on \primitive{peer-to-peer communication} and \primitive{timestamping}. 
+
+\subsection{Graph Analysis Theories}
+
+\paragraph{Decentralized governance is the central capability of Blockchain}
+\techproperty{Decentralization} is enabled by \capability{consensus}-based governance, of which Blockchain permits two types: \techproperty{public governance} and \techproperty{permissioned governance}. Either can rely on \primitive{on-chain incentives} (such as Bitcoin block rewards) or \primitive{off-chain incentives} (e.g., contractually obligated payment) to encourage honest behavior from governors. Full decentralization -- i.e., public governance -- further relies on \primitive{Sybil resistance} to prevent individuals from presenting multiple identities to increase their governance share.
+
+\paragraph{Anonymity and privacy are orthogonal to the core functions of a blockchain}
+
+\paragraph{Resilience is a broadly supported capability that is easy to overlook}
+
+\paragraph{Normative and technical properties are cleanly separable}
+
+\paragraph{Blockchain can serve as both a ledger and a data store, but it's better as a ledger}
+
+\subsection{Key challenges and limitations}
