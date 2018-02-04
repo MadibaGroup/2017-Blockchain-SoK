@@ -40,9 +40,34 @@ As described above, there are three capabilities that provide resilience: \capab
 \end{enumerate}
 
 \paragraph{Normative and technical properties are cleanly separable}
-When reading papers or participating in discussions about Blockchain, it can be difficult to separate normative statements from technical ones (see section~\ref{subsec:challenges} for a discussion of this challenge). In our concept graph, however, technical properties and normative properties cleanly separate. No capabilities have dependencies on normative properties, and removing them from graph does not lessen the value of the graph as an exploration of technical concepts. The injection of ideology into a technical field causes confusion and suboptimal design choices -- not to mention muddying discussion and prevent clarity -- so we believe this surprising result is of value to the field in so far as it may help to resolve these issues.
+When reading papers or participating in discussions about Blockchain, it can be difficult to separate normative statements from technical ones (see section~\ref{subsec:challenges} for a discussion of this challenge). In our concept graph, however, technical properties and normative properties cleanly separate. No capabilities have dependencies on normative properties, and removing them from graph does not lessen the value of the graph as an exploration of technical concepts. The injection of ideology into a technical field causes confusion and suboptimal design choices -- not to mention muddying discussion and preventing clarity -- so we believe this surprising result is of value to the field in so far as it may help to resolve these issues.
 
 \paragraph{Blockchain can serve as both a ledger and a data store, but it's better as a ledger}
+Two highly-connected, central nodes in our graph are \techproperty{distributed data store} and \techproperty{distributed ledger}. Both rely on a \techproperty{consensus protocol} to ensure consistency across the different data storage locations. The distributed ledger further requires an \techproperty{append-only transaction ledger} to ensure that once consensus has been reached on a transaction, it can no longer be modified. 
 
+As a distributed data store, Blockchain can provide two useful capabilities: \capability{data discovery} and \capability{resilience} (through \techproperty{replication}). As a distributed ledger, Blockchain also provides resilience through \capability{verifiable data store rebuilding} (which allows a node to recover to the current ledger state even if it suffers local data loss). Further, the ledger enables two important groups capabilities that support many use cases: \capability{auditability} and \capability{provenance}. 
+
+This shows that Blockchain's significant novel utility is more firmly rooted in its ability to provide a distributed ledger of state changes than the simple maintenance of a single shared state.
 \subsection{Key challenges and limitations}
+Challenges:
+1. Verification of smart contract correctness
+ a. If code is law, bugs are law
+2. Stapling on-chain tokens to off-chain assets
+ a. You can enforce rules on on-chain tokens, but you can?t enforce them on the assets those tokens represent
+3. Leveraging off-chain oracles without compromising auditability
+ a. Functionality outside of the blockchain is difficult to verify later
+4. A reputation for illicit uses
+ a. ?Pseudonymity and avoidance of banks and authorities is driven by the desire to circumvent laws and regulations?
+\newline
+Limitations
+1. Wastefulness, both in replicated storage of data and proof-of-work consensus protocols
+ a. Bitcoin consumes as much energy as the country of Denmark, and it appears that it will continue to grow
+2. Emergent centralization of blockchain maintainers
+ a. Bitcoin?s hash puzzle has resulted in concentration of compute power; alternatives like proof-of-stake still have this concern
+3. Scalability of public blockchains
+ a. Bitcoin?s skyrocketing transaction fees and delays illustrate this limitation
+4. Dispute resolution and rollback of mistakes 
+ a. A payment system must be able to reverse fraudulent transactions. This conflicts with the immutability property of Blockchain.
+
+
 \label{subsec:challenges}
