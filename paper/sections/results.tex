@@ -1,6 +1,6 @@
 I\section{Results (Ben)}
 In our concept dependency graph, use cases depend on capabilities, which are specific high-level functions that blockchain can provide to solve real-world problems. In turn, capabilities are enabled by technological properties, which are provided by specific primitives. See Fig. XX for an example.  The primitive \primitive{hash chain} provides the property \techproperty{append-only transaction ledger}, which in conjunction with other properties enables the capability for \capability{internal auditability}. Use cases in the provenance family require internal auditability to ensure valid provenance trails.
-\textbf{TODO: figure showing graph and style legend}
+\textbf{TODO: figure showing graph and text style legend}
 
 We will begin with an overview of the capabilities we generated during selective coding, then discuss results gained by analyzing the construction of the graph and applying some simple heuristic analysis such as identifying nodes with especially high or low degrees of connectivity.
 
@@ -48,26 +48,40 @@ Two highly-connected, central nodes in our graph are \techproperty{distributed d
 As a distributed data store, Blockchain can provide two useful capabilities: \capability{data discovery} and \capability{resilience} (through \techproperty{replication}). As a distributed ledger, Blockchain also provides resilience through \capability{verifiable data store rebuilding} (which allows a node to recover to the current ledger state even if it suffers local data loss). Further, the ledger enables two important groups capabilities that support many use cases: \capability{auditability} and \capability{provenance}. 
 
 This shows that Blockchain's significant novel utility is more firmly rooted in its ability to provide a distributed ledger of state changes than the simple maintenance of a single shared state.
+
 \subsection{Key challenges and limitations}
-Challenges:
-1. Verification of smart contract correctness
- a. If code is law, bugs are law
-2. Stapling on-chain tokens to off-chain assets
- a. You can enforce rules on on-chain tokens, but you can?t enforce them on the assets those tokens represent
-3. Leveraging off-chain oracles without compromising auditability
- a. Functionality outside of the blockchain is difficult to verify later
-4. A reputation for illicit uses
- a. ?Pseudonymity and avoidance of banks and authorities is driven by the desire to circumvent laws and regulations?
-\newline
-Limitations
-1. Wastefulness, both in replicated storage of data and proof-of-work consensus protocols
- a. Bitcoin consumes as much energy as the country of Denmark, and it appears that it will continue to grow
-2. Emergent centralization of blockchain maintainers
- a. Bitcoin?s hash puzzle has resulted in concentration of compute power; alternatives like proof-of-stake still have this concern
-3. Scalability of public blockchains
- a. Bitcoin?s skyrocketing transaction fees and delays illustrate this limitation
-4. Dispute resolution and rollback of mistakes 
- a. A payment system must be able to reverse fraudulent transactions. This conflicts with the immutability property of Blockchain.
-
-
 \label{subsec:challenges}
+Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section we highlight key challenges and limitations of Blockchain technology.
+
+\subsubsection{Challenges}
+\paragraph{Smart contract correctness}
+All executable code is subject to bugs -- developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes -- even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
+
+This principle was put to the test when the DAO was hacked. \textbf{Get details of DAO hack right and add citation.} 
+
+\textbf{Do we need a short survey of work on smart contract verification here? I know there are some papers.}
+
+\paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
+You can enforce rules on on-chain tokens, but you can't enforce them on the assets those tokens represent. 
+
+\paragraph{Non-auditability of off-chain oracles}
+\textbf{Might be some work to survey here as well. Somebody must have written up some ideas about how to make verifiable calls to Web services or something?}
+
+\paragraph{A reputation for illicit uses}
+"Pseudonymity and avoidance of banks and authorities is driven by the desire to circumvent laws and regulations"
+
+\paragraph{Ideology, hype, and ulterior motives}
+
+
+\subsubsection{Limitations}
+\paragraph{Dispute resolution and rollback of mistakes}
+A payment or asset transfer system must be able to reverse fraudulent transactions. This conflicts with the immutability property of Blockchain.
+
+\paragraph{Inefficiency of fully replicated storage and certain consensus models}
+Bitcoin consumes as much energy as the country of Denmark, and it appears that it will continue to grow.
+ 
+ \paragraph{Emergent centralization of maintainers of public blockchains}
+ Bitcoin's hash puzzle has resulted in concentration of compute power; alternatives like proof-of-stake still have this concern
+ 
+ \paragraph{Scalability of public blockchains}
+ Bitcoin has skyrocketing transaction fees and delays.
