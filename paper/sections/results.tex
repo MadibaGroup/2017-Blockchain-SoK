@@ -59,13 +59,22 @@ All executable code is subject to bugs -- developer errors that can be taken adv
 
 This principle was put to the test when the DAO was hacked. \textbf{Get details of DAO hack right and add citation.} 
 
+% JC: I write out with the DAO attack details if you tell me how long you want it
+
+
 \textbf{Do we need a short survey of work on smart contract verification here? I know there are some papers.}
 
+% JC: Yes, I think it would be helpful. We should also mention that things are correct if the model checking is correct, so there are errors in two possible places. 
+
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
+
 You can enforce rules on on-chain tokens, but you can't enforce them on the assets those tokens represent. 
+% JC: Correct. And you need someone to do the stapling. That person could staple two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario). End user might unstaple the token and sell it while keeping the asset, then the token is freed to be restapled to something it shouldn't be (e.g., fake goods in luxury or supply chain). 
 
 \paragraph{Non-auditability of off-chain oracles}
 \textbf{Might be some work to survey here as well. Somebody must have written up some ideas about how to make verifiable calls to Web services or something?}
+% JC: Yes there is the paper from Cornell Tech called Town Crier. Calls can never be verifiable as there are legitimate reasons two calls might see different things. It sort of pushes trust around without solving it (I think this is what we should highlight). Pushing trust around can be useful though. I also see this more as a "limitation" than a challenge --- phrased as: you can't see external events. 
+
 
 \paragraph{A reputation for illicit uses}
 "Pseudonymity and avoidance of banks and authorities is driven by the desire to circumvent laws and regulations"
