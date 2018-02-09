@@ -34,10 +34,10 @@ Copious literature demonstrating the lack of privacy and anonymity in Bitcoin as
 \paragraph{Resilience is a broadly supported capability that is easy to overlook}
 As described above, there are three capabilities that provide resilience: \capability{data replication}, \capability{verifiable data store rebuilding}, and \capability{no single points of failure}. These capabilities are supported by key technical properties (\techproperty{distributed data store}, \techproperty{distributed ledger}, and \techproperty{decentralization}), but resilience as a whole is only directly required by a few use cases. This makes the significance of the capability easy to overlook. However, there are a few pieces of important auxiliary information that underscore its importance:
 
-\begin{enumerate}
+\begin{itemize}
 	\item In general, distributed systems aim to be resilient to disruption. This is one of the reasons to distribute a system rather than run it centrally. Because most blockchain applications are distributed systems, we judge that this capability is of high value even though it does not directly enable many use cases. In other words: although there are few Blockchain applications that cannot exist without resilience, there are many that benefit from it.
 	\item Resilience is more of a principle than a specific technical capability, and it can only be defined or measured with respect to a specific threat model. The three capabilities that we identify as providing resilience each do it along a different technical vector, protecting against different threats and thus providing a very broad definition of resilience. This too contributes to the high value we ascribe to the capability.
-\end{enumerate}
+\end{itemize}
 
 \paragraph{Normative and technical properties are cleanly separable}
 When reading papers or participating in discussions about Blockchain, it can be difficult to separate normative statements from technical ones (see section~\ref{subsec:challenges} for a discussion of this challenge). In our concept graph, however, technical properties and normative properties cleanly separate. No capabilities have dependencies on normative properties, and removing them from graph does not lessen the value of the graph as an exploration of technical concepts. The injection of ideology into a technical field causes confusion and suboptimal design choices -- not to mention muddying discussion and preventing clarity -- so we believe this surprising result is of value to the field in so far as it may help to resolve these issues.
@@ -49,23 +49,72 @@ As a distributed data store, Blockchain can provide two useful capabilities: \ca
 
 This shows that Blockchain's significant novel utility is more firmly rooted in its ability to provide a distributed ledger of state changes than the simple maintenance of a single shared state.
 
-\subsection{Key challenges and limitations}
+\subsection{Challenges and limitations}
 \label{subsec:challenges}
-Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section we highlight key challenges and limitations of Blockchain technology.
+Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section, we will list the challenges and limitations that we coded. Discussion is deferred to \textbf{section XX}.
+
+\subsubsection{Challenges}
+We coded 
+\begin{itemize}
+	\item{Binding digital entities to real-world entities: stapling tokens to assets; interoperating with existing systems (i.e., compatibility between cryptocurrencies and cash)}
+	\item{Dispute resolution: difficulty recovering from errors or bugs; difficulty reversing fraudulent transactions; non-applicability to scenarios where a central broker is needed}
+	\item{Cryptocurrency economics: illiquidity, price volatility, high initial adoption costs, currency conversion costs, and decreasing marginal returns for miners}
+	\item{Efficiency and cost: low or bottlenecked throughput; wasteful energy consumption; high transaction fees; latency induced by synchronous communication required by certain consensus protocols}
+	\item{Governance: resolution of conflicts requiring external intervention; incident response; rule updates require forks; transparency of software development}
+	\item{Incentives: correctly configuring game-theoretic incentive structures}
+	\item{Interoperability: cryptocurrency fragmentation; existence of too many implementations; siloed solutions; standardization; risks to overlay assets if underlying assets are mishandled; interfaces with existing institutions and systems; user identification across systems; risks posed by sharing blockchain security through merged mining or anchoring}
+	\item{Key management: difficulty of manual key management; possible unrecoverable loss of private keys; attacks against wallets; bugs and glitches in wallets}
+	\item{Off-chain functionality: off-chain program execution; interoperability with off-chain systems}
+	\item{Privacy: anonymity; confidentiality}
+	\item{Regulatory: anti-money laundering, know-your-customer; difficulty of monitoring; lack of regulation; legal considerations; taxation; exchange control and flow management; consumer protection}
+	\item{Reputation: use for crime; associations with black markets; nebulous or illicit uses; terrorist financing}
+	\item{Resilience: distributed denial-of-service (DDOS) attacks; dishonest majority attacks; security of infrastructure; subversion of software security measures}
+	\item{Scalability: block generation frequency; block size limits; computational cost of public blockchains; scalable and secure end-user software}
+	\item{Smart contract correctness: inherent incompleteness of contracts; ensuring completeness; lack of tools for verification}
+	\item{Usability: difficulty of developing distributed apps; inherent complexity of technology; difficulty of access and use by consumers; education; onboarding users; difficulty of search; poor UX; lack of mobile and web clients}
+	\item{Usefulness: few demonstrable use cases; does not improve upon existing solutions in many domains being pursued}
+\end{itemize}
+
+\subsubsection{Limitations}
+\begin{itemize}
+	\item{Unnecessary: if a central party is required; if a trusted intermediary exists; if a small number of parties are involved in the system}
+	\item{Lack of protection against mistakes: transactions cannot be reversed; administrators cannot restore access if users are locked out}
+	\item{No distinct legal framework}
+	\item{Lack of API access means auditors must run full nodes}
+	\item{Expense of developing end-user applications for individual blockchains}
+	\item{Cryptocurrencies are inherently Ponzi schemes}
+	\item{Blockchain can handle finite, countable, and unique resources only}
+	\item{Blockchain is an inefficient use of computing resources}
+	\item{Miner centralization}
+	\item{Blockchain is not a high performance system}
+	\item{Scalability}
+	\item{Security}
+	\item{Standardization}
+	\item{Susceptibility to coordinated attacks by large parties}
+\end{itemize}
 
 \subsubsection{Challenges}
 \paragraph{Smart contract correctness}
 All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes -- even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
 
-This principle was put to the test when the DAO was hacked. \textbf{Get details of DAO hack right and add citation.} 
+This principle was put to the test when the DAO was hacked.  \textbf{Jeremy will fill in here.} 
 
-\textbf{Do we need a short survey of work on smart contract verification here? I know there are some papers.}
+% JC: I write out with the DAO attack details if you tell me how long you want it
+% BK: A paragraph would work - thanks.
+
+\textbf{Ben will add a short survey of smart contract verification.}
+
+% JC: Yes, I think it would be helpful. We should also mention that things are correct if the model checking is correct, so there are errors in two possible places. 
+% BK: I'm working on a survey of this area.
 
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
+
 You can enforce rules on on-chain tokens, but you can't enforce them on the assets those tokens represent. 
+% JC: Correct. And you need someone to do the stapling. That person could staple two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario). End user might unstaple the token and sell it while keeping the asset, then the token is freed to be restapled to something it shouldn't be (e.g., fake goods in luxury or supply chain). 
 
 \paragraph{Non-auditability of off-chain oracles}
 \textbf{Might be some work to survey here as well. Somebody must have written up some ideas about how to make verifiable calls to Web services or something?}
+% JC: Yes there is the paper from Cornell Tech called Town Crier. Calls can never be verifiable as there are legitimate reasons two calls might see different things. It sort of pushes trust around without solving it (I think this is what we should highlight). Pushing trust around can be useful though. I also see this more as a "limitation" than a challenge --- phrased as: you can't see external events. 
 
 \paragraph{A reputation for illicit uses}
 "Pseudonymity and avoidance of banks and authorities is driven by the desire to circumvent laws and regulations"
