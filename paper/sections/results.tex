@@ -51,7 +51,8 @@ This shows that Blockchain's significant novel utility is more firmly rooted in 
 
 \subsection{Challenges and limitations}
 \label{subsec:challenges}
-Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section, we will list the challenges and limitations that we coded. Discussion is deferred to \textbf{section XX}.
+Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section, we will list the concept groupings we created for challenges and limitations. Discussion of key results %will follow.
+is deferred to \textbf{section XX}.
 
 \subsubsection{Challenges}
 We coded 
@@ -93,7 +94,7 @@ We coded
 	\item{Susceptibility to coordinated attacks by large parties}
 \end{itemize}
 
-\subsubsection{Challenges}
+\subsubsection{Key Challenges}
 \paragraph{Smart contract correctness}
 All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes -- even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
 
@@ -104,11 +105,11 @@ This principle was put to the test when the DAO was hacked.  \textbf{Jeremy will
 
 \textbf{Ben will add a short survey of smart contract verification.}
 
+
 % JC: Yes, I think it would be helpful. We should also mention that things are correct if the model checking is correct, so there are errors in two possible places. 
 % BK: I'm working on a survey of this area.
 
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
-
 You can enforce rules on on-chain tokens, but you can't enforce them on the assets those tokens represent. 
 % JC: Correct. And you need someone to do the stapling. That person could staple two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario). End user might unstaple the token and sell it while keeping the asset, then the token is freed to be restapled to something it shouldn't be (e.g., fake goods in luxury or supply chain). 
 
@@ -116,13 +117,15 @@ You can enforce rules on on-chain tokens, but you can't enforce them on the asse
 \textbf{Might be some work to survey here as well. Somebody must have written up some ideas about how to make verifiable calls to Web services or something?}
 % JC: Yes there is the paper from Cornell Tech called Town Crier. Calls can never be verifiable as there are legitimate reasons two calls might see different things. It sort of pushes trust around without solving it (I think this is what we should highlight). Pushing trust around can be useful though. I also see this more as a "limitation" than a challenge --- phrased as: you can't see external events. 
 
-\paragraph{A reputation for illicit uses}
-"Pseudonymity and avoidance of banks and authorities is driven by the desire to circumvent laws and regulations"
-
 \paragraph{Ideology, hype, and ulterior motives}
+Many proponents of Blockchain believe that it has the capability to massively disrupt how society operates, or at least to rapidly overtake legacy solutions in many significant industries. This belief is hyperbole ("hype") because although it has been validated under certain conditions, it has not been demonstrated to be generally true but it is still fervently proclaimed. This ideology and hype cause problems: for example, frequent emotionally-charged schisms within Blockchain advocate and developer communities - especially those affiliated with Bitcoin. This turmoil prevents level-headed scientific discourse and wastes developer resources. It can also tangibly affect the stability of a blockchain-based system by causing a fork, in which two independent chains emerge to used and maintained by different groups, further dividing resources.
 
+With that said, Blockchain's disruptive power has certainly been demonstrated in the financial sector, so it clearly has promise. Several factors have made this sector an attractive target for disruption, perhaps none more so than the opportunity for massive profit. This motive has had benefits for Blockchain technology, especially in accelerating the pace of technological development. However, it has also created perverse incentives to reinforce hype and ideology. Hype can attract investors and inflate valuations, and dogmatic ideology is a proven marketing and recruitment strategy for financial scammers. These problems inhibit the advancement of Blockchain technology.
 
-\subsubsection{Limitations}
+\paragraph{Reputation for illicit uses}
+Due to the prominence of Bitcoin, many people are familiar with Blockchain first and foremost as the technology underlying the cryptocurrency and therefore the reputations of the two are intertwined. The fact that Bitcoin is designed to avoid banks and central authorities in general combined with its well-known history of illicit uses somewhat poisons the well for Blockchain as a whole.  Along with the causes listed above (ideology, hype, and ulterior motives), this contributes to the difficulty of discussing and considering Blockchain technology with precision and objectivity. It may also have impeded or delayed its acceptance by organizations unwilling to associate themselves with the technology's poor reputation.
+
+\subsubsection{Key Limitations}
 \paragraph{Dispute resolution and rollback of mistakes}
 A payment or asset transfer system must be able to reverse fraudulent transactions. This conflicts with the immutability property of Blockchain.
 
