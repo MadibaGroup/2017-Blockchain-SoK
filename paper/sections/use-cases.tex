@@ -1,4 +1,64 @@
-\section{Use Case Evaluation (Jeramey)}
+% !TEX root = ../main.tex
+
+\section{Use Case Evaluation (Jeremy)}
+
+\begin{table*}[th!]
+
+\renewcommand{\arraystretch}{1.3}
+
+\caption{Very provisional at this stage.\label{tab:usecase}}
+
+\centering 
+
+\begin{tabular}{l|cccccccc|ccccccccccc|}
+
+\headrow{ } &
+\headrow{Provenance} & 
+\headrow{Programmability} &
+\headrow{Auditability} &  %immutability, non-equivocation
+\headrow{Resilience} &
+\headrow{Access Control} &
+\headrow{Discoverability} &
+\headrow{} &
+\headrow{} &
+ 
+\headrow{Necessity} &
+\headrow{Finality Risk} & 
+\headrow{Counter-Party Risk} &
+\headrow{Stapling} & 
+\headrow{Identities} & 
+\headrow{Sclability} &
+\headrow{Trigger Sensitivity} &
+\headrow{Dispute Resolution} &
+\headrow{} & 
+\headrow{} &
+\headrow{}  \\ \hline
+
+\multicolumn{1}{c|}{\textit{Use Case}}& 
+\multicolumn{8}{c|}{\textit{Utilizes}}&    
+\multicolumn{11}{c|}{\textit{Limited by}} \\ \hline 
+																														
+Supply Chain			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
+Asset Tracking			&\full	&	&\full	&\full	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Payments				&	&\full	&\full	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Transaction Processing	&	&\full	&\full	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Identity Management	&	&	&	&\full	&	&	&	&		&	&	&	&	&\full	&	&	&	&	&	&	\\ 
+IoT/Smart Properties	&\full	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\	
+Data Sharing			&	&	&	&\full	&	&\full	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
+Fine-grained AC		&	&\full	&	&	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
+Interoperation			&	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Regulation / Sanctions	&\full	&	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Record Storage		&\full	&	&\full	&\full	&	&\full	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\
+Timestamping			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\		
+Auctions/Markets		&	&\full	&\full	&\full	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Voting				&	&\full	&\full	&\full	&\full	&	&	&		&\full	&\full	&	&	&\full	&\full	&\full	&\full	&	&	&	\\
+Gambling				&	&\full	&	&\full	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
+Insurance				&	&\full	&	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
+\hline
+
+\end{tabular}
+\end{table*}
+
 
 Open question: should we also discuss applications that are discussed in the literature, but turn out to not be great fits? If so, where does this fit. This section and the last are really more centered around us imposing knowledge.
 
