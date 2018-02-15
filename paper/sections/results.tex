@@ -1,6 +1,6 @@
 % !TEX root = ../main.tex
 
-\section{Results (Ben)}
+\section{Results}
 In our concept dependency graph, use cases depend on capabilities, which are specific high-level functions that blockchain can provide to solve real-world problems. In turn, capabilities are enabled by technological properties, which are provided by specific primitives. See Fig. XX for an example.  The primitive \primitive{hash chain} provides the property \techproperty{append-only transaction ledger}, which in conjunction with other properties enables the capability for \capability{internal auditability}. Use cases in the provenance family require internal auditability to ensure valid provenance trails.
 \textbf{TODO: figure showing graph and text style legend}
 
@@ -31,7 +31,7 @@ This subgraph is central in our dependency graph; it makes use of a large propor
 \paragraph{Anonymity and privacy are orthogonal to the core functions of a blockchain}
 Several authors in our corpus cite \capability{anonymity} or privacy as features of Blockchain, although these terms are rarely defined precisely. The main belief seems to be that Blockchain has the property of \techproperty{anonymous transactions} -- i.e., it hides the sender and receiver of asset transfers and disassociates on-chain identities from real-world identities. These notions are connected to Blockchain's reputation for enabling illicit activity (see section~\ref{subsec:challenges} for a discussion of this challenge). The thinking goes that because Bitcoin is the currency of choice for illicit online purchases, it must be "untraceable", and as the most prominent blockchain-based system, distinctions are not drawn between properties of Bitcoin and properties of Blockchain.
 
-Copious literature demonstrating the lack of privacy and anonymity in Bitcoin aside (\textbf{TODO: add citations}), our graph reveals that anonymity is a weakly-connected capability, leveraging few of Blockchain's core primitives and and supporting \textbf{no} use cases. While advanced cryptography like \primitive{multi-party computation}, \primitive{functional encryption}, and \primitive{zero-knowledge proofs} could be layered on top of a blockchain to provide some form of anonymity, only the last primitive appeared in our corpus. \techproperty{Key-based ownership of tokens} is the only property that supports anonymity and also derives from at least one core blockchain primitive (specifically, \primitive{authentication}).
+Copious literature demonstrating the lack of privacy and anonymity in Bitcoin aside (\cite{Goldfeder17}, \cite{Conti17}, \cite{Androulaki13}, and others), our graph reveals that anonymity is a weakly-connected capability, leveraging few of Blockchain's core primitives and and supporting \textbf{no} use cases. While advanced cryptography like \primitive{multi-party computation}, \primitive{functional encryption}, and \primitive{zero-knowledge proofs} could be layered on top of a blockchain to provide some form of anonymity, only the last primitive appeared in our corpus. \techproperty{Key-based ownership of tokens} is the only property that supports anonymity and also derives from at least one core blockchain primitive (specifically, \primitive{authentication}).
 
 \paragraph{Resilience is a broadly supported capability that is easy to overlook}
 As described above, there are three capabilities that provide resilience: \capability{data replication}, \capability{verifiable data store rebuilding}, and \capability{no single points of failure}. These capabilities are supported by key technical properties (\techproperty{distributed data store}, \techproperty{distributed ledger}, and \techproperty{decentralization}), but resilience as a whole is only directly required by a few use cases. This makes the significance of the capability easy to overlook. However, there are a few pieces of important auxiliary information that underscore its importance:
@@ -53,7 +53,7 @@ This shows that Blockchain's significant novel utility is more firmly rooted in 
 
 \subsection{Challenges and limitations}
 \label{subsec:challenges}
-Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section, we will list the concept groupings we created for challenges and limitations. Discussion of key results %will follow.
+Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section, we will list the concept groupings we created for challenges and limitations. Discussion of key findings %will follow.
 is deferred to \textbf{section XX}.
 
 \subsubsection{Challenges}
@@ -98,18 +98,13 @@ We coded
 
 \subsubsection{Key Challenges}
 \paragraph{Smart contract correctness}
-All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes -- even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
+All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
 
-This principle was put to the test when the DAO was hacked.  \textbf{Jeremy will fill in here.} 
+This principle was put to the test in June 2016 when the DAO was drained of about \$80m in tokens. Targeting a smart contract that first moved funds and then updated account balance, the attacker exploited a vulnerability to recursively execute the contract in between those two steps. Repeatedly moving funds without ever checking account balances allowed the attacker to move more funds than were authorized. In response, the DAO developers implemented a "hard fork" from a state before the attack occurred. This created two blockchains: one in which the funds had never been drained and another in which the attacker still held their spoils \cite{Castillo16}. Of course, this rollback contradicts the perception that the blockchain is immutable and settled contracts are final; we will discuss this contradiction later as a key limitation of Blockchain technology. The challenge is how to ensure smart contract correctness so that code really can be law.
 
-% JC: I write out with the DAO attack details if you tell me how long you want it
-% BK: A paragraph would work - thanks.
+The first step to ensuring smart contract correctness is to produce a precise specification for the functionality and safety properties of the contract. This provides a baseline against which correctness can be evaluated; if there is no specification (as was the case for the DAO), then there is truly no way to distinguish undesired or malicious activity because anything the code permits is valid. Once a specification has been developed, the contract's correctness can be validated using formal verification techniques. Some of these techniques, such as model-checking, have an additional pitfall: the specification and the code are developed independently, so precise correspondence between the two must be carefully maintained.
 
-\textbf{Ben will add a short survey of smart contract verification.}
-
-
-% JC: Yes, I think it would be helpful. We should also mention that things are correct if the model checking is correct, so there are errors in two possible places. 
-% BK: I'm working on a survey of this area.
+Some of the underlying work necessary to support mainstream development of formally verified smart contracts is underway; for example, the Ethereum Virtual Machine (EVM) has been fully defined for interactive theorem provers \cite{Hirai17}, which are essential tools for building formally verified software of any kind. Magazzeni et. al \cite{Magazzeni17} have laid out a research agenda identifying further groundwork that must be conducted to support formal verification of smart contracts.
 
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
 You can enforce rules on on-chain tokens, but you can't enforce them on the assets those tokens represent. 
