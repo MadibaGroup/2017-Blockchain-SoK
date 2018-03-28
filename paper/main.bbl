@@ -1,5 +1,14 @@
 \begin{thebibliography}{10}
 
+\bibitem{cite-key}
+
+
+\bibitem{Androulaki13}
+E.~Androulaki, G.~O. Karame, M.~Roeschlin, T.~Scherer, and S.~Capkun.
+\newblock Evaluating user privacy in bitcoin.
+\newblock In A.-R. Sadeghi, editor, {\em Financial Cryptography and Data
+  Security}, pages 34--51. Springer Berlin Heidelberg, 2013.
+
 \bibitem{AKRSC13}
 E.~Androulaki, G.~O. Karame, M.~Roeschlin, T.~Scherer, and S.~Capkun.
 \newblock {Evaluating User Privacy in Bitcoin}.
@@ -58,12 +67,22 @@ J.~Clark and A.~Essex.
 \newblock Commitcoin: Carbon dating commitments with bitcoin.
 \newblock In {\em Financial Cryptography}, 2012.
 
+\bibitem{Conti17}
+M.~Conti, S.~K. E, C.~Lal, and S.~Ruj.
+\newblock A survey on security and privacy issues of bitcoin.
+\newblock {\em CoRR}, abs/1706.00916, 2017.
+
 \bibitem{DBBCB15}
 G.~G. Dagher, B.~Buenz, J.~Bonneau, J.~Clark, and D.~Boneh.
 \newblock {Provisions: Privacy-preserving proofs of solvency for Bitcoin
   exchanges}.
 \newblock In {\em CCS '15: Proceedings of the 22\textsuperscript{nd} ACM
   Conference on Computer and Communications Security}, October 2015.
+
+\bibitem{Castillo16}
+M.~del Castillo.
+\newblock Ethereum executes blockchain hard fork to return dao funds, July
+  2016.
 
 \bibitem{Cre01}
 G.~Di~Crescenzo.
@@ -90,6 +109,12 @@ S.~Eskandari, D.~Barrera, E.~Stobert, and J.~Clark.
 E.~Gabber, M.~Jakobsson, Y.~Matias, and A.~Mayer.
 \newblock Curbing junk e-mail via secure classification.
 \newblock In {\em Financial Cryptography}, 1998.
+
+\bibitem{Goldfeder17}
+S.~Goldfeder, H.~A. Kalodner, D.~Reisman, and A.~Narayanan.
+\newblock When the cookie meets the blockchain: Privacy risks of web payments
+  via cryptocurrencies.
+\newblock {\em CoRR}, abs/1708.04748, 2017.
 
 \bibitem{HS90}
 S.~Haber and W.~S. Stornetta.
@@ -121,6 +146,11 @@ A.~Juels and J.~Brainard.
 \newblock Client puzzles: A cryptographic defense against connection depletion
   attacks.
 \newblock In {\em NDSS}, 1999.
+
+\bibitem{Magazzeni17}
+D.~Magazzeni, P.~McBurney, and W.~Nash.
+\newblock Validation and verification of smart contracts: A research agenda.
+\newblock {\em Computer}, 50(9):50--57, 2017.
 
 \bibitem{MPJL+13}
 S.~Meiklejohn, M.~Pomarole, G.~Jordan, K.~Levchenko, D.~McCoy, G.~M. Voelker,
@@ -194,6 +224,14 @@ J.~Wolfers and E.~Zitzewitz.
 J.~Wolfers and E.~Zitzewitz.
 \newblock Interpreting prediction market prices as probabilities.
 \newblock Technical Report 12200, NBER Working Paper, 2006.
+
+\bibitem{Hirai17}
+H.~Y.
+\newblock Defining the ethereum virtual machine for interactive theorem
+  provers.
+\newblock In B.~M. et~al., editor, {\em Financial Cryptography and Data
+  Security}, volume 10323 of {\em Lecture Notes in Computer Science}, pages
+  520--535. Springer, Cham, 2017.
 
 \bibitem{Yeh06}
 P.~F. Yeh.
