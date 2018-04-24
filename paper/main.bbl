@@ -1,8 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{cite-key}
-
-
 \bibitem{Androulaki13}
 E.~Androulaki, G.~O. Karame, M.~Roeschlin, T.~Scherer, and S.~Capkun.
 \newblock Evaluating user privacy in bitcoin.
@@ -30,6 +27,14 @@ T.~Aura, P.~Nikander, and J.~Leiwo.
 \bibitem{Back02}
 A.~Back.
 \newblock Hashcash: a denial of service counter-measure, 2002.
+
+\bibitem{BlockchainInfoPools}
+Blockchain.info.
+\newblock Blockchain hashrate distribution chart.
+
+\bibitem{BlockchainInfoSize}
+Blockchain.info.
+\newblock Blockchain size chart.
 
 \bibitem{BMC+15}
 J.~Bonneau, A.~Miller, J.~Clark, A.~Narayanan, J.~Kroll, and E.~Felten.
@@ -88,6 +93,10 @@ M.~del Castillo.
 G.~Di~Crescenzo.
 \newblock Privacy for the stock market.
 \newblock In {\em Financial Cryptography}, 2001.
+
+\bibitem{Digiconomist}
+Digiconomist.net.
+\newblock Bitcoin energy consumption index.
 
 \bibitem{DSS06}
 R.~Dingledine, A.~Serjantov, and P.~Syverson.
@@ -164,6 +173,10 @@ I.~Miers, C.~Garman, M.~Green, and A.~D. Rubin.
 \newblock {Zerocoin: Anonymous Distributed E-Cash from Bitcoin}.
 \newblock In {\em {IEEE Symposium on Security and Privacy}}, 2013.
 
+\bibitem{NakamotoS8}
+S.~Nakamoto.
+\newblock Bitcoin: A peer-to-peer electronic cash system; sec. 8.
+
 \bibitem{Nak08}
 S.~Nakamoto.
 \newblock Bitcoin: A peer-to-peer electionic cash system.
@@ -173,6 +186,11 @@ S.~Nakamoto.
 A.~Narayanan, J.~Bonneau, E.~W. Felten, A.~Miller, and S.~Goldfeder.
 \newblock {\em Bitcoin and Cryptocurrency Technologies}.
 \newblock Princeton, 2016.
+
+\bibitem{Poon16}
+T.~Poon, Joseph;~Dryja.
+\newblock The bitcoin lightning network: Scalable off-chain instant payments,
+  Jan 2016.
 
 \bibitem{RH13}
 F.~Reid and M.~Harrigan.
@@ -243,5 +261,12 @@ P.~F. Yeh.
 W.~Yuen, P.~Syverson, Z.~Liu, and C.~Thorpe.
 \newblock Intention-disguised algorithmic trading.
 \newblock In {\em Financial Cryptography}, 2010.
+
+\bibitem{Zhang16}
+F.~Zhang, E.~Cecchetti, K.~Croman, A.~Juels, and E.~Shi.
+\newblock Town crier: An authenticated data feed for smart contracts.
+\newblock In {\em Proceedings of the 2016 ACM SIGSAC Conference on Computer and
+  Communications Security}, CCS '16, pages 270--282, New York, NY, USA, 2016.
+  ACM.
 
 \end{thebibliography}
