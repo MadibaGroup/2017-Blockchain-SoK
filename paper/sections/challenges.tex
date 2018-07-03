@@ -12,8 +12,20 @@ The first step to ensuring smart contract correctness is to produce a precise sp
 
 Some of the underlying work necessary to support mainstream development of formally verified smart contracts is underway; for example, the Ethereum Virtual Machine (EVM) has been fully defined for interactive theorem provers \cite{Hirai17}, which are essential tools for building formally verified software of any kind. Magazzeni et. al \cite{Magazzeni17} have laid out a research agenda identifying further groundwork that must be conducted to support formal verification of smart contracts.
 
+\noindent
+\textbf{Academic refs:}
+\begin{enumerate}
+\item~\cite{CCS:LCOS+16}
+\end{enumerate}
+
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
 When a blockchain is used to track off-chain assets (physical or digital), those assets are typically represented on-chain by digital tokens. When dealing with digital assets, correspondence between the asset and its token can generally be maintained by code; for example, a smart contract can track transference of ownership for a digital media license. For physical assets, however, maintaining this consistency is a challenge. Real-world processes must be employed to ensure that whenever an asset's state or ownership is modified, the corresponding token is updated. These processes are an obvious point of failure as they rely on correct enforcement by trusted parties. The person in charge of maintaining the blockchain could attach two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario). The end user must also be trusted, as they may be able to separate the token and sell it while keeping the asset, freeing the token to be attached to an invalid asset (e.g., fake goods in luxury markets). 
+
+\noindent
+\textbf{Academic refs:}
+\begin{enumerate}
+\item~\cite{FC:GBGN17} 
+\end{enumerate}
 
 \paragraph{Dispute resolution and rollback of mistakes}
 A payment or asset transfer system must be able to reverse fraudulent or mistaken transactions. The immutability property of Blockchain means that transactions cannot be stricken from the ledger after consensus has been reached, so alternative means of dispute resolution must be explored. A new transaction reversing the effects of the disputed transaction could be added to the ledger, but decentralized governance makes arbitrating such a dispute difficult as there is no individual arbiter with the authority to determine which party is in the right when a dispute occurs. 
