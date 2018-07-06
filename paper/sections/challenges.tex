@@ -15,7 +15,12 @@ Some of the underlying work necessary to support mainstream development of forma
 \noindent
 \textbf{Academic refs:}
 \begin{enumerate}
-\item~\cite{CCS:LCOS+16}
+\item~\cite{CCS:LCOSH16} - build Oyente -- a symbolic execution tool to help detect potential security bugs.  Found 8833 of 19.366 existing Ethereum smart contracts are vulnerable
+\item~\cite{SP:KMSWP16} - enable private smart contracts (i.e., ones that dont post transaction data in the clear.  Also, have crypto model of smart contracts programming, and automatically generate smart contract and code for users to interact with smart contract -- not sure this is relevant here.
+\item~\cite{FC:DAKMS16} - document experience of teaching a class on writing secure smart contracts.  Suggest best practices and open course material.
+\item~\cite{arxiv:Huang18} - turn bytecode of Solidity into RGB map and then use convolutional neural nets to detect bugs - maybe drop?
+\item~\cite{CCS:BDFGGK+16} - MSR+Harvard folks - F* platform to statically evaluate security of smart contracts.
+\item~\cite{NDSS:KGDS18} - IBM Research - framework to validate correctness and fairness of smart contracts.  Found 94.6\% of smart-contracts are vulnerable.
 \end{enumerate}
 
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
@@ -24,11 +29,18 @@ When a blockchain is used to track off-chain assets (physical or digital), those
 \noindent
 \textbf{Academic refs:}
 \begin{enumerate}
-\item~\cite{FC:GBGN17} 
+\item~\cite{FC:GBGN17}- present secure escrow services that can enable purchase of physical good using Bitocin - not sure this is relevant
 \end{enumerate}
 
 \paragraph{Dispute resolution and rollback of mistakes}
 A payment or asset transfer system must be able to reverse fraudulent or mistaken transactions. The immutability property of Blockchain means that transactions cannot be stricken from the ledger after consensus has been reached, so alternative means of dispute resolution must be explored. A new transaction reversing the effects of the disputed transaction could be added to the ledger, but decentralized governance makes arbitrating such a dispute difficult as there is no individual arbiter with the authority to determine which party is in the right when a dispute occurs. 
+
+\noindent
+\textbf{Academic refs:}
+\begin{enumerate}
+\item ~\cite{arxiv:AviSafSha18}- design new protocol for security against Bitcoin refund attacks.
+\item ~\cite{FC:MccShaHao16} - original paper showing refund attacks on Bitcoin
+\end{enumerate}
 
 \paragraph{Non-auditability of off-chain oracles}
 Smart contracts sometimes leverage off-chain oracles: online services that provide information in response to a request. For example, gambling contracts may determine which address to pay winnings to based on the result of some oracle request (e.g., sports scores, stock prices, weather forecasts, or other global events). If contract logic branches based on the response from an off-chain oracle, that contract is no longer verifiable after the fact because auditors cannot confirm that the response received from the oracle at audit time is the same response received when the contract was executed. There are legitimate reasons why an oracle response might change with time, so this is really an inherent limitation of Blockchain technology: smart contracts cannot "see" external events.
