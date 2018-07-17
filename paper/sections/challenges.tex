@@ -3,6 +3,54 @@
 \section{Challenges}
 \label{sec:challenges}
 
+In this section, we highlight some of the key challenges that must be addressed when building systems using Blockchain technology.  These main challenge areas include scalability of blockchain to support the necessary transaction rate, ensuring correctness of blockchain contracts and what to do when something goes wrong, and bridging the disconnect between blockchain tokens and the physical world objects that they represent.  In what follows, we briefly describe each of the challenges and then summarize the related work on overcoming each of these challenges.
+
+%\paragraph{Scalability of public blockchains: transaction costs and bandwidth, emergent centralization, and energy consumption}
+\subsection{Scalability of permissionless blockchains}
+As the Bitcoin user base and transaction volume have grown, limitations on its scalability have been revealed. To some degree, these limitations are a result of Bitcoin's chosen parameters; for example, the 1MB cap on block size has periodically caused prohibitively high transaction fees and wait times. This limitation was mitigated by the Bitcoin Cash hard fork in 2017, which created 8MB blocks, but other scalability problems may not be so easily solvable by simple parameter tweaking, suggesting that they may be inherent limitations of public blockchain technology. We will discuss two limitations that stem from the proof-of-work consensus model that is typically used in public blockchains: emergent centralization of control and high rates of energy consumption.
+
+Currently, almost 70\% of Bitcoin blocks are mined by the five largest pools \cite{BlockchainInfoPools}. Of course, these pools are disincentivized to damage trust in Bitcoin (and thus reduce its value and their profits) by abusing their power to censor transactions or violate rules in other ways. But this centralization undoubtedly runs counter to the normative property that Blockchain is decentralized and may violate security notions that depend on decentralization. This problem is caused in part by the hardware-optimized Bitcoin mining puzzle, for which alternatives are being explored, but whether or not this limitation can be overcome at scale is still an open question.
+
+Bitcoin is also an illustrative example for another inefficiency of public blockchains at scale: the energy consumption of proof-of-work consensus. According to one estimate\cite{Digiconomist}, as of April 2018 the energy consumed by Bitcoin miners is equivalent to the power usage of almost 5.5 million US households, and all signs indicate that it will continue to grow. A similar problem is likely to arise in any scheme where proof-of-work is deployed. It may be surpassable if alternative consensus protocols such as proof-of-stake are used, but there are other problems to work out with such schemes (in particular, a worsening of the emergent centralization problem discussed above). 
+
+\noindent
+\textbf{Academic refs:}\\
+Proof of stake:
+\begin{enumerate}
+\item ~\cite{CRYPTO:KRDO17} - provably secure proof of stake
+\item ~\cite{eprint:BenPasShi16} - provably secure proof of stake
+\item ~\cite{SOSP:GHMVZ17} - ALGORAND - provably secure proof of stake.  Works in both permissioned and permissionless setting
+\item ~\cite{FC:BenGabMiz16} - original academic PoS proposal?
+\item ~\cite{DISC:PasShi17} - Show loss of responsive is necessary if secure vs. $t\ge n/3$.  Show hybrid consensus for $t< n/3$ uses PoW and byzantine consensus to select committee.
+\item ~\cite{AC:PasShi17} - Consensus in sleepy setting with weakly synchronized clocks (for $t<n/2$)
+\item ~\cite{CRYPTO:DFKP15} - proof of space
+\item ~\cite{eprint:PPKAFG15} - blockchain based on proof of space
+\item ~\cite{OPODIS:AMNRS17} - Improves bitcoin confirmation time, based on reconfigurable byzantine consensus augmented with PoW.
+\item ~\cite{eprint:FanZho17} - aim to mimic Nakamoto design via PoS
+\end{enumerate}
+Payment-channel networks:
+\begin{enumerate}
+\item ~\cite{NDSS:HABSG17} - fast anonymous payments using (untrusted) tumbler, off-chain
+\item ~\cite{PooDry16} - original Bitcoin lightning network white paper - fast off-chain payments
+\item ~\cite{SYSTOR:LNEKPS18} - payment networks using TEEs.  Avoid some requirements of prior payment networks.
+\item ~\cite{CCS:KhaGer17} - formal treatment of rebalancing payment channels, to allow refilling of channel (by moving funds from other channels) without on-chain transactions.  On-chain transactions only in case of dispute.
+\item ~\cite{CCS:MMKMR17} - private, UC-secure payment neworks
+\item ~\cite{CCS:GreMie17} - anonymous payment channels
+\end{enumerate}
+Sharding:
+\begin{enumerate}
+\item ~\cite{CCS:LNZBGS16} - propose ELASTICO - splits transactions into shards, each shard verified by different miners
+\item ~\cite{FC:GenRenSir17} - propose sharding as solution (Aspen) for multi-service blockchains.  Break transactions into blocks based on service they are for.
+\item ~\cite{NSDI:EGSR16} - Bitcoin-NG (next generation) - idea - elect leader, and have him do all serialization of transactions for an epoch
+\end{enumerate}
+IOTA-style:
+\begin{enumerate}
+\item~\cite{EC:PasShi18} - PoW-based, tolerates $t<n/2$, but if $t<n/4$ then can get transaction confirmed at network rate.
+\item ~\cite{FC:SomZoh15} - study security of various fast block-creation rates for Bitcoin.  Also, propose GHOST rule for choosing which chain to keep based on heaviest subtree rooted at branch.
+\item ~\cite{ePrint:SomLewZoh16} - SPECTRE - accept transactions in seconds, DAG-based, blocks in DAG are voters, vote on order of blocks in DAG
+\item ~\cite{eprint:SomZoh18} - PHANTOM blockDAG protocols, blocks vote on which other blocks were mined honestly.  Generates robust full order of blocks that is eventually agreed upon by all nodes.
+\end{enumerate}
+
 \paragraph{Smart contract correctness}
 All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
 
@@ -47,49 +95,5 @@ Smart contracts sometimes leverage off-chain oracles: online services that provi
 
 One system tackling this problem is Town Crier \cite{Zhang16}. It uses a trusted hardware back end (Intel SGX) to serve as an authenticated off-chain oracle for Ethereum smart contracts. This allows an auditor to later verify the oracle's response at the time at which the contract was executed. This solution sidesteps the limitation of oracle non-auditability by moving trust to a centralized location (the hardware platform providing authenticity), but it does not diffuse trust in the way our analysis reveals that Blockchain technology is expected to.
 
-\paragraph{Scalability of public blockchains: transaction costs and bandwidth, emergent centralization, and energy consumption}
-As the Bitcoin user base and transaction volume have grown, limitations on its scalability have been revealed. To some degree, these limitations are a result of Bitcoin's chosen parameters; for example, the 1MB cap on block size has periodically caused prohibitively high transaction fees and wait times. This limitation was mitigated by the Bitcoin Cash hard fork in 2017, which created 8MB blocks, but other scalability problems may not be so easily solvable by simple parameter tweaking, suggesting that they may be inherent limitations of public blockchain technology. We will discuss two limitations that stem from the proof-of-work consensus model that is typically used in public blockchains: emergent centralization of control and high rates of energy consumption.
-
-Currently, almost 70\% of Bitcoin blocks are mined by the five largest pools \cite{BlockchainInfoPools}. Of course, these pools are disincentivized to damage trust in Bitcoin (and thus reduce its value and their profits) by abusing their power to censor transactions or violate rules in other ways. But this centralization undoubtedly runs counter to the normative property that Blockchain is decentralized and may violate security notions that depend on decentralization. This problem is caused in part by the hardware-optimized Bitcoin mining puzzle, for which alternatives are being explored, but whether or not this limitation can be overcome at scale is still an open question.
-
-Bitcoin is also an illustrative example for another inefficiency of public blockchains at scale: the energy consumption of proof-of-work consensus. According to one estimate\cite{Digiconomist}, as of April 2018 the energy consumed by Bitcoin miners is equivalent to the power usage of almost 5.5 million US households, and all signs indicate that it will continue to grow. A similar problem is likely to arise in any scheme where proof-of-work is deployed. It may be surpassable if alternative consensus protocols such as proof-of-stake are used, but there are other problems to work out with such schemes (in particular, a worsening of the emergent centralization problem discussed above). 
-
-\noindent
-\textbf{Academic refs:}\\
-Proof of stake:
-\begin{enumerate}
-\item ~\cite{CRYPTO:KRDO17} - provably secure proof of stake
-\item ~\cite{eprint:BenPasShi16} - provably secure proof of stake
-\item ~\cite{SOSP:GHMVZ17} - ALGORAND - provably secure proof of stake.  Works in both permissioned and permissionless setting
-\item ~\cite{FC:BenGabMiz16} - original academic PoS proposal?
-\item ~\cite{DISC:PasShi17} - Show loss of responsive is necessary if secure vs. $t\ge n/3$.  Show hybrid consensus for $t< n/3$ uses PoW and byzantine consensus to select committee.
-\item ~\cite{AC:PasShi17} - Consensus in sleepy setting with weakly synchronized clocks (for $t<n/2$)
-\item ~\cite{CRYPTO:DFKP15} - proof of space
-\item ~\cite{eprint:PPKAFG15} - blockchain based on proof of space
-\item ~\cite{OPODIS:AMNRS17} - Improves bitcoin confirmation time, based on reconfigurable byzantine consensus augmented with PoW.
-\item ~\cite{eprint:FanZho17} - aim to mimic Nakamoto design via PoS
-\end{enumerate}
-Payment-channel networks:
-\begin{enumerate}
-\item ~\cite{NDSS:HABSG17} - fast anonymous payments using (untrusted) tumbler, off-chain
-\item ~\cite{PooDry16} - original Bitcoin lightning network white paper - fast off-chain payments
-\item ~\cite{SYSTOR:LNEKPS18} - payment networks using TEEs.  Avoid some requirements of prior payment networks.
-\item ~\cite{CCS:KhaGer17} - formal treatment of rebalancing payment channels, to allow refilling of channel (by moving funds from other channels) without on-chain transactions.  On-chain transactions only in case of dispute.
-\item ~\cite{CCS:MMKMR17} - private, UC-secure payment neworks
-\item ~\cite{CCS:GreMie17} - anonymous payment channels
-\end{enumerate}
-Sharding:
-\begin{enumerate}
-\item ~\cite{CCS:LNZBGS16} - propose ELASTICO - splits transactions into shards, each shard verified by different miners
-\item ~\cite{FC:GenRenSir17} - propose sharding as solution (Aspen) for multi-service blockchains.  Break transactions into blocks based on service they are for.
-\item ~\cite{NSDI:EGSR16} - Bitcoin-NG (next generation) - idea - elect leader, and have him do all serialization of transactions for an epoch
-\end{enumerate}
-IOTA-style:
-\begin{enumerate}
-\item~\cite{EC:PasShi18} - PoW-based, tolerates $t<n/2$, but if $t<n/4$ then can get transaction confirmed at network rate.
-\item ~\cite{FC:SomZoh15} - study security of various fast block-creation rates for Bitcoin.  Also, propose GHOST rule for choosing which chain to keep based on heaviest subtree rooted at branch.
-\item ~\cite{ePrint:SomLewZoh16} - SPECTRE - accept transactions in seconds, DAG-based, blocks in DAG are voters, vote on order of blocks in DAG
-\item ~\cite{eprint:SomZoh18} - PHANTOM blockDAG protocols, blocks vote on which other blocks were mined honestly.  Generates robust full order of blocks that is eventually agreed upon by all nodes.
-\end{enumerate}
 
 
