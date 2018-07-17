@@ -1,6 +1,39 @@
 % !TEX root = ../main.tex
 
-\section{Use Case Evaluation (Jeremy)}
+\section{Use Case Evaluation (Jeremy, Rob)}
+
+\textbf{TODO: Insert references, especially for each class}
+\textbf{TODO: discuss how we count applications.  I've called several things to be special cases of others--ok?}
+
+The enthusiasm that many start-ups have in leveraging the blockchain is justified, as the range of use cases is broad.  Good use cases leverage sets of capabilities that a blockchain can provide, using technological properties in combinations that are unique or nearly unique to the blockchain.  For these companies, decentralized governance is an important element of the blockchain, because it diffuses trust amongst those who maintain the blockchain.  This increases resilience by reducing the ability of a single bad actor from modifying or damaging the blockchain, and enables recovery when one bad actor starts to attempt these actions.  A second valuable property comes from the ledger, which records initial state and transitions, thereby providing a history of the provenance of the recorded data.  Many commercial companies understand this and consider these properties when selecting the blockchain.  
+
+However, we find that it is just as important to consider the challenges and limitations of using the blockchain, because these limit the applications built on top of it in ways that are important to industry.  Some of these limit the ability of a business to meet regulations and to respond to legal challenges, and others limit the growth of the company or the ability of the company to handle large-scale problems.  One misconception we see is the idea that pseudonymity provides anonymity or privacy.  It alone does not; however, it is possible to leverage additional cryptography to achieve this feature.  We find that since only a portion of applications rely on this, it is best to treat anonymity as a separate, add-on property.
+
+Finally, we find that the hype around the blockchain has led to some companies pursuing it, even if other, more appropriate capabilities and data structures are available.  One example flows from capabilities provided by the ledger.  Applications that benefit from maintaining a history of transactions are a good fit for the blockchain, as the current state can be reconstituted by traversing the append-only transaction ledger.  If however, the application only needs to know the current state without the history of prior states, then more efficient distributed data stores exist and should probably be used.
+
+With this in mind, we have identified sixteen classes of applications for blockchain technology that have been proposed in white papers and peer-reviewed publications.
+
+
+\begin{itemize}
+\item The first is \textbf{asset tracking}.  The blockchain is useful for tracking assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important.  Examples that have been proposed and would last for long durations include artwork and diamonds.  In addition, large organizations have valuable assets that are globally dispersed and information about any single asset is distributed.  Maintaining control of those inventories is essential to efficient and effective operations.  Examples include vehicles owned by shipping companies and rental companies.  Finally, there's also a short-term version of asset management that is of interest: sometimes it's useful to track packages that are being shipped over long distances, and which will change hands many times in the process.  Analysis of interest include identifying the last known locations and durations that the asset spends in specific places or transiting between places.
+
+\item The next is \textbf{supply chain management}.  To support this, asset tracking needs to be augmented with a mechanism enabling multiple items to be combined into a single new item.  Most complex devices built today require parts that are built by multiple companies, assembled into a useful whole. Here information can distributed: multiple suppliers could be creating the same parts, and multiple assembly plants can remove those parts from inventory and produce the assembled products.  An important element of the profitability of a company comes from careful management of this supply chain and the inventory that is developed by the companies.  Thus analysis needs to support the inventory turnover metric which is used to determine the quality of supply chain management.
+
+\item At the heart of these applications is the need to 
+
+\item{Next is a \textbf{Identity Management}.  }
+
+\item{Next is \textbf{data sharing.}.  Data sharing can then be limited by incorporating fine-grained access control.}
+
+Finally, there are a number of special cases and assemblages of these applications that are of specific interest.
+Two special-case applications are of broad interest.  Asset tracking can be applied to money, as BitCoin demonstrated.  The distributed nature of trust and the pseudonymity property are central here, and analysis focuses on who owns how much money, while also providing a history of who paid whom when.  Supply chain management that exists also in the digital world is akin to transaction processing, which has similar forms of analysis.
+
+Some have proposed using data sharing to support interoperation between systems.
+
+\end{itemize}
+
+A special-case of data sharing and identity management that is of broad interest would support tasks common to the Internet of things.
+
 
 \begin{table*}[th!]
 
@@ -27,7 +60,7 @@
 \headrow{Counter-Party Risk} &
 \headrow{Stapling} & 
 \headrow{Identities} & 
-\headrow{Sclability} &
+\headrow{Scalability} &
 \headrow{Trigger Sensitivity} &
 \headrow{Dispute Resolution} &
 \headrow{} & 
@@ -35,25 +68,28 @@
 \headrow{}  \\ \hline
 
 \multicolumn{1}{c|}{\textit{Use Case}}& 
-\multicolumn{8}{c|}{\textit{Utilizes}}&    
-\multicolumn{11}{c|}{\textit{Limited by}} \\ \hline 
+\multicolumn{8}{c|}{\textit{Capabilities Used}}&    
+\multicolumn{11}{c|}{\textit{Challenges}} \\ \hline 
 																														
-Supply Chain			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
 Asset Tracking			&\full	&	&\full	&\full	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Supply Chain			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
+Timestamping			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\		
+Record Storage		&\full	&	&\full	&\full	&	&\full	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\
+Regulation / Sanctions	&\full	&	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+IoT/Smart Properties	&\full	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\	
+Interoperation			&	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
 Payments				&	&\full	&\full	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
 Transaction Processing	&	&\full	&\full	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Identity Management	&	&	&	&\full	&	&	&	&		&	&	&	&	&\full	&	&	&	&	&	&	\\ 
-IoT/Smart Properties	&\full	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\	
-Data Sharing			&	&	&	&\full	&	&\full	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
-Fine-grained AC		&	&\full	&	&	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
-Interoperation			&	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Regulation / Sanctions	&\full	&	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Record Storage		&\full	&	&\full	&\full	&	&\full	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\
-Timestamping			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\		
-Auctions/Markets		&	&\full	&\full	&\full	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Voting				&	&\full	&\full	&\full	&\full	&	&	&		&\full	&\full	&	&	&\full	&\full	&\full	&\full	&	&	&	\\
 Gambling				&	&\full	&	&\full	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
 Insurance				&	&\full	&	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
+Identity Management	&	&	&	&\full	&	&	&	&		&	&	&	&	&\full	&	&	&	&	&	&	\\ 
+
+Data Sharing			&	&	&	&\full	&	&\full	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
+% Fine-grained AC		&	&\full	&	&	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
+
+Auctions/Markets		&	&\full	&\full	&\full	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+Voting				&	&\full	&\full	&\full	&\full	&	&	&		&\full	&\full	&	&	&\full	&\full	&\full	&\full	&	&	&	\\
+
 \hline
 
 \end{tabular}
