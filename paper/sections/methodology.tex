@@ -1,15 +1,43 @@
 % !TEX root = ../main.tex
 
-\section{Methodology (Scott)}
+\section{Methodology}
 
-Motivation
-	Separate out the data from the hype
-	Collective knowledge of the masses
-	Justify grounded theory.
+In this work, we collected and analyzed a wide-range of documents (e.g., white papers, design documents) produced by industry describing what Blockchain technology is, what features it provides, what use cases it was good for, and what systems were being built using it.
+We choose to focus on this area as industry has focused significant attention to the potential for Blockchain technology in a wide range of use cases.
+This is in contrast to academia, which has largely focused on solving specific challenges facing Blockchain technology.
+We believe that examining alternate view on Blockchain technology helps provided a greater understanding of what exactly Blockchain technology is, and how it can be used in real-world systems.
+
+Unfortunately, and as is widely understood~\cite{garnetHypeStuff}, much of the material from industry is filled was ``hype''---i.e., it is intended to sell the technology, not provide an accurate description of the technology.
+To identify the underly ground-truth in these hype-filled narratives, we borrowed a technique from qualitative analysis---\textit{grounded theory}.
+Grounded theory is technique used to sift out the ground truth from source documents with a lot of noise (i.e., hype), all while limiting the impact of researcher bias.
+This latter benefit was especially important to this effort, as we wanted to limit our academic bias from created a skewed analysis of these documents from industry.
+
+In this section, we first describe briefly how we selected documents from industry.
+Next we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
+Lastly, we describe an academic literature review we conducted to enhance the results of our grounded theory analysis.
 
 \subsection{Source Selection}
+We cast a wide net when selecting industry documents on Blockchain technology.
+Below are several of the ways that we collected documents:
 
-\subsection{Data Analysis}
+\begin{itemize}
+	\item \textbf{Ask Jeremy about how he collected documents.}
+	\item We collected white papers from companies that are members of the Hyperledger project~\cite{hyperledger} and from the Decentralized Identity Foundation~\cite{somethingHere}.
+	% https://decentralized-identity.github.io/
+	\item We gathered white papers for each of the submissions to the NCC Blockchain in Health Care Competition.
+	\item Browsed news articles and blog posts for interesting documents.
+	\item Used Google search to find white papers published on Blockchain technology.
+\end{itemize}
+
+Additionally, as we saw documents referenced by the documents we had already collected, we would lookup the most important references and add them to our list of documents. In general, we saw three types of documents:
+
+\begin{enumerate}
+	\item \textbf{High-Level Overviews.} These were often prepared by investment firms and gave high level overviews of Blockchain technology. They would also reference various efforts at using Blockchain in practice.
+	\item \textbf{System White Papers.} These papers would describe how Blockchain technology was used in a specific system, or more frequently a system proposal.
+	\item \textbf{Blockchain Commentaries.} These were largely shorter documents that would discuss a specific facet of Blockchain technology in greater depth than we saw in other documents.
+\end{enumerate}
+
+\subsection{Grounded Theory Data Analysis}
 After collecting our initial set of \textbf{UPDATE \# XXX} papers, we analyzed them using a four-stage grounded theory approach (open coding, axial coding, selective coding, and theory generation).
 Throughout the analysis of the documents we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
 Additionally, we conducted intensive discussion between the various researchers to ensure that we were correctly understanding and evaluating the source material.
@@ -83,7 +111,13 @@ First, we derived a concrete set of properties and capabilities describing preci
 Second, we were able to produce a clean split between Blokchain technology's technological primitives and its normative properties (i.e., hype).
 Third, we identified criteria that help determine whether a given problem can benefit from the use of Blockchain technology.
 
-\subsection{Limitations}
+\subsubsection{Limitations}
 Due to the nature of grounded theory, our analysis of the data represents one view on that data.
 Different researchers coding the same data may have focused on different aspects leading to differences in categories, connections, and the theories they focused on.
 To address this limitation, we will make the documents we reviewed and our coding of those documents public.
+
+\section{Academic Literature Review}
+In our grounded theory analysis, there were several challenges and limitations identified in regards to Blockchain technology.
+We recognized that several of these challenges were already being addressed by the academic community.
+For each of the challenges, we surveyed the academic literature for relevant work.
+The results of this survey are summarized in Section~\ref{sec:challenges}.

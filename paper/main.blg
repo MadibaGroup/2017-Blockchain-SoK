@@ -3,44 +3,47 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: abbrv.bst
 Database file #1: bib/bitcoin.bib
-You've used 51 entries,
+Warning--entry type for "PooDry16" isn't style-file defined
+--line 859 of file bib/bitcoin.bib
+You've used 86 entries,
             2118 wiz_defined-function locations,
-            780 strings with 10429 characters,
-and the built_in function-call counts, 15991 in all, are:
-= -- 1409
-> -- 926
-< -- 9
-+ -- 369
-- -- 314
-* -- 973
-:= -- 2701
-add.period$ -- 152
-call.type$ -- 51
-change.case$ -- 307
+            972 strings with 18603 characters,
+and the built_in function-call counts, 31574 in all, are:
+= -- 2906
+> -- 1740
+< -- 32
++ -- 692
+- -- 598
+* -- 2013
+:= -- 5086
+add.period$ -- 257
+call.type$ -- 86
+change.case$ -- 554
 chr.to.int$ -- 0
-cite$ -- 51
-duplicate$ -- 655
-empty$ -- 1330
-format.name$ -- 314
-if$ -- 3362
+cite$ -- 86
+duplicate$ -- 1303
+empty$ -- 2517
+format.name$ -- 598
+if$ -- 6759
 int.to.chr$ -- 0
-int.to.str$ -- 51
-missing$ -- 42
-newline$ -- 251
-num.names$ -- 106
-pop$ -- 450
+int.to.str$ -- 86
+missing$ -- 76
+newline$ -- 426
+num.names$ -- 176
+pop$ -- 761
 preamble$ -- 1
-purify$ -- 258
+purify$ -- 470
 quote$ -- 0
-skip$ -- 445
+skip$ -- 984
 stack$ -- 0
-substring$ -- 434
-swap$ -- 130
-text.length$ -- 9
+substring$ -- 1359
+swap$ -- 385
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 200
+type$ -- 340
 warning$ -- 0
-while$ -- 121
-width$ -- 53
-write$ -- 517
+while$ -- 265
+width$ -- 88
+write$ -- 898
+(There was 1 warning)
