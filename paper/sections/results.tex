@@ -55,43 +55,60 @@ This shows that Blockchain's significant novel utility is more firmly rooted in 
 
 \subsection{Challenges and limitations}
 \label{subsec:challenges}
-Our concept map shows interconnections between features and use cases. We also coded challenges -- problems hindering the use of Blockchain that do not currently have satisfactory solutions -- and limitations, which are inherent deficits of the technology. In this section, we will list the concept groupings we created for challenges and limitations. Discussion of key findings follow.
 
-\subsubsection{Challenges}
+% Jeremy: I reclustered this a bit. I think we discussed this during the call. Feel free to debate. 
+% If you want to play around with the clusters: https://drive.google.com/file/d/1gDVd4x-SN6-QHZe52toEzMWXnLfiNtqW/view?usp=sharing
+% I feel like separating challenges and limitations is a bit of a judgement call. 
+
+Our concept map shows interconnections between features and use cases. We also coded challenges -- both problems hindering the use of Blockchain that do not currently have satisfactory solutions, and inherent deficits of the technology. In this section, we will list the concept groupings we created and we discuss the academic response in the next section.
+
+\subsubsection{Technical Challenges}
+\begin{itemize}
+	\item{Blockchain can handle finite, countable, and unique resources only}
+	\item{Blockchain is not a high performance system}
+	\item{Lack of API access means auditors must run full nodes}
+	\item{Interoperability: cryptocurrency fragmentation; existence of too many implementations; siloed solutions; standardization; risks to overlay assets if underlying assets are mishandled; interfaces with existing institutions and systems; user identification across systems; risks posed by sharing blockchain security through merged mining or anchoring}	
+        \item{Susceptibility to coordinated attacks by large parties}
+	\item{Off-chain functionality: off-chain program execution; interoperability with off-chain systems}
+	\item{Privacy: anonymity; confidentiality}
+	\item{Resilience: distributed denial-of-service (DDOS) attacks; dishonest majority attacks; security of infrastructure; subversion of software security measures}		
+	\item{Scalability: block generation frequency; block size limits; computational cost of public blockchains; scalable and secure end-user software}
+	\item{Security}
+	\item{Smart contract correctness: inherent incompleteness of contracts; ensuring completeness; lack of tools for verification}
+\end{itemize}
+
+\subsubsection{Socio-Technical Challenges}
+\begin{itemize}
+	\item{Blockchain is an inefficient use of computing resources}
+	\item{Cryptocurrency economics: illiquidity, price volatility, high initial adoption costs, currency conversion costs, and decreasing marginal returns for miners}
+	\item{Incentives: correctly configuring game-theoretic incentive structures}
+	\item{Key management: difficulty of manual key management; possible unrecoverable loss of private keys; attacks against wallets; bugs and glitches in wallets}	
+	\item{Lack of protection against mistakes: transactions cannot be reversed; administrators cannot restore access if users are locked out}
+	\item{Miner centralization}
+	\item{Usability: difficulty of developing distributed apps; inherent complexity of technology; difficulty of access and use by consumers; education; onboarding users; difficulty of search; poor UX; lack of mobile and web clients}
+\end{itemize}
+
+\subsubsection{Challenges to Market Viability}
+\begin{itemize}
+	\item{Efficiency and cost: low or bottlenecked throughput; wasteful energy consumption; high transaction fees; latency induced by synchronous communication required by certain consensus protocols}
+	\item{Expense of developing end-user applications for individual blockchains}
+	\item{Usefulness: few demonstrable use cases; does not improve upon existing solutions in many domains being pursued}
+	\item{Unnecessary: if a central party is required; if a trusted intermediary exists; if a small number of parties are involved in the system}
+\end{itemize}
+
+\subsubsection{Use Case Challenges}
 \begin{itemize}
 	\item{Binding digital entities to real-world entities: stapling tokens to assets; interoperating with existing systems (e.g., compatibility between cryptocurrencies and cash)}
 	\item{Dispute resolution: difficulty recovering from errors or bugs; difficulty reversing fraudulent transactions; non-applicability to scenarios where a central broker is needed}
-	\item{Cryptocurrency economics: illiquidity, price volatility, high initial adoption costs, currency conversion costs, and decreasing marginal returns for miners}
-	\item{Efficiency and cost: low or bottlenecked throughput; wasteful energy consumption; high transaction fees; latency induced by synchronous communication required by certain consensus protocols}
-	\item{Governance: resolution of conflicts requiring external intervention; incident response; rule updates require forks; transparency of software development}
-	\item{Incentives: correctly configuring game-theoretic incentive structures}
-	\item{Interoperability: cryptocurrency fragmentation; existence of too many implementations; siloed solutions; standardization; risks to overlay assets if underlying assets are mishandled; interfaces with existing institutions and systems; user identification across systems; risks posed by sharing blockchain security through merged mining or anchoring}
-	\item{Key management: difficulty of manual key management; possible unrecoverable loss of private keys; attacks against wallets; bugs and glitches in wallets}
-	\item{Off-chain functionality: off-chain program execution; interoperability with off-chain systems}
-	\item{Privacy: anonymity; confidentiality}
-	\item{Regulatory: anti-money laundering, know-your-customer; difficulty of monitoring; lack of regulation; legal considerations; taxation; exchange control and flow management; consumer protection}
-	\item{Reputation: use for crime; associations with black markets; nebulous or illicit uses; terrorist financing}
-	\item{Resilience: distributed denial-of-service (DDOS) attacks; dishonest majority attacks; security of infrastructure; subversion of software security measures}
-	\item{Scalability: block generation frequency; block size limits; computational cost of public blockchains; scalable and secure end-user software}
-	\item{Smart contract correctness: inherent incompleteness of contracts; ensuring completeness; lack of tools for verification}
-	\item{Usability: difficulty of developing distributed apps; inherent complexity of technology; difficulty of access and use by consumers; education; onboarding users; difficulty of search; poor UX; lack of mobile and web clients}
-	\item{Usefulness: few demonstrable use cases; does not improve upon existing solutions in many domains being pursued}
 \end{itemize}
 
-\subsubsection{Limitations}
+\subsubsection{Regulatory Challenges}
 \begin{itemize}
-	\item{Unnecessary: if a central party is required; if a trusted intermediary exists; if a small number of parties are involved in the system}
-	\item{Lack of protection against mistakes: transactions cannot be reversed; administrators cannot restore access if users are locked out}
+	\item{Governance: resolution of conflicts requiring external intervention; incident response; rule updates require forks; transparency of software development}
 	\item{No distinct legal framework}
-	\item{Lack of API access means auditors must run full nodes}
-	\item{Expense of developing end-user applications for individual blockchains}
-	\item{Cryptocurrencies are inherently Ponzi schemes}
-	\item{Blockchain can handle finite, countable, and unique resources only}
-	\item{Blockchain is an inefficient use of computing resources}
-	\item{Miner centralization}
-	\item{Blockchain is not a high performance system}
-	\item{Scalability}
-	\item{Security}
 	\item{Standardization}
-	\item{Susceptibility to coordinated attacks by large parties}
+	\item{Regulatory: anti-money laundering, know-your-customer; difficulty of monitoring; lack of regulation; legal considerations; taxation; exchange control and flow management; consumer protection}	
+	\item{Cryptocurrencies are inherently Ponzi schemes}
+	\item{Reputation: use for crime; associations with black markets; nebulous or illicit uses; terrorist financing}
 \end{itemize}
+
