@@ -97,6 +97,13 @@ D.~Chaum.
 \newblock {Blind signatures for untraceable payments}.
 \newblock In {\em {CRYPTO}}, 1982.
 
+\bibitem{SSS:CXSGLS17}
+L.~Chen, L.~Xu, N.~Shah, Z.~Gao, Y.~Lu, and W.~Shi.
+\newblock On security analysis of proof-of-elapsed-time (poet).
+\newblock In {\em Stabilization, Safety, and Security of Distributed Systems -
+  19th International Symposium, {SSS} 2017, Boston, MA, USA, November 5-8,
+  2017, Proceedings}, pages 282--297, 2017.
+
 \bibitem{CP10}
 Y.~Chen and D.~M. Pennock.
 \newblock Designing markets for prediction.
@@ -195,6 +202,11 @@ E.~Gabber, M.~Jakobsson, Y.~Matias, and A.~Mayer.
 \newblock Curbing junk e-mail via secure classification.
 \newblock In {\em Financial Cryptography}, 1998.
 
+\bibitem{arxiv:GBERS18}
+A.~E. Gencer, S.~Basu, I.~Eyal, R.~van Renesse, and E.~G. Sirer.
+\newblock Decentralization in bitcoin and ethereum networks.
+\newblock {\em CoRR}, abs/1801.03998, 2018.
+
 \bibitem{FC:GenRenSir17}
 A.~E. Gencer, R.~van Renesse, and E.~G. Sirer.
 \newblock Short paper: Service-oriented sharding for blockchains.
@@ -272,6 +284,14 @@ A.~Juels and J.~Brainard.
 \newblock Client puzzles: A cryptographic defense against connection depletion
   attacks.
 \newblock In {\em NDSS}, 1999.
+
+\bibitem{CCS:JueKosShi16}
+A.~Juels, A.~E. Kosba, and E.~Shi.
+\newblock The ring of gyges: Investigating the future of criminal smart
+  contracts.
+\newblock In {\em Proceedings of the 2016 {ACM} {SIGSAC} Conference on Computer
+  and Communications Security, Vienna, Austria, October 24-28, 2016}, pages
+  283--295, 2016.
 
 \bibitem{NDSS:KGDS18}
 S.~Kalra, S.~Goel, M.~Dhawan, and S.~Sharma.
