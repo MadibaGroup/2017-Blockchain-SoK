@@ -36,46 +36,47 @@ Proposed solutions for this problem include sharding (e.g.~\cite{CCS:LNZBGS16, F
 %
 %Bitcoin is also an illustrative example for another inefficiency of public blockchains at scale: the energy consumption of proof-of-work consensus. According to one estimate\cite{Digiconomist}, as of April 2018 the energy consumed by Bitcoin miners is equivalent to the power usage of almost 5.5 million US households, and all signs indicate that it will continue to grow. A similar problem is likely to arise in any scheme where proof-of-work is deployed. It may be surpassable if alternative consensus protocols such as proof-of-stake are used, but there are other problems to work out with such schemes (in particular, a worsening of the emergent centralization problem discussed above). 
 
-\noindent
-\textbf{Academic refs:}\\
-Proof of stake:
-\begin{enumerate}
-\item ~\cite{CRYPTO:KRDO17} - provably secure proof of stake
-\item ~\cite{eprint:BenPasShi16} - provably secure proof of stake
-\item ~\cite{SOSP:GHMVZ17} - ALGORAND - provably secure proof of stake.  Works in both permissioned and permissionless setting
-\item ~\cite{FC:BenGabMiz16} - original academic PoS proposal?
-\item ~\cite{DISC:PasShi17} - Show loss of responsive is necessary if secure vs. $t\ge n/3$.  Show hybrid consensus for $t< n/3$ uses PoW and byzantine consensus to select committee.
-\item ~\cite{AC:PasShi17} - Consensus in sleepy setting with weakly synchronized clocks (for $t<n/2$)
-\item ~\cite{CRYPTO:DFKP15} - proof of space
-\item ~\cite{eprint:PPKAFG15} - blockchain based on proof of space
-\item ~\cite{OPODIS:AMNRS17} - Improves bitcoin confirmation time, based on reconfigurable byzantine consensus augmented with PoW.
-\item ~\cite{eprint:FanZho17} - aim to mimic Nakamoto design via PoS
-\end{enumerate}
-Payment-channel networks:
-\begin{enumerate}
-\item ~\cite{NDSS:HABSG17} - fast anonymous payments using (untrusted) tumbler, off-chain
-\item ~\cite{PooDry16} - original Bitcoin lightning network white paper - fast off-chain payments
-\item ~\cite{SYSTOR:LNEKPS18} - payment networks using TEEs.  Avoid some requirements of prior payment networks.
-\item ~\cite{CCS:KhaGer17} - formal treatment of rebalancing payment channels, to allow refilling of channel (by moving funds from other channels) without on-chain transactions.  On-chain transactions only in case of dispute.
-\item ~\cite{CCS:MMKMR17} - private, UC-secure payment neworks
-\item ~\cite{CCS:GreMie17} - anonymous payment channels
-\end{enumerate}
-Sharding:
-\begin{enumerate}
-\item ~\cite{CCS:LNZBGS16} - propose ELASTICO - splits transactions into shards, each shard verified by different miners
-\item ~\cite{FC:GenRenSir17} - propose sharding as solution (Aspen) for multi-service blockchains.  Break transactions into blocks based on service they are for.
-\item ~\cite{NSDI:EGSR16} - Bitcoin-NG (next generation) - idea - elect leader, and have him do all serialization of transactions for an epoch
-\end{enumerate}
-IOTA-style:
-\begin{enumerate}
-\item~\cite{EC:PasShi18} - PoW-based, tolerates $t<n/2$, but if $t<n/4$ then can get transaction confirmed at network rate.
-\item ~\cite{FC:SomZoh15} - study security of various fast block-creation rates for Bitcoin.  Also, propose GHOST rule for choosing which chain to keep based on heaviest subtree rooted at branch.
-\item ~\cite{ePrint:SomLewZoh16} - SPECTRE - accept transactions in seconds, DAG-based, blocks in DAG are voters, vote on order of blocks in DAG
-\item ~\cite{eprint:SomZoh18} - PHANTOM blockDAG protocols, blocks vote on which other blocks were mined honestly.  Generates robust full order of blocks that is eventually agreed upon by all nodes.
-\end{enumerate}
+
+%\noindent
+%\textbf{Academic refs:}\\
+%Proof of stake:
+%\begin{enumerate}
+%\item ~\cite{CRYPTO:KRDO17} - provably secure proof of stake
+%\item ~\cite{eprint:BenPasShi16} - provably secure proof of stake
+%\item ~\cite{SOSP:GHMVZ17} - ALGORAND - provably secure proof of stake.  Works in both permissioned and permissionless setting
+%\item ~\cite{FC:BenGabMiz16} - original academic PoS proposal?
+%\item ~\cite{DISC:PasShi17} - Show loss of responsive is necessary if secure vs. $t\ge n/3$.  Show hybrid consensus for $t< n/3$ uses PoW and byzantine consensus to select committee.
+%\item ~\cite{AC:PasShi17} - Consensus in sleepy setting with weakly synchronized clocks (for $t<n/2$)
+%\item ~\cite{CRYPTO:DFKP15} - proof of space
+%\item ~\cite{eprint:PPKAFG15} - blockchain based on proof of space
+%\item ~\cite{OPODIS:AMNRS17} - Improves bitcoin confirmation time, based on reconfigurable byzantine consensus augmented with PoW.
+%\item ~\cite{eprint:FanZho17} - aim to mimic Nakamoto design via PoS
+%\end{enumerate}
+%Payment-channel networks:
+%\begin{enumerate}
+%\item ~\cite{NDSS:HABSG17} - fast anonymous payments using (untrusted) tumbler, off-chain
+%\item ~\cite{PooDry16} - original Bitcoin lightning network white paper - fast off-chain payments
+%\item ~\cite{SYSTOR:LNEKPS18} - payment networks using TEEs.  Avoid some requirements of prior payment networks.
+%\item ~\cite{CCS:KhaGer17} - formal treatment of rebalancing payment channels, to allow refilling of channel (by moving funds from other channels) without on-chain transactions.  On-chain transactions only in case of dispute.
+%\item ~\cite{CCS:MMKMR17} - private, UC-secure payment neworks
+%\item ~\cite{CCS:GreMie17} - anonymous payment channels
+%\end{enumerate}
+%Sharding:
+%\begin{enumerate}
+%\item ~\cite{CCS:LNZBGS16} - propose ELASTICO - splits transactions into shards, each shard verified by different miners
+%\item ~\cite{FC:GenRenSir17} - propose sharding as solution (Aspen) for multi-service blockchains.  Break transactions into blocks based on service they are for.
+%\item ~\cite{NSDI:EGSR16} - Bitcoin-NG (next generation) - idea - elect leader, and have him do all serialization of transactions for an epoch
+%\end{enumerate}
+%IOTA-style:
+%\begin{enumerate}
+%\item~\cite{EC:PasShi18} - PoW-based, tolerates $t<n/2$, but if $t<n/4$ then can get transaction confirmed at network rate.
+%\item ~\cite{FC:SomZoh15} - study security of various fast block-creation rates for Bitcoin.  Also, propose GHOST rule for choosing which chain to keep based on heaviest subtree rooted at branch.
+%\item ~\cite{ePrint:SomLewZoh16} - SPECTRE - accept transactions in seconds, DAG-based, blocks in DAG are voters, vote on order of blocks in DAG
+%\item ~\cite{eprint:SomZoh18} - PHANTOM blockDAG protocols, blocks vote on which other blocks were mined honestly.  Generates robust full order of blocks that is eventually agreed upon by all nodes.
+%\end{enumerate}
 
 %\paragraph{Smart contract correctness}
-\subsection{Smart contract correctness and mistake resolution}
+\subsection{Smart contract correctness and dispute resolution}
 All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of the blockchain exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious (see Limitations below). This is because by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including buggy code and exploitations of such. If "code is law", as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
 
 \paragraph{Eliminating bugs in smart contracts}
@@ -84,38 +85,38 @@ This principle of ``code is law'' was put to the test in June 2016 when the DAO 
 Three different directions have been proposed for improving correctness and security of smart contracts.  These consist of education and development tools to help developers write better smart contracts, development of tools for evaluating correctness and security of existing smart contracts, and finally, formal modeling and formal verification of smart contracts.  Along the education path, researchers organized a class on developing smart contracts cataloging common mistakes and misunderstandings~\cite{FC:DAKMS16}.  Additionally, tools have been developed to simplify development of \emph{private} smart contracts~\cite{SP:KMSWP16}.  Along the tools direction, multiple tools using symbolic execution~\cite{CCS:LCOSH16}, machine learning~\cite{arxiv:Huang18}, and static analysis~\cite{CCS:BDFGGK+16,NDSS:KGDS18} have been developed for detecting bugs and vulnerabilities in smart contracts.  Finally, some of the underlying work necessary to support mainstream development of formally verified smart contracts is underway; for example, the Ethereum Virtual Machine (EVM) has been fully defined for interactive theorem provers \cite{Hirai17}, which are essential tools for building formally verified software of any kind. Magazzeni et. al \cite{Magazzeni17} have laid out a research agenda identifying further groundwork that must be conducted to support formal verification of smart contracts.
 
 
-\noindent
-\textbf{Academic refs:}
-\begin{enumerate}
-\item~\cite{CCS:LCOSH16} - build Oyente -- a symbolic execution tool to help detect potential security bugs.  Found 8833 of 19.366 existing Ethereum smart contracts are vulnerable
-\item~\cite{SP:KMSWP16} - enable private smart contracts (i.e., ones that dont post transaction data in the clear.  Also, have crypto model of smart contracts programming, and automatically generate smart contract and code for users to interact with smart contract -- not sure this is relevant here.
-\item~\cite{FC:DAKMS16} - document experience of teaching a class on writing secure smart contracts.  Suggest best practices and open course material.
-\item~\cite{arxiv:Huang18} - turn bytecode of Solidity into RGB map and then use convolutional neural nets to detect bugs - maybe drop?
-\item~\cite{CCS:BDFGGK+16} - MSR+Harvard folks - F* platform to statically evaluate security of smart contracts.
-\item~\cite{NDSS:KGDS18} - IBM Research - framework to validate correctness and fairness of smart contracts.  Found 94.6\% of smart-contracts are vulnerable.
-\end{enumerate}
+%\noindent
+%\textbf{Academic refs:}
+%\begin{enumerate}
+%\item~\cite{CCS:LCOSH16} - build Oyente -- a symbolic execution tool to help detect potential security bugs.  Found 8833 of 19.366 existing Ethereum smart contracts are vulnerable
+%\item~\cite{SP:KMSWP16} - enable private smart contracts (i.e., ones that dont post transaction data in the clear.  Also, have crypto model of smart contracts programming, and automatically generate smart contract and code for users to interact with smart contract -- not sure this is relevant here.
+%\item~\cite{FC:DAKMS16} - document experience of teaching a class on writing secure smart contracts.  Suggest best practices and open course material.
+%\item~\cite{arxiv:Huang18} - turn bytecode of Solidity into RGB map and then use convolutional neural nets to detect bugs - maybe drop?
+%\item~\cite{CCS:BDFGGK+16} - MSR+Harvard folks - F* platform to statically evaluate security of smart contracts.
+%\item~\cite{NDSS:KGDS18} - IBM Research - framework to validate correctness and fairness of smart contracts.  Found 94.6\% of smart-contracts are vulnerable.
+%\end{enumerate}
 
 \paragraph{Dispute resolution and rollback of mistakes}
 Despite our best efforts to eliminate mistakes in smart contract and transactions, a payment or asset transfer system must be able to reverse fraudulent or mistaken transactions. The immutability property of Blockchain means that transactions cannot be stricken from the ledger after consensus has been reached, so alternative means of dispute resolution must be explored. A new transaction reversing the effects of the disputed transaction could be added to the ledger, but decentralized governance makes arbitrating such a dispute difficult as there is no individual arbiter with the authority to determine which party is in the right when a dispute occurs.  Additionally, dispute resolution must be handled carefully as to not introduce new vulnerabilities.  For example, several attacks were demonstrate on the Bitcoing refund mechanism~\cite{FC:MccShaHao16} prompting further research into security of refund for financial transactions in Bitcoin~\cite{arxiv:AviSafSha18}.
 
-\noindent
-\textbf{Academic refs:}
-\begin{enumerate}
-\item ~\cite{arxiv:AviSafSha18}- design new protocol for security against Bitcoin refund attacks.
-\item ~\cite{FC:MccShaHao16} - original paper showing refund attacks on Bitcoin
-\end{enumerate}
+%\noindent
+%\textbf{Academic refs:}
+%\begin{enumerate}
+%\item ~\cite{arxiv:AviSafSha18}- design new protocol for security against Bitcoin refund attacks.
+%\item ~\cite{FC:MccShaHao16} - original paper showing refund attacks on Bitcoin
+%\end{enumerate}
 
-\subsection{Correspondence between on-chain transactions and real-world objects}
+\subsection{Stapling between on-chain transactions and real-world objects}
 Another challenge that arises in many blockchain applications is that of establishing correspondence between on-chain digital tokens and off-chain goods that those tokens represent as well as off-chain information that can serve as input in transactions.  
 
 \paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
 When a blockchain is used to track off-chain assets (physical or digital), those assets are typically represented on-chain by digital tokens. When dealing with digital assets, correspondence between the asset and its token can generally be maintained by code; for example, a smart contract can track transference of ownership for a digital media license. For physical assets, however, maintaining this consistency is a challenge. Real-world processes must be employed to ensure that whenever an asset's state or ownership is modified, the corresponding token is updated. These processes are an obvious point of failure as they rely on correct enforcement by trusted parties. The person in charge of maintaining the blockchain could attach two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario). The end user must also be trusted, as they may be able to separate the token and sell it while keeping the asset, freeing the token to be attached to an invalid asset (e.g., fake goods in luxury markets). 
 
-\noindent
-\textbf{Academic refs:}
-\begin{enumerate}
-\item~\cite{FC:GBGN17}- present secure escrow services that can enable purchase of physical good using Bitocin - not sure this is relevant
-\end{enumerate}
+%\noindent
+%\textbf{Academic refs:}
+%\begin{enumerate}
+%\item~\cite{FC:GBGN17}- present secure escrow services that can enable purchase of physical good using Bitocin - not sure this is relevant
+%\end{enumerate}
 
 
 
