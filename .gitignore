@@ -1,5 +1,7 @@
 
 .DS_Store
+paper/main.bbl
+paper/main.blg
 paper/main.aux
 paper/main.log
 paper/main.out

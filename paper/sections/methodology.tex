@@ -1,19 +1,43 @@
 % !TEX root = ../main.tex
 
 \section{Methodology}
+In this work, we wanted to provide a high-level overview of what capabilities are provided by Blockchain technology as well as determine what ,use cases and applications are most suitable for the application of Blockchain technology.
+To accomplish this, we took the standard academic approach of surveying the available literature.
+During this process, it became clear that the majority of work exploring Blockchain technologies capabilities and use cases was found in industry.
+Still, materials produced by industry are sufficiently different from academic literature to make them difficult to use as sources in a traditional literature review.
+In particular, there are three main concerns when reviewing materials that originated from industry:
 
-In this work, we collected and analyzed a wide-range of documents (e.g., white papers, design documents) produced by industry describing what Blockchain technology is, what features it provides, what use cases it was good for, and what systems were being built using it.
-We choose to focus on this area as industry has focused significant attention to the potential for Blockchain technology in a wide range of use cases.
-This is in contrast to academia, which has largely focused on solving specific challenges facing Blockchain technology.
-We believe that examining alternate view on Blockchain technology helps provided a greater understanding of what exactly Blockchain technology is, and how it can be used in real-world systems.
+\begin{enumerate}
+	\item \textbf{Lack of precise terminology and discussion.}
+	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to muddled descriptions of capabilities and use cases for Blockchain technology.
+	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we clearly observed that the underlying idea being described was accurate but was phrased in such a way as to make it seem incorrect under cursory examination.
+	In this regard, materials from industry represent a trove of useful information obscured by imprecise terminology and discussion.
+	
+	\item \textbf{Inclusion of hype.}
+	Much of the material from industry includes visionary statements (i.e., hype) regarding how Blockchain technology will change technology and the world.
+	This hype is a mixture of realistic applications that can be built on top of Blockchain systems (e.g., anonymous payments~\cite{tbd}) and ideals that far transcend any technical solution (e.g., removing the need for governments).
+	Unfortunately, unlike what one would expect in academic literature, the materials from industry often intermingle hype with the technical technical capabilities and use cases for Blockchain technology.
+	This intermingling of hype with solid technical details at least partially explains why those in academia are quick to dismiss many sources from industry.
+	
+	\item \textbf{Researcher bias.}	
+	Researcher bias is an obvious problem in any literature review---regardless of whether the source is academia or industry---and one that is often not explicitly addressed in systemization papers.
+	Still, the potential for bias is even stronger when reviewing the Blockchain materials from industry.
+	Academia's inherent caution when considering work from industry along with the two issues described above (i.e., lack of precise terminology, hype) make it easy to dismiss out of hand materials from industry.
+	Additionally, being aware of the academic pedigree of Blockchain technology can make it easy to overlook the interesting use cases enabled by the composition of existing primitives.
+	
+\end{enumerate}
 
-Unfortunately, and as is widely understood~\cite{garnetHypeStuff}, much of the material from industry is filled was ``hype''---i.e., it is intended to sell the technology, not provide an accurate description of the technology.
-To identify the underly ground-truth in these hype-filled narratives, we borrowed a technique from qualitative analysis---\textit{grounded theory}.
-Grounded theory is technique used to sift out the ground truth from source documents with a lot of noise (i.e., hype), all while limiting the impact of researcher bias.
-This latter benefit was especially important to this effort, as we wanted to limit our academic bias from created a skewed analysis of these documents from industry.
+For all three of these reasons, it is tempting to exclude industry materials from our review of the literature on Blockchain technology.
+Instead of taking this approach, we instead looked for a research methodology that would allow us to address these issues and still mine the underlying information provided by materials from industry.
+Ultimately, we settled on using a well established research method originating from sociology---\emph{grounded theory}~\cite{groundedTheory}.
 
-In this section, we first describe briefly how we selected documents from industry.
-Next we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
+Grounded theory is a methodology used to analyze qualitative data sources (e.g., user stories, interviews) and extract the underly data and processes described across the myriad of gathered sources.\footnote{Grounded theory identifies data and processes that are supported across the body of sources and is not a method for creating a fine-grained breakdown of an individual document.}
+In particular, grounded theory is designed to help researchers identify data and processes within qualitative data sources generated by humans and filled with imprecise terminology and descriptions.
+Additionally, grounded theory is designed to limit the impact of researcher bias, insuring that the data and processes are derived from the data and not from the researcher's preconceived notions of what the data says.
+Grounded theory explicitly addresses the first and third problems we identified for evaluating materials from industry, and our hope was that it would also be able to separate the hype from the underlying data and processing; a hope which we believe was satisfied based on our results.
+
+In the remainder of this section we first describe how we gathered industry materials for our grounded theory analysis.
+Next, we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
 Lastly, we describe an academic literature review we conducted to enhance the results of our grounded theory analysis.
 
 \subsection{Source Selection}

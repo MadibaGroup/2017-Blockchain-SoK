@@ -8,6 +8,9 @@ In our concept dependency graph, use cases depend on capabilities, which are spe
 
 We will begin with an overview of the capabilities we generated during selective coding, then discuss results gained by analyzing the construction of the graph and applying some simple heuristic analysis such as identifying nodes with especially high or low degrees of connectivity.
 
+\subsection{Terminology}
+TBD
+
 \subsection{Capabilities}
 \paragraph{Provenance} These systems track and store records of how assets are created, handled, accessed, and modified. A blockchain can serve three different capabilities by associating \primitive{on-chain tokens} with different types of assets: \capability{physical off-chain asset provenance} (e.g., for real-world objects like diamonds), \capability{digital off-chain asset provenance} (e.g., copyrighted digital media like songs), or \capability{digital on-chain asset provenance} (e.g., Bitcoin), in which the tokens themselves are the asset being tracked. As events happen to an asset (e.g., it is accessed, modified, or it changes ownership), the state of the token is updated accordingly, creating a provenance ledger on the blockchain. For on-chain assets, this correspondence can be ensured, but \primitive{off-chain stapling} is necessary to ensure that events on off-chain assets are properly recorded on the blockchain.
 
@@ -112,3 +115,34 @@ Our concept map shows interconnections between features and use cases. We also c
 	\item{Reputation: use for crime; associations with black markets; nebulous or illicit uses; terrorist financing}
 \end{itemize}
 
+
+\section{Lessons Learned (Scott/Ben)}
+
+What was missing in the graph?
+Off-chain stapling
+Anonymity
+MPC
+Functional encryption
+Authenticated data structure
+
+Terminology
+
+Normative vs. technical properties
+public participation is a huge normative property. Not gauntleted to be in a Blockchain.
+There are risks of thinking they are the same
+Using blockchain assuming you get normative properties, not just technical properties
+Get saturated on normative properties, ignore the technical properties
+Diffused trust vs. trustfulness
+Decentralization
+Governance and communication are required to be decentralized
+Disintermediation is normative, and may or may not be part of a Blockchain
+There are always intermediaries. Decentralization limits their power.
+
+
+
+How do we know which use cases are good fits for Blockchain?
+Criteria
+1) Decentralized governance (*)
+2) Auditability
+3) Resiliency	
+Is there a question tree we can create?
