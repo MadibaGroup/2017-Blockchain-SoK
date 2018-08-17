@@ -126,7 +126,6 @@ Smart contracts sometimes leverage off-chain oracles: online services that provi
 One system tackling this problem is Town Crier \cite{Zhang16}. It uses a trusted hardware back end (Intel SGX) to serve as an authenticated off-chain oracle for Ethereum smart contracts. This allows an auditor to later verify the oracle's response at the time at which the contract was executed. This solution sidesteps the limitation of oracle non-auditability by moving trust to a centralized location (the hardware platform providing authenticity), but it does not diffuse trust in the way our analysis reveals that Blockchain technology is expected to.
 
 \anote{I did not have time to fill in the below two subsections, but I do believe that they should be listed among the fundamental challenges of blockchain}
-\bnote{I will work on surveys for these two areas}
 \subsection{Key Management}
 This isn't really blockchain-specific, but blockchain makes this problems even more important since key recovery is hard/impossible, and losing access to one's key essentially loses all money.  We can probably cite one of many stories of lost Bitcoin here.  Also, probably should cite some of the work on threshold signatures which are used to secret share secret keys to avoid key theft.
 
