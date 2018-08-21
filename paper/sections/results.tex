@@ -77,10 +77,7 @@ The next question is \emph{what is auditable?} If the system does not provide ve
 
 Finally, a database can have resilience properties depending on its design, so we ask \emph{what is it resilient against?} To prevent accidental data loss (e.g., by disk corruption), data can be replicated across multiple storage locations. A replicated database (g) is the simplest such system, but without current state auditing or verifiable provenance, malicious modifications cannot be detected or recovered from. If the system allows auditing (h, i), it can detect modifications, but auditors cannot recover lost or modified data. 
 
-Decentralized data stores can have additional resilience properties when their storage is replicated across peers. A replicated, monitored database with consensus (j) can recover from malicious updates as any changes not made by consensus will be rejected by replicating peers. The peer whose data was compromised will be overruled by the majority of honest peers. If the system also stores provenance so that the full history of changes can be verified back to the origin (even by users who join the system after its genesis), it is a full blockchain (k).
-
-\bnote{Detection of modification isn't really resilience, is it? For edges c-h and d-i I think we can drop it from the figure and just mention it in the text... let the figure focus on what the system can recover from.}
-
+There are additional resilience properties that replicated storage can provide to a data store that is governed by a decentralized group. A replicated, monitored database with consensus (j) can recover from malicious updates as any changes not made by consensus will be rejected by replicating peers. The peer whose data was compromised will be overruled by the majority of honest peers. If the system also stores provenance so that the full history of changes can be verified back to the origin (even by users who join the system after its genesis), it is a full blockchain (k).
 
 \subsection{Challenges and limitations}
 \label{subsec:challenges}
