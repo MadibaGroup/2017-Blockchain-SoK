@@ -79,22 +79,6 @@ Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a doc
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
 While there have been a variety of proposals for doing this (e.g., etching the token's Id onto the physical items), effective stapling remains an open research challenge.
 
-Tokens can also represent and store executable functions known as \emph{smart contracts}.
-Users can execute these scripts by providing appropriate inputs.
-The script is then executed by the miners with the output of the script being written to the append-only ledger in a transaction.
-The computational power of these scripts is determined is determined by the Blockchain's consensus rules.
-
-Whether a user of a Blockchain system is able to create, update, or delete a token is based on permissions defined by the miners.
-While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
-In this paradigm, when a token is created it is also associated with a public key.
-The ability to update or delete this token is then granted to any users that can solve some cryptographic puzzle that would only be solvable with knowledge of the private key (e.g., generating a signature that validates with the public key attached to the token).
-Ownership of the token can be transfered or shared by associating it with a new public key.
-
-The biggest challenge towards key-based ownership of tokens is the need to manage a public key infrastructure (PKI).
-This is both a hassle technically~\cite{CT} as well as for users~\cite{ruoti2015johnny,barber2012bitter}.
-One advantage of having key-based, not user-based ownership of tokens is that allows for anonymity in the ownership and use of tokens.
-Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
-
 \subsubsection{Replication}
 The append-only ledger is replicated amongst all miners and is essential for several reasons.
 First, during the consensus protocol it is necessary for minters to be aware of previous transactions that might invalidate the transaction being considered for approval.
@@ -107,58 +91,119 @@ Sharding can drastically reduce the amount of data that miners need to store whi
 Still, sharding comes with the drawback that miners are no longer able to audit the system as a whole.
 Additionally, by reducing the number of miners responsible for any given transaction, it also reduces the number of miners an adversary would need to compromise to attack a given shard.
 
-If a miner's data is lost or corrupted, they will be able to restore their copy of data by replicating it from other miners.
+\subsection{Blockchain Technology's Capabilities}
+Blockchain technology assembles its various technical primitive and properties to provide several key capabilities.
+
+\subsubsection{Provenance and Auditability}
+Blockchain systems provide a complete history of all transactions that were approved by the consensus process (i.e., full-system provenance).
+While failed transactions are not normally written to the ledger, they could be if needed by the system for auditability.
+This information can be used by the miners to audit the system and ensure that it has always followed the appropriate rules.
+Additionally, this information can be used by non-miners to verify that the system is being governed and operated correctly.
+
+If transactions are used to store information regarding digital or real-world resources (using tokens), then the provenance information for the Blockchain system can also be used to provide audit information for those resources.
+This can be used to track physical, off-chain assets (e.g., supply chain management, tracking diamonds), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies, files).
+ 
+\subsubsection{Access Control and Anonymity}
+Whether a user of a Blockchain system is able to create, update, or delete a token is based on permissions defined by the miners.
+While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
+In this paradigm, when a token is created it is also associated with a public key.
+The ability to update or delete this token is then granted to any users that can solve some cryptographic puzzle that would only be solvable with knowledge of the private key (e.g., generating a signature that validates with the public key attached to the token).
+Ownership of the token can be transfered or shared by associating it with a new public key.
+
+The biggest challenge towards key-based ownership of tokens is the need to manage a public key infrastructure (PKI).
+This is both a hassle technically~\cite{CT} as well as for users~\cite{ruoti2015johnny,barber2012bitter}.
+One advantage of having key-based, not user-based ownership of tokens is that allows for anonymity in the ownership and use of tokens.
+Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
+ 
+\subsubsection{Resilience}
+The use of a consensus protocol and data protection provides significant resilience to Blockchain systems.
+Most importantly, the compromise of a single miner will not impact the functionality of the system.
+If the compromised miner attempts to include fraudulent transactions, these transactions will be detected and rejected by the other consensus partners.
+These partners can even alert the compromised party that they have been acting oddly and might be compromised.
+
+If a miner's data is lost or corrupted---either accidentally or maliciously---that miner will be able to restore their copy of data by replicating it from other miners.
 In such cases, the miner recovering from data loss is responsible for verifying that the genesis block is correct and that each successive transaction follows the established rules, including his participation as a miner.
 In this way, rebuilding a data store represents diffused trust in the system and not individual trust in any given miner.
 
-\subsection{Blockchain Technology's Capabilities}
+\subsubsection{Smart Contracts}
+Blockchain tokens can also represent and store executable functions known as \emph{smart contracts}.
+These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
+The smart contracts themselves are executed by the miners with outputs being verified through the consensus protocol.
+The computational power of these scripts is determined is the system's rules, ranging from support only basic functionality (e.g., verifying a signature in Bitcoin) to Turing-complete functionality (e.g., Etherium).
 
-\paragraph{Provenance} These systems track and store records of how assets are created, handled, accessed, and modified. A blockchain can serve three different capabilities by associating \primitive{on-chain tokens} with different types of assets: \capability{physical off-chain asset provenance} (e.g., for real-world objects like diamonds), \capability{digital off-chain asset provenance} (e.g., copyrighted digital media like songs), or \capability{digital on-chain asset provenance} (e.g., Bitcoin), in which the tokens themselves are the asset being tracked. As events happen to an asset (e.g., it is accessed, modified, or it changes ownership), the state of the token is updated accordingly, creating a provenance ledger on the blockchain. For on-chain assets, this correspondence can be ensured, but \primitive{off-chain stapling} is necessary to ensure that events on off-chain assets are properly recorded on the blockchain.
-
-Provenance capabilities all rely on an \techproperty{append-only transaction ledger}, because provenance must be immutable to be useful. The ledger consists of a series of \primitive{transactions}, which are ordered through \primitive{timestamping} and stored in an \primitive{authenticated data structure} (a \primitive{hashchain}, \primitive{hash DAG}, or \primitive{Merkle tree}). 
-
-\paragraph{Smart contracts / automatic code execution} A program stored on a blockchain can be executed automatically in response to function calls added in later transactions. These programs, sometimes called \capability{smart contracts}, can modify the global state of the blockchain (i.e., by moving Ether from one address to another). Miners enforce \techproperty{replication rules} on transactions to determine what types of programs the blockchain supports. This property depends on the \capability{governance} capability, its primitive dependencies \primitive{Sybil resistance} and \primitive{game theory}, and the following additional primitives: \primitive{transactions}, \primitive{authentication}, and \primitive{off-chain oracles}.
-
-\paragraph{Auditability} Blockchain-based systems operate by enforcing \techproperty{replication rules}, which define what state changes are valid. Because the \techproperty{append-only transaction ledger} stores the full history of state changes, it is possible to audit the system to determine what operations occurred and that they were validated. Any blockchain permits \capability{internal auditability}, meaning that validators can perform audits. Blockchains that allow \normproperty{public participation} can further support \capability{public auditability}, meaning that anyone can perform an audit.
-
-\paragraph{Resilience} Broadly speaking, resilience describes the ability of a system to recover from compromises and maintain operation even when in a compromised state. There are three key blockchain capabilities in the resilience family. First, \capability{data replication} mitigates attacks that target data at rest. Second, the properties of Blockchain as a \techproperty{distributed ledger} and an \techproperty{append-only ledger} allow for \capability{verifiable data store rebuilding}. Finally, \techproperty{decentralization} (and particularly {\capability{decentralized governance} and \primitive{peer-to-peer communication}) results in \capability{no single points of failure}, removing obvious targets for attack such as transaction processors or centralized communication servers.
-	
-	\paragraph{Access control for tokens} This capability permits various data sharing use cases by allowing for access control policies to be enforced using tokens. The primitives that directly support it are: \primitive{PKI}, \primitive{key management}, \primitive{authentication}, and \primitive{on-chain tokens}.
-	
-	\paragraph{Data discoverability} This capability relies on a \techproperty{distributed data store} to replicate data across many peers, permitting collective maintenance and access to the data. Peers agree on the contents of the store by running a \techproperty{consensus protocol}, which in turn relies on \primitive{peer-to-peer communication} and \primitive{timestamping}. 
-
-
-
-
-
+Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
+For example, multiple miners executing and verify the output of a smart contract helps ensure that an adversary is unable to tamper with the result of a function.
+Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
+Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and an failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
 \subsection{Relationship to other distributed systems}
-Our grounded theory analysis revealed that the key properties of a blockchain are decentralized governance, auditability, and resilience. To understand how Blockchain relates to other types of data stores, we organized these properties into a series of classifying questions. Figure~\ref{fig:blockchainFlowchart} shows the results.
+Blockchain technology fits within the broader family of distributed systems.
+At the highest level, Blockchain technology is a type of decentralized database.
+To help readers situate Blockchain technology within this greater ecosystem we have created a taxonomy and a flowchart based on that taxonomy (see Figure~\ref{fig:blockchainFlowchart}).
 
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{figures/BlockchainFlowchart}
-	\caption{Comparing different distributed systems. Blockchain is highlighted in the bottom right corner.}
+	\caption{Comparing decentralized databases. Blockchain is highlighted in the bottom right corner.}
 	\label{fig:blockchainFlowchart}
 \end{figure*}
 
-The first question is about who has the authority to manage and update the database: \emph{what is the governance model?} In a centrally governed database (a), a single entity performs these tasks. Alternatively, the system can use a consensus protocol such as Byzantine Agreement to allow for decentralized governance (b).
+The first property in our taxonomy considers who has the authority to manage and update the database: \emph{what is the governance model?} In a centrally governed database (``Centralized''), a single entity performs these tasks. Alternatively, the system can use a consensus protocol to allow for decentralized governance (``Decentralized'').
 
-Next, we consider the security model by asking \emph{where is the root of trust?} This refers to the entity or entities that must behave honestly in order for the system to be secure. In typical database systems, trust is rooted in the maintainer -- for example, using AWS cloud storage requires that you trust Amazon. Alternatively, trust can be rooted in the design of the system itself. This is only possible if the system stores the provenance, or history, of the data in a verifiable way (e.g., as a hash chain or other authenticated data structure). Then auditors can confirm that data has not been manipulated by the maintainer or someone else. If this system is governed centrally, it is a monitored ledger (d), a good example of which is Google's Certificate Transparency project~\cite{CT}. If the system is decentralized, it is a historical ledger with consensus (f), where auditors can affirm that all changes to the data were made with valid consensus. To our knowledge, no such system exists, but it could be useful in some settings, such as publicly auditable committee votes. 
+Next, we consider the security model by asking \emph{where is the root of trust?}
+This refers to the entity or entities that must behave honestly in order for the system to be secure.
+In typical database systems, trust is rooted in the maintainer (``Maintainer'')---for example, using AWS cloud storage requires that you trust Amazon.
+Alternatively, trust can be rooted in the design of the system itself (``System''), though this is only possible if the system stores sufficient provenance for it to be audited to confirm that the system is functioning as intended.
 
-The next question is \emph{what is auditable?} If the system does not provide verifiable provenance, it can at least allow for verification of the current state. A simple way to do this is to publish a digitally signed hash of the full data store after each change. After each update, auditors will be able to verify that it was made by an authorized entity (the maintainer or the consensus group), but they cannot verify that the data has only been modified by authorized entities since its inception or that consensus has always been obeyed. Some software distribution repositories work this way, publishing a signed hash or checksum along with code updates. This system can be a centralized monitored database (c) or be run by decentralized consensus (e)\footnote{
-	We omit the possibility of a consensus-based data store with no auditability because in a decentralized system, at a minimum consensus partners must be able to verify that state changes are made by consensus or the system cannot be trusted at all.
-}. 
+The next question is \emph{what is auditable?}
+In the worse case, nothing is auditable (``Nothing'').
+Systems can use an authenticated data structure~\cite{tamassia2003authenticated} to ensure that their current state can be audited (``Current state'').
+If the state also contains a history of the system (e.g., a ledger), then the use of an authenticated data structure allows for the provenance of the system to also be audited (``Provenance'').
+In both cases, it is necessary that these databases are monitored to ensure that they never enter an invalid state, even temporarily.
+In the case of decentralized systems, the decentralized partners can act as monitors.
 
-Finally, a database can have resilience properties depending on its design, so we ask \emph{what is it resilient against?} To prevent accidental data loss (e.g., by disk corruption), data can be replicated across multiple storage locations. A replicated database (g) is the simplest such system, but without current state auditing or verifiable provenance, malicious modifications cannot be detected or recovered from. If the system allows auditing (h, i), it can detect modifications, but auditors cannot recover lost or modified data. 
-
-There are additional resilience properties that replicated storage can provide to a data store that is governed by a decentralized group. A replicated, monitored database with consensus (j) can recover from malicious updates as any changes not made by consensus will be rejected by replicating peers. The peer whose data was compromised will be overruled by the majority of honest peers. If the system also stores provenance so that the full history of changes can be verified back to the origin (even by users who join the system after its genesis), it is a full blockchain (k).
+Finally, we can classify systems by asking \emph{what is it resilient against?}
+In particular, we considered with three resiliency properties---(1) is it resilient to accidental data loss (``Data loss''), (2) is it possible to detect that data has been malicious altered (``Detect''), (3) and is it possible to prevent malicious updates (``Prevent'').
+Systems with centralized governance are only able to detect malicious updates as the monitors can detect the attack but cannot prevent the malicious update from being replicated.
+If we modify the system to allow monitors to play this role, they have become consensus partners and we now have a decentralized database.
 
 \subsection{Discussion}
+Here we present commentary and lessons learned based on our analysis of the data from industry.
 
 \subsubsection{Is Blockchain a Good Fit for My Project?}
+In Figure~\ref{fig:blockchainFlowchart}, systems increase in complexity and overhead as they move down or to the right.
+As such, it is usually preferable to select the first system in the flowchart that meets all of the desired properties.
+While Blockchain provides the most functionality, it is also the most complex of the related systems.
+As such, while it can be used in place of simpler systems (e.g., a replicated database), we recommend Blockchain technology only be used if the application has most of the following needs:
 
-\subsection{Private Governance}
+\begin{enumerate}
+	\item It requires shared governance and operation.
+	\item It is necessary or desirable to store provenance for the system or the resources managed or controlled by the system.
+	\item It requires that the system be audited, particularly if there is a desire to trust the system itself and not the system's maintainer(s).
+	\item Replication is necessary to prevent data loss and malicious updates.
+\end{enumerate}
+
+\subsubsection{Normative and Technical Properties are Cleanly Separable}
+When reading documents from industry, normative and technical properties are often intermingled with other.
+The injection of ideology into a technical field causes confusion and suboptimal design choices, not to mention muddying discussion and preventing clarity.
+In our concept graph, however, technical properties and normative properties cleanly separate.
+No capabilities have dependencies on normative properties, and removing them from graph does not lessen the value of the graph as an exploration of technical concepts. 
+The fact that this separation occurred naturally indicates that grounded theory accomplished our research goals and was a good choice for addressing this corpus of data.
+
+In general, the normative properties dealt with idealogical-driven goals that could accomplished using Blockchain technology.
+For example, several normative properties dealt with public participation, community ownership, censorship resistance, and transparency of Blockchain systems.
+Bitcoin demonstrates that Blockchain technology can be used to achieve these properties, but it is not the case that all Blockchain systems will accomplish these goals---for example, Ripple is a Blockchain system without public participation.
+
+\subsubsection{Lack of Privacy and Data Discoverability}
+In the literature we found a common misconception that Blockchain technology inherently provided confidentiality for information stored within it.
+In fact the opposite is true, all transactions are visible to all miners and this is necessary for miners to validate transactions.
+The global visibility was identified by some as a capability (i.e., data discoverability) that allowed a Blockchain to act as a data lake.
+While there were some valid applications of Blockchain as a data lake, in most cases we found that proposed data lake applications did not need all of Blockchain technology's capabilities and that a simpler solution would have sufficed.
+
+It may be possible to add confidentiality to Blockchain technology, but care must be taken to ensure that this confidentiality does not preclude miners ability to validate and audit the system.
+This remains an open research problem.
+
+\subsubsection{Private Governance}
 In our survey of the industrial literature, we encountered several systems that claimed to be Blockchain systems, but which did not have shared governance.
 These systems resembled Blockchain systems, but with one critical difference: all the miners were controlled by a single entity.
 The most prominent example of a private governance system is IBM's HyperLedger Fabric.
@@ -179,83 +224,7 @@ While such oracles are helpful, they do impact the the auditability of the syste
 As such, if such oracles are they introduce a trusted third-party into a system which otherwise relies on defused trust.
 To address this issues, it is possible for off-chain oracles to be collectively operated by the miners.
 
-
-
-
-
-\paragraph{Normative and technical properties are cleanly separable}
-When reading papers or participating in discussions about Blockchain, it can be difficult to separate normative statements from technical ones (see section~\ref{subsec:challenges} for a discussion of this challenge). In our concept graph, however, technical properties and normative properties cleanly separate. No capabilities have dependencies on normative properties, and removing them from graph does not lessen the value of the graph as an exploration of technical concepts. The injection of ideology into a technical field causes confusion and suboptimal design choices -- not to mention muddying discussion and preventing clarity -- so we believe this surprising result is of value to the field in so far as it may help to resolve these issues.
-
-\subsubsection{Anonymity and privacy are orthogonal to the core functions of a blockchain}
-Several authors in our corpus cite \capability{anonymity} or privacy as features of Blockchain, although these terms are rarely defined precisely. The main belief seems to be that Blockchain has the property of \techproperty{anonymous transactions} -- i.e., it hides the sender and receiver of asset transfers and disassociates on-chain identities from real-world identities. These notions are connected to Blockchain's reputation for enabling illicit activity (see section~\ref{subsec:challenges} for a discussion of this challenge). The thinking goes that because Bitcoin is the currency of choice for illicit online purchases, it must be "untraceable", and as the most prominent blockchain-based system, distinctions are not drawn between properties of Bitcoin and properties of Blockchain.
-
-Copious literature demonstrating the lack of privacy and anonymity in Bitcoin aside (\cite{Goldfeder17}, \cite{Conti17}, \cite{Androulaki13}, and others), our graph reveals that anonymity is a weakly-connected capability, leveraging few of Blockchain's core primitives and and supporting \textbf{no} use cases. While advanced cryptography like \primitive{multi-party computation}, \primitive{functional encryption}, and \primitive{zero-knowledge proofs} could be layered on top of a blockchain to provide some form of anonymity, only the last primitive appeared in our corpus. \techproperty{Key-based ownership of tokens} is the only property that supports anonymity and also derives from at least one core blockchain primitive (specifically, \primitive{authentication}).
-
-\paragraph{Blockchain can serve as both a ledger and a data store, but it's better as a ledger}
-Two highly-connected, central nodes in our graph are \techproperty{distributed data store} and \techproperty{distributed ledger}. Both rely on a \techproperty{consensus protocol} to ensure consistency across the different data storage locations. The distributed ledger further requires an \techproperty{append-only transaction ledger} to ensure that once consensus has been reached on a transaction, it can no longer be modified. 
-
-As a distributed data store, Blockchain can provide two useful capabilities: \capability{data discovery} and \capability{resilience} (through \techproperty{replication}). As a distributed ledger, Blockchain also provides resilience through \capability{verifiable data store rebuilding} (which allows a node to recover to the current ledger state even if it suffers local data loss). Further, the ledger enables two important groups capabilities that support many use cases: \capability{auditability} and \capability{provenance}. 
-
-This shows that Blockchain's significant novel utility is more firmly rooted in its ability to provide a distributed ledger of state changes than the simple maintenance of a single shared state.
-
-
-
-
-\subsection{Challenges and limitations}
-\label{subsec:challenges}
-
-% Jeremy: I reclustered this a bit. I think we discussed this during the call. Feel free to debate. 
-% If you want to play around with the clusters: https://drive.google.com/file/d/1gDVd4x-SN6-QHZe52toEzMWXnLfiNtqW/view?usp=sharing
-% I feel like separating challenges and limitations is a bit of a judgement call. 
-
-Our concept map shows interconnections between features and use cases. We also coded challenges -- both problems hindering the use of Blockchain that do not currently have satisfactory solutions, and inherent deficits of the technology. In this section, we will list the concept groupings we created and we discuss the academic response in the next section.
-\anote{I really like this list.  But, the challenges in Section~\ref{sec:challenges} only cover a subset of the list (and its not divided in the same way).  Should we aim to cover all the challenges listed here (for many of them, I dont really know what to say)?  We should definitely get the two sections to match up better.}
-\subsubsection{Technical Challenges}
-\begin{itemize}
-	\item{Blockchain can handle finite, countable, and unique resources only}
-	\item{Blockchain is not a high performance system}
-	\item{Lack of API access means auditors must run full nodes}
-	\item{Interoperability: cryptocurrency fragmentation; existence of too many implementations; siloed solutions; standardization; risks to overlay assets if underlying assets are mishandled; interfaces with existing institutions and systems; user identification across systems; risks posed by sharing blockchain security through merged mining or anchoring}	
-        \item{Susceptibility to coordinated attacks by large parties}
-	\item{Off-chain functionality: off-chain program execution; interoperability with off-chain systems}
-	\item{Privacy: anonymity; confidentiality}
-	\item{Resilience: distributed denial-of-service (DDOS) attacks; dishonest majority attacks; security of infrastructure; subversion of software security measures}		
-	\item{Scalability: block generation frequency; block size limits; computational cost of public blockchains; scalable and secure end-user software}
-	\item{Security}
-	\item{Smart contract correctness: inherent incompleteness of contracts; ensuring completeness; lack of tools for verification}
-\end{itemize}
-
-\subsubsection{Socio-Technical Challenges}
-\begin{itemize}
-	\item{Blockchain is an inefficient use of computing resources}
-	\item{Cryptocurrency economics: illiquidity, price volatility, high initial adoption costs, currency conversion costs, and decreasing marginal returns for miners}
-	\item{Incentives: correctly configuring game-theoretic incentive structures}
-	\item{Key management: difficulty of manual key management; possible unrecoverable loss of private keys; attacks against wallets; bugs and glitches in wallets}	
-	\item{Lack of protection against mistakes: transactions cannot be reversed; administrators cannot restore access if users are locked out}
-	\item{Miner centralization}
-	\item{Usability: difficulty of developing distributed apps; inherent complexity of technology; difficulty of access and use by consumers; education; onboarding users; difficulty of search; poor UX; lack of mobile and web clients}
-\end{itemize}
-
-\subsubsection{Challenges to Market Viability}
-\begin{itemize}
-	\item{Efficiency and cost: low or bottlenecked throughput; wasteful energy consumption; high transaction fees; latency induced by synchronous communication required by certain consensus protocols}
-	\item{Expense of developing end-user applications for individual blockchains}
-	\item{Usefulness: few demonstrable use cases; does not improve upon existing solutions in many domains being pursued}
-	\item{Unnecessary: if a central party is required; if a trusted intermediary exists; if a small number of parties are involved in the system}
-\end{itemize}
-
-\subsubsection{Use Case Challenges}
-\begin{itemize}
-	\item{Binding digital entities to real-world entities: stapling tokens to assets; interoperating with existing systems (e.g., compatibility between cryptocurrencies and cash)}
-	\item{Dispute resolution: difficulty recovering from errors or bugs; difficulty reversing fraudulent transactions; non-applicability to scenarios where a central broker is needed}
-\end{itemize}
-
-\subsubsection{Regulatory Challenges}
-\begin{itemize}
-	\item{Governance: resolution of conflicts requiring external intervention; incident response; rule updates require forks; transparency of software development}
-	\item{No distinct legal framework}
-	\item{Standardization}
-	\item{Regulatory: anti-money laundering, know-your-customer; difficulty of monitoring; lack of regulation; legal considerations; taxation; exchange control and flow management; consumer protection}	
-	\item{Cryptocurrencies are inherently Ponzi schemes}
-	\item{Reputation: use for crime; associations with black markets; nebulous or illicit uses; terrorist financing}
-\end{itemize}
+%\subsubsection{Anonymity is Orthogonal to Blockchain Technology}
+%Several sources in our dataset refer to anonymity as a key feature of Blockchain technology.
+%While it is true that Blockchain systems can allow for anonymous transactions, an analysis of our result graph shows that anonymity is only weakly connected to the rest of the group.
+%Thus, while anonymity is often discussed as one of the exciting properties related to Blockchain technology, it doesn't a
