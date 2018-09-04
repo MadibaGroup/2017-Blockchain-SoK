@@ -15,14 +15,14 @@ By themselves, these components are nothing new, but used together they form wha
 
 \subsubsection{Shared Governance and Operation}
 At the heart of Blockchain technology is the principle of shared governance and operation.
-Either of these properties is common by itself; for example, having multiple parties govern how a system should function, but then relying up trusted-third parties to operate and maintain the system.
+Either of these properties is common by itself; for example, having multiple parties govern how a system should function, but then relying on trusted third-parties to operate and maintain the system.
 Alternatively, the literature is rife with well-defined systems that don't need ongoing governance, but require multiple parties to actually operate and maintain the system.
 
 Blockchain is distinct, though, not necessarily unique, in that it requires a core set of participants---referred to hereafter as \emph{miners}---who are responsible for both deciding how the system should function (i.e., shared governance) and then for operating that system.
 This type of shared governance is appropriate when miners are not able to sufficiently trust each other or a third-party to faithfully govern and operate a system.
 By participating in all aspects of governance and operation, each miner can be assured that the system is operating as intended.
-Even if one miner is compromised, the other miners retain the ability to detect malicious actions by the compromised miner and to prevent it from affecting the system.
-In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners that are not trusted, but rather the collective of all miners that is trusted.\footnote{This property has incorrectly been called ``trustlessness''. This is incorrect as trust still exists, it has just been diffused amongst multiple parties.} 
+Even if some of the miners are compromised, the other miners retain the ability to detect malicious actions by the compromised miner and to prevent it from affecting the system.
+In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.\footnote{This property has incorrectly been called ``trustlessness''. This is incorrect as trust still exists, it has just been diffused amongst multiple parties.} 
 
 This shared governance and operation is executed using one or more \emph{consensus protocols} (e.g., proof-of-work~\cite{DN93,back1997partial,NakamotoS8}, byzantine fault tolerance~\cite{castro1999practical}).
 The first consensus protocol is used by miners to determine what operations---known as \emph{transactions}---will be allowed to alter the state of the Blockchain system.
@@ -38,7 +38,7 @@ In Blockchain systems that use a majority-voting consensus mechanism for transac
 In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
 In a hard fork, transactions that validate with the modified rules will not necessarily validate with the original rules.
 The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if their is a majority of miners who still use the original rules.
-While a soft-fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operating on the same data.
+While a soft-fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
 
 Blockchain systems can be separated based on how they select who can act as miner:
 
@@ -57,13 +57,13 @@ Blockchain systems can be separated based on how they select who can act as mine
 \end{itemize}
 
 For each type of governance, there is a need to incentivize correct participant behavior.
-The first type of incentive is an \emph{intrinsic incentive}---i.e., miners maintain the system faithfully because they derive value from using ie.
+The first type of incentive is an \emph{intrinsic incentive}---i.e., miners maintain the system faithfully because they derive value from using it.
 Next, \emph{on-chain incentives} are when the Blockchain system provides direct benefits to miners for faithfully executing the system (e.g., minting currency and giving it to the miners).
 Finally, \emph{off-chain incentives} are any incentive that is not managed by the Blockchain system---for example, contractual obligations or reputation.
 Importantly, off-chain incentives only apply to consortium governance as they inherently rely on knowing the identity of the miners.
 
 \subsubsection{Append-Only Ledger}
-While a Blockchain system might store its current state for convenience and performance, this is not actually an required in Blockchain technology.
+While a Blockchain system might store its current state for convenience and performance, this is not actually a requirement in Blockchain technology.
 Instead, the key data structure in Blockchain technology is a cryptographically authenticated data structure~\cite{tamassia2003authenticated} that stores a history of all the transactions that have been approved by the miners.
 This \emph{ledger} provides full system provenance and allows for miners or other outside parties to audit the system.
 In Bitcoin, this ledger is colloquially referred to as the ``blockchain'', but we avoid that term as it unnecessarily confusing to try and discuss both Blockchain (big-B) technology and the blockchain (little-b) data structure.
@@ -81,11 +81,11 @@ While there have been a variety of proposals for doing this (e.g., etching the t
 
 \subsubsection{Replication}
 The append-only ledger is replicated amongst all miners and is essential for several reasons.
-First, during the consensus protocol it is necessary for minters to be aware of previous transactions that might invalidate the transaction being considered for approval.
+First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
 Second, it removes a single point of failure preventing the loss of data at one site from impacting the system.
 Third, it protects against malicious attempts to modify the append-only ledger. Without replication it would still be possible to detect that data had been corrupted, but without the replication there is no guarantee that it could be restored.
 
-Some Blockchain systems try to limit the amount of data any given miners need to replicate by segmenting the data and assigning miners to handle governance and operations for only that subset of the system.
+Some Blockchain systems try to limit the amount of data any given miners need to replicate by segmenting the data and assigning miners to handle governance and operations for only a subset of the system.
 This is known as \emph{sharding}, with individual segments of the data known as \emph{shards}.
 Sharding can drastically reduce the amount of data that miners need to store while also increasing the performance of the consensus protocols which often scale based on the number of miners.
 Still, sharding comes with the drawback that miners are no longer able to audit the system as a whole.
@@ -107,17 +107,17 @@ This can be used to track physical, off-chain assets (e.g., supply chain managem
 Whether a user of a Blockchain system is able to create, update, or delete a token is based on permissions defined by the miners.
 While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
 In this paradigm, when a token is created it is also associated with a public key.
-The ability to update or delete this token is then granted to any users that can solve some cryptographic puzzle that would only be solvable with knowledge of the private key (e.g., generating a signature that validates with the public key attached to the token).
-Ownership of the token can be transfered or shared by associating it with a new public key.
+The ability to update or delete this token is then granted to any users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the token).
+Ownership of the token can be transferred or shared by associating it with a new public key.
 
 The biggest challenge towards key-based ownership of tokens is the need to manage a public key infrastructure (PKI).
 This is both a hassle technically~\cite{CT} as well as for users~\cite{ruoti2015johnny,barber2012bitter}.
-One advantage of having key-based, not user-based ownership of tokens is that allows for anonymity in the ownership and use of tokens.
+One advantage of having key-based, not user-based ownership of tokens is that it allows for anonymity in the ownership and use of tokens.
 Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
  
 \subsubsection{Resilience}
 The use of a consensus protocol and data protection provides significant resilience to Blockchain systems.
-Most importantly, the compromise of a single miner will not impact the functionality of the system.
+Most importantly, the compromise of a single miner, or even a small number of miners, will not impact the functionality of the system.
 If the compromised miner attempts to include fraudulent transactions, these transactions will be detected and rejected by the other consensus partners.
 These partners can even alert the compromised party that they have been acting oddly and might be compromised.
 
@@ -129,10 +129,10 @@ In this way, rebuilding a data store represents diffused trust in the system and
 Blockchain tokens can also represent and store executable functions known as \emph{smart contracts}.
 These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
 The smart contracts themselves are executed by the miners with outputs being verified through the consensus protocol.
-The computational power of these scripts is determined is the system's rules, ranging from support only basic functionality (e.g., verifying a signature in Bitcoin) to Turing-complete functionality (e.g., Etherium).
+The computational power of these scripts is determined is the system's rules, ranging from supporting only basic functionality (e.g., verifying a signature in Bitcoin) to providing Turing-complete functionality (e.g., Etherium).
 
 Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
-For example, multiple miners executing and verify the output of a smart contract helps ensure that an adversary is unable to tamper with the result of a function.
+For example, multiple miners execute and verify the output of a smart contract helps ensure that an adversary is unable to tamper with the result of a function.
 Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
 Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and an failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
@@ -156,10 +156,10 @@ In typical database systems, trust is rooted in the maintainer (``Maintainer'')-
 Alternatively, trust can be rooted in the design of the system itself (``System''), though this is only possible if the system stores sufficient provenance for it to be audited to confirm that the system is functioning as intended.
 
 The next question is \emph{what is auditable?}
-In the worse case, nothing is auditable (``Nothing'').
+In the worst case, nothing is auditable (``Nothing'').
 Systems can use an authenticated data structure~\cite{tamassia2003authenticated} to ensure that their current state can be audited (``Current state'').
 If the state also contains a history of the system (e.g., a ledger), then the use of an authenticated data structure allows for the provenance of the system to also be audited (``Provenance'').
-In both cases, it is necessary that these databases are monitored to ensure that they never enter an invalid state, even temporarily.
+In both cases, it is necessary that these databases be monitored to ensure that they never enter an invalid state, even temporarily.
 In the case of decentralized systems, the decentralized partners can act as monitors.
 
 Finally, we can classify systems by asking \emph{what is it resilient against?}
@@ -184,10 +184,10 @@ As such, while it can be used in place of simpler systems (e.g., a replicated da
 \end{enumerate}
 
 \subsubsection{Normative and Technical Properties are Cleanly Separable}
-When reading documents from industry, normative and technical properties are often intermingled with other.
+When reading documents from industry, normative and technical properties are often intermingled with each other.
 The injection of ideology into a technical field causes confusion and suboptimal design choices, not to mention muddying discussion and preventing clarity.
 In our concept graph, however, technical properties and normative properties cleanly separate.
-No capabilities have dependencies on normative properties, and removing them from graph does not lessen the value of the graph as an exploration of technical concepts. 
+No capabilities have dependencies on normative properties, and removing them from the graph does not lessen the value of the graph as an exploration of technical concepts. 
 The fact that this separation occurred naturally indicates that grounded theory accomplished our research goals and was a good choice for addressing this corpus of data.
 
 In general, the normative properties dealt with idealogical-driven goals that could accomplished using Blockchain technology.
@@ -209,19 +209,19 @@ These systems resembled Blockchain systems, but with one critical difference: al
 The most prominent example of a private governance system is IBM's HyperLedger Fabric.
 Interestingly, the HyperLedger Fabric software project allows for consortium governance, but IBM's implementation has IBM manage all of the miners.
 
-Ultimately, we do not classify such systems as a part of Blockchain technology.
+Ultimately, we do not classify such systems as Blockchain technology.
 First, these systems do not have shared governance, which we identify as the key component of Blockchain technology.
 Second, the party governing the system still represents a single-point of failure.
 While the miners within the operating organization might be run on a distributed infrastructure, there is still a high chance that a sufficient compromise in the operating organization would lead to a compromise in the Blockchain system.
 Third, there is nothing that prevents the governing party from deleting or modifying data; even if such changes could be detected, the data itself is not replicated outside the organization and would be lost.
-Finally, most of the private governance are overly complex for what they are trying to accomplish.
+Finally, most of the private governance systems are overly complex for what they are trying to accomplish.
 Without the need for shared governance, many of these systems could be better implemented as a replicated monitored database.
 
 \subsubsection{Off-Chain Oracles}
 Several Blockchains systems need to access off-chain information during normal processing---for example, retrieving data from a Web site or ascertaining the result of a real-world event.
 To do so, these systems rely on \emph{off-chain oracles} which are responsible for gathering external information and then recording that information within a transaction, making it available to the Blockchain system.
 While such oracles are helpful, they do impact the the auditability of the system as it may not be possible to verify the off-chain oracle's answer at a later date.
-As such, if such oracles are they introduce a trusted third-party into a system which otherwise relies on defused trust.
+As such, if such oracles are used they introduce a trusted third-party into a system which otherwise relies on diffused trust.
 To address this issues, it is possible for off-chain oracles to be collectively operated by the miners.
 
 %\subsubsection{Anonymity is Orthogonal to Blockchain Technology}
