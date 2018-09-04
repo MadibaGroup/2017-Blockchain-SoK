@@ -167,7 +167,7 @@ In particular, we considered with three resiliency properties---(1) is it resili
 Systems with centralized governance are only able to detect malicious updates as the monitors can detect the attack but cannot prevent the malicious update from being replicated.
 If we modify the system to allow monitors to play this role, they have become consensus partners and we now have a decentralized database.
 
-\subsection{Discussion}
+\subsection{Lessons Learned}
 Here we present commentary and lessons learned based on our analysis of the data from industry.
 
 \subsubsection{Is Blockchain a Good Fit for My Project?}
@@ -223,6 +223,14 @@ To do so, these systems rely on \emph{off-chain oracles} which are responsible f
 While such oracles are helpful, they do impact the the auditability of the system as it may not be possible to verify the off-chain oracle's answer at a later date.
 As such, if such oracles are they introduce a trusted third-party into a system which otherwise relies on defused trust.
 To address this issues, it is possible for off-chain oracles to be collectively operated by the miners.
+
+\subsubsection{Ideology, Hype, and Ulterior Motives}
+Many proponents of Blockchain technology believe that it has the capability to massively disrupt how society operates, or at least to rapidly overtake legacy solutions in many significant industries. This belief is hyperbole (i.e., hype) as though Blockchain technology has many valid uses, it has not, nor is it likely to achieve this Utopian vision. This ideology and hype cause problems: for example, frequent emotionally-charged schisms within Blockchain advocate and developer communities---especially those affiliated with Bitcoin. This turmoil prevents level-headed scientific discourse and wastes developer resources. It can also tangibly affect the stability of a Blockchain systems by causing a fork, in which two independent chains emerge to used and maintained by different groups, further dividing resources.
+
+With that said, Blockchain technology's disruptive power has certainly been demonstrated in the financial sector, so it clearly has promise. Several factors have made this sector an attractive target for disruption, perhaps none more so than the opportunity for massive profit. This motive has had benefits for Blockchain technology, especially in accelerating the pace of technological development. However, it has also created perverse incentives to reinforce hype and ideology. Hype can attract investors and inflate valuations, and dogmatic ideology is a proven marketing and recruitment strategy for financial scammers. These problems inhibit the advancement of Blockchain technology.
+
+\subsubsection{Reputation for illicit uses}
+Due to the prominence of Bitcoin, many people are familiar with Blockchain first and foremost as the technology underlying the cryptocurrency and therefore the reputations of the two are intertwined. The fact that Bitcoin is designed to avoid banks and central authorities in general, combined with its well-known history of illicit uses, somewhat poisons the well for Blockchain as a whole. Along with the causes listed above (ideology, hype, and ulterior motives), this contributes to the difficulty of discussing and considering Blockchain technology with precision and objectivity. It may also have impeded or delayed its acceptance by organizations unwilling to associate themselves with the technology's poor reputation.
 
 %\subsubsection{Anonymity is Orthogonal to Blockchain Technology}
 %Several sources in our dataset refer to anonymity as a key feature of Blockchain technology.
