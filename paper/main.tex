@@ -7,6 +7,10 @@
 \input{setup/packages}
 \input{setup/macros}
 
+\usepackage{draftwatermark}
+\SetWatermarkColor[gray]{0.9}
+
+
 %====================================================================
 
 \IEEEoverridecommandlockouts
@@ -14,7 +18,51 @@
 \begin{document}
 \title{SoK: Blockchain Technology and Its Applications}
 %TODO: This needs to be anonymized when submitted.
-\author{Scott Ruoti, Ben Kaiser, Arkady Yerukhimovich, Jeremy Clark, Rob Cunningham}
+\author{Scott Ruoti, Ben Kaiser, , Jeremy Clark, Rob Cunningham}
+
+
+\author{
+	\IEEEauthorblockN{Scott Ruoti}
+	\IEEEauthorblockA{
+		University of Tennessee, Knoxville\\
+		MIT Lincoln Laboratory\\
+		\textit{ruoti@utk.edu}
+	} \\
+
+	\IEEEauthorblockN{Jeremy Clark}
+	\IEEEauthorblockA{
+		Concordia University\\
+		%\textit{}
+	}
+
+	\and
+	
+	\IEEEauthorblockN{Ben Kaiser}
+	\IEEEauthorblockA{
+		Princeton\\
+		MIT Lincoln Laboratory\\
+		\hspace{\baselineskip}%\textit{}
+	}\\
+
+	\IEEEauthorblockN{Robert Cunningham}
+	\IEEEauthorblockA{
+		Carnegie Mellon University\\
+		Software Engineering Institute\\
+		MIT Lincoln Laboratory\\
+		%\textit{}
+	}
+
+	
+	\and
+	
+	\IEEEauthorblockN{Arkady Yerukhimovich}
+	\IEEEauthorblockA{
+		George Washington University\\
+		MIT Lincoln Laboratory\\
+		%\textit{}
+	}
+}
+
 \maketitle
 
 %====================================================================
@@ -29,9 +77,8 @@
 \input{sections/introduction}
 \input{sections/methodology}
 \input{sections/results}
-\input{sections/challenges}
 \input{sections/use-cases}
-\input{sections/discussion}
+\input{sections/challenges}
 \input{sections/related-works}
 \input{sections/conclusion}
 
