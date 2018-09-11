@@ -10,7 +10,7 @@ In this section, we describe how our results provide answers to three of our que
 
 \subsection{What is Blockchain Technology?}
 Our description of Blockchain technology is based on the technical primitives and properties identified during our analysis.
-This analysis revealed three key components to Blockchain technology: shared governance and operation, a cryptographically-authenticated append-only ledger, and replication.
+This analysis revealed three key components to Blockchain technology: shared governance and operation, a cryptographically-authenticated append-only ledger, and replicated storage.
 By themselves, these components are nothing new, but used together they form what is known as Blockchain technology or Blockchain for short.
 
 \subsubsection{Shared Governance and Operation}
@@ -18,7 +18,7 @@ At the heart of Blockchain technology is the principle of shared governance and 
 Either of these properties is common by itself; for example, having multiple parties govern how a system should function, but then relying on trusted third-parties to operate and maintain the system.
 Alternatively, the literature is rife with well-defined systems that don't need ongoing governance, but require multiple parties to actually operate and maintain the system.
 
-Blockchain is distinct, though, not necessarily unique, in that it requires a core set of participants---referred to hereafter as \emph{miners}---who are responsible for both deciding how the system should function (i.e., shared governance) and then for operating that system.
+Blockchain is distinct, though not necessarily unique, in that it requires a core set of participants---referred to hereafter as \emph{miners}---who are responsible for both deciding how the system should function (i.e., shared governance) and then for operating that system.
 This type of shared governance is appropriate when miners are not able to sufficiently trust each other or a third-party to faithfully govern and operate a system.
 By participating in all aspects of governance and operation, each miner can be assured that the system is operating as intended.
 Even if some of the miners are compromised, the other miners retain the ability to detect malicious actions by the compromised miner and to prevent it from affecting the system.
@@ -34,10 +34,10 @@ This ad-hoc consensus mechanisms means that it is possible for a Blockchain syst
 Such a split is known as a \emph{fork}.
 Often these forks are temporary, with miners either choosing to all adopt the new rules or to return to the original rules, but it is possible for a fork to result in the permanent creation of two non-interoperable Blockchain systems (e.g., Bitcoin Classic and Bitcoin Cash).
 
-In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there is a concept of soft- and hard-forks.
+In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there are two types of forks that can occur.
 In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
 In a hard fork, transactions that validate with the modified rules will not necessarily validate with the original rules.
-The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if their is a majority of miners who still use the original rules.
+The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if there is a majority of miners who still use the original rules.
 While a soft-fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
 
 Blockchain systems can be separated based on how they select who can act as miner:
@@ -77,7 +77,7 @@ Regardless of the underlying structure it is critical that all transactions are 
 Transactions stored in the append-only ledger can contain any data allowed by the consensus protocol, but in practice transactions are usually concerned with \emph{tokens}.
 Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a document) or off-chain (e.g., a diamond, a file stored in the cloud) and are used to track that resource within the Blockchain system.
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
-While there have been a variety of proposals for doing this (e.g., etching the token's Id onto the physical items), effective stapling remains an open research challenge.
+While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge.
 
 \subsubsection{Replication}
 The append-only ledger is replicated amongst all miners and is essential for several reasons.
@@ -132,9 +132,9 @@ The smart contracts themselves are executed by the miners with outputs being ver
 The computational power of these scripts is determined is the system's rules, ranging from supporting only basic functionality (e.g., verifying a signature in Bitcoin) to providing Turing-complete functionality (e.g., Etherium).
 
 Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
-For example, multiple miners execute and verify the output of a smart contract helps ensure that an adversary is unable to tamper with the result of a function.
+For example, multiple miners execute and verify the output of a smart contract to help ensure that an adversary is unable to tamper with the result of a function.
 Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
-Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and an failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
+Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
 \subsection{Relationship to other distributed systems}
 Blockchain technology fits within the broader family of distributed systems.
@@ -157,13 +157,13 @@ Alternatively, trust can be rooted in the design of the system itself (``System'
 
 The next question is \emph{what is auditable?}
 In the worst case, nothing is auditable (``Nothing'').
-Systems can use an authenticated data structure~\cite{tamassia2003authenticated} to ensure that their current state can be audited (``Current state'').
-If the state also contains a history of the system (e.g., a ledger), then the use of an authenticated data structure allows for the provenance of the system to also be audited (``Provenance'').
-In both cases, it is necessary that these databases be monitored to ensure that they never enter an invalid state, even temporarily.
-In the case of decentralized systems, the decentralized partners can act as monitors.
+Systems can use an authenticated data structure~\cite{tamassia2003authenticated} to allow the current state to be audited (``Current state'').
+If the systems also stores a history of the data (e.g., a ledger), then the use of an authenticated data structure allows for the provenance of the system to also be audited (``Provenance'').
+In both cases, active monitors must validate each new state by authenticating the change from the previous state. This is the only way to ensure that the database never enters an invalid state even temporarily.
+In the case of decentralized systems, the decentralized partners can serve as these monitors.
 
 Finally, we can classify systems by asking \emph{what is it resilient against?}
-In particular, we considered with three resiliency properties---(1) is it resilient to accidental data loss (``Data loss''), (2) is it possible to detect that data has been malicious altered (``Detect''), (3) and is it possible to prevent malicious updates (``Prevent'').
+In particular, we considered  three resiliency properties---(1) is it resilient to accidental data loss (``Data loss''), (2) is it possible to detect that data has been maliciously altered (``Detect''), (3) and is it possible to prevent malicious updates (``Prevent'').
 Systems with centralized governance are only able to detect malicious updates as the monitors can detect the attack but cannot prevent the malicious update from being replicated.
 If we modify the system to allow monitors to play this role, they have become consensus partners and we now have a decentralized database.
 
@@ -188,15 +188,15 @@ When reading documents from industry, normative and technical properties are oft
 The injection of ideology into a technical field causes confusion and suboptimal design choices, not to mention muddying discussion and preventing clarity.
 In our concept graph, however, technical properties and normative properties cleanly separate.
 No capabilities have dependencies on normative properties, and removing them from the graph does not lessen the value of the graph as an exploration of technical concepts. 
-The fact that this separation occurred naturally indicates that grounded theory accomplished our research goals and was a good choice for addressing this corpus of data.
+The fact that this separation occurred naturally indicates that grounded theory achieved our research goals and was a good choice for addressing this corpus of data.
 
-In general, the normative properties dealt with idealogical-driven goals that could accomplished using Blockchain technology.
+In general, the normative properties dealt with idealogical goals that could be accomplished using Blockchain technology.
 For example, several normative properties dealt with public participation, community ownership, censorship resistance, and transparency of Blockchain systems.
 Bitcoin demonstrates that Blockchain technology can be used to achieve these properties, but it is not the case that all Blockchain systems will accomplish these goals---for example, Ripple is a Blockchain system without public participation.
 
 \subsubsection{Lack of Privacy and Data Discoverability}
 In the literature we found a common misconception that Blockchain technology inherently provided confidentiality for information stored within it.
-In fact the opposite is true, all transactions are visible to all miners and this is necessary for miners to validate transactions.
+In fact the opposite is true: all transactions are visible to all miners, and this is necessary for miners to validate transactions.
 The global visibility was identified by some as a capability (i.e., data discoverability) that allowed a Blockchain to act as a data lake.
 While there were some valid applications of Blockchain as a data lake, in most cases we found that proposed data lake applications did not need all of Blockchain technology's capabilities and that a simpler solution would have sufficed.
 
@@ -222,10 +222,10 @@ Several Blockchains systems need to access off-chain information during normal p
 To do so, these systems rely on \emph{off-chain oracles} which are responsible for gathering external information and then recording that information within a transaction, making it available to the Blockchain system.
 While such oracles are helpful, they do impact the the auditability of the system as it may not be possible to verify the off-chain oracle's answer at a later date.
 As such, if such oracles are used they introduce a trusted third-party into a system which otherwise relies on diffused trust.
-To address this issues, it is possible for off-chain oracles to be collectively operated by the miners.
+To address this issue, it is possible for off-chain oracles to be collectively operated by the miners.
 
 \subsubsection{Ideology, Hype, and Ulterior Motives}
-Many proponents of Blockchain technology believe that it has the capability to massively disrupt how society operates, or at least to rapidly overtake legacy solutions in many significant industries. This belief is hyperbole (i.e., hype) as though Blockchain technology has many valid uses, it has not, nor is it likely to achieve this Utopian vision. This ideology and hype cause problems: for example, frequent emotionally-charged schisms within Blockchain advocate and developer communities---especially those affiliated with Bitcoin. This turmoil prevents level-headed scientific discourse and wastes developer resources. It can also tangibly affect the stability of a Blockchain systems by causing a fork, in which two independent chains emerge to used and maintained by different groups, further dividing resources.
+Many proponents of Blockchain technology believe that it has the capability to massively disrupt how society operates, or at least to rapidly overtake legacy solutions in many significant industries. This belief is hyperbole (i.e., hype) as though Blockchain technology has many valid uses, it has not achieved, nor is it likely to achieve, this Utopian vision. This ideology and hype cause problems: for example, frequent emotionally-charged schisms within Blockchain advocate and developer communities---especially those affiliated with Bitcoin. This turmoil prevents level-headed scientific discourse and wastes developer resources. It can also tangibly affect the stability of a Blockchain systems by causing a fork, in which two independent chains emerge to used and maintained by different groups, further dividing resources.
 
 With that said, Blockchain technology's disruptive power has certainly been demonstrated in the financial sector, so it clearly has promise. Several factors have made this sector an attractive target for disruption, perhaps none more so than the opportunity for massive profit. This motive has had benefits for Blockchain technology, especially in accelerating the pace of technological development. However, it has also created perverse incentives to reinforce hype and ideology. Hype can attract investors and inflate valuations, and dogmatic ideology is a proven marketing and recruitment strategy for financial scammers. These problems inhibit the advancement of Blockchain technology.
 
