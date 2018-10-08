@@ -1,14 +1,15 @@
 % !TEX root = ../main.tex
 
 \section{Introduction}
+\rnote{I think that we need to start with the notion of an authenticated data structure or hash chain used to establish the integrity of data, given the title of the paper.  What is the right reference?}
+
 In 1982, David Chaum~\cite{Cha82} proposed using blind signatures to allow for untraceable payments.
 Later, Chaum et al.~\cite{chaum1988untraceable} expanded this idea into a fully fleshed out system, eCash.
 eCash was the first cryptocurrency---i.e., ``a digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds operating independently of a [nation-state-controlled] central bank.''\footnote{\url{https://en.oxforddictionaries.com/definition/cryptocurrency}}
 However, early cryptocurrencies still required the presence of a central party to help manage the creation and transfer of funds.
 
-In 2008, an author using the pseudonym Satoshi Nakamoto~\cite{Nak08} proposed Bitcoin.
-Unlike the earlier centralized cryptocurrencies which rely on a set of known entities to run the cryptocurrency, Bitcoin uses a proof-of-work-based scheme~\cite{DN93,back1997partial} to allow the general public to maintain the system.
-To incentivize public participation, Bitcoin pays participants (known as miners) for solving computationally hard problems known as proof-of-work puzzles.
+These key ideas were brought together in 2008 with several others as Bitcoin by an author using the pseudonym Satoshi Nakamoto~\cite{Nak08}. Unlike centralized cryptocurrencies which rely on a set of known entities to run the cryptocurrency, Bitcoin uses a proof-of-work-based scheme~\cite{DN93,back1997partial} to allow the general public to maintain the system.
+To incentivize public participation, Bitcoin pays participants (known as miners) for solving the proof-of-work puzzles.
 While Bitcoin's building blocks were not novel, the composition of these properties into a single system was a meaningful contribution~\cite{Narayanan17} that led to the first cryptocurrency to see wide-spread popularity and usage.
 
 At the peak of its popularity, Bitcoin's market capitalization reached \$835.69 billion (USD), though at the time of this writing it has seen a decrease in both its stature and market capitalization (\$125.83 billion).

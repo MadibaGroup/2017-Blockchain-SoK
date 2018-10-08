@@ -10,7 +10,7 @@ In this section, we describe how our results provide answers to three of our que
 
 \subsection{Blockchain Technology's Key Properties}
 Our description of Blockchain technology is based on the technical primitives and properties identified during our analysis.
-This analysis revealed three key components to Blockchain technology: shared governance and operation, a cryptographically-authenticated append-only ledger, and replication.
+This analysis revealed three key components to Blockchain technology: shared governance and operation, a cryptographically-authenticated append-only ledger, and replicated storage.
 By themselves, these components are nothing new, but used together they form what is known as Blockchain technology or Blockchain for short.
 
 \subsubsection{Shared Governance and Operation}
@@ -18,7 +18,7 @@ At the heart of Blockchain technology is the principle of shared governance and 
 Either of these properties is common by itself; for example, having multiple parties govern how a system should function, but then relying on trusted third-parties to operate and maintain the system.
 Alternatively, the literature is rife with well-defined systems that don't need ongoing governance, but require multiple parties to actually operate and maintain the system.
 
-Blockchain is distinct, though, not necessarily unique, in that it requires a core set of participants---referred to hereafter as \emph{miners}---who are responsible for both deciding how the system should function (i.e., shared governance) and then for operating that system.
+Blockchain is distinct, though not necessarily unique, in that it requires a core set of participants---referred to hereafter as \emph{miners}---who are responsible for both deciding how the system should function (i.e., shared governance) and then for operating that system.
 This type of shared governance is appropriate when miners are not able to sufficiently trust each other or a third-party to faithfully govern and operate a system.
 By participating in all aspects of governance and operation, each miner can be assured that the system is operating as intended.
 Even if some of the miners are compromised, the other miners retain the ability to detect malicious actions by the compromised miner and to prevent it from affecting the system.
@@ -34,10 +34,10 @@ This ad-hoc consensus mechanisms means that it is possible for a Blockchain syst
 Such a split is known as a \emph{fork}.
 Often these forks are temporary, with miners either choosing to all adopt the new rules or to return to the original rules, but it is possible for a fork to result in the permanent creation of two non-interoperable Blockchain systems (e.g., Bitcoin Classic and Bitcoin Cash).
 
-In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there is a concept of soft- and hard-forks.
+In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there are two types of forks that can occur.
 In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
 In a hard fork, transactions that validate with the modified rules will not necessarily validate with the original rules.
-The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if their is a majority of miners who still use the original rules.
+The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if there is a majority of miners who still use the original rules.
 While a soft-fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
 
 Blockchain systems can be separated based on how they select who can act as miner:
@@ -77,7 +77,7 @@ Regardless of the underlying structure it is critical that all transactions are 
 Transactions stored in the append-only ledger can contain any data allowed by the consensus protocol, but in practice transactions are usually concerned with \emph{tokens}.
 Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a document) or off-chain (e.g., a diamond, a file stored in the cloud) and are used to track that resource within the Blockchain system.
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
-While there have been a variety of proposals for doing this (e.g., etching the token's Id onto the physical items), effective stapling remains an open research challenge.
+While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge.
 
 \subsubsection{Replication}
 The append-only ledger is replicated amongst all miners and is essential for several reasons.
@@ -132,6 +132,6 @@ The smart contracts themselves are executed by the miners with outputs being ver
 The computational power of these scripts is determined is the system's rules, ranging from supporting only basic functionality (e.g., verifying a signature in Bitcoin) to providing Turing-complete functionality (e.g., Etherium).
 
 Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
-For example, multiple miners execute and verify the output of a smart contract helps ensure that an adversary is unable to tamper with the result of a function.
+For example, multiple miners execute and verify the output of a smart contract to help ensure that an adversary is unable to tamper with the result of a function.
 Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
-Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and an failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
+Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
