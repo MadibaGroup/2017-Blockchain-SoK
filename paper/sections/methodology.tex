@@ -1,23 +1,22 @@
 % !TEX root = ../main.tex
 
+
 \section{Methodology}
 \label{sec:method}
 
-In this work, we sought to offer a high-level overview of Blockahin technology.
-To accomplish this, we took the standard academic approach of surveying the available literature.
-During this process, it became clear that the majority of work exploring Blockchain's capabilities and use cases comes from industry.\footnote{Here, we define industry as corporations, small and medium business, startups, and consortia.}
+In this work, we sought to offer a high-level overview of Blockchain technology and its many possible uses.  To accomplish this, we considered the standard academic approach of surveying the available literature. During this process, it became clear that the majority of work exploring Blockchain's capabilities and use cases comes from industry.\footnote{Here, we consider industry broadly: corporations, small and medium business, startups, and consortia.}
 
 Materials produced by industry are sufficiently different from academic literature to make them difficult to use as sources in a traditional literature review.
 In particular, there are three main concerns when reviewing materials that originated from industry:
 
 \begin{enumerate}
 	\item \textbf{Lack of precise terminology and discussion.}
-	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to muddled descriptions of capabilities and use cases.
-	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we clearly observed that the underlying idea being described was accurate but was phrased in such a way as to make it seem incorrect under cursory examination.
+	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to difficult to understand white papers and sometimes muddled descriptions of capabilities and use cases.
+	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we  observed an accurate description of an idea that was phrased in such a way as to make it seem incorrect under cursory examination. Some of those ideas were assembled in ways that are interesting to academics, if one takes the time to work through the material.
 	In this regard, materials from industry represent a trove of useful information obscured by imprecise terminology and discussion.
 	
 	\item \textbf{Inclusion of hype.}
-	Much of the material from industry includes visionary statements (i.e., hype) regarding how Blockchain technology will change technology and the world.
+	Much of the material from industry includes visionary statements (i.e., hype) regarding how Blockchain technology will change business practices, power dynamics and the way the world works.
 	This hype is a mixture of realistic applications that can be built on top of Blockchain systems (e.g., anonymous payments~\cite{chaum1988untraceable}) and ideals that far transcend any technical solution (e.g., removing the need for governments).
 	Unfortunately, unlike what one would expect in academic literature, the materials from industry often intermingle hype with technical details. This at least partially explains why some in academia are quick to dismiss sources from industry.
 	
@@ -62,11 +61,11 @@ When reviewing these materials, we would also follow references and include thos
 In total, we collected 132 document.
 The documents we gathered generally fell into one of three categories.
 
-\begin{enumerate}
+\begin{itemize}
 	\item \textbf{High-Level Overviews.} These were often prepared by investment firms and gave high level overviews of Blockchain technology. They would also reference various efforts at using Blockchain in practice.
 	\item \textbf{System White Papers.} These papers would describe how Blockchain technology was used in a specific system, or more frequently a system proposal.
 	\item \textbf{Blockchain Commentaries.} These were largely shorter documents that would discuss a specific facet of Blockchain technology in greater depth than we saw in other documents.
-\end{enumerate}
+\end{itemize}
 
 \subsection{Grounded Theory Data Analysis}
 After collecting our initial set of 104 documents, we analyzed them using grounded theory.
@@ -82,12 +81,14 @@ These codes were generated using a mixture of open coding (assigning a code that
 To ensure that we were assigning the correct codes, we paid careful attention to the context of each statement.
 
 In particular, reviewers made sure to code the following four concepts found in documents:
-\begin{enumerate}
+ \renewcommand{\labelitemi}{$\blacksquare$}
+\begin{itemize}
 	\item \textbf{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
 	\item \textbf{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
-	\item \textbf{Limitations.} What inherent limitations are their when using Blockchain technology?
+	\item \textbf{Limitations.} What inherent limitations are there when using Blockchain technology?
 	\item \textbf{Use cases.} What use cases are suitable for Blockchain technology?
-\end{enumerate}
+\end{itemize}
+ \renewcommand{\labelitemi}{\textbullet}
 
 At this stage of the grounded theory process, reviewers were instructed to avoid evaluating the validity of the coded concepts.
 Instead, every attempt was to made to include all possible codes, helping to ensure that our results were grounded in the data and not reviewers' biases.
@@ -102,7 +103,7 @@ Specifically, we collapsed distinct codes referring to the same topic (e.g., one
 As needed, we referred back to the original documents to ensure that our understanding of the code was fresh, and that we were assigning it to the appropriate concept.
 Also, at this stage we continued to avoid evaluating the validity of concepts, ensuring that the ideas of the reviewed documents were fully reflected in the codes.
 
-\subsection{Interlude---Additional Open Coding}
+\textit{Interlude---Additional Open Coding.}
 After completing axial coding, one reviewer coded (i.e., open coding) another 28 documents.
 These documents were all blog posts, representing the most up-to-date thinking on Blockchain technology.
 In this process, no new codes were discovered, indicating that our process had produced concepts that thoroughly describe Blockchain technology.
@@ -112,8 +113,9 @@ In the third stage, two researchers transfered all of the concepts onto sticky-n
 They then drew connecting lines between the concepts, describing how the concepts related to one another.
 Based on these interconnections, concepts were divided into five different categories:
 
-\begin{enumerate}
-	\item \textbf{Primitives.} These are the primitives that are used to enabled Blockchain technology. Unlike properties, they have no useful by themselves, but only when combined with other primitives to achieve specific properties. Examples include on-chain tokens, authenticated data-structures, and zero-knowledge proofs.
+ \renewcommand{\labelitemi}{$\blacksquare$}
+\begin{itemize}
+	\item \textbf{Primitives.} These are the primitives that are used to enable Blockchain technology. Unlike properties, they are not useful by themselves, but only when combined with other primitives to achieve specific properties. Examples include on-chain tokens, authenticated data-structures, and zero-knowledge proofs.
 	
 	\item \textbf{Technological properties.} Technological properties are the core building blocks and features of Blockchain technology. Examples include decentralized governance, append-only ledgers, and data replication.
 	
@@ -123,10 +125,16 @@ Based on these interconnections, concepts were divided into five different categ
 	\item \textbf{Capabilities.} Capabilities are high-level features provided by Blockchain technology. Examples include on-chain asset provenance, anonymity, and resilience.
 	
 	\item \textbf{Use cases.} Use cases are the areas where the properties and capabilities of Blockchain technology would be useful in building systems. Examples include cryptocurrencies, supply chain management, and identity management.
-\end{enumerate}
+\end{itemize}
+ \renewcommand{\labelitemi}{\textbullet}
 
-While we divide the concepts into five categories, the individual concepts between these categories were highly connected to each other.
-Images of these category graphs can be found in Figure~\ref{fig:grounded-theory-main}~and~\ref{fig:grounded-theory-apps} .
+While we divide the concepts into five categories, we find that the concepts are highly connected, indicating that often more than one concept is combined to create a use case.
+
+
+Images of these category graphs can be found in Figures~\ref{fig:grounded-theory-main}~and~\ref{fig:grounded-theory-apps} .  The groupings are of interest, as they show how different industries are using a range of techniques to achieve similar goals.  The positioning of each box is not meaningful.
+
+\rnote{we need to specify what the arrow head direction means. I think they may not be done consistently. Also we need to change "Application" to "Use Case" on all figures.}
+\rnote{Fig 1 needs the follow changes: 1. Sidechains have a box type that doesn't match others.  We should remove it or define what the box means in the legend--not off to the side.  2. It would be good to increase the font size in the diagram, and perhaps increase the shape sizes a little too.}
 
 \begin{figure*}
 	\includegraphics[width=\textwidth]{figures/grounded-theory-main}
