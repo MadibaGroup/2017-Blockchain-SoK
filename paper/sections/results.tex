@@ -2,16 +2,22 @@
 
 \section{What is Blockchain Technology?}
 
-Our grounded theory analysis of industry documents resulted in the creation of 25 technical primitives, 18 technical properties, 11 normative properties, 11 capabilities, and 19 use case categories.
-The technical primitives, technical properties, normative properties, and capabilities are shown in Figure~\ref{fig:grounded-theory-main} and the use case categories are shown in Figure~\ref{fig:grounded-theory-apps}.
-In both Figures, the various items are connected with directional arrows; these arrows roughly represent a dependency relationship with the item being pointed to relying on the item that is being pointed from, though in most cases it is the relationship rather than the directionality of the arrow that is most important.
+Our grounded theory analysis of industry documents resulted in the creation of 25 technical primitives, 17 technical properties, 12 normative properties, 11 capabilities, and 19 use case categories.
+%The technical primitives, technical properties, normative properties, and capabilities are shown in Figure~\ref{fig:grounded-theory-main} and the use case categories are shown in Figure~\ref{fig:grounded-theory-apps}.
+%In both Figures, the various items are connected with directional arrows; these arrows roughly represent a dependency relationship with the item being pointed to relying on the item that is being pointed from, though in most cases it is the relationship rather than the directionality of the arrow that is most important.
 
-In this section, we describe how our results provide answers to three of our questions:  (1) what exactly is Blockchain technology, (2) what capabilities does it provide, (3) how does it compare to other approaches (e.g., distributed databases).
+In this section, we describe how our results provide answers to two of our questions:  (1) what exactly is Blockchain technology (i.e., what are its properties) and (2) what capabilities does it provide.
 
-\subsection{Blockchain Technology's Key Properties}
-Our description of Blockchain technology is based on the technical primitives and properties identified during our analysis.
-This analysis revealed three key components to Blockchain technology: shared governance and operation, a cryptographically-authenticated append-only ledger, and replicated storage.
-By themselves, these components are nothing new, but used together they form what is known as Blockchain technology or Blockchain for short.
+\subsection{Blockchain Technology's Technical Properties}
+Our description of Blockchain technology is based on the technical properties identified during our analysis (see Figure~\ref{fig:technical-properties}).
+This analysis revealed three key groups of properties: shared governance and operation, a cryptographically-authenticated append-only ledger, and resilience.
+By themselves, these components are nothing new, but used together they form what is known as \emph{Blockchain technology} or \emph{Blockchain} for short.
+
+\begin{figure*}
+	\includegraphics[width=\textwidth]{figures/technical-properties}	
+	\caption{Technical Properties for Blockchain Technology.}
+	\label{fig:technical-properties}
+\end{figure*}
 
 \subsubsection{Shared Governance and Operation}
 At the heart of Blockchain technology is the principle of shared governance and operation.
@@ -62,7 +68,7 @@ Next, \emph{on-chain incentives} are when the Blockchain system provides direct 
 Finally, \emph{off-chain incentives} are any incentive that is not managed by the Blockchain system---for example, contractual obligations or reputation.
 Importantly, off-chain incentives only apply to consortium governance as they inherently rely on knowing the identity of the miners.
 
-\subsubsection{Append-Only Ledger}
+\subsubsection{Cryptographic Append-Only Ledger}
 While a Blockchain system might store its current state for convenience and performance, this is not actually a requirement in Blockchain technology.
 Instead, the key data structure in Blockchain technology is a cryptographically authenticated data structure~\cite{tamassia2003authenticated} that stores a history of all the transactions that have been approved by the miners.
 This \emph{ledger} provides full system provenance and allows for miners or other outside parties to audit the system.
@@ -79,8 +85,8 @@ Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a doc
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
 While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge.
 
-\subsubsection{Replication}
-The append-only ledger is replicated amongst all miners and is essential for several reasons.
+\subsubsection{Resilience}
+The cryptographically-authenticated append-only ledger is replicated amongst all miners and this repplication several reasons.
 First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
 Second, it removes a single point of failure preventing the loss of data at one site from impacting the system.
 Third, it protects against malicious attempts to modify the append-only ledger. Without replication it would still be possible to detect that data had been corrupted, but without the replication there is no guarantee that it could be restored.
@@ -90,6 +96,16 @@ This is known as \emph{sharding}, with individual segments of the data known as 
 Sharding can drastically reduce the amount of data that miners need to store while also increasing the performance of the consensus protocols which often scale based on the number of miners.
 Still, sharding comes with the drawback that miners are no longer able to audit the system as a whole.
 Additionally, by reducing the number of miners responsible for any given transaction, it also reduces the number of miners an adversary would need to compromise to attack a given shard.
+
+The use of a consensus protocol and data protection provides significant resilience to Blockchain systems.
+Most importantly, the compromise of a single miner, or even a small number of miners, will not impact the functionality of the system.
+If the compromised miner attempts to include fraudulent transactions, these transactions will be detected and rejected by the other consensus partners.
+These partners can even alert the compromised party that they have been acting oddly and might be compromised.
+
+If a miner's data is lost or corrupted---either accidentally or maliciously---that miner will be able to restore their copy of data by replicating it from other miners.
+In such cases, the miner recovering from data loss is responsible for verifying that the genesis block is correct and that each successive transaction follows the established rules, including his participation as a miner.
+In this way, rebuilding a data store represents diffused trust in the system and not individual trust in any given miner.
+
 
 \subsection{Blockchain Technology's Capabilities}
 Blockchain technology assembles its various technical primitive and properties to provide several key capabilities.
@@ -114,16 +130,6 @@ The biggest challenge towards key-based ownership of tokens is the need to manag
 This is both a hassle technically~\cite{CT} as well as for users~\cite{ruoti2015johnny,barber2012bitter}.
 One advantage of having key-based, not user-based ownership of tokens is that it allows for anonymity in the ownership and use of tokens.
 Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
- 
-\subsubsection{Resilience}
-The use of a consensus protocol and data protection provides significant resilience to Blockchain systems.
-Most importantly, the compromise of a single miner, or even a small number of miners, will not impact the functionality of the system.
-If the compromised miner attempts to include fraudulent transactions, these transactions will be detected and rejected by the other consensus partners.
-These partners can even alert the compromised party that they have been acting oddly and might be compromised.
-
-If a miner's data is lost or corrupted---either accidentally or maliciously---that miner will be able to restore their copy of data by replicating it from other miners.
-In such cases, the miner recovering from data loss is responsible for verifying that the genesis block is correct and that each successive transaction follows the established rules, including his participation as a miner.
-In this way, rebuilding a data store represents diffused trust in the system and not individual trust in any given miner.
 
 \subsubsection{Smart Contracts}
 Blockchain tokens can also represent and store executable functions known as \emph{smart contracts}.
