@@ -1,14 +1,7 @@
 % !TEX root = ../main.tex
 
 \section{What is Blockchain Technology?}
-
-Our grounded theory analysis of industry documents resulted in the creation of 25 technical primitives, 17 technical properties, 12 normative properties, 11 capabilities, and 19 use case categories.
-%The technical primitives, technical properties, normative properties, and capabilities are shown in Figure~\ref{fig:grounded-theory-main} and the use case categories are shown in Figure~\ref{fig:grounded-theory-apps}.
-%In both Figures, the various items are connected with directional arrows; these arrows roughly represent a dependency relationship with the item being pointed to relying on the item that is being pointed from, though in most cases it is the relationship rather than the directionality of the arrow that is most important.
-
-In this section, we describe how our results provide answers to two of our questions:  (1) what exactly is Blockchain technology (i.e., what are its properties) and (2) what capabilities does it provide.
-
-\subsection{Blockchain Technology's Technical Properties}
+\label{sec:blockchain}
 Our description of Blockchain technology is based on the technical properties identified during our analysis (see Figure~\ref{fig:technical-properties}).
 This analysis revealed three key groups of properties: shared governance and operation, a cryptographically-authenticated append-only ledger, and resilience.
 By themselves, these components are nothing new, but used together they form what is known as \emph{Blockchain technology} or \emph{Blockchain} for short.
@@ -19,7 +12,7 @@ By themselves, these components are nothing new, but used together they form wha
 	\label{fig:technical-properties}
 \end{figure*}
 
-\subsubsection{Shared Governance and Operation}
+\subsection{Shared Governance and Operation}
 At the heart of Blockchain technology is the principle of shared governance and operation.
 Either of these properties is common by itself; for example, having multiple parties govern how a system should function, but then relying on trusted third-parties to operate and maintain the system.
 Alternatively, the literature is rife with well-defined systems that don't need ongoing governance, but require multiple parties to actually operate and maintain the system.
@@ -68,7 +61,7 @@ Next, \emph{on-chain incentives} are when the Blockchain system provides direct 
 Finally, \emph{off-chain incentives} are any incentive that is not managed by the Blockchain system---for example, contractual obligations or reputation.
 Importantly, off-chain incentives only apply to consortium governance as they inherently rely on knowing the identity of the miners.
 
-\subsubsection{Cryptographic Append-Only Ledger}
+\subsection{Cryptographic Append-Only Ledger}
 While a Blockchain system might store its current state for convenience and performance, this is not actually a requirement in Blockchain technology.
 Instead, the key data structure in Blockchain technology is a cryptographically authenticated data structure~\cite{tamassia2003authenticated} that stores a history of all the transactions that have been approved by the miners.
 This \emph{ledger} provides full system provenance and allows for miners or other outside parties to audit the system.
@@ -85,7 +78,7 @@ Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a doc
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
 While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge.
 
-\subsubsection{Resilience}
+\subsection{Resilience}
 The cryptographically-authenticated append-only ledger is replicated amongst all miners and this repplication several reasons.
 First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
 Second, it removes a single point of failure preventing the loss of data at one site from impacting the system.
@@ -107,10 +100,12 @@ In such cases, the miner recovering from data loss is responsible for verifying 
 In this way, rebuilding a data store represents diffused trust in the system and not individual trust in any given miner.
 
 
-\subsection{Blockchain Technology's Capabilities}
+\section{Blockchain Technology's Capabilities}
+\label{sec:capabilities}
+
 Blockchain technology assembles its various technical primitive and properties to provide several key capabilities.
 
-\subsubsection{Provenance and Auditability}
+\subsection{Provenance and Auditability}
 Blockchain systems provide a complete history of all transactions that were approved by the consensus process (i.e., full-system provenance).
 While failed transactions are not normally written to the ledger, they could be if needed by the system for auditability.
 This information can be used by the miners to audit the system and ensure that it has always followed the appropriate rules.
@@ -119,7 +114,7 @@ Additionally, this information can be used by non-miners to verify that the syst
 If transactions are used to store information regarding digital or real-world resources (using tokens), then the provenance information for the Blockchain system can also be used to provide audit information for those resources.
 This can be used to track physical, off-chain assets (e.g., supply chain management, tracking diamonds), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies, files).
  
-\subsubsection{Access Control and Anonymity}
+\subsection{Access Control and Anonymity}
 Whether a user of a Blockchain system is able to create, update, or delete a token is based on permissions defined by the miners.
 While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
 In this paradigm, when a token is created it is also associated with a public key.
@@ -131,7 +126,7 @@ This is both a hassle technically~\cite{CT} as well as for users~\cite{ruoti2015
 One advantage of having key-based, not user-based ownership of tokens is that it allows for anonymity in the ownership and use of tokens.
 Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
 
-\subsubsection{Smart Contracts}
+\subsection{Smart Contracts}
 Blockchain tokens can also represent and store executable functions known as \emph{smart contracts}.
 These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
 The smart contracts themselves are executed by the miners with outputs being verified through the consensus protocol.

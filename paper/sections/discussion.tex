@@ -1,7 +1,8 @@
-\section{Lessons Learned and Discussion}
-%, (3) how does it compare to other approaches (e.g., distributed databases).
+\section{Other Results}
+In this section we discuss the remaining results from our grounded theory work.
 
 \subsection{Relationship to other distributed systems}
+\label{sec:distributed-comparison}
 Blockchain technology fits within the broader family of distributed systems.
 At the highest level, Blockchain technology is a type of decentralized database.
 To help readers situate Blockchain technology within this greater ecosystem we have created a taxonomy and a flowchart based on that taxonomy (see Figure~\ref{fig:blockchainFlowchart}).
@@ -33,6 +34,7 @@ Systems with centralized governance are only able to detect malicious updates as
 If we modify the system to allow monitors to play this role, they have become consensus partners and we now have a decentralized database.
 
 \subsection{Is Blockchain a Good Fit for My Project?}
+\label{sec:should-i-use-it}
 In Figure~\ref{fig:blockchainFlowchart}, systems increase in complexity and overhead as they move down or to the right.
 As such, it is usually preferable to select the first system in the flowchart that meets all of the desired properties.
 While Blockchain provides the most functionality, it is also the most complex of the related systems.
@@ -46,6 +48,7 @@ As such, while it can be used in place of simpler systems (e.g., a replicated da
 \end{enumerate}
 
 \subsection{Normative and Technical Properties are Cleanly Separable}
+\label{sec:normative}
 When reading documents from industry, normative and technical properties are often intermingled with each other.
 The injection of ideology into a technical field causes confusion and suboptimal design choices, not to mention muddying discussion and preventing clarity.
 In our concept graph, however, technical properties and normative properties cleanly separate.
@@ -56,14 +59,8 @@ In general, the normative properties dealt with idealogical-driven goals that co
 For example, several normative properties dealt with public participation, community ownership, censorship resistance, and transparency of Blockchain systems.
 Bitcoin demonstrates that Blockchain technology can be used to achieve these properties, but it is not the case that all Blockchain systems will accomplish these goals---for example, Ripple is a Blockchain system without public participation.
 
-\subsection{Lack of Privacy and Data Discoverability}
-In the literature we found a common misconception that Blockchain technology inherently provided confidentiality for information stored within it.
-In fact the opposite is true, all transactions are visible to all miners and this is necessary for miners to validate transactions.
-The global visibility was identified by some as a capability (i.e., data discoverability) that allowed a Blockchain to act as a data lake.
-While there were some valid applications of Blockchain as a data lake, in most cases we found that proposed data lake applications did not need all of Blockchain technology's capabilities and that a simpler solution would have sufficed.
-
-It may be possible to add confidentiality to Blockchain technology, but care must be taken to ensure that this confidentiality does not preclude miners ability to validate and audit the system.
-This remains an open research problem.
+\section{Discussion}
+In this section, we summarize a few remaining discussion points motivated by our grounded theory analysis of Blockchain technology.
 
 \subsection{Private Governance}
 In our survey of the industrial literature, we encountered several systems that claimed to be Blockchain systems, but which did not have shared governance.
@@ -78,6 +75,16 @@ While the miners within the operating organization might be run on a distributed
 Third, there is nothing that prevents the governing party from deleting or modifying data; even if such changes could be detected, the data itself is not replicated outside the organization and would be lost.
 Finally, most of the private governance systems are overly complex for what they are trying to accomplish.
 Without the need for shared governance, many of these systems could be better implemented as a replicated monitored database.
+
+\subsection{Lack of Privacy and Data Discoverability}
+In the literature we found a common misconception that Blockchain technology inherently provided confidentiality for information stored within it.
+In fact the opposite is true, all transactions are visible to all miners and this is necessary for miners to validate transactions.
+The global visibility was identified by some as a capability (i.e., data discoverability) that allowed a Blockchain to act as a data lake.
+While there were some valid applications of Blockchain as a data lake, in most cases we found that proposed data lake applications did not need all of Blockchain technology's capabilities and that a simpler solution would have sufficed.
+
+It may be possible to add confidentiality to Blockchain technology, but care must be taken to ensure that this confidentiality does not preclude miners ability to validate and audit the system.
+This remains an open research problem.
+
 
 \subsection{Ideology, Hype, and Ulterior Motives}
 Many proponents of Blockchain technology believe that it has the capability to massively disrupt how society operates, or at least to rapidly overtake legacy solutions in many significant industries. This belief is hyperbole (i.e., hype) as though Blockchain technology has many valid uses, it has not, nor is it likely to achieve this Utopian vision. This ideology and hype cause problems: for example, frequent emotionally-charged schisms within Blockchain advocate and developer communities---especially those affiliated with Bitcoin. This turmoil prevents level-headed scientific discourse and wastes developer resources. It can also tangibly affect the stability of a Blockchain systems by causing a fork, in which two independent chains emerge to used and maintained by different groups, further dividing resources.
