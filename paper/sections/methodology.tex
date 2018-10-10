@@ -36,8 +36,8 @@ Additionally, grounded theory limits the impact of researcher bias, ensuring tha
 Grounded theory explicitly addresses the first and third problems we identified for evaluating materials from industry, and our hope was that it would also be able to separate the hype from the underlying data and processing; a hope which we believe was satisfied based on our results.
 
 The idea of using grounded theory for literature review is not new~\cite{wolfswinkel2013using,yang2012descriptive} and this method has been used in thousands of studies examining qualitative data.\footnote{As evidence of its wide use, the top-cited paper describing grounded theory has 62,951 citations as of writing.}
-%TODO: This needs to be anonymized when submitted.
-For these reasons and based on our own experience with the method~\cite{ruoti2017weighing} we were confident this method would allow us to successfully accomplish our research goals.
+%TODO: This needs to be deanonymized when published.
+For these reasons---and based on our own experience with the method~\cite{ruoti2017weighing}---we were confident this method would allow us to successfully accomplish our research goals.
 
 In the remainder of this section we first describe how we gathered industry materials for our grounded theory analysis.
 Next, we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
@@ -80,7 +80,7 @@ These codes were generated using a mixture of open coding (assigning a code that
 To ensure that we were assigning the correct codes, we paid careful attention to the context of each statement.
 
 In particular, reviewers made sure to code the following four concepts found in documents:
- \renewcommand{\labelitemi}{$\blacksquare$}
+\renewcommand{\labelitemi}{$\blacksquare$}
 \begin{itemize}
 	\item \textbf{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
 	\item \textbf{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
@@ -110,29 +110,30 @@ In this process, no new codes were discovered, indicating that our process had p
 \subsubsection{Stage 3---Selective Coding}
 In the third stage, two researchers transfered all of the concepts related to technical properties and use cases onto sticky-notes.
 They then drew connecting lines between these concepts, describing how they related to one another.
-Based on these interconnections, concepts were divided into five different categories, each with an associated color:
+Based on these interconnections, concepts were divided into five different categories:
 
  \renewcommand{\labelitemi}{$\blacksquare$}
 \begin{itemize}
-	\item \textbf{Primitives (green).} These are the primitives that are used to enable Blockchain technology. Unlike properties, they are not useful by themselves, but only when combined with other primitives to achieve specific properties. Examples include on-chain tokens, authenticated data-structures, and zero-knowledge proofs.
+	\item \textbf{Primitives.} These are the primitives that are used to enable Blockchain technology. Unlike properties, they are not useful by themselves, but only when combined with other primitives to achieve specific properties. Examples include on-chain tokens, authenticated data-structures, and zero-knowledge proofs.
 	
-	\item \textbf{Technological properties (blue).} Technological properties are the core building blocks and features of Blockchain technology. Examples include decentralized governance, append-only ledgers, and data replication.
+	\item \textbf{Technological properties.} Technological properties are the core building blocks and features of Blockchain technology. Examples include decentralized governance, append-only ledgers, and data replication.
 	
-	\item \textbf{Normative properties (orange).} Normative properties differ from technological properties in that they are not technical, but rather represent properties that people hope to achieve through the use of Blockchain technology. Critically, these properties cannot be achieved through reliance on the technical properties alone, but require the system built on top of Blockchain technology be designed to accomplish these goals. Examples include censorship resistance, ease-of-entry for miners, low cost to participate.
+	\item \textbf{Normative properties.} Normative properties differ from technological properties in that they are not technical, but rather represent properties that people hope to achieve through the use of Blockchain technology. Critically, these properties cannot be achieved through reliance on the technical properties alone, but require the system built on top of Blockchain technology be designed to accomplish these goals. Examples include censorship resistance, ease-of-entry for miners, low cost to participate.
 	In general, normative properties roughly correlate to the hype attached to Blockchain technology.
 
-	\item \textbf{Capabilities (yellow).} Capabilities are high-level features provided by Blockchain technology. Examples include on-chain asset provenance, anonymity, and resilience.
+	\item \textbf{Capabilities.} Capabilities are high-level features provided by Blockchain technology. Examples include on-chain asset provenance, anonymity, and resilience.
 	
-	\item \textbf{Use cases (gray).} Use cases are the areas where the properties and capabilities of Blockchain technology would be useful in building systems. Examples include cryptocurrencies, supply chain management, and identity management.
+	\item \textbf{Use cases.} Use cases are the areas where the properties and capabilities of Blockchain technology would be useful in building systems. Examples include cryptocurrencies, supply chain management, and identity management.
 \end{itemize}
  \renewcommand{\labelitemi}{\textbullet}
 
-Our categorization resulted in 21 technical primitives, 16 technical properties, 12 normative properties, 12 capabilities, and 19 use cases.
-Figures for the technical properties, capabilities, and normative properties are given in the throughout the paper (see Figures~\ref{fig:technical-properties} with the primitives and use cases discussed in the text of the paper.
-Within these figures, arrows represent dependency relationships---i.e., the source concept is used to support the destination concept.
-In some cases, several concepts (e.g., open governance and consortium governance) derive from a single parent concept (e.g., governance) and this is represented by having a box for the parent concept that surrounds the children concepts.
+Our categorization resulted in 20 technical primitives, 15 technical properties, 11 normative properties, 12 capabilities, and 19 use cases.
 While we divide the concepts into these five categories, individual concepts are highly interconnected, both inter- and intra-category. 
 This provides credence to the notion that Blockchain technology overall is a cohesive, with each of the component concepts serving a purpose in the overall technology.
+
+Figures for the technical properties, capabilities, and normative properties cateogires are given throughout the paper (see Figures~\ref{fig:technical-properties}, whereas primitives and use cases are discussed within the text of the paper.
+Within the figures, arrows represent dependency relationships---i.e., the source concept is used to support the destination concept---and categories are color coded: technical primitives are green, technical properties are blue, normative properties are orange, and capabilities are purple.
+In some cases, several concepts (e.g., open governance and consortium governance) derive from a single parent concept (e.g., governance) and this is represented by having a box for the parent concept that surrounds the children concepts.
 
 This is the first stage of our methodology where research expertise directly influenced the results.
 First, by its very nature drawing connections between concepts is subjective.
@@ -145,9 +146,10 @@ In the fourth and final stage, we used the concepts, categories, and connections
 First, we subdivided the technical properties into three categories that give a high-level description of what Blockchain technology is (see Section~\ref{sec:blockchain}).
 Second, we extracted the capabilities, limitations/challenges, and use cases that are most relevant to Blockchain technology (see Section~\ref{sec:capabilities}, \ref{sec:challenges}, and \ref{sec:use-cases}, respectively).
 Third, we described how Blockchain technology differs from other distributed technologies (see Section~\ref{sec:distributed-comparison}) and identified criteria that help determine whether a given problem can benefit from the use of Blockchain technology (see Section~\ref{sec:should-i-use-it}).
-Finally, we found that there is a clean split between Blokchain technology's technological primitives and its normative properties (i.e., hype) (see Section~\ref{sec:normative}).
+Finally, we found that there is a \\
+clean split between Blokchain technology's technological primitives and its normative properties (i.e., hype) (see Section~\ref{sec:normative}).
 
-\subsubsection{Limitations}
+\subsection{Limitations}
 Due to the nature of grounded theory, our analysis of the data represents one view on that data.
 Different researchers coding the same data may have focused on different aspects leading to differences in categories, connections, and the theories they focused on.
 To address this limitation, we will make the documents we reviewed and our coding of those documents public.

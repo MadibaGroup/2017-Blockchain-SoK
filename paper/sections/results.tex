@@ -91,9 +91,10 @@ Regardless of the underlying structure it is critical that all transactions are 
 Transactions stored in the append-only ledger can contain any data allowed by the consensus protocol, but in practice transactions are usually concerned with \emph{tokens}.
 Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a document) or off-chain (e.g., a diamond, a file stored in the cloud) and are used to track that resource within the Blockchain system.
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
-While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge.
+While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge (see Section~\ref{sec:challenges}).
 
 \subsection{Resilience}
+\snote{Rework this section with relevant data}.
 The cryptographically-authenticated append-only ledger is replicated amongst all miners and this repplication several reasons.
 First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
 Second, it removes a single point of failure preventing the loss of data at one site from impacting the system.
@@ -114,6 +115,9 @@ If a miner's data is lost or corrupted---either accidentally or maliciously---th
 In such cases, the miner recovering from data loss is responsible for verifying that the genesis block is correct and that each successive transaction follows the established rules, including his participation as a miner.
 In this way, rebuilding a data store represents diffused trust in the system and not individual trust in any given miner.
 
+\subsection{Other properties}
+\snote{Key-based ownership of tokens}
+\snote{Singular governance}
 
 \section{Blockchain Technology's Capabilities}
 \label{sec:capabilities}
@@ -151,3 +155,9 @@ Smart contracts benefit from Blockchain technology's other capabilities (e.g., s
 For example, multiple miners execute and verify the output of a smart contract to help ensure that an adversary is unable to tamper with the result of a function.
 Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
 Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
+
+\subsection{Data Discoverability}
+\snote{Add}
+
+\subsection{Resilience}
+\snote{Reference text in previous section}
