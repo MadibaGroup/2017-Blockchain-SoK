@@ -19,71 +19,130 @@
 Based on the results of our analysis, we have identified sixteen classes of applications for Blockchain technology.
 These use cases are summarized in Table~\ref{tab:usecase}.
 
-\begin{table*}[th!]
-
-\renewcommand{\arraystretch}{1.3}
-
-\caption{Very provisional at this stage.\label{tab:usecase}}
-
+\begin{table}
+\renewcommand{\arraystretch}{1.35}
+\setlength\tabcolsep{.25em}
 \centering 
 
-\begin{tabular}{l|cccccccc|ccccccccccc|}
+\caption{Blockchain Technology Use Cases and Associated Capabilities and Challenges.\label{tab:usecase}}
 
-\headrow{ } &
-\headrow{Provenance} & 
-\headrow{Smart Contracts} &
-\headrow{Auditability} &  %immutability, non-equivocation
-\headrow{Resilience} &
-\headrow{Access Control} &
-\headrow{Discoverability} &
-\headrow{} &
-\headrow{} &
- 
-\headrow{Necessity} &
-\headrow{Finality Risk} & 
-\headrow{Counter-Party Risk} &
-\headrow{Stapling} & 
-\headrow{Identities} & 
-\headrow{Scalability} &
-\headrow{Trigger Sensitivity} &
-\headrow{Dispute Resolution} &
-\headrow{} & 
-\headrow{} &
-\headrow{}  \\ \hline
+\begin{tabular}{ll | *{8}{c} | *{5}{c} |}
+	
+	\headrow{} & \headrow{} \headline &
+	
+	\headrow{Shared gov. and op.} &
+	\headrow{Resilience} &
+	\headrow{Provenance} &
+	\headrow{Auditability} &
+	\headrow{Access control} &
+	\headrow{Pseudonymity} &
+	\headrow{Smart contracts} &
+	\headrow{Data discoverability}
+	\headline &
+	
+	\headrow{Scalability} &
+	\headrow{Off-chain} &
+	\headrow{Correctness} &
+	\headrow{Key management} &
+	\headrow{Privacy}
+	\headline \\ \hline
+	
+	& \textit{Use Case} & 
+	\multicolumn{8}{c|}{\textit{Capabilities}}&    
+	\multicolumn{5}{c|}{\textit{Challenges}} \\ \hline
+	
+	&Asset Management
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&\hspace{1em} Supply chain management
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&\hspace{1em} Asset tracking
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&\hspace{1em} Payments
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&\hspace{1em} Transaction processing
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	\hline
+	
+	&Insurance
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&IoT / smart property
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	\hline
+	
+	&Regulation / sanctions
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&Record storage
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	\hline
+	
+	&Key management
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&Identity management
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	\hline
+	
+	&Fine-grained access control
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&Data sharing
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
 
-\multicolumn{1}{c|}{\textit{Use Case}}& 
-\multicolumn{8}{c|}{\textit{Capabilities Used}}&    
-\multicolumn{11}{c|}{\textit{Challenges}} \\ \hline 
+	&System interoperability
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	\hline
+	
+	&Voting
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&Auction / bidding
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	&Gambling
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
 
+	&Forecasting
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
 
-Supply Chain			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
-Asset Tracking			&\full	&	&\full	&\full	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Payments				&	&\full	&\full	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Transaction Processing	&	&\full	&\full	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
+	\hline
 
-Fine-grained access control		&	&\full	&	&	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
-Data Sharing			&	&	&	&\full	&	&\full	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
-Voting				&	&\full	&\full	&\full	&\full	&	&	&		&\full	&\full	&	&	&\full	&\full	&\full	&\full	&	&	&	\\
-
-\hline
-
-Identity Management	&	&	&	&\full	&	&	&	&		&	&	&	&	&\full	&	&	&	&	&	&	\\ 
-Auctions/Markets		&	&\full	&\full	&\full	&\full	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Record Storage		&\full	&	&\full	&\full	&	&\full	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\
-IoT/Smart Properties	&\full	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\	
-Insurance				&	&\full	&	&\full	&	&	&	&		&\full	&\full	&\full	&\full	&	&	&	&\full	&	&	&	\\
-Regulation / Sanctions	&\full	&	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-
-\hline
-
-Timestamping			&\full	&	&\full	&\full	&	&	&	&		&\full	&\full	&	&	&	&	&	&	&	&	&	\\		
-Interoperation			&	&\full	&	&	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\
-Gambling				&	&\full	&	&\full	&	&	&	&		&	&	&	&	&	&	&	&	&	&	&	\\ 
-
-\hline
+	&Decentralized timestamping
+	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+	&\none	&\none	&\none	&\none	&\none	\\
+	
+	\hline
 
 \end{tabular}
-\end{table*}
+\end{table}
 
 \subsection{Ideal Use Cases}
 In this subsection, we describe the use cases that could benefit the most from the application of Blockchain technology.

@@ -22,12 +22,19 @@
 % = = = Rotated Table Entry \headrow
 
 \usepackage{adjustbox}
-\newcommand{\headrow}[1]{\multicolumn{1}{c}{\adjustbox{angle=45,lap=\width-0.5em}{#1}}}
+\usepackage{multirow}
+\newcommand*\rot{\rotatebox{90}}
+\newcommand*{\headrow}[1]{\multicolumn{1}{c}{\adjustbox{angle=60,lap=\width-0.5em}{#1}}}
+\newcommand*{\headline}{\adjustbox{angle=60,rlap}{\rule{2.5cm}{.5pt}}}
 
 % = = = Table bullets: \full and \prt (full and part)
 
-\newcommand{\full}{$\bullet$}
-\newcommand{\prt}{$\circ$}
+\usepackage{wasysym}
+\let\iint\relax
+\let\iiint\relax
+\newcommand*{\full}{\CIRCLE}
+\newcommand*{\prt}{\LEFTcircle}
+\newcommand*{\none}{\Circle}
 
 %------------------------Packages----------------------%
 
