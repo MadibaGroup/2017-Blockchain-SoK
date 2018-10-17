@@ -12,7 +12,7 @@
 \label{sec:blockchain}
 Our description of Blockchain technology is based on the technical properties identified during our analysis (see Figure~\ref{fig:technical-properties}).\footnote{A version of this chart that shows the technical primitives that support the technical properties is given in the Appendix (see Figure~\ref{fig:technical-properties-full}).}
 This analysis revealed three key groups of properties: shared governance and operation, a cryptographically-authenticated append-only ledger, and resilience.
-By themselves, these components are nothing new, but used together they form what is known as \emph{Blockchain technology} or \emph{Blockchain} for short.
+By themselves, these property groups are nothing new, but used together they define \emph{Blockchain technology}, or \emph{Blockchain} for short.
 
 \subsection{Shared Governance and Operation}
 At the heart of Blockchain technology is the principle of shared governance and operation.
@@ -41,7 +41,7 @@ In a hard fork, transactions that validate with the modified rules will not nece
 The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if there is a majority of miners who still use the original rules.
 While a soft-fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
 
-Blockchain systems can be separated based on how they select who can act as miner:
+Blockchain systems can be separated based on how they select who can act as miner:\footnote{In our coding, there was also the concept of singular governance. This concept is discussed in Section~\ref{sec:private-blockchain}.}
 
 \begin{itemize}
 	\item \emph{Open governance.}
@@ -78,14 +78,18 @@ Regardless of the underlying structure it is critical that all transactions are 
 Transactions stored in the append-only ledger can contain any data allowed by the consensus protocol, but in practice transactions are usually concerned with \emph{tokens}.
 Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a document) or off-chain (e.g., a diamond, a file stored in the cloud) and are used to track that resource within the Blockchain system.
 For off-chain assets, there needs to be the ability to \emph{staple} the on-chain token to the off-chain assets.
-While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains an open research challenge (see Section~\ref{sec:challenges}).
+While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains a challenge (see Section~\ref{sec:challenges}).
 
 \subsection{Resilience}
-\snote{Rework this section with relevant data}.
-The cryptographically-authenticated append-only ledger is replicated amongst all miners and this repplication several reasons.
+The cryptographically-authenticated append-only ledger is replicated amongst all miners and this replication is important for several reasons.
 First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
-Second, it removes a single point of failure preventing the loss of data at one site from impacting the system.
-Third, it protects against malicious attempts to modify the append-only ledger. Without replication it would still be possible to detect that data had been corrupted, but without the replication there is no guarantee that it could be restored.
+Second, it removes a single point of failure preventing the loss of data at one site from impacting the overall system.
+Third, it protects against malicious attempts to modify the append-only ledger.
+Without replication it would still be possible to detect that data had been corrupted, but without the replication there is no guarantee that the original data could be restored.
+
+The use of a cryptographically authenticated ledger also has the benefit that it is possible to verify that the current state properly proceeds from the initial genesis block.
+While this is useful for runtime integrity checks, it also useful when a miner needs to rebuild their state.
+In this case, they can replicate data from another miner and verify its authenticity, without the need to trust the other miner as would be required in most distributed databases.
 
 Some Blockchain systems try to limit the amount of data any given miners need to replicate by segmenting the data and assigning miners to handle governance and operations for only a subset of the system.
 This is known as \emph{sharding}, with individual segments of the data known as \emph{shards}.
@@ -93,32 +97,21 @@ Sharding can drastically reduce the amount of data that miners need to store whi
 Still, sharding comes with the drawback that miners are no longer able to audit the system as a whole.
 Additionally, by reducing the number of miners responsible for any given transaction, it also reduces the number of miners an adversary would need to compromise to attack a given shard.
 
-The use of a consensus protocol and data protection provides significant resilience to Blockchain systems.
-Most importantly, the compromise of a single miner, or even a small number of miners, will not impact the functionality of the system.
-If the compromised miner attempts to include fraudulent transactions, these transactions will be detected and rejected by the other consensus partners.
-These partners can even alert the compromised party that they have been acting oddly and might be compromised.
-
-If a miner's data is lost or corrupted---either accidentally or maliciously---that miner will be able to restore their copy of data by replicating it from other miners.
-In such cases, the miner recovering from data loss is responsible for verifying that the genesis block is correct and that each successive transaction follows the established rules, including his participation as a miner.
-In this way, rebuilding a data store represents diffused trust in the system and not individual trust in any given miner.
-
-\subsection{Other properties}
-\snote{Key-based ownership of tokens}
-\snote{Singular governance}
-
-\section{Blockchain Technology's Capabilities}
+\section{What are Blockchain Technology's Capabilities?}
 \label{sec:capabilities}
 
 \begin{figure}
 	\centering
-	\includegraphics[page=3,width=\columnwidth]{figures/grounded-theory-main}
+	\includegraphics[page=4,width=\columnwidth]{figures/grounded-theory-main}
 	
-	Arrows indicate that the destination depends on the source.
-	\caption{Normative Properties for Blockchain Technology}
-	\label{fig:normative-properties}
+	Arrows indicate that the destination depends on the source except where an explicit relationship is given.
+	\caption{Capabilities for Blockchain Technology}
+	\label{fig:Capabilities}
 \end{figure}
 
-Blockchain technology assembles its various technical primitive and properties to provide several key capabilities.
+Blockchain technology's capabilities define the high-level functionality that can be achieved by using Blockchain technology in a system's design.
+Two of these capabilities were discussed in the proceeding Section: (1) shared governance and operation and (2) resilience.
+In addition to these two capabilities, we identified 11 additional capabilities (see Figure~\ref{fig:Capabilities}).
 
 \subsection{Provenance and Auditability}
 Blockchain systems provide a complete history of all transactions that were approved by the consensus process (i.e., full-system provenance).
@@ -136,12 +129,14 @@ In this paradigm, when a token is created it is also associated with a public ke
 The ability to update or delete this token is then granted to any users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the token).
 Ownership of the token can be transferred or shared by associating it with a new public key.
 
-The biggest challenge towards key-based ownership of tokens is the need to manage a public key infrastructure (PKI).
-This is both a hassle technically~\cite{CT} as well as for users~\cite{ruoti2015johnny,barber2012bitter}.
-One advantage of having key-based, not user-based ownership of tokens is that it allows for anonymity in the ownership and use of tokens.
+On key benefit of access control on Blockchain is that the provenance of access control is automatically recorded.
+This means that a full record of not only a users permissions, but how they received those permissions is stored.
+This information can be used to automatically revoke permissions if it is discovered that a user was granted these permissions by a compromised account---for example, when a malicious insider grants inappropriate permissions to other insiders.
+
+The use of key-based, not user-based ownership of tokens has another advantage: namely it allows for the pseudonymous ownership and use of tokens.
 Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
 
-\subsection{Smart Contracts}
+\subsection{Automatic Execution (Smart Contracts)}
 Blockchain tokens can also represent and store executable functions known as \emph{smart contracts}.
 These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
 The smart contracts themselves are executed by the miners with outputs being verified through the consensus protocol.
@@ -153,4 +148,5 @@ Similarly, the ability to audit inputs and outputs can be used to attribute inco
 Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
 \subsection{Data Discoverability}
-\snote{Add}
+If users are allowed to read any record in a Blockchain's distributed data store, then it is trivial to search for records of interest.
+This capability, while nothing more than what is provided by having a read-only data lake, is still frequently discussed in the literature we reviewed.

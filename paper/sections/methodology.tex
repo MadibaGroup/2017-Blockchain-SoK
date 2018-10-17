@@ -80,14 +80,12 @@ These codes were generated using a mixture of open coding (assigning a code that
 To ensure that we were assigning the correct codes, we paid careful attention to the context of each statement.
 
 In particular, reviewers made sure to code the following four concepts found in documents:
-\renewcommand{\labelitemi}{$\blacksquare$}
-\begin{itemize}
+\begin{itemize}[label=$\blacksquare$]
 	\item \textbf{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
 	\item \textbf{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
 	\item \textbf{Limitations.} What inherent limitations are there when using Blockchain technology?
 	\item \textbf{Use cases.} What use cases are suitable for Blockchain technology?
 \end{itemize}
- \renewcommand{\labelitemi}{\textbullet}
 
 At this stage of the grounded theory process, reviewers were instructed to avoid evaluating the validity of the coded concepts.
 Instead, every attempt was to made to include all possible codes, helping to ensure that our results were grounded in the data and not reviewers' biases.
@@ -112,20 +110,26 @@ In the third stage, two researchers transfered all of the concepts related to te
 They then drew connecting lines between these concepts, describing how they related to one another.
 Based on these interconnections, concepts were divided into five different categories:
 
- \renewcommand{\labelitemi}{$\blacksquare$}
-\begin{itemize}
-	\item \textbf{Primitives.} These are the primitives that are used to enable Blockchain technology. Unlike properties, they are not useful by themselves, but only when combined with other primitives to achieve specific properties. Examples include on-chain tokens, authenticated data-structures, and zero-knowledge proofs.
+\begin{itemize}[label=$\blacksquare$]
+	\item \textbf{Technical properties (Figures~\ref{fig:technical-properties},~\ref{fig:technical-properties-full}).}
+	Technical properties are the components that make up of Blockchain technology. Examples include decentralized governance, a consensus protocol, and an append-only transaction ledger.
 	
-	\item \textbf{Technical properties.} Technical properties are the core building blocks and features of Blockchain technology. Examples include decentralized governance, append-only transactional ledgers, and decentralized redundancy.
+	\item \textbf{Capabilities (Figure~\ref{fig:Capabilities}).}
+	Capabilities are the high-level features provided by Blockchain technology's technical properties. Examples include automatic executions (i.e., smart contracts), internal auditability, and resilience.
 	
-	\item \textbf{Normative properties.} Normative properties differ from technological properties in that they are not technical, but rather represent properties that people hope to achieve through the use of Blockchain technology. Critically, these properties cannot be achieved through reliance on the technical properties alone, but require the system built on top of Blockchain technology be designed to accomplish these goals. Examples include censorship resistance, ease-of-entry for miners, low cost to participate.
-	In general, normative properties roughly correlate to the hype attached to Blockchain technology.
-
-	\item \textbf{Capabilities.} Capabilities are high-level features provided by Blockchain technology. Examples include on-chain asset provenance, smart contracts, and global auditability.
+	\item \textbf{Technical Primitives.}
+	Primitives are the building blocks used to construct the technical properties and capabilities of Blockchain technology. Examples include timestamps, hashchains, and peer-to-to-peer communication.
 	
-	\item \textbf{Use cases.} Use cases are the areas where the properties and capabilities of Blockchain technology would be useful in building systems. Examples include cryptocurrencies, supply chain management, and identity management.
+	\item \textbf{Use cases (Table~\ref{tab:usecase}).}
+	Use cases are classes of applications that the literature identified as being good fits for Blockchain technology. Examples include crytocurrencies, supply chain management, and identity management.
+	
+	\item \textbf{Normative properties (Figure~\ref{fig:normative-properties}).}
+	Normative properties represent what people hope to achieve using Blockchain technology. 
+	Importantly, these properties are not provided by the use of Blockchain technology---as are the technical properties and capabilities---but instead require the careful designs of larger systems that might only use Blockchain technology as a small piece of the overall system.
+	In general, normative properties strongly relate to the hype sorrounding Blockchain technology.
+	Examples include public participation, trustlessness, and censorship resistance.
+		
 \end{itemize}
- \renewcommand{\labelitemi}{\textbullet}
 
 Our categorization resulted in 21 technical primitives, 14 technical properties, 12 normative properties, 13 capabilities, and 19 use cases.
 While we divide the concepts into these five categories, individual concepts are highly interconnected, both inter- and intra-category. 
@@ -157,4 +161,4 @@ To address this limitation, we will make the documents we reviewed and our codin
 \subsection{Academic Literature Review}
 As part of the grounded theory analysis, the data revealed several open research challenges related to Blockchain technology.
 In regards to these challenges, we conducted a review of academic literature to identify what research has already been done and what the academic community thinks of these challenges.
-These challenges, along with the relevant paper references, are discussed in Section~\ref{sec:challenges}.
+These challenges, along with the relevant paper references, are discussed in Section~\ref{sec:research-challenges}.
