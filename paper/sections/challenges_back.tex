@@ -66,52 +66,14 @@
 % Normative -- the set of challenges that ought to be studied
 % Positive -- the set of challenges that happened to be studied by others
 
-In addition to identifying key capabilities of blockchain technologies, we also identified key challenges that are highlighted in the literature as potential hurdles to the use of blockchain technology.  We organize these challenges into categories to better systematize and understand what aspect of blockchain they effect.
+\subsection{Off-Chain Oracles}
+Several Blockchains systems need to access off-chain information during normal processing---for example, retrieving data from a Web site or ascertaining the result of a real-world event.
+To do so, these systems rely on \emph{off-chain oracles} which are responsible for gathering external information and then recording that information within a transaction, making it available to the Blockchain system.
+While such oracles are helpful, they do impact the the auditability of the system as it may not be possible to verify the off-chain oracle's answer at a later date.
+As such, if such oracles are used they introduce a trusted third-party into a system which otherwise relies on diffused trust.
+To address this issue, it is possible for off-chain oracles to be collectively operated by the miners.
 
-\anote{This is just a list for now, I will write up the text for this this week.}
-\begin{itemize}
-\item Scalability / Performance
-\begin{itemize}
-\item Not high performance
-\item Scalability
-\item Inefficient use of resources
-\item Miner centralization
-\item Efficiency and cost
-\end{itemize}
-\item Correctness
-\begin{itemize}
-\item Smart-contract correctness
-\item Protection against mistakes
-\item Dispute resolution
-\end{itemize}
-\item Security
-\begin{itemize}
-\item Security
-\item Coordinated attacks
-\item DDoSty
-\item Security
-\item Incentives
-\end{itemize}
-\item Usability
-\begin{itemize}
-\item Lack of API
-\item Interoperability
-\item Usability
-\item Expense of development
-\end{itemize}
-\item Off-chain objects
-\begin{itemize}
-\item off-chain functionality
-\item binding
-\end{itemize}
-\item Key management
-\item Privacy -- anonymity, confidentiality
-\item Necessity
-\begin{itemize}
-\item Few use-cases
-\item Necessity
-\end{itemize}
-\end{itemize}
+Our analysis has allowed us to identify several challenge areas for the development and application of blockchain technology.  In this section we discuss several of these challenges and briefly summarize related approaches for mitigating them.
 
 %\paragraph{Scalability of public blockchains: transaction costs and bandwidth, emergent centralization, and energy consumption}
 \subsection{Blockchain scalability}
