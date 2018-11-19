@@ -144,45 +144,43 @@ These use cases are summarized in Table~\ref{tab:usecase}.
 \end{tabular}
 \end{table}
 
+
+% === 
+
 \subsection{Ideal Use Cases}
 In this subsection, we describe the use cases that could benefit the most from the application of Blockchain technology.
+
+\subsubsection{Payments}
+It is well-known that Blockchain technology can be used to build cryptocurrencies, thus enabling electronic payments.
+Bitcoin is a working example of this, however Bitcoin has notable drawbacks that include limited throughput and privacy.
+There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency, scalable, partially offline, confidential and/or anonymous.
+
+\subsubsection{Transaction Processing} 
+Real world financial markets provide the ability for the exchange of valuable assets and tend to involve intermediaries like exchanges, brokers or dealers, clearing and settlement entities. 
+Blockchain-based assets---which either hold intrinsic value on it's own blockchain, or represent a claim on an external material or digital asset---can be transacted directly between participants or governed by smart contracts.
+Similar to payments, such transactions are resilient even when large values are at stake.
+Shared governance enables direct trading between users and requires less financial market infrastructure.  
+
+\subsubsection{Auctions/Markets}
+A Blockchain-based market can provide a coordination point for buyers and sellers to find each other, exchange assets, and provide price information to observers. 
+Auctions are a common mechanism for setting a fair price. 
+Decentralized markets and auction mechanisms must address the issue of non-confidential transactions and the resulting potential for front-running by participants in the blockchain network (in particular, miners).
+
+\subsubsection{Record Storage} % Jeremy: Data Provenance
+A Blockchain system's append-only ledger can be used to store documents, including the history of changes to these documents.
+This use case is best suited for records that are highly valuable (such as certificates, government licenses), that have a small data size (storage is limited and expensive in most blockchain systems), and are publicly available (by default, a blockchain does not offer confidentiality).
+A common mechanism to expand blockchain storage to large and/or confidential data is to only store succinct binding/hiding commitments to the data on the blockchain, and store the raw data itself in a less integral environment.
+For open Blockchains, the identity of the entity certifying the data is not provided for by default on a Blockchain.
+
+% === 
+
+\subsection{Suitable Use Cases}
+In this subsection, we describe the use cases that could benefit from Blockchain technology if there is a need for shared governance, provenance, and/or high-level reliability. Each of these use-cases include at least one major unresolved issue.
 
 \subsubsection{Asset Tracking} Blockchain technology can be used for tracking assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important.  Examples that have been proposed and would last for long durations include artwork and diamonds.  In addition, large organizations have valuable assets that are globally dispersed and information about any single asset is distributed.  Maintaining control of those inventories is essential to efficient and effective operations.  Examples include vehicles owned by shipping companies and rental companies.  Finally, there's also a short-term version of asset management that is of interest: sometimes it's useful to track packages that are being shipped over long distances, and which will change hands many times in the process.  Analyses of interest include identifying the last known locations and durations that the asset spends in specific places or transiting between places.
 
 \subsubsection{Supply Chain Management}
 To support this, asset tracking needs to be augmented with a mechanism enabling multiple items to be combined into a single new item.  Most complex devices built today require parts that are built by multiple companies, assembled into a useful whole. Here information can distributed: multiple suppliers could be creating the same parts, and multiple assembly plants can remove those parts from inventory and produce the assembled products.  An important element of the profitability of a company comes from careful management of this supply chain and the inventory that is developed by the companies.  Thus analysis needs to support the inventory turnover metric which is used to determine the quality of supply chain management.
-
-\subsubsection{Payments}
-It is well-known that Blockchain technology can be used to build cryptocurrencies, thus enabling electronic payments.
-There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency, scalable, and/or anonymous.
-
-\subsubsection{Transaction Processing}
-On-chain tokens can be used to represent digital and real-world resources.
-These resources can then be traded between individuals.
-These transactions can be tracked in a Blockchain.
-This provides the provenance and resilience necessary for such transactions.
-The use of shared governance also allows interested parties to run this transaction processing instead of a single large organization.
-
-\subsubsection{Fine-grained Access Control}
-In practice, access control systems are often centralized. They are sometimes nominally distributed -- for example, requiring several written signatures on a form before a system administrator will grant a new permission -- but even these systems are essentially centralized as a single administrator can unilaterally grant nearly any privilege in the system.
-Blockchain technology's shared governance could allow for true fine-grained and decentralized access control.
-When permissions are needed, those responsible (and not an administrator) can directly approve the permissions and smart contracts can ensure that the permissions is granted if and only if all necessary approvals are given.
-Additionally, the provenance information associated with the access control can be used to rollback changes made by users if those users are later shown to have been compromised.
-
-\subsubsection{Data Sharing}
-One key challenge when sharing data between multiple organizations is that no organization wants to give up ownership and control of their own data.
-Blockchain technology's shared governance model allows all parties to share data while still retaining control of their own data.
-Importantly, it is not the data that is stored on the Blockchain, but rather the access control rules and access attempts.
-The data itself continues to be stored by the organization that owns/controls it.
-
-\subsubsection{Voting}
-Electronic voting is a challenging problem which might benefit from several of Blockchain technology's properties.
-Shared governance could be used to ensure that multiple parties (the government, non-governmental organizations, international watchdogs) can all work together to ensure that an election is legitimate.
-Audibility is important in providing evidence to the electorate that the election was fair.
-Finally, the resilience of Blockchain technology is important in prevent cyber-attacks against the voting system.
-
-\subsection{Suitable Use Cases}
-In this subsection, we describe the use cases that could benefit from Blockchain technology if there is a need for shared governance, provenance, and/or high-level reliability.
 
 \subsubsection{Identity Management}
 Identities along with cryptographic attestations about properties for those identities (e.g., over 18 years of age, has a driver's license) can be written to the Blockchain.
@@ -190,16 +188,17 @@ These identities and attestations can then be used by other systems to support t
 Importantly, this identity information comes with full provenance. This could be useful in determine suspicious activity (e.g., having an age that is not increasing linearly).
 This could also be a quicker and more performant way of establishing identity than the current certificate authority system.
 
-\subsubsection{Auctions/Markets}
-A Blockchain could be used to record available products.
-Bids or offers for those products could then be made and recorded on the Blockchain.
-When a bid or offer is accepted, that acceptance could be recorded on the Blockchain, funds could be automatically transfered, and if the item being sold is an on-chain token, the item can immediately be transfered to the buyer.
-Blockchain is most appropriate when the items being sold are of high value and are not owned by a single, centralized entity.
+\subsubsection{Gambling}
+By examining the most active Bitcoin scripts and Ethereum decentralized applications, gambling is popular. 
 
-\subsubsection{Record Storage}
-A Blockchain system's append-only ledger can be used to store documents, including the history of changes to these documents.
-This use case is best suited for records that are highly valuable, such as documents that establish the identity of an individual or their status in a nation-state (e.g., marriage license).
-In these situations, it might be worthwhile to have a Blockchain system to leverage the resilience it provides.
+ to be very popular on Bitcoin and Ethereum. 
+ 
+A Blockchain system could record bets, execute games, deduct funds in the case of loss, and pay out in the case of a win.
+Players could audit the game to ensure that execution was fair, and the system could operate its own cryptocurrency to handle the finances.
+
+This is a poor use case because it relies on two properties that are not well supported by Blockchain technology: random oracles and off-chain oracles.
+Because Blockchain needs to be deterministic for all miners to reach consensus, it is a poor platform for random number generation, a key component of games of chance.
+If the gambling is regarding the outcome of real-world events, then the system has to rely on off-chain oracles to settle bets. This could slow down the system, reduce auditability, and also introduce a single point of failure.
 
 \subsubsection{IoT/Smart Properties}
 IoT devices occasionally have the need to collectively make decisions.
@@ -218,8 +217,26 @@ Much like the insurance use cases, regulations can be written to a Blockchain an
 After a violation is reported, a smart contract can automatically apply the penalty or sanction for breaking the regulation.
 As the system is auditable, penalized parties have a full history of what led to their punishment, providing means for them to appeal if there was a mistake.
 
-\subsection{Poor Use Cases}
+\subsubsection{Fine-grained Access Control}
+In practice, access control systems are often centralized. They are sometimes nominally distributed -- for example, requiring several written signatures on a form before a system administrator will grant a new permission -- but even these systems are essentially centralized as a single administrator can unilaterally grant nearly any privilege in the system.
+Blockchain technology's shared governance could allow for true fine-grained and decentralized access control.
+When permissions are needed, those responsible (and not an administrator) can directly approve the permissions and smart contracts can ensure that the permissions is granted if and only if all necessary approvals are given.
+Additionally, the provenance information associated with the access control can be used to rollback changes made by users if those users are later shown to have been compromised.
+
+\subsubsection{Data Sharing}
+One key challenge when sharing data between multiple organizations is that no organization wants to give up ownership and control of their own data.
+Blockchain technology's shared governance model allows all parties to share data while still retaining control of their own data.
+Importantly, it is not the data that is stored on the Blockchain, but rather the access control rules and access attempts.
+The data itself continues to be stored by the organization that owns/controls it.
+
+%=== \subsection{Poor Use Cases}
 In this subsection, we describe uses cases that could use Blockchain technology, but most likely should not.
+
+\subsubsection{Voting}
+Electronic voting is a challenging problem which might benefit from several of Blockchain technology's properties.
+Shared governance could be used to ensure that multiple parties (the government, non-governmental organizations, international watchdogs) can all work together to ensure that an election is legitimate.
+Audibility is important in providing evidence to the electorate that the election was fair.
+Finally, the resilience of Blockchain technology is important in prevent cyber-attacks against the voting system.
 
 \subsubsection{Interoperation}
 Blockchain technology can facilitate the interoperation of multiples systems.
@@ -228,13 +245,7 @@ Using smart contracts it can convert those requests to the appropriate form to a
 This is a poor use case because it does not rely on shared governance, consensus, or provenance.
 This use case can more easily be accomplished with a standard program and a database.
 
-\subsubsection{Gambling}
-A Blockchain system could record bets, execute games, deduct funds in the case of loss, and pay out in the case of a win.
-Players could audit the game to ensure that execution was fair, and the system could operate its own cryptocurrency to handle the finances.
 
-This is a poor use case because it relies on two properties that are not well supported by Blockchain technology: random oracles and off-chain oracles.
-Because Blockchain needs to be deterministic for all miners to reach consensus, it is a poor platform for random number generation, a key component of games of chance.
-If the gambling is regarding the outcome of real-world events, then the system has to rely on off-chain oracles to settle bets. This could slow down the system, reduce auditability, and also introduce a single point of failure.
 
 \subsubsection{Timestamping}
 Blockchain technology could be used to timestamp documents. Still, timestamping generally does not rely on any of Blockchain technologies key properties, and so Blockchain technology is likely overkill for this application.
