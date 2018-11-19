@@ -155,7 +155,7 @@ It is well-known that Blockchain technology can be used to build cryptocurrencie
 Bitcoin is a working example of this, however Bitcoin has notable drawbacks that include limited throughput and privacy.
 There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency, scalable, partially offline, confidential and/or anonymous.
 
-\subsubsection{Transaction Processing} 
+\subsubsection{Transaction Processing} % Jeremy: Should rename to tokens or something like that
 Real world financial markets provide the ability for the exchange of valuable assets and tend to involve intermediaries like exchanges, brokers or dealers, clearing and settlement entities. 
 Blockchain-based assets---which either hold intrinsic value on it's own blockchain, or represent a claim on an external material or digital asset---can be transacted directly between participants or governed by smart contracts.
 Similar to payments, such transactions are resilient even when large values are at stake.
@@ -177,10 +177,15 @@ For open Blockchains, the identity of the entity certifying the data is not prov
 \subsection{Suitable Use Cases}
 In this subsection, we describe the use cases that could benefit from Blockchain technology if there is a need for shared governance, provenance, and/or high-level reliability. Each of these use-cases include at least one major unresolved issue.
 
-\subsubsection{Asset Tracking} Blockchain technology can be used for tracking assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important.  Examples that have been proposed and would last for long durations include artwork and diamonds.  In addition, large organizations have valuable assets that are globally dispersed and information about any single asset is distributed.  Maintaining control of those inventories is essential to efficient and effective operations.  Examples include vehicles owned by shipping companies and rental companies.  Finally, there's also a short-term version of asset management that is of interest: sometimes it's useful to track packages that are being shipped over long distances, and which will change hands many times in the process.  Analyses of interest include identifying the last known locations and durations that the asset spends in specific places or transiting between places.
+\subsubsection{Asset Tracking} 
+Blockchain technology can be used for tracking material assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important. This includes long-term valuable items like artwork and diamonds; certified goods like food and luxury items; dispersed items like fleets of vehicles; and short-term items like package being shipped over long distances, which will change hands many times in the process. While assets are already tracked through digital databases, a blockchain solves the problem of who should run the database for industries with multiple participants. It provides a common environment where no single firm has the elevated power and control of running a widely-used database. The main challenge is specifying how material assets are assigned a tracking token on the blockchain in a trustworthy manner. A second challenge is the level of transparency a blockchain would bring to proprietary, profitable business practices. 
 
-\subsubsection{Supply Chain Management}
-To support this, asset tracking needs to be augmented with a mechanism enabling multiple items to be combined into a single new item.  Most complex devices built today require parts that are built by multiple companies, assembled into a useful whole. Here information can distributed: multiple suppliers could be creating the same parts, and multiple assembly plants can remove those parts from inventory and produce the assembled products.  An important element of the profitability of a company comes from careful management of this supply chain and the inventory that is developed by the companies.  Thus analysis needs to support the inventory turnover metric which is used to determine the quality of supply chain management.
+% Analyses of interest include identifying the last known locations and durations that the asset spends in specific places or transiting between places.
+
+\subsubsection{Supply Chain Management} % Jeremy: needs better name
+Many complex devices built today require parts that are built by multiple companies, assembled into a useful whole. For heavily regulated industries, like airlines, or for military/intelligence applications, it is important to establish the source of each part that has been used, as well as a maintenance history. The benefit of a blockchain, like asset tracking, is mainly a political one (not a technical one): it enables a common environment while side-stepping the question of which entity maintains the environment. It also shares the same binding challenge.
+
+%To support this, asset tracking needs to be augmented with a mechanism enabling multiple items to be combined into a single new item.   Here information can distributed: multiple suppliers could be creating the same parts, and multiple assembly plants can remove those parts from inventory and produce the assembled products.  An important element of the profitability of a company comes from careful management of this supply chain and the inventory that is developed by the companies.  Thus analysis needs to support the inventory turnover metric which is used to determine the quality of supply chain management.
 
 \subsubsection{Identity Management}
 Identities along with cryptographic attestations about properties for those identities (e.g., over 18 years of age, has a driver's license) can be written to the Blockchain.
@@ -189,16 +194,9 @@ Importantly, this identity information comes with full provenance. This could be
 This could also be a quicker and more performant way of establishing identity than the current certificate authority system.
 
 \subsubsection{Gambling}
-By examining the most active Bitcoin scripts and Ethereum decentralized applications, gambling is popular. 
+By examining the most active Bitcoin scripts and Ethereum decentralized applications, gambling is popular. Players can audit the game to ensure that execution is fair, and the system can operate its own cryptocurrency to handle the finances (including holding the money in escrow to prevent losing parties from aborting before paying). This use case is best suited to gambling games that do not require randomness, private state, or knowledge of off-blockchain events. For the subset of residual games,\footnote{The most active Ethereum game is called Fomo3D: users pay to reset a 30 second countdown timer and if it ever reaches zero, the last user to pay wins all the money collected.} blockchain is an ideal platform. For the other types of games, new layers of technology would have be added on a Blockchain. Data-feeds (called oracles) of either randomness or real world event outcomes requires additional trust and introduces finality risk, while confidential user state require additional cryptography.  
 
- to be very popular on Bitcoin and Ethereum. 
- 
-A Blockchain system could record bets, execute games, deduct funds in the case of loss, and pay out in the case of a win.
-Players could audit the game to ensure that execution was fair, and the system could operate its own cryptocurrency to handle the finances.
-
-This is a poor use case because it relies on two properties that are not well supported by Blockchain technology: random oracles and off-chain oracles.
-Because Blockchain needs to be deterministic for all miners to reach consensus, it is a poor platform for random number generation, a key component of games of chance.
-If the gambling is regarding the outcome of real-world events, then the system has to rely on off-chain oracles to settle bets. This could slow down the system, reduce auditability, and also introduce a single point of failure.
+% Jeremy: Watermark for me when I pick this up again. 
 
 \subsubsection{IoT/Smart Properties}
 IoT devices occasionally have the need to collectively make decisions.
@@ -229,7 +227,8 @@ Blockchain technology's shared governance model allows all parties to share data
 Importantly, it is not the data that is stored on the Blockchain, but rather the access control rules and access attempts.
 The data itself continues to be stored by the organization that owns/controls it.
 
-%=== \subsection{Poor Use Cases}
+%=== 
+\subsection{Unsuitable Use Cases}
 In this subsection, we describe uses cases that could use Blockchain technology, but most likely should not.
 
 \subsubsection{Voting}
