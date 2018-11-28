@@ -19,133 +19,133 @@
 Based on the results of our analysis, we have identified sixteen classes of applications for Blockchain technology.
 These use cases are summarized in Table~\ref{tab:usecase}.
 
-\begin{table*}
-\renewcommand{\arraystretch}{1.35}
-\setlength\tabcolsep{.25em}
-\centering 
-
-\caption{Blockchain Technology Use Cases and Associated Capabilities and Challenges.\label{tab:usecase}}
-
-\begin{tabular}{ll | *{10}{c} | *{6}{c} |}
-	
-	\headrow{} & \headrow{} \headline &
-	
-	\headrow{Shared governance} &
-	\headrow{Shared operation} &
-	\headrow{Transaction ledger} &
-	\headrow{Resilience} &
-	\headrow{Provenance} &
-	\headrow{Auditability} &
-	\headrow{Access control} &
-	\headrow{Pseudonymity} &
-	\headrow{Smart contracts} &
-	\headrow{Data discoverability}
-	\headline &
-	
-	\headrow{Scalability} &
-	\headrow{Off-chain} &
-	\headrow{Correctness} &
-	\headrow{Key management} &
-	\headrow{Regulation} &
-	\headrow{Privacy}
-	\headline \\ \hline
-	
-	& \textit{Use Case} & 
-	\multicolumn{10}{c|}{\textit{Capabilities}}&    
-	\multicolumn{6}{c|}{\textit{Challenges}} \\ \hline
-	
-	&Asset Management
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&\hspace{1em} Supply chain management
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&\hspace{1em} Asset tracking
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&\hspace{1em} Payments
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&\hspace{1em} Transaction processing
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	\hline
-	
-	&Insurance
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&IoT / smart property
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	\hline
-	
-	&Regulation / sanctions
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&Record storage
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	\hline
-	
-	&Key management
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&Identity management
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	\hline
-	
-	&Fine-grained access control
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&Data sharing
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-
-	&System interoperability
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	\hline
-	
-	&Voting
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&Auction / bidding
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	&Gambling
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-
-	&\hspace{1em} Forecasting
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-
-	\hline
-
-	&Decentralized timestamping
-	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-	&\none	&\none	&\none	&\none	&\none	&\none	\\
-	
-	\hline
-
-\end{tabular}
-\end{table*}
+%\begin{table*}
+%\renewcommand{\arraystretch}{1.35}
+%\setlength\tabcolsep{.25em}
+%\centering 
+%
+%\caption{Blockchain Technology Use Cases and Associated Capabilities and Challenges.\label{tab:usecase}}
+%
+%\begin{tabular}{ll | *{10}{c} | *{6}{c} |}
+%	
+%	\headrow{} & \headrow{} \headline &
+%	
+%	\headrow{Shared governance} &
+%	\headrow{Shared operation} &
+%	\headrow{Transaction ledger} &
+%	\headrow{Resilience} &
+%	\headrow{Provenance} &
+%	\headrow{Auditability} &
+%	\headrow{Access control} &
+%	\headrow{Pseudonymity} &
+%	\headrow{Smart contracts} &
+%	\headrow{Data discoverability}
+%	\headline &
+%	
+%	\headrow{Scalability} &
+%	\headrow{Off-chain} &
+%	\headrow{Correctness} &
+%	\headrow{Key management} &
+%	\headrow{Regulation} &
+%	\headrow{Privacy}
+%	\headline \\ \hline
+%	
+%	& \textit{Use Case} & 
+%	\multicolumn{10}{c|}{\textit{Capabilities}}&    
+%	\multicolumn{6}{c|}{\textit{Challenges}} \\ \hline
+%	
+%	&Asset Management
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&\hspace{1em} Supply chain management
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&\hspace{1em} Asset tracking
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&\hspace{1em} Payments
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&\hspace{1em} Transaction processing
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	\hline
+%	
+%	&Insurance
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&IoT / smart property
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	\hline
+%	
+%	&Regulation / sanctions
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&Record storage
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	\hline
+%	
+%	&Key management
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&Identity management
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	\hline
+%	
+%	&Fine-grained access control
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&Data sharing
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%
+%	&System interoperability
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	\hline
+%	
+%	&Voting
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&Auction / bidding
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	&Gambling
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%
+%	&\hspace{1em} Forecasting
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%
+%	\hline
+%
+%	&Decentralized timestamping
+%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
+%	&\none	&\none	&\none	&\none	&\none	&\none	\\
+%	
+%	\hline
+%
+%\end{tabular}
+%\end{table*}
 
 
 % === 

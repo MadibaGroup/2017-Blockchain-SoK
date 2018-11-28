@@ -1,31 +1,33 @@
 % !TEX root = ../main.tex
 
 \section{Introduction}
-\rnote{I think that we need to start with the notion of an authenticated data structure or hash chain used to establish the integrity of data, given the title of the paper.  What is the right reference?}
+%\rnote{I think that we need to start with the notion of an authenticated data structure or hash chain used to establish the integrity of data, given the title of the paper.  What is the right reference?}
 
 In 1982, David Chaum~\cite{Cha82} proposed using blind signatures to allow for untraceable payments.
 Later, Chaum et al.~\cite{chaum1988untraceable} expanded this idea into a fully fleshed out system, eCash.
 eCash was the first cryptocurrency---i.e., ``a digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds operating independently of a [nation-state-controlled] central bank.''\footnote{\url{https://en.oxforddictionaries.com/definition/cryptocurrency}}
 However, early cryptocurrencies still required the presence of a central party to help manage the creation and transfer of funds.
 
-These key ideas were brought together in 2008 with several others as Bitcoin by an author using the pseudonym Satoshi Nakamoto~\cite{Nak08}. Unlike centralized cryptocurrencies which rely on a set of known entities to run the cryptocurrency, Bitcoin uses a proof-of-work-based scheme~\cite{DN93,back1997partial} to allow the general public to maintain the system.
+Two decades after eCash was first proposed, an author using the pseudonym Satoshi Nakamoto~\cite{Nak08} wrote a white paper describing Bitcoin, a new decentralized cryptocurrency.
+Unlike centralized cryptocurrencies which rely on a set of known entities to operate the cryptocurrency, Bitcoin uses a proof-of-work-based scheme~\cite{DN93,back1997partial} to allow the general public to maintain the system.
 To incentivize public participation, Bitcoin pays participants (known as miners) for solving the proof-of-work puzzles.
 While Bitcoin's building blocks were not novel, the composition of these properties into a single system was a meaningful contribution~\cite{Narayanan17} that led to the first cryptocurrency to see wide-spread popularity and usage.
 
-At the peak of its popularity, Bitcoin's market capitalization reached \$835.69 billion (USD), though at the time of this writing it has seen a decrease in both its stature and market capitalization (\$125.83 billion).
+At the peak of its popularity, Bitcoin's market capitalization reached \$835.69 billion (USD), though at the time of this writing it has seen a decrease in both its stature and market capitalization (\$67.21 billion).
 Nevertheless, there remains significant interest in the question of whether the technology underlying Bitcoin---known as \emph{Blockchain technology} or {Blockchain} for short---could be used to build other interesting cryptocurrencies or distributed systems.
-In particular, we have heard researchers, businesses, and governments repeatedly ask the following four questions related to Blockchain technology: (1) what exactly is Blockchain technology, (2) what capabilities does it provide, (3) how does it compare to other approaches (e.g., distributed databases), (4) what are good applications for Blockchain technology.
+In particular, we have consistently heard researchers, businesses, and governments ask the following four questions related to Blockchain technology: (1) what exactly is Blockchain technology, (2) what capabilities does it provide, (3) how does it compare to other approaches (e.g., distributed databases), (4) what are good user cases for Blockchain technology.
 
 To answer these questions, it is insufficient to consider academic sources alone.
 While there have been several academic overviews written in this space, they have not addressed these general question regarding Blockchain technology, but rather surveyed particular systems or technical properties: Bitcoin~\cite{BMC+15,Narayanan17}, payment privacy~\cite{Conti17}, security and performance~\cite{Gervais16}, scalability~\cite{Croman16}, and consensus protocols~\cite{Bano17,garay2018consensus}.
-In contrast, there has been significant work from the industrial sector (hereafter referred to as \emph{industry}) attempting to answers the questions as they search for applications and new product offerings that could be enabled by Blockchain technology.
+In contrast, there has been significant work from non-academic sources (hereafter referred to as \emph{industry}) attempting to answers the questions as they search for applications and new product offerings that could be enabled by Blockchain technology.
 Unfortunately, much of this work is fueled by hype and lacks the peer-review process and rigor expected of academic literature.
 
-To address these limitations in the literature produced by industry, we leveraged grounded theory~\cite{glaser1965constant,strauss1990basics,corbin1990grounded} (also known as the constant comparative method) to analyze this corpus of industry literature (see \S\ref{sec:method}).
-This allowed us to extract the valuable technical insights from the hype and technical misunderstandings that permeate this body of work.
-Based on this analysis of data from industry, interspersed with our own knowledge and a review of the academic literature, this work answers the four questions commonly asked in relation to Blockchain technology.
+To address these limitations in our analysis of literature produced by industry we applied a grounded theory methodology~\cite{glaser1965constant,strauss1990basics,corbin1990grounded} (also known as the constant comparative method).
+This allowed us to extract valuable technical insights out from the hype and technical misunderstandings that permeate this body of work.
+Based on this analysis of data from industry, interspersed with our own knowledge and a review of the academic literature, we are able to answer the four questions commonly asked in relation to Blockchain technology.
 
-While the individual results of this work might not be surprising, taken together they represent the most complete overview of Blockchain technology and its use cases available in the academic literature.
+While many of the results in this work might not be surprising to some readers, our experience suggests that knowledge of Blockchain technology is neither universal nor complete within the security community.
+Taken together, the results in this paper represent the most complete overview of Blockchain technology and its potential user cases available in a single work and are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas.%the academic literature
 More concretely, our key contributions are,
 
 \begin{enumerate}
@@ -37,26 +39,31 @@ More concretely, our key contributions are,
 	We also discuss other related technical properties that enabled Blockchain's various capabilities.
 	
 	\item \textbf{Identifying the capabilities provided by Blockchain technology.}
-	Our results demonstrate that Blockchain provides several important capabilities for use in building various applications.
+	Our results demonstrate that Blockchain provides several important capabilities for use in building various systems.
 	First, Blockchain systems inherently track their full-system provenance, and this provenance data allows for the system to be easily audited by miners and outside parties.
 	Additionally, this provenance data is also useful in tracking assets monitored or managed by the Blockchain system (e.g., supply chain management, cryptocurrencies).
 	Second, Blockchain technology provides access control for the assets it monitors or manages and can allow operations on these assets to be anonymous.
 	Third, the provenance information and replication of that information among all miners provides significant resilience against accidental data loss or malicious modification of the data.
 	Fourth, Blockchain systems can embed executable programs that can automatically execute as appropriate and gain the benefits of Blockchain technology's other capabilities.
 	
-	\item \textbf{Detailing open research questions in the area of Blockchain technology.}
-	As part of our review of the literature, both industry and academic, we identified several important challenges and limitations for Blockchain technology.
-	Several of these are important research questions with interesting potential for future research: scalability, smart contract correctness and dispute resolution, stapling of on-chain tokens to off-chain assets, key management, and regulation.
-	We survey these topics and describe the research that has been done into each of these areas.
+	%TODO: These need to be updated when I work through these sections and the discussion.
+	\item \textbf{Detailing open challenges in the area of Blockchain technology.}
+	As part of our review of the literature, we identified several important challenges and limitations for Blockchain technology: scalability, smart contract correctness and dispute resolution, stapling of on-chain tokens to off-chain assets, key management, and regulation.
+	Many of this challenges represent important research questions with interesting potential for future research.
+%	In this paper, we also survey the academic research that has already been conducted in regards to Blockchain technology.
 	
-	\item \textbf{Identify the applications that could benefit from the use of Blockchain technology.}
-	We identify sixteen classes of applications for Blockchain technology.
+	\item \textbf{Identifying use cases that are most likely to benefit from Blockchain technology.}
+	We identify sixteen use cases that could leverage Blockchain technolgoy 
+	
+	
+	classes of applications for Blockchain technology.
 	We separate these into applications that are ideal for Blockchain technology, those that are suitable if Blockchain's key properties are needed, and those that are poor matches for Blockchain technology.
 	This list is intended to help both practitioners and researchers know where to focus their attention in this space.
 	
-	\item \textbf{Describe how Blockchain technology fits in relation to other distributed databases.}
-	We provide a taxonomy and flow chart that describes how Blockchain technology relates to other distributed databases.
-	This taxonomy demonstrates that Blockchain technology is the most complex of the related distributed databases.
-	As such, we recommend that applications leverage Blockchain technology only if they need the shared governance, provenance, auditability and resilience provided by Blockchain technology.
+	%TODO: I think this will move the appendix.
+%	\item \textbf{Describe how Blockchain technology fits in relation to other distributed databases.}
+%	We provide a taxonomy and flow chart that describes how Blockchain technology relates to other distributed databases.
+%	This taxonomy demonstrates that Blockchain technology is the most complex of the related distributed databases.
+%	As such, we recommend that applications leverage Blockchain technology only if they need the shared governance, provenance, auditability and resilience provided by Blockchain technology.
 	
 \end{enumerate}
