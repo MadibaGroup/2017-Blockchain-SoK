@@ -3,37 +3,54 @@
 \section{Blockchain Technology's Use Cases}
 \label{sec:use-cases}
 
-%\textbf{TODO: Insert references, especially for each class}
-%\textbf{TODO: discuss how we count applications.  I've called several things to be special cases of others--ok?}
-
 The wide range of capabilities provided by Blockchain technologies indicate that it can be an important building block for various systems.
 Still, Blockchain technology comes with significant overhead: shared governance and operation (i.e., consensus), as well as  a fully replicated, auditable ledger.
-While Blockchain technology can be used in place of more lightweight systems (e.g., a distributed database), based on our results and experience we believe that Blockchain technology is most applicable when at least two of the following criteria are met:\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
+Based on our results and experience we recommend the use of the following questions to determine if Blockchain technology would be a good fit for a specific project:\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
 
 \begin{enumerate}
-	\item \textbf{Does the system require shared governance \emph{and} operation}. If so, this justifies the use of the consensus protocols. Additionally, meaningful shared governance and operation requires auditability (2) and resilience (3), meaning that this question alone can justify the use of Blockchain technology.
-	\item \textbf{Is it necessary for the system to be auditable?} If so, this justifies the use of an cryptographic, append-only ledger.
-	\item \textbf{Is it necessary to not only detect attacks, but recover to the last good state?} If so, this justifies replicating the ledger to all miners. Without this replication it would be possible to detect an attack that deletes data, but not necessarily to reverse it.	
+	\item Does the system require shared governance?
+	\item Does the system require shared operation?
+\end{enumerate}
+
+If the answer to both questions is no, then Blockchain's consensus protocol is likely unnecessary overhead. If the answer to both questions is yes, then Blockchain technology is likely a good fit. This is due to the fact that meaningful shared governance \emph{and} operation requires miners to audit the operations of others and to be able to recover data that a malicious miner might try to delete (questions 3 and 4 below, respectively). If only shared governance or shared operation is needed, then the following two questions can be used to determine if the auditable ledger and replication, respectively, justifying the use of Blockchain technology if both are needed:
+
+\begin{enumerate}[start=3]
+	\item Is it necessary to audit the system's provenance?
+	\item Is it necessary to prevent malicious data deletion?
 \end{enumerate}
 
 Within the literature we analyzed, there were many uses cases identified that could benefit from the application of Blockchain technology.
 In this section, we describe these potential use cases.
-Within this section, we divide these use cases into three categories---highly suitable, somewhat suitable, and not suitable---based on the \emph{likelihood} that any given application within the use case would meet the three criteria laid out above.
-Note that for any use case it is always possible to construct an application that requires Blockchain technology, so this categorization is only intended as a helpful guide as to the likelihood that an application in a given use case will require Blockchain technology.
+Within this section, we divide these use cases into three categories---highly suitable, somewhat suitable, and not suitable---based on the \emph{likelihood} that any given application within the use case would meet the criteria laid out above.
+Note that for any use case it is always possible to construct an application that requires Blockchain technology, so this categorization is only intended as a helpful guide as to the likelihood that an application in a given use case will benefit from Blockchain technology.
 
 \subsection{Highly Suitable Use Cases}
-In this subsection, we describe the use cases that are most likely to require two of the three criteria laid out in th beginning of the section.
+In this subsection, we describe the use case areas that are most likely to benefit from Blockchain technology.
 
-\subsubsection{Payments}
+\paragraph{Payments and cryptocurrencies}
 It is well-known that Blockchain technology can be used to build cryptocurrencies, thus enabling electronic payments.
 Bitcoin is a working example of this, however Bitcoin has notable drawbacks that include limited throughput and privacy.
 There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency, scalable, partially offline, confidential and/or anonymous.
 
-\subsubsection{Transaction Processing} % Jeremy: Should rename to tokens or something like that
+\paragraph{Token tracking and processing}
 Real world financial markets provide the ability for the exchange of valuable assets and tend to involve intermediaries like exchanges, brokers or dealers, clearing and settlement entities. 
 Blockchain-based assets---which either hold intrinsic value on it's own blockchain, or represent a claim on an external material or digital asset---can be transacted directly between participants or governed by smart contracts.
 Similar to payments, such transactions are resilient even when large values are at stake.
 Shared governance enables direct trading between users and requires less financial market infrastructure.  
+
+\paragraph{Asset Tracking} 
+Blockchain technology can be used for tracking material assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important. This includes long-term valuable items like artwork and diamonds; certified goods like food and luxury items; dispersed items like fleets of vehicles; and short-term items like package being shipped over long distances, which will change hands many times in the process. While assets are already tracked through digital databases, a blockchain solves the problem of who should run the database for industries with multiple participants. It provides a common environment where no single firm has the elevated power and control of running a widely-used database. The main challenge is specifying how material assets are assigned a tracking token on the blockchain in a trustworthy manner. A second challenge is the level of transparency a blockchain would bring to proprietary, profitable business practices.
+
+\paragraph{Supply Chain Management} % Jeremy: needs better name
+Many complex devices built today require parts that are built by multiple companies, assembled into a useful whole. For heavily regulated industries, like airlines, or for military/intelligence applications, it is important to establish the source of each part that has been used, as well as a maintenance history. The benefit of a blockchain, like asset tracking, is mainly a political one (not a technical one): it enables a common environment while side-stepping the question of which entity maintains the environment. It also shares the same binding challenge.
+
+\subsubsection{Regulation/Sanctions}
+Much like the insurance use cases, regulations can be written to a Blockchain and off-chain oracles can report on real-world violations of those regulations.
+After a violation is reported, a smart contract can automatically apply the penalty or sanction for breaking the regulation.
+As the system is auditable, penalized parties have a full history of what led to their punishment, providing means for them to appeal if there was a mistake.
+
+\subsection{Suitable Use Cases}
+In this subsection, we describe the use cases that could benefit from Blockchain technology if there is a need for shared governance, provenance, and/or high-level reliability. Each of these use-cases include at least one major unresolved issue.
 
 \subsubsection{Auctions/Markets}
 A Blockchain-based market can provide a coordination point for buyers and sellers to find each other, exchange assets, and provide price information to observers. 
@@ -45,21 +62,6 @@ A Blockchain system's append-only ledger can be used to store documents, includi
 This use case is best suited for records that are highly valuable (such as certificates, government licenses), that have a small data size (storage is limited and expensive in most blockchain systems), and are publicly available (by default, a blockchain does not offer confidentiality).
 A common mechanism to expand blockchain storage to large and/or confidential data is to only store succinct binding/hiding commitments to the data on the blockchain, and store the raw data itself in a less integral environment.
 For open Blockchains, the identity of the entity certifying the data is not provided for by default on a Blockchain.
-
-% === 
-
-\subsection{Suitable Use Cases}
-In this subsection, we describe the use cases that could benefit from Blockchain technology if there is a need for shared governance, provenance, and/or high-level reliability. Each of these use-cases include at least one major unresolved issue.
-
-\subsubsection{Asset Tracking} 
-Blockchain technology can be used for tracking material assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important. This includes long-term valuable items like artwork and diamonds; certified goods like food and luxury items; dispersed items like fleets of vehicles; and short-term items like package being shipped over long distances, which will change hands many times in the process. While assets are already tracked through digital databases, a blockchain solves the problem of who should run the database for industries with multiple participants. It provides a common environment where no single firm has the elevated power and control of running a widely-used database. The main challenge is specifying how material assets are assigned a tracking token on the blockchain in a trustworthy manner. A second challenge is the level of transparency a blockchain would bring to proprietary, profitable business practices. 
-
-% Analyses of interest include identifying the last known locations and durations that the asset spends in specific places or transiting between places.
-
-\subsubsection{Supply Chain Management} % Jeremy: needs better name
-Many complex devices built today require parts that are built by multiple companies, assembled into a useful whole. For heavily regulated industries, like airlines, or for military/intelligence applications, it is important to establish the source of each part that has been used, as well as a maintenance history. The benefit of a blockchain, like asset tracking, is mainly a political one (not a technical one): it enables a common environment while side-stepping the question of which entity maintains the environment. It also shares the same binding challenge.
-
-%To support this, asset tracking needs to be augmented with a mechanism enabling multiple items to be combined into a single new item.   Here information can distributed: multiple suppliers could be creating the same parts, and multiple assembly plants can remove those parts from inventory and produce the assembled products.  An important element of the profitability of a company comes from careful management of this supply chain and the inventory that is developed by the companies.  Thus analysis needs to support the inventory turnover metric which is used to determine the quality of supply chain management.
 
 \subsubsection{Identity Management}
 Identities along with cryptographic attestations about properties for those identities (e.g., over 18 years of age, has a driver's license) can be written to the Blockchain.
@@ -83,11 +85,6 @@ Insurance policies can be recorded on the Blockchain.
 As off-chain oracles report on accidents and other insured events, the system can automatically begin the claim process and even pay out the insurance money upon completion of the claim.
 The auditability provides assurances to customers.
 Additionally, having insurers collectively govern and operate this system could ensure that claims are properly settled when they involve multiple insurers.
-
-\subsubsection{Regulation/Sanctions}
-Much like the insurance use cases, regulations can be written to a Blockchain and off-chain oracles can report on real-world violations of those regulations.
-After a violation is reported, a smart contract can automatically apply the penalty or sanction for breaking the regulation.
-As the system is auditable, penalized parties have a full history of what led to their punishment, providing means for them to appeal if there was a mistake.
 
 \subsubsection{Fine-grained Access Control}
 In practice, access control systems are often centralized. They are sometimes nominally distributed -- for example, requiring several written signatures on a form before a system administrator will grant a new permission -- but even these systems are essentially centralized as a single administrator can unilaterally grant nearly any privilege in the system.
