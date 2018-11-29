@@ -6,152 +6,23 @@
 %\textbf{TODO: Insert references, especially for each class}
 %\textbf{TODO: discuss how we count applications.  I've called several things to be special cases of others--ok?}
 
-%List application areas
-%	Why are they good
-%	Interesting research questions
+The wide range of capabilities provided by Blockchain technologies indicate that it can be an important building block for various systems.
+Still, Blockchain technology comes with significant overhead: shared governance and operation (i.e., consensus), as well as  a fully replicated, auditable ledger.
+While Blockchain technology can be used in place of more lightweight systems (e.g., a distributed database), based on our results and experience we believe that Blockchain technology is most applicable when at least two of the following criteria are met:\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
 
-%The enthusiasm that many start-ups have in leveraging Blockchain technology is justified, as the range of use cases is broad.  Good use cases leverage sets of capabilities that Blockchain technology can provide, using technological properties in combinations that are unique or nearly unique to Blockchain technology.  For these companies, decentralized governance is an important element of the blockchain, because it diffuses trust amongst those who maintain the blockchain.  This increases resilience by reducing the ability of a single bad actor from modifying or damaging the blockchain, and enables recovery when one bad actor starts to attempt these actions.  A second valuable property comes from the ledger, which records initial state and transitions, thereby providing a history of the provenance of the recorded data.  Many commercial companies understand this and consider these properties when selecting the blockchain.  
+\begin{enumerate}
+	\item \textbf{Does the system require shared governance \emph{and} operation}. If so, this justifies the use of the consensus protocols. Additionally, meaningful shared governance and operation requires auditability (2) and resilience (3), meaning that this question alone can justify the use of Blockchain technology.
+	\item \textbf{Is it necessary for the system to be auditable?} If so, this justifies the use of an cryptographic, append-only ledger.
+	\item \textbf{Is it necessary to not only detect attacks, but recover to the last good state?} If so, this justifies replicating the ledger to all miners. Without this replication it would be possible to detect an attack that deletes data, but not necessarily to reverse it.	
+\end{enumerate}
 
-%However, we find that it is just as important to consider the challenges and limitations of using the blockchain, because these limit the applications built on top of it in ways that are important to industry.  Some of these limit the ability of a business to meet regulations and to respond to legal challenges, and others limit the growth of the company or the ability of the company to handle large-scale problems.  One misconception we see is the idea that pseudonymity provides anonymity or privacy.  It alone does not; however, it is possible to leverage additional cryptography to achieve this feature.  We find that since only a portion of applications rely on this, it is best to treat anonymity as a separate, add-on property.
+Within the literature we analyzed, there were many uses cases identified that could benefit from the application of Blockchain technology.
+In this section, we describe these potential use cases.
+Within this section, we divide these use cases into three categories---highly suitable, somewhat suitable, and not suitable---based on the \emph{likelihood} that any given application within the use case would meet the three criteria laid out above.
+Note that for any use case it is always possible to construct an application that requires Blockchain technology, so this categorization is only intended as a helpful guide as to the likelihood that an application in a given use case will require Blockchain technology.
 
-%Finally, we find that the hype around the blockchain has led to some companies pursuing it, even if other, more appropriate capabilities and data structures are available.  One example flows from capabilities provided by the ledger.  Applications that benefit from maintaining a history of transactions are a good fit for the blockchain, as the current state can be reconstituted by traversing the append-only transaction ledger.  If however, the application only needs to know the current state without the history of prior states, then more efficient distributed data stores exist and should probably be used.
-
-Based on the results of our analysis, we have identified sixteen classes of applications for Blockchain technology.
-These use cases are summarized in Table~\ref{tab:usecase}.
-
-%\begin{table*}
-%\renewcommand{\arraystretch}{1.35}
-%\setlength\tabcolsep{.25em}
-%\centering 
-%
-%\caption{Blockchain Technology Use Cases and Associated Capabilities and Challenges.\label{tab:usecase}}
-%
-%\begin{tabular}{ll | *{10}{c} | *{6}{c} |}
-%	
-%	\headrow{} & \headrow{} \headline &
-%	
-%	\headrow{Shared governance} &
-%	\headrow{Shared operation} &
-%	\headrow{Transaction ledger} &
-%	\headrow{Resilience} &
-%	\headrow{Provenance} &
-%	\headrow{Auditability} &
-%	\headrow{Access control} &
-%	\headrow{Pseudonymity} &
-%	\headrow{Smart contracts} &
-%	\headrow{Data discoverability}
-%	\headline &
-%	
-%	\headrow{Scalability} &
-%	\headrow{Off-chain} &
-%	\headrow{Correctness} &
-%	\headrow{Key management} &
-%	\headrow{Regulation} &
-%	\headrow{Privacy}
-%	\headline \\ \hline
-%	
-%	& \textit{Use Case} & 
-%	\multicolumn{10}{c|}{\textit{Capabilities}}&    
-%	\multicolumn{6}{c|}{\textit{Challenges}} \\ \hline
-%	
-%	&Asset Management
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&\hspace{1em} Supply chain management
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&\hspace{1em} Asset tracking
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&\hspace{1em} Payments
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&\hspace{1em} Transaction processing
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	\hline
-%	
-%	&Insurance
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&IoT / smart property
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	\hline
-%	
-%	&Regulation / sanctions
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&Record storage
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	\hline
-%	
-%	&Key management
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&Identity management
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	\hline
-%	
-%	&Fine-grained access control
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&Data sharing
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%
-%	&System interoperability
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	\hline
-%	
-%	&Voting
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&Auction / bidding
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	&Gambling
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%
-%	&\hspace{1em} Forecasting
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%
-%	\hline
-%
-%	&Decentralized timestamping
-%	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none	&\none
-%	&\none	&\none	&\none	&\none	&\none	&\none	\\
-%	
-%	\hline
-%
-%\end{tabular}
-%\end{table*}
-
-
-% === 
-
-\subsection{Ideal Use Cases}
-In this subsection, we describe the use cases that could benefit the most from the application of Blockchain technology.
+\subsection{Highly Suitable Use Cases}
+In this subsection, we describe the use cases that are most likely to require two of the three criteria laid out in th beginning of the section.
 
 \subsubsection{Payments}
 It is well-known that Blockchain technology can be used to build cryptocurrencies, thus enabling electronic payments.
@@ -247,7 +118,5 @@ Using smart contracts it can convert those requests to the appropriate form to a
 This is a poor use case because it does not rely on shared governance, consensus, or provenance.
 This use case can more easily be accomplished with a standard program and a database.
 
-
-
-\subsubsection{Timestamping}
+\subsubsection{Timetamping}
 Blockchain technology could be used to timestamp documents. Still, timestamping generally does not rely on any of Blockchain technologies key properties, and so Blockchain technology is likely overkill for this application.
