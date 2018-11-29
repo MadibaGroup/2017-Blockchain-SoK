@@ -33,7 +33,9 @@ Systems with centralized governance are only able to detect malicious updates as
 If we modify the system to allow monitors to play this role, they have become consensus partners and we now have a decentralized database.
 
 \subsection{Survey of Academic Research on Challenges}
-In this section, we report on a survey we conducted that looked at research from the academic community that attempts to address challenges related to and impeding the proper and secure use of Blockchain technology.
+As part of the grounded theory analysis, the data revealed several open research challenges related to Blockchain technology.
+In regards to these challenges, we surveyed the academic literature to identify what researchers are doing to address these challenges.
+In this section, we summarize the results of our literature survey.
 
 \subsubsection{Power consumption and centralization of mining}
 To reduce the power consumption of Blockchain, there have been several proposals to turn to other consensus mechanisms that do not rely on proof of work.  The most popular of these proposals is proof of stake consensus, where parties' contribution to the consensus protocol is proportional to the total amount of stake they own in the system rather than the amount of work that they do.  This allows consensus to be achieved without relying on wasteful proofs of work.  Today's proof of stake protocols (e.g.~\cite{FC:BenGabMiz16,eprint:BenPasShi16,CRYPTO:KRDO17,SOSP:GHMVZ17}) vary significantly in their model, assumptions, and performance guarantees.  Other suggestions for avoiding proofs of work include proof of space~\cite{CRYPTO:DFKP15, eprint:PPKAFG15} where miners use storage instead of computation, and proof of elapsed time~\cite{SSS:CXSGLS17} where trusted hardware (i.e., Intel SGX) is used in place of proofs of work.  It is not clear at this point which solution will be best suited for different blockchain deployments.  

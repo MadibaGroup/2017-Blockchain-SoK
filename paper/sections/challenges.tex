@@ -1,18 +1,22 @@
 % !TEX root = ../main.tex
 
-%TODO: Add back in if this makes it into the main body of the paper. Even in the appendix this could be added back.
-%\subsection{Academic Literature Review}
-%As part of the grounded theory analysis, the data revealed several open research challenges related to Blockchain technology.
-%In regards to these challenges, we conducted a review of academic literature to identify what research has already been done and what the academic community thinks of these challenges.
-%These challenges, along with the relevant paper references, are discussed in Section~\ref{sec:research-challenges}.
+\subsection{Academic Literature Review}
 
 \section{Challenges for Blockchain Technology}
 \label{sec:challenges}
 
-In this section, we describe challenges and limitations that must be addressed when building applications for Blockchain technology.
+Our analysis of the literature revealed several challenges that need to be considered when developing systems using Blockchain technology.
+In this section, we describe these challenges and limitations.
+In Appendix~\ref{sec:research}, we survey academic research that is attempting to address some of the challenges.
+Note, this section is focused challenges facing Blockchain systems generally, not challenges facing specific applications (e.g., Bitcoin, Etherium).
 
-%\paragraph{Scalability of public blockchains: transaction costs and bandwidth, emergent centralization, and energy consumption}
 \subsection{Blockchain scalability and performance}
+
+
+
+
+
+
 As usage of Blockchain applications such as Bitcoin has grown, questions have been raised about their scalability, cost, and performance. Many documents in our corpus point out that blockchain is \emph{not a high performance system} and that its decentralized governance and operation result in an inefficient use of resources.  In particular, most of today's permissionless blockchains are based on proof-of-work style consensus in which consensus is achieved by having miners solve computationally difficult puzzles. This has led to the proliferation of power-hungry specialized hardware devices dedicated to solving these computational puzzles. An estimate in April 2018 found that the energy consumed by Bitcoin miners was equivalent to the power usage of almost 5.5 million US households~\cite{Digiconomist}, and all signs indicate that it will continue to grow.
 
 Another unintended consequence of proof-of-work blockchains is the centralization of mining power.  In order to reduce variance in their earnings, miners are incentivized to work together in large mining pools, pooling their computing power and sharing the profits among pool members.  Currently almost 70\% of Bitcoin blocks are mined by the five largest mining pools~\cite{BlockchainInfoPools}, inhibiting decentralization~\cite{arxiv:GBERS18}. Of course, these pools are disincentivized to damage trust in Bitcoin (and thus reduce its value and their profits) by abusing their power to censor transactions or violate rules in other ways. But this centralization undoubtedly runs counter to the normative property that Blockchain is decentralized and it may violate security notions that depend on decentralization.  
