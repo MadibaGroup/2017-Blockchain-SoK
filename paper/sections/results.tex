@@ -17,13 +17,13 @@ By themselves, these property groups are nothing new, but used together they def
 \subsection{Shared Governance and Operation}
 At the heart of Blockchain technology is the principle of shared governance and operation.
 Either of these properties is common by itself; for example, having multiple parties govern how a system should function, but then relying on trusted third-parties to operate and maintain the system.
-Alternatively, the literature is rife with well-defined systems that don't need ongoing governance, but require multiple parties to actually operate and maintain the system.
+Alternatively, the literature is rife with well-defined systems that don't need ongoing governance but require multiple parties to actually operate and maintain the system.
 
 Blockchain is distinct, though not necessarily unique, in that it requires a core set of participants---referred to hereafter as \emph{miners}---who are responsible for both deciding how the system should function (i.e., shared governance) and then for operating that system.
 This type of shared governance is appropriate when miners are not able to sufficiently trust each other or a third-party to faithfully govern and operate a system.
 By participating in all aspects of governance and operation, each miner can be assured that the system is operating as intended.
 Even if some of the miners are compromised, the other miners retain the ability to detect malicious actions by the compromised miner and to prevent them from affecting the system.
-In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.\footnote{This property has incorrectly been called ``trustlessness''. This is incorrect as trust still exists, it has just been diffused amongst multiple parties.} 
+In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.\footnote{This property has incorrectly been called ``trustlessness''. This is incorrect as trust still exists; it has simply been diffused among multiple parties.} 
 
 This shared governance and operation is executed using one or more \emph{consensus protocols} (e.g., proof-of-work~\cite{DN93,back1997partial,NakamotoS8} or Byzantine fault tolerance~\cite{castro1999practical}).
 One consensus protocol is used by miners to determine what operations---known as \emph{transactions}---will be allowed to alter the state of the Blockchain system.
@@ -67,7 +67,7 @@ Importantly, off-chain incentives only apply to consortium governance as they in
 While a Blockchain system might store its current state for convenience and performance, this is not actually a requirement in Blockchain technology.
 Instead, the key data structure in Blockchain technology is a cryptographically authenticated data structure~\cite{tamassia2003authenticated} that stores a history of all the transactions that have been approved by the miners.
 This \emph{ledger} provides full system provenance and allows for miners or other outside parties to audit the system (these capabilities are discussed more in Section~\ref{sec:capabilities}).
-In Bitcoin, this ledger is colloquially referred to as the ``blockchain'', but we avoid that term as it unnecessarily confusing to try and discuss both Blockchain (big-B) technology and the blockchain (little-b) data structure.
+In many systems, including Bitcoin, this ledger is colloquially referred to as the ``blockchain'', but we avoid that term as it unnecessarily confusing to try and discuss both Blockchain (big-B) technology and the blockchain (little-b) data structure.
 
 The first item in the append-only ledger is known as the \emph{genesis block}.
 The genesis block is responsible for specifying the initial parameters for the system.
@@ -93,9 +93,9 @@ In this case, they can replicate data from another miner and verify its authenti
 
 Some Blockchain systems try to limit the amount of data any given miner needs to replicate by segmenting the data and assigning miners to handle governance and operations for only a subset of the system.
 This is known as \emph{sharding}, with individual segments of the data known as \emph{shards}.
-Sharding can drastically reduce the amount of data that miners need to store while also increasing the performance of the consensus protocols which often scale based on the number of miners.
+Sharding can drastically reduce the amount of data that miners need to store while also increasing the performance of the consensus protocols, which often scale based on the number of miners.
 Still, sharding comes with the drawback that miners are no longer able to audit the system as a whole.
-Additionally, by reducing the number of miners responsible for any given transaction, it also reduces the number of miners an adversary would need to compromise to attack a given shard.
+Additionally, by reducing the number of miners responsible for any given transaction, sharding also reduces the number of miners an adversary would need to compromise to attack that transaction.
 
 \section{What are Blockchain Technology's Capabilities?}
 \label{sec:capabilities}
@@ -110,7 +110,7 @@ Additionally, by reducing the number of miners responsible for any given transac
 \end{figure}
 
 Blockchain technology's capabilities define the high-level functionality that can be achieved by using Blockchain technology in a system's design.
-Two of these capabilities were discussed in the proceeding Section: (1) shared governance and operation and (2) resilience.
+Two of these capabilities were discussed in the preceding Section: (1) shared governance and operation and (2) resilience.
 In addition to these two capabilities, we identified 11 additional capabilities (see Figure~\ref{fig:Capabilities}).
 
 \paragraph{Provenance and Auditability}
@@ -145,8 +145,8 @@ The computational power of these scripts is determined by the system's rules, ra
 Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
 For example, multiple miners execute and verify the output of a smart contract to help ensure that an adversary is unable to tamper with the result of a function.
 Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
-Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, or non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
+Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, or non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack, discussed below in Section~\ref{subsec:correctness}.}%: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
 \paragraph{Data Discoverability}
 If users are allowed to read any record in a Blockchain's distributed data store, then it is trivial to search for records of interest.
-This capability is nothing more than what is provided by having a read-only data lake, but it is still frequently discussed in the literature we reviewed.
+This capability is nothing more than what is provided by having a read-only data lake, but still it was frequently discussed in the literature we reviewed.
