@@ -113,7 +113,7 @@ Blockchain technology's capabilities define the high-level functionality that ca
 Two of these capabilities were discussed in the proceeding Section: (1) shared governance and operation and (2) resilience.
 In addition to these two capabilities, we identified 11 additional capabilities (see Figure~\ref{fig:Capabilities}).
 
-\subsection{Provenance and Auditability}
+\paragraph{Provenance and Auditability}
 Blockchain systems provide a complete history of all transactions that were approved by the consensus process (i.e., full-system provenance).
 While failed transactions are not normally written to the ledger, they could be if needed by the system for auditability.
 This information can be used by the miners to audit the system and ensure that it has always followed the appropriate rules.
@@ -122,7 +122,7 @@ Additionally, this information can be used by non-miners to verify that the syst
 If transactions are used to store information regarding digital or real-world resources (using tokens), then the provenance information for the Blockchain system can also be used to provide audit information for those resources.
 This can be used to track physical, off-chain assets (e.g., supply chain management, tracking diamonds), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies, files).
  
-\subsection{Access Control and Pseudonymity}
+\paragraph{Access Control and Pseudonymity}
 Whether a user of a Blockchain system is able to create, update, or delete a token is based on permissions defined by the miners.
 While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
 In this paradigm, when a token is created it is also associated with a public key.
@@ -136,7 +136,7 @@ This information can be used to automatically revoke permissions if it is discov
 The use of key-based (as opposed to user-based) ownership of tokens has another advantage: it allows for the pseudonymous ownership and use of tokens.
 Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, or secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
 
-\subsection{Automatic Execution (Smart Contracts)}
+\paragraph{Automatic Execution (Smart Contracts)}
 Blockchain transactions can also represent and store executable functions known as \emph{smart contracts}.
 These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
 The smart contracts themselves are executed by the miners with outputs being verified through the consensus protocol.
@@ -147,6 +147,6 @@ For example, multiple miners execute and verify the output of a smart contract t
 Similarly, the ability to audit inputs and outputs can be used to attribute incorrect usage of a smart contract.
 Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, or non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
-\subsection{Data Discoverability}
+\paragraph{Data Discoverability}
 If users are allowed to read any record in a Blockchain's distributed data store, then it is trivial to search for records of interest.
 This capability is nothing more than what is provided by having a read-only data lake, but it is still frequently discussed in the literature we reviewed.

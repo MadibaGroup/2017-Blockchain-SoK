@@ -9,17 +9,17 @@ Materials produced by industry are sufficiently different from academic literatu
 In particular, there are three main concerns when reviewing materials that originated from industry:
 
 \begin{enumerate}
-	\item \textbf{Lack of precise terminology and discussion.}
+	\item \emph{Lack of precise terminology and discussion.}
 	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to difficult to understand white papers and sometimes muddled descriptions of capabilities and use cases.
 	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we  observed an accurate description of an idea that was phrased in such a way as to make it seem incorrect under cursory examination. Some of those ideas were assembled in ways that are interesting to academics, if one takes the time to work through the material.
 	In this regard, materials from industry represent a trove of useful information obscured by imprecise terminology and discussion.
 	
-	\item \textbf{Inclusion of hype.}
+	\item \emph{Inclusion of hype.}
 	Much of the material from industry includes visionary statements (i.e., hype) regarding how Blockchain technology will change business practices, power dynamics and the way the world works.
 	This hype is a mixture of realistic use cases that can benefit from Blockchain technology (e.g., anonymous payments~\cite{chaum1988untraceable}) and ideals that far transcend any technical solution (e.g., removing the need for governments).
 	Unfortunately, unlike what one would expect in academic literature, the materials from industry often intermingle hype with technical details. This at least partially explains why some in academia are quick to dismiss sources from industry.
 	
-	\item \textbf{Researcher bias.}	
+	\item \emph{Researcher bias.}	
 	Researcher bias is an obvious problem in any literature review---regardless of whether the source is academia or industry---and one that is often not explicitly addressed in systemization papers.
 	The potential for bias is even stronger when reviewing materials from industry as academia's inherent caution when considering work from industry.
 	Along with the two issues described above (i.e., lack of precise terminology, hype) it is easy for researchers to dismiss out of hand ideas proposed by industry.
@@ -63,9 +63,9 @@ In total, we collected 132 document.
 The documents we gathered generally fell into one of three categories.
 
 \begin{itemize}
-	\item \textbf{High-Level Overviews.} These were often prepared by investment firms and gave high level overviews of Blockchain technology. They would also reference various efforts at using Blockchain in practice.
-	\item \textbf{System White Papers.} These papers would describe how Blockchain technology was used in a specific system, or more frequently a system proposal.
-	\item \textbf{Blockchain Commentaries.} These were largely shorter documents that would discuss a specific facet of Blockchain technology in greater depth than we saw in other documents.
+	\item \emph{High-Level Overviews.} These were often prepared by investment firms and gave high level overviews of Blockchain technology. They would also reference various efforts at using Blockchain in practice.
+	\item \emph{System White Papers.} These papers would describe how Blockchain technology was used in a specific system, or more frequently a system proposal.
+	\item \emph{Blockchain Commentaries.} These were largely shorter documents that would discuss a specific facet of Blockchain technology in greater depth than we saw in other documents.
 \end{itemize}
 
 \subsection{Grounded Theory Data Analysis}
@@ -83,10 +83,10 @@ To ensure that we were assigning the correct codes, we paid careful attention to
 
 In particular, reviewers made sure to code the following four concepts found in documents:
 \begin{itemize}[label=$\blacksquare$]
-	\item \textbf{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
-	\item \textbf{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
-	\item \textbf{Limitations.} What inherent limitations are there when using Blockchain technology?
-	\item \textbf{Use cases.} What uses cases benefit from the application of Blockchain technology?
+	\item \emph{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
+	\item \emph{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
+	\item \emph{Limitations.} What inherent limitations are there when using Blockchain technology?
+	\item \emph{Use cases.} What applications or groups of applications (i.e., uses cases) benefit from the application of Blockchain technology?
 \end{itemize}
 
 At this stage of the grounded theory process, reviewers were instructed to avoid evaluating the validity of the coded concepts.
@@ -113,19 +113,19 @@ They then drew connecting lines between these concepts, describing how they rela
 Based on these interconnections, concepts were divided into five different categories:
 
 \begin{itemize}[label=$\blacksquare$]
-	\item \textbf{Technical properties (Figures~\ref{fig:technical-properties},~\ref{fig:technical-properties-full}).}
+	\item \emph{Technical properties (Figures~\ref{fig:technical-properties},~\ref{fig:technical-properties-full}).}
 	Technical properties are the components that make up of Blockchain technology. Examples include decentralized governance, a consensus protocol, and an append-only transaction ledger.
 	
-	\item \textbf{Capabilities (Figure~\ref{fig:Capabilities}).}
+	\item \emph{Capabilities (Figure~\ref{fig:Capabilities}).}
 	Capabilities are the high-level features provided by Blockchain technology's technical properties. Examples include automatic executions (i.e., smart contracts), internal auditability, and resilience.
 	
-	\item \textbf{Technical primitives.}
+	\item \emph{Technical primitives.}
 	Primitives are the building blocks used to construct the technical properties and capabilities of Blockchain technology. Examples include timestamps, hashchains, and peer-to-to-peer communication.
 	
-	\item \textbf{Use cases (Table~\ref{tab:usecase}).}
-	Use cases are classes of potential systems that the literature identified as being good fits for Blockchain technology. Examples include crytocurrencies, supply chain management, and identity management.
+	\item \emph{Use cases.}
+	Use cases are classes of systems that the literature identified as being good fits for Blockchain technology. Examples include crytocurrencies, supply chain management, and identity management.
 	
-	\item \textbf{Normative properties (Figure~\ref{fig:normative-properties}).}
+	\item \emph{Normative properties (Figure~\ref{fig:normative-properties}).}
 	Normative properties represent what people hope to achieve using Blockchain technology. 
 	Importantly, these properties are not provided by the use of Blockchain technology---as are the technical properties and capabilities---but instead require the careful designs of larger systems that might only use Blockchain technology as a small piece of the overall system.
 	In general, normative properties strongly relate to the hype sorrounding Blockchain technology.
@@ -134,7 +134,7 @@ Based on these interconnections, concepts were divided into five different categ
 \end{itemize}
 
 %TODO: Update with final counts for use cases.
-Our categorization resulted in 21 technical primitives, 14 technical properties, 12 normative properties, 13 capabilities, and 19 use cases.
+Our categorization resulted in 21 technical primitives, 14 technical properties, 12 normative properties, 13 capabilities, and 15 use cases.
 While we divide the concepts into these five categories, individual concepts are highly interconnected, both inter- and intra-category. 
 This provides credence to the notion that Blockchain technology overall is a cohesive, with each of the component concepts serving a purpose in the overall technology.
 
@@ -163,5 +163,5 @@ To address this limitation, we will make the documents we reviewed and our codin
 
 \subsection{Research artifacts}
 Instead of citing each of the works evaluated as part of grounded theory analysis, we are instead making these papers available as a research artifact.
-This artifact includes the documents, codes and their associated references to the papers from stage 1 of the grounded theory analysis, and the collated concepts from stage 2 of the grounded theory analysis.
+This artifact includes the documents, codes and their associated references to the papers from Stage 1 of the grounded theory analysis, and the collated concepts from Stage 2 of the grounded theory analysis.
 This data is available at [redacted].
