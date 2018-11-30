@@ -26,7 +26,7 @@ Even if some of the miners are compromised, the other miners retain the ability 
 In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.\footnote{This property has incorrectly been called ``trustlessness''. This is incorrect as trust still exists; it has simply been diffused among multiple parties.} 
 
 This shared governance and operation is executed using one or more \emph{consensus protocols} (e.g., proof-of-work~\cite{DN93,back1997partial,NakamotoS8} or Byzantine fault tolerance~\cite{castro1999practical}).
-One consensus protocol is used by miners to determine what operations---known as \emph{transactions}---will be allowed to alter the state of the Blockchain system.
+One consensus protocol is used by miners to determine what operations---known as \emph{transactions}---will be included in the next state change of the system.
 A second is used by miners to determine the rules that will be used to validate transactions in the first consensus protocol.
 While governance could be conducted and recorded in transactions, removing the need for the second consensus protocol, we are not aware of any Blockchain systems that do so.
 
@@ -35,11 +35,11 @@ This ad-hoc consensus mechanism means that it is possible for a Blockchain syste
 Such a split is known as a \emph{fork}.
 Often these forks are temporary, with miners either choosing to all adopt the new rules or to return to the original rules, but it is possible for a fork to result in the permanent creation of two non-interoperable Blockchain systems (e.g., Bitcoin Classic and Bitcoin Cash).
 
-In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there are two types of forks that can occur.
-In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
-In a hard fork, transactions that validate with the modified rules will not necessarily validate with the original rules.
-The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if there is a majority of miners who still use the original rules.
-While a soft fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
+%In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there are two types of forks that can occur.
+%In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
+%In a hard fork, transactions that validate with the modified rules will not necessarily validate with the original rules.
+%The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if there is a majority of miners who still use the original rules.
+%While a soft fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
 
 Blockchain systems can be separated based on how they select who can act as miner:\footnote{In our coding, there was also the concept of singular governance. This concept is discussed in Section~\ref{sec:private-blockchain}.}
 
@@ -66,7 +66,7 @@ Importantly, off-chain incentives only apply to consortium governance as they in
 \subsection{Cryptographic Append-Only Ledger}
 While a Blockchain system might store its current state for convenience and performance, this is not actually a requirement in Blockchain technology.
 Instead, the key data structure in Blockchain technology is a cryptographically authenticated data structure~\cite{tamassia2003authenticated} that stores a history of all the transactions that have been approved by the miners.
-This \emph{ledger} provides full system provenance and allows for miners or other outside parties to audit the system (these capabilities are discussed more in Section~\ref{sec:capabilities}).
+This \emph{ledger} provides full system provenance and allows for miners or (potentially) outside parties to audit the system (these capabilities are discussed more in Section~\ref{sec:capabilities}).
 In many systems, including Bitcoin, this ledger is colloquially referred to as the ``blockchain'', but we avoid that term as it unnecessarily confusing to try and discuss both Blockchain (big-B) technology and the blockchain (little-b) data structure.
 
 The first item in the append-only ledger is known as the \emph{genesis block}.
@@ -81,11 +81,11 @@ For off-chain assets, there needs to be the ability to \emph{staple} the on-chai
 While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains a challenge (see Section~\ref{sec:challenges}).
 
 \subsection{Resilience}
-The cryptographically-authenticated append-only ledger is replicated amongst all miners and this replication is important for several reasons.
+The cryptographically-authenticated append-only ledger is replicated among a set of miners and this replication is important for several reasons.
 First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
 Second, it removes a single point of failure, preventing the loss of data at one site from impacting the overall system.
 Third, it protects against malicious attempts to modify the append-only ledger.
-Without replication it would still be possible to detect that data had been corrupted, but without the replication there is no guarantee that the original data could be restored.
+Without replication it would still be possible to detect that data had been corrupted, but there is no guarantee that the original data could be restored.
 
 The use of a cryptographically authenticated ledger also has the benefit that it is possible to verify that the current state properly proceeds from the initial genesis block.
 While this is useful for runtime integrity checks, it is also useful when a miner needs to rebuild their state.
@@ -104,7 +104,7 @@ Additionally, by reducing the number of miners responsible for any given transac
 	\centering
 	\includegraphics[page=4,width=\columnwidth]{figures/grounded-theory-main}
 	
-	Arrows indicate that the destination depends on the source except where an explicit relationship is given.
+	Arrows indicate that the destination depends on the source except where an explicit relationship is given. Green nodes are technical primitives, blue are technical properties, and purple are capabilities.
 	\caption{Capabilities for Blockchain Technology}
 	\label{fig:Capabilities}
 \end{figure}
@@ -115,11 +115,11 @@ In addition to these two capabilities, we identified 11 additional capabilities 
 
 \paragraph{Provenance and Auditability}
 Blockchain systems provide a complete history of all transactions that were approved by the consensus process (i.e., full-system provenance).
-While failed transactions are not normally written to the ledger, they could be if needed by the system for auditability.
+%While failed transactions are not normally written to the ledger, they could be if needed by the system for auditability.
 This information can be used by the miners to audit the system and ensure that it has always followed the appropriate rules.
 Additionally, this information can be used by non-miners to verify that the system is being governed and operated correctly.
 
-If transactions are used to store information regarding digital or real-world resources (using tokens), then the provenance information for the Blockchain system can also be used to provide audit information for those resources.
+If transactions are used to store information regarding digital or real-world resources, the resources must be \emph{stapled} to on-chain tokens. Then the provenance information for the Blockchain system can also be used to provide audit information for those resources.
 This can be used to track physical, off-chain assets (e.g., supply chain management, tracking diamonds), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies, files).
  
 \paragraph{Access Control and Pseudonymity}
@@ -133,8 +133,8 @@ On key benefit of access control using Blockchain is that the provenance of acce
 This means that a full record of not only a users permissions, but how they received those permissions, is stored.
 This information can be used to automatically revoke permissions if it is discovered that a user was granted these permissions by a compromised account---for example, when a malicious insider grants inappropriate permissions to other insiders.
 
-The use of key-based (as opposed to user-based) ownership of tokens has another advantage: it allows for the pseudonymous ownership and use of tokens.
-Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, or secure multi-party computation) to avoid linking real-world individuals to their keys and actions.
+Key-based (as opposed to user-based) ownership of tokens has another advantage: it allows for the pseudonymous ownership and use of tokens.
+Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, or secure multi-party computation) to avoid linking real-world individuals to their keys and actions. This remains an open problem.
 
 \paragraph{Automatic Execution (Smart Contracts)}
 Blockchain transactions can also represent and store executable functions known as \emph{smart contracts}.
