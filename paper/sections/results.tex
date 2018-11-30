@@ -30,7 +30,7 @@ One consensus protocol is used by miners to determine what operations---known as
 A second is used by miners to determine the rules that will be used to validate transactions in the first consensus protocol.
 While governance could be conducted and recorded in transactions, removing the need for the second consensus protocol, we are not aware of any Blockchain systems that do so.
 
-In practice, this second consensus protocol is usually an informal process in which changes to the first consensus protocol are discussed in a secondary channel (e.g., on an Internet discussion board), and consensus is established based on the number of miners that adopt the modified rules.
+In practice, this second consensus protocol is usually an informal process in which changes to the first consensus protocol are discussed in a secondary channel (e.g., on an Internet discussion board), and consensus is established based on the number of miners that adopt the modified rules (i.e., deployed software that uses those rules).
 This ad-hoc consensus mechanism means that it is possible for a Blockchain system to split, with one branch being run by the set of miners continuing to operate using the original rules and the other being run by set of miners using the new rules.
 Such a split is known as a \emph{fork}.
 Often these forks are temporary, with miners either choosing to all adopt the new rules or to return to the original rules, but it is possible for a fork to result in the permanent creation of two non-interoperable Blockchain systems (e.g., Bitcoin Classic and Bitcoin Cash).
@@ -41,7 +41,7 @@ Often these forks are temporary, with miners either choosing to all adopt the ne
 %The benefit of a soft fork is that both sets of miners can continue participating in the first consensus protocol, with transactions following the modified rules always being accepted and the transactions following the original rules only being accepted if there is a majority of miners who still use the original rules.
 %While a soft fork is not a permanent situation, it can provide time for miners to slowly adopt the modified protocol while allowing both sets of miners to operate on the same data.
 
-Blockchain systems can be separated based on how they select who can act as miner:\footnote{In our coding, there was also the concept of singular governance. This concept is discussed in Section~\ref{sec:private-blockchain}.}
+Blockchain systems can be separated based on how they select who can act as miner:\footnote{In our coding, there was also the concept of private governance. This concept is discussed in Section~\ref{sec:private-blockchain}.}
 
 \begin{itemize}
 	\item \emph{Open governance.}
@@ -62,6 +62,10 @@ The first type of incentive is an \emph{intrinsic incentive}---i.e., miners main
 Next, \emph{on-chain incentives} are when the Blockchain system provides direct benefits to miners for faithfully executing the system (e.g., minting currency and giving it to the miners).
 Finally, \emph{off-chain incentives} are any incentive that is not managed by the Blockchain system---for example, contractual obligations or reputation.
 Importantly, off-chain incentives only apply to consortium governance as they inherently rely on knowing the identity of the miners.
+
+Note, the literature sometimes refers to open and consortium governance Blockchain systems as \emph{permissionless} and \emph{permissioned} Blockchains, respectively.
+We avoid this terminology as it can be confusing to readers.
+For example, an open governance Blockchain system can still implement permissions for how users can interact with assets tracked by the Blockchain; this is confusing if the system is also referred to as ``permissionless''.
 
 \subsection{Cryptographic Append-Only Ledger}
 While a Blockchain system might store its current state for convenience and performance, this is not actually a requirement in Blockchain technology.
@@ -104,7 +108,7 @@ Additionally, by reducing the number of miners responsible for any given transac
 	\centering
 	\includegraphics[page=4,width=\columnwidth]{figures/grounded-theory-main}
 	
-	Arrows indicate that the destination depends on the source except where an explicit relationship is given. Green nodes are technical primitives, blue are technical properties, and purple are capabilities.
+	Arrows indicate that the destination depends on the source except where an explicit relationship is given. Green nodes are technical primitives, blue nodes are technical properties, and purple nodes are capabilities.
 	\caption{Capabilities for Blockchain Technology}
 	\label{fig:Capabilities}
 \end{figure}
