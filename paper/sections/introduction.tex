@@ -18,36 +18,35 @@ While Bitcoin's building blocks were not novel, the composition of these propert
 
 At the peak of its popularity, Bitcoin's market capitalization reached \$835.69 billion (USD), though at the time of this writing it has seen a decrease in both its stature and market capitalization (\$67.21 billion).
 Nevertheless, there remains significant interest in the question of whether the technology underlying Bitcoin---known as \emph{Blockchain technology} or {Blockchain} for short---could be used to build other interesting cryptocurrencies or distributed systems.
-In particular, we have consistently heard researchers, businesses, and governments ask the following three questions related to Blockchain technology: (1) what exactly is Blockchain technology, (2) what capabilities does it provide, and (3) what are good applications for Blockchain technology.%, and (4) how does it relate to other approache distributed technologies (e.g., distributed databases).
+In particular, we have consistently heard researchers, business executives, and government leadership ask the following three questions related to Blockchain technology: (1) what exactly is Blockchain technology, (2) what capabilities does it provide, and (3) what are good applications for Blockchain technology.%, and (4) how does it relate to other approache distributed technologies (e.g., distributed databases).
 
 % Jeremy: We invert the common approach: we don't study blockchain people looking at use-cases, we study the use case people looking at blockchain
 To answer these questions, it is insufficient to consider academic sources alone.
 While there have been several academic overviews written in this space, they have not addressed these general question regarding Blockchain technology, but rather surveyed particular systems or technical properties: Bitcoin~\cite{BMC+15,Narayanan17}, payment privacy~\cite{Conti17}, security and performance~\cite{Gervais16}, scalability~\cite{Croman16}, and consensus protocols~\cite{Bano17,garay2018consensus}.
-In contrast, there has been significant work from non-academic sources (hereafter referred to as \emph{industry}) attempting to answers the questions as they search for applications and new product offerings that could be enabled by Blockchain technology.
-Unfortunately, much of this work is fueled by hype and lacks the peer-review process and rigor expected of academic literature.
+In contrast, there has been significant work from non-academic sources (hereafter referred to as \emph{industry}) attempting to answer the questions as they search for applications and new product offerings that could be enabled by Blockchain technology.  Both freshly-formed and decades-old companies have developed answers to these questions.  Unfortunately, some of this work is fueled by hype and most industry documents are published without a peer-review process and associated rigor expected of academic literature.
 
-To address these limitations in our analysis of literature produced by industry we applied a grounded theory methodology~\cite{glaser1965constant,strauss1990basics,corbin1990grounded} (also known as the constant comparative method).
-This allowed us to extract valuable technical insights out from the hype and technical misunderstandings that permeate this body of work.
-Based on this analysis of data from industry, interspersed with our own knowledge and a review of the academic literature, we are able to answer the three questions commonly asked in relation to Blockchain technology, as well as shedding light on industry's understandings and misunderstandings of the technology. 
+To address these limitations, we analyzed literature produced by industry using grounded theory methodology~\cite{glaser1965constant,strauss1990basics,corbin1990grounded} (also known as the constant comparative method).
+This allowed us to extract and separate valuable technical insights out from the hype and technical misunderstandings that permeate this body of work.
+Based on this analysis of data from industry, interspersed with our own knowledge and a review of the academic literature, we are able to answer the three questions commonly asked in relation to Blockchain technology, as well as shed light on industry's understandings and misunderstandings of the technology. 
 
 While many of the results in this work might not be surprising to some readers, our experience suggests that knowledge of Blockchain technology is neither universal nor complete within the security community.
 Taken together, the results in this paper represent the most complete overview of Blockchain technology and its potential use cases available in a single work that we are aware of, and are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas. More concretely, our key contributions are:
 
 \begin{enumerate}
 	\item \textbf{Defining the key technical properties of Blockchain technology.}
-	Based on the results of our analysis, we identify three key properties for Blockchain technology: shared governance and operation, the use of an append-only ledger, and replication of data.
+	We identify three key properties for Blockchain technology: shared governance and operation, the use of an append-only ledger, and replication of data.
 	Blockchain systems are governed and operated by a distributed and decentralized collective of entities that ensure that all operations are valid.
 	These operations are recorded in an append-only ledger that provides full-system provenance.
 	This ledger is also replicated by a set of governing parties, providing resilience against data loss and malicious modification of data.
 	We also discuss associated technical properties that Blockchain makes use of.
 	
 	\item \textbf{Identifying the capabilities provided by Blockchain technology.}
-	Our results demonstrate that Blockchain provides several important capabilities for use in building  systems.
-	First, Blockchain systems inherently track their full-system provenance, and this provenance data allows for the system to be audited by miners and potentially by outside parties.
-	This provenance data is also useful in tracking assets monitored or managed by the Blockchain system (e.g., supply chain management, cryptocurrencies).
-	Second, Blockchain technology provides access control for the assets it monitors or manages and can allow operations on these assets to be pseudonymous.
-	Third, the provenance information and replication of that information among all miners provides significant resilience against accidental data loss or malicious modification of the data.
-	Fourth, Blockchain systems can embed executable programs that can automatically execute as appropriate and enjoy the benefits of Blockchain technology's other capabilities.
+ 	Blockchain provides four important capabilities.
+	Blockchain systems inherently track full-system provenance, and this allows the system to be audited by miners and potentially by other parties.
+	Provenance is also useful in tracking assets monitored or managed by the Blockchain system (e.g., supply chain management, cryptocurrencies).
+	Blockchain technology provides access control for the assets it monitors or manages and can allow operations on these assets to be pseudonymous.
+	Provenance information and replication of that information among all miners provides a third important capability: resilience against accidental data loss or malicious modification of the data.
+	Finally, Blockchain systems can embed executable programs that can compute as appropriate and enjoy the benefits of Blockchain technology's other capabilities.
 	
 	\item \textbf{Identifying groups of applications (i.e., use cases) that are most likely to benefit from Blockchain technology.}
 	Within the literature we analyzed there was a range of potential applications for Blockchain technology.
