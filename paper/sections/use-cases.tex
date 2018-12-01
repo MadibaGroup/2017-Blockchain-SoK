@@ -34,6 +34,8 @@ There is ongoing research that demonstrates how Blockchain technology can be use
 Real world financial markets provide the ability for the exchange of valuable assets and tend to involve intermediaries like exchanges, brokers or dealers, clearing and settlement entities. 
 Blockchain-based assets---which either hold intrinsic value on it's own blockchain, or represent a claim on an external material or digital asset---can be transacted directly between participants and governed by smart contracts.
 Shared governance enables direct trading between users and requires less financial market infrastructure.
+For tokens that represent something off-blockchain (\ie equity in a firm or a debt instrument), the issue of stapling must be addressed.
+Many different aspects of subject to government oversight in most jurisdictions, making this area encumbered by regulation.
 
 \paragraph{Asset Tracking} 
 Blockchain technology can be used for tracking material assets that are globally distributed, valuable, and whose provenance is of interest, when resilience and audibility are important. This includes long-term valuable items like artwork and diamonds; certified goods like food and luxury items; dispersed items like fleets of vehicles; and short-term items like package being shipped over long distances, which will change hands many times in the process. While assets are already tracked through digital databases, a blockchain solves the problem of who should run the database for industries with multiple participants. It provides a common environment where no single firm has the elevated power and control of running a widely-used database. The main challenge is specifying how material assets are assigned a tracking token on the blockchain in a trustworthy manner. A second challenge is the level of transparency a blockchain would bring to proprietary, profitable business practices.
@@ -79,10 +81,12 @@ As the system is auditable, penalized parties have a full history of what led to
 \subsection{Other use cases}
 
 \paragraph{Voting}
-Electronic voting is a challenging problem which might benefit from several of Blockchain technology's properties.
+Electronic voting is a challenging problem that is often asserted to benefit from Blockchain technology's properties.
 Shared governance could be used to ensure that multiple parties (the government, non-governmental organizations, international watchdogs) can all work together to ensure that an election is legitimate.
 Audibility is important in providing evidence to the electorate that the election was fair.
 Finally, the resilience of Blockchain technology is important in prevent cyber-attacks against the voting system.
+However voting on a Blockchain has many challenges to solve: Blockchains offer no inherent support for secret ballots, electronic votes can be changed by the device they are voted from (and undetectably if a secret ballot is achieved), cryptographic keys could be sold to vote buyers, and key recovery mechanisms would need to be established. 
+
 
 \paragraph{Identity and key management}
 Identities along with cryptographic attestations about properties for those identities (e.g., over 18 years of age, has a driver's license) can be written to the Blockchain.
@@ -105,7 +109,6 @@ It can provide a place for multiple systems to write their data and make request
 Using smart contracts it can convert those requests to the appropriate form to allow them to be parsed by other systems.
 If a central database server is not suitable for the application, this use case may be valid, but in most cases this can more easily be accomplished with a standard program and a database.
 %This is a poor use case because it does not rely on shared governance, consensus, or provenance.
-
 
 \paragraph{Timetamping}
 Blockchain technology could be used to timestamp documents. Still, timestamping generally does not rely on any of Blockchain technologies key properties, and so Blockchain technology is likely overkill for this application.
