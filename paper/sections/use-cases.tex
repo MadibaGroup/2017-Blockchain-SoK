@@ -67,8 +67,6 @@ A main challenge is the issue of non-confidential transactions.
 An additional challenge is the potential for front-running by participants in the blockchain network (in particular, miners) who learn of transactions before they are finalized. 
 
 \paragraph{Insurance and futures}
-% Jeremy: swaps present and future
-% Jeremy: utility and risk management and variance in cash flows
 
 A transaction can be thought of as a swap of one valuable asset for another. Swaps can be arranged for a future time.
 Examples include agreeing to a price for a future purchase of oil, turning a variable interest rate into a fixed rate, and providing cash for collateral with the promise that the cash will be returned.
@@ -79,14 +77,11 @@ It can offer transparency which can be used to build reputation and contracts ca
 A second challenge for many of these use cases is reporting real world events (a fire, a change in the price of a stock, or mortgage default) to the blockchain in a trustworthy fashion, however this is not an issue for events that are blockchain-based to begin with---this points to a critical point: deploying several complimentary use cases on the same blockchain enables complex interactions. 
 
 \paragraph{Penalties, remedies, and sanctions}
-% Jeremy: previously \paragraph{Regulation and sanctions}
-% Jeremy: add contracts and regulatory holdbacks, etc
-% Jeremy: set of default actions that can be overridden in court
-% Jeremy: defaults on loans, cease trades on insolvency, etc
 
 In common parlance, code running on a blockchain is called a smart contract.\footnote{In particular, the success of Ethereum contributed to this, although that project now prefers the term `decentalized app' or dapp for short.} Legal contracts will often anticipate potential future breaches and offer a set of penalties or remedies.
 With blockchain technology, a set of remedies could be programmed into the contract assuming both the triggering event and the resulting action are blockchain-based (or the real-world/blockchain gap is bridged by a trustworthy entity).
 If the contract is legally well-formed, with identified counterparties in a clear jurisdiction, the remedies can be thought of as a set of reasonable default actions that can avoid, but do not preclude, expensive litigation. 
+
 % =====
 
 \subsection{Data Storage and Sharing Use Cases}
@@ -107,20 +102,25 @@ A second challenge is the lack of confidentiality blockchain technologies offer 
 A third challenge is getting agreement on the technology to be used (this is being explored through business consortiums.\footnote{\eg Blockchain in Transport Alliance}).
 
 \paragraph{Identity and key management}
+% Jeremy: To do still
+
 Identities along with cryptographic attestations about properties for those identities (e.g., over 18 years of age, has a driver's license) can be written to the Blockchain.
 These identities and attestations can then be used by other systems to support their access control policies.
 Importantly, this identity information comes with full provenance. This could be useful in determining suspicious activity (e.g., having an age that is not increasing linearly).
 This could also be a quicker and more performant way of establishing identity than the current certificate authority system.
 
 \paragraph{Multi-organization data sharing}
-% Jeremy: generalization of above, also mention LVTS
-In this use cases, organizations retain ownership and management of their data and users.
-Blockchain technology is used to allow multiple organizations to announce the data they have available, define access control rules for that data, and to record access requests related to the data.
-The systems auditability is used to ensure that all organizations are sharing data as they agreed to.
+
+Asset tracking and identity tracking are both examples of sharing data across organizations, and blockchain technology contributes a common environment.
+The use cases in this category share common challenges: blockchain technology can specify write access policies to data stored on the blockchain, but it will not provide any default support for restricting read access; confidentiality has to be an additional layer.
+Further, the integrity of confidential data cannot be validated by nodes in the network without some minimal disclosure of what the data is or that it satisfies the relevant restrictions.
+Blockchain can also serve as a secondary component in these systems, where capabilities are issued and transferred as if they were financial assets on a blockchain. Proving ownership over a capability is done off-blockchain to a traditional enforcement server, which enables the correct permissions.
+
 
 \paragraph{Tamper-resistant record storage}
-% Jeremy: merge of permanent record storage and timestamping
-% Jeremy: haber stornetta
+% Jeremy: To do
+% Jeremy: Merge of permanent record storage and timestamping
+% Jeremy: Haber Stornetta
 The append-only ledger is used to store documents, including the history of changes to these documents.
 This use case is best suited for records that are highly valuable (such as certificates, government licenses), that have a small data size and are publicly available (as they will be replicated by all miners).
 If large and/or confidential documents need to be stored, then the Blockchain can store binding/hiding commitments for the documents, while the documents themselves are stored in another system with lower overhead.
@@ -142,6 +142,7 @@ Blockchain technology could be used to timestamp documents. Still, timestamping 
 \subsection{Other use cases}
 
 \paragraph{Voting}
+% Jeremy: To do
 Electronic voting is a challenging problem that is often asserted to benefit from Blockchain technology's properties.
 Shared governance could be used to ensure that multiple parties (the government, non-governmental organizations, international watchdogs) can all work together to ensure that an election is legitimate.
 Audibility is important in providing evidence to the electorate that the election was fair.
@@ -149,10 +150,11 @@ Finally, the resilience of Blockchain technology is important in prevent cyber-a
 However voting on a Blockchain has many challenges to solve: Blockchains offer no inherent support for secret ballots, electronic votes can be changed by the device they are voted from (and undetectably if a secret ballot is achieved), cryptographic keys could be sold to vote buyers, and key recovery mechanisms would need to be established. 
 
 \paragraph{Gambling and Games}
+% Jeremy: To improve
 By examining the most active Bitcoin scripts and Ethereum decentralized applications, gambling is popular. Players can audit the game to ensure that execution is fair, and the system can operate its own cryptocurrency to handle the finances (including holding the money in escrow to prevent losing parties from aborting before paying). This use case is best suited to gambling games that do not require randomness, private state, or knowledge of off-blockchain events. For the subset of residual games,\footnote{Currently, the most active Ethereum game is called Fomo3D: users pay to reset a 30 second countdown timer and if it ever reaches zero, the last user to pay wins all the money collected.} blockchain is an ideal platform. For the other types of games, new layers of technology would have be added on a Blockchain. Data-feeds (called oracles) of either randomness or real world event outcomes requires additional trust and introduces finality risk, while confidential user state require additional cryptography.  
 
 \paragraph{IoT and smart property}
-% Jeremy: I didn't get to this yet
+% Jeremy: To do
 IoT devices occasionally have the need to collectively make decisions.
 In these cases, Blockchain technology can provide a technological platform for making these collective decisions in an auditable fashion.
 This auditability is especially important as IoT devices are notoriously untrustworthy due to insufficient security, and the ability to later audit and analyze their actions is invaluable.
