@@ -21,7 +21,7 @@ Nevertheless, there remains significant interest in the question of whether the 
 In particular, we have consistently heard researchers, business executives, and government leadership ask the following three questions: (1) what exactly is Blockchain technology, (2) what capabilities does it provide, and (3) what are good applications for Blockchain technology.%, and (4) how does it relate to other approache distributed technologies (e.g., distributed databases).
 
 Unfortunately, there is a lack of clarity regarding the answers to these questions in both the community and the literature.
-This lack of clarity stems---at least in part---from competing viewpoints and terminology regarding Blockchain technology, resulting in seemingly contradictory statements that can all be true in their respective contexts.
+This lack of clarity stems at least in part from competing viewpoints and terminology regarding Blockchain technology, resulting in seemingly contradictory statements that can all be true in their respective contexts.
 In this paper, we attempt to address this ambiguity and provide a holistic overview of Blockchain technology, set forth a common lexicon for discussing Blockchain technology, and answer the three questions identified above.
 
 \begin{table}
@@ -29,7 +29,7 @@ In this paper, we attempt to address this ambiguity and provide a holistic overv
 	
 	\begin{tabular}{l|l}
 		\textbf{Academia} & \textbf{Industry} \\
-		\hline
+
 		
 		Increased interest recently & Long-term interest \\
 		Focused on specific subsystems & Takes a holistic view \\
@@ -42,13 +42,13 @@ In this paper, we attempt to address this ambiguity and provide a holistic overv
 
 To accomplish these goals, we conducted a textual analysis of papers on Blockchain technology from non-academic sources (hereafter referred to as \emph{industry}).
 The choice to focus our analysis on literature from industry was based on the unique suitability of that literature (see Table~\ref{tab:sources}) to answer the three questions we identified above:
-First, industry became heavily involved in writing on Blockchain technology before academia and has had more time to fully consider its implications.
-Second, industry literature generally focuses on discussing and evaluating Blockchain technology holistically, making it ideal to provide a high level overview for questions one and two.
-Third, much of industry literature is written by use case experts who are well positioned to answer the third question.
+First, industry became heavily involved in Blockchain technology before academia and thus has had more time to fully consider its implications.
+Second, industry literature tends to discuss and evaluate Blockchain technology holistically, which provides the broad perspective needed to answer questions one and two.
+Finally, much of industry literature is written by use case experts who are well positioned to answer the third question.
 
 In contrast, academic literature focuses on technical deep dives on Blockchain technology's subsystems and implementations built on Blockchain technology.
 For example, existing academic surveys on Blockchain technology have focused on particular systems or technical properties: Bitcoin~\cite{BMC+15,Narayanan17}, payment privacy~\cite{Conti17}, security and performance~\cite{Gervais16}, scalability~\cite{Croman16}, and consensus protocols~\cite{Bano17,garay2018consensus}.
-In this regard, the existing literature acts as a good compliment to this paper---i.e., researchers interested in Blockchain technology can gain read this paper to gain a holistic overview of the space then dive deeply into specific subtopics by reviewing other Blockchain survey papers.
+In this regard, the existing literature acts as a good compliment to this paper---i.e., researchers interested in Blockchain technology can read this paper to gain a holistic overview of the space and then dive deeply into specific subtopics by reviewing other Blockchain survey papers.
 
 % Jeremy: We invert the common approach: we don't study blockchain people looking at use-cases, we study the use case people looking at blockchain
 %To answer these questions, it is insufficient to consider academic sources alone.
@@ -58,17 +58,18 @@ In this regard, the existing literature acts as a good compliment to this paper-
 %This allowed us to extract and separate valuable technical insights out from the hype and technical misunderstandings that permeate this body of work.
 %Based on this analysis of data from industry, interspersed with our own knowledge and a review of the academic literature, we are able to answer the three questions commonly asked in relation to Blockchain technology, as well as shed light on industry's understandings and misunderstandings of the technology. 
 
-Ultimately, our technical analysis was successful at answering our three questions and in this paper we present answers to each of those questions.
+Ultimately, our technical analysis was successful at answering our three questions and in this paper we present those answers.
 While some readers may find the results of this paper unsurprising or differing from their viewpoints regarding Blockchain technology, we believe that this paper will be helpful to the community at large (both Blockchain experts and non-experts) and provide a common reference point for discussion on Blockchain technology.
 %While many of the results in this work might not be surprising to some readers, our experience suggests that knowledge of Blockchain technology is neither universal nor complete within the security community.
-Taken together, the results in this paper represent the most complete overview of Blockchain technology and its potential use cases available in a single work that we are aware of, and are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas.
-More concretely, our key contributions are:
+Taken together, the results in this paper represent the most complete overview of Blockchain technology and its potential use cases available in a single work that we are aware of.
+The results are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas.
+Concretely, our key contributions are:
 
 \begin{enumerate}
 	\item \textbf{Providing a holistic overview of Blockchain technology's technical properties and the capabilities they enable.}
-	We identify three key group of properties for Blockchain technology: shared governance and operation, the use of an append-only, decentralized ledger, and operational resilience.
+	We organize the properties of Blockchain technology into three groups: shared governance and operation, the use of an append-only, decentralized ledger, and operational resilience.
 	Taken together, these properties differentiate Blockchain technology from other distributed technologies.
-	Using these properties, systems built with Blockchain technology have easy access to a range of important capabilities: full-system provenance, auditability, access control, psuedonymity, automatic execution (i.e., smart contracts), data discoverability.
+	Using these properties, systems built with Blockchain technology have easy access to a range of important capabilities: full-system provenance, auditability, access control, psuedonymity, automatic execution (i.e., smart contracts), and data discoverability.
 	
 %	Blockchain systems are governed and operated by a distributed and decentralized collective of entities that ensure that all operations are valid.
 %	These operations are recorded in an append-only ledger that provides full-system provenance.
