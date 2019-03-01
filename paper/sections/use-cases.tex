@@ -11,7 +11,7 @@ As authors, we attempt to categorize in a way that is useful to the reader tryin
 \subsection{Relationship to other distributed systems}
 
 Blockchain technology provide a unique set of capabilities that might be better suited for a system design than competing database technologies or distributed systems.
-However it does come with a relatively high overhead: replicating all past and present data and operations on the data at every node of the network in an auditable ledger.
+However, it does come with a relatively high overhead: replicating all past and present data and operations on the data at every node of the network in an auditable ledger.
 Based on our results and experience we recommend the use of the following questions to determine if Blockchain technology would be a good fit for a specific project (see Section~\ref{sec:sharedgov} for definitions).\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
 
 \begin{enumerate}
@@ -19,7 +19,7 @@ Based on our results and experience we recommend the use of the following questi
 	\item Does the system require shared operation?
 \end{enumerate}
 
-If the answer to both questions is no, then Blockchain's consensus protocol is likely unnecessary overhead. If the answer to both questions is yes, then Blockchain technology is likely a good fit. This is due to the fact that meaningful shared governance \emph{and} operation requires miners to audit the operations of others and to be able to recover data that a malicious miner might try to delete (questions 3 and 4 below, respectively). If only shared governance or shared operation is needed, then the following two questions can be used to determine if the auditable ledger and replication, respectively, justifying the use of Blockchain technology if both are needed:
+If the answer to both questions is no, then Blockchain's consensus protocol is likely unnecessary overhead. If the answer to both questions is yes, then Blockchain technology is likely a good fit. This is because meaningful shared governance \emph{and} operation requires miners to audit the operations of others and to be able to recover data that a malicious miner might try to delete (questions 3 and 4 below, respectively). If only shared governance or shared operation is needed, then the following two questions can be used to determine if the auditable ledger and replication, respectively, justifying the use of Blockchain technology if both are needed:
 
 \begin{enumerate}[start=3]
 	\item Is it necessary to audit the system's provenance?
@@ -148,11 +148,11 @@ Electronic voting is a challenging problem that is often asserted to benefit fro
 Shared governance could be used to ensure that multiple parties (the government, non-governmental organizations, international watchdogs) can all work together to ensure that an election is legitimate.
 Audibility is important in providing evidence to the electorate that the election was fair.
 Finally, the resilience of Blockchain technology is important in prevent cyber-attacks against the voting system.
-However voting on a Blockchain has many challenges to solve: Blockchains offer no inherent support for secret ballots, electronic votes can be changed by the device they are voted from (and undetectably if a secret ballot is achieved), cryptographic keys could be sold to vote buyers, and key recovery mechanisms would need to be established. 
+However, voting on a Blockchain has many challenges to solve: Blockchains offer no inherent support for secret ballots, electronic votes can be changed by the device they are voted from (and undetectably if a secret ballot is achieved), cryptographic keys could be sold to vote buyers, and key recovery mechanisms would need to be established. 
 
 \paragraph{Gambling and Games}
 % Jeremy: To improve
-By examining the most active Bitcoin scripts and Ethereum decentralized applications, gambling is popular. Players can audit the game to ensure that execution is fair, and the system can operate its own cryptocurrency to handle the finances (including holding the money in escrow to prevent losing parties from aborting before paying). This use case is best suited to gambling games that do not require randomness, private state, or knowledge of off-chain events. For the subset of residual games,\footnote{Currently, the most active Ethereum game is called Fomo3D: users pay to reset a 30 second countdown timer and if it ever reaches zero, the last user to pay wins all the money collected.} Blockchain is an ideal platform. For the other types of games, new layers of technology would have be added on a Blockchain. Data-feeds (called oracles) of either randomness or real world event outcomes requires additional trust and introduces finality risk, while confidential user state require additional cryptography.  
+By examining the most active Bitcoin scripts and Ethereum decentralized applications, gambling is popular. Players can audit the game to ensure that execution is fair, and the system can operate its own cryptocurrency to handle the finances (including holding the money in escrow to prevent losing parties from aborting before paying). This use case is best suited to gambling games that do not require randomness, private state, or knowledge of off-chain events. For the subset of residual games,\footnote{Currently, the most active Ethereum game is called Fomo3D: users pay to reset a 30 second countdown timer and if it ever reaches zero, the last user to pay wins all the money collected.} Blockchain is an ideal platform. For the other types of games, new layers of technology would have been added on a Blockchain. Data-feeds (called oracles) of either randomness or real-world event outcomes requires additional trust and introduces finality risk, while confidential user state require additional cryptography.  
 
 \paragraph{IoT and smart property}
 % Jeremy: To do
