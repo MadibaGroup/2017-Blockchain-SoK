@@ -13,7 +13,7 @@ To help readers situate Blockchain technology within this greater ecosystem we h
 	\label{fig:blockchainFlowchart}
 \end{figure*}
 
-The first property in our taxonomy considers who has the authority to manage and update the database: \emph{what is the governance model?} In a singularly governed database (``Singular''), a single entity performs these tasks. Alternatively, the system can use a consensus protocol to allow for shared governance (``Shared'').
+The first property in our taxonomy considers who has the authority to manage and update the database: \emph{what is the operation model?} In a singularly governed database (``Singular''), a single entity performs these tasks. Alternatively, the system can use a consensus protocol to allow for shared governance (``Shared'').
 
 Next, we consider the security model by asking \emph{where is the root of trust?}
 This refers to the entity or entities that must behave honestly in order for the system to be secure.
@@ -25,12 +25,13 @@ In the worst case, nothing is auditable (``Nothing'').
 Systems can use an authenticated data structure~\cite{tamassia2003authenticated} to ensure that their current state can be audited (``Current state'').
 If the state also contains a history of the system (e.g., a ledger), then the use of an authenticated data structure allows for the provenance of the system to also be audited (``Provenance'').
 In both cases, it is necessary that these databases be monitored to ensure that they never enter an invalid state, even temporarily.
-In the case of decentralized systems, the decentralized partners can act as monitors.
+In the case of shared operation, the operating entities act as monitors of the current sate during the consensus protocol.
 
 Finally, we can classify systems by asking \emph{what is it resilient against?}
 In particular, we considered with three resiliency properties---(1) is it resilient to accidental data loss (``Data loss''), (2) is it possible to detect that data has been malicious altered (``Detect''), (3) and is it possible to prevent malicious updates (``Prevent'').
-Systems with centralized governance are only able to detect malicious updates as the monitors can detect the attack but cannot prevent the malicious update from being replicated.
-If we modify the system to allow monitors to play this role, they have become consensus partners and we now have a decentralized database.
+Replication is a simple solution to prevent against accidental data loss, but by itself it fails to prevent malicious data loss as the malicious changes to the database will also be replicated.
+In singular operation, external monitors can help detect malicious data changes, but can only do so after the data has been lost.
+In shared operation, the monitors are the operators and malicious deletions and modifications will not be replicated, preventing them from effecting the overall system.
 
 \input{sections/academic}
 
