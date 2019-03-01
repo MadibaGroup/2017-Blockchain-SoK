@@ -6,7 +6,7 @@
 Within the literature we analyzed, there was significant discussion about potential applications for Blockchain technology.
 We describe these use cases here.
 In many cases, an argument could be made that these are not independent use cases. Some use cases are subsumed by others, or two use cases might have a common abstraction that make them effectively the same.
-As authors, we attempt to categorize in a way that is useful to the reader trying to locate information about a particular use case. Before discussing the use cases themselves, we first discuss the general parameters of when a blockchain is useful. 
+As authors, we attempt to categorize in a way that is useful to the reader trying to locate information about a particular use case. Before discussing the use cases themselves, we first discuss the general parameters of when a Blockchain is useful. 
 
 \subsection{Relationship to other distributed systems}
 
@@ -43,9 +43,10 @@ If the answer to both questions is no, then Blockchain's consensus protocol is l
 % anonymous: zerocoin, zerocash, etc
 
 It is well-known that Blockchain technology can be used to build cryptocurrencies; Bitcoin is a working example of this.
-Blockchain technologies enable electronic transactions that are resilient even when large values are at stake.
+Blockchain technology enable electronic transactions that are resilient even when large values are at stake.
 Bitcoin has notable drawbacks that include scalability, performance and privacy.
-There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency and scalable~\cite{}, partially offline~\cite{}, confidential~\cite{} and/or anonymous~\cite{}.
+%There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency and scalable~\cite{}, partially offline~\cite{}, confidential~\cite{} and/or anonymous~\cite{}.
+There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency and scalable, partially offline, confidential, and/or anonymous (see Appendix~\ref{sec:academic}).
 
 \paragraph{Asset trading}
 % Jeremy: previously Token tracking and trading
@@ -78,6 +79,7 @@ A second challenge for many of these use cases is reporting real world events (a
 However, this is not an issue for events that are Blockchain-based to begin with.
 This demonstrates a key point: deploying several complimentary use cases on the same Blockchain enables complex interactions. 
 
+
 \paragraph{Penalties, remedies, and sanctions}
 
 In common parlance, code running on a Blockchain is called a smart contract.\footnote{In particular, the success of Ethereum contributed to this, although that project now prefers the term `decentalized app' or dapp for short.} Legal contracts will often anticipate potential future breaches and offer a set of penalties or remedies.
@@ -100,8 +102,8 @@ While assets are already tracked in digital databases, there is no common databa
 A Blockchain sidesteps the political problem of who should host such a shared database when the candidates are competing firms and government agencies from different jurisdictions. 
 Blockchain technology provides a common environment where no single firm has the elevated power and control of running a widely-used database. 
 The main integrity challenge is the stapling issue: specifying how material assets are assigned a tracking token on the Blockchain in a trustworthy manner. 
-A second challenge is the lack of confidentiality Blockchain technologies offer by default  when the data is proprietary and tied to profitable business practices.
-A third challenge is getting agreement on the technology to be used (this is being explored through business consortiums.\footnote{\eg Blockchain in Transport Alliance}).
+A second challenge is the lack of confidentiality Blockchain technologies offers by default when the data is proprietary and tied to profitable business practices.
+Finally, a third challenge is getting agreement on the technology to be used (this is being explored through business consortiums.\footnote{\eg Blockchain in Transport Alliance}).
 
 \paragraph{Identity and key management}
 % Jeremy: To do still
@@ -128,7 +130,7 @@ This use case is best suited for records that are highly valuable (such as certi
 If large and/or confidential documents need to be stored, then the Blockchain can store binding/hiding commitments for the documents, while the documents themselves are stored in another system with lower overhead.
 %For open Blockchains, the identity of the entity certifying the data is not provided for by default on a Blockchain.
 % Jeremy: Querying -> give me everything
-Blockchain technology could be used to timestamp documents. Still, timestamping generally does not rely on any of Blockchain technologies key properties, and so Blockchain technology is likely overkill for this application.
+Blockchain technology could be used to timestamp documents. Still, timestamping generally does not rely on any of Blockchain technology's key properties, and so Blockchain technology is likely overkill for this application.
 
 
 % Jeremy: Why is this removed? I don't disagree with its removal but want to confirm the motivation
@@ -153,7 +155,8 @@ However, voting on a Blockchain has many challenges to solve: Blockchains offer 
 
 \paragraph{Gambling and Games}
 % Jeremy: To improve
-Examining the most active Bitcoin scripts and Ethereum decentralized applications shows that gambling is quite popular. Players can audit the game to ensure that execution is fair, and the system can operate its own cryptocurrency to handle the finances (including holding the money in escrow to prevent losing parties from aborting before paying). This use case is best suited to gambling games that do not require randomness, private state, or knowledge of off-blockchain events. For the set of residual games,\footnote{Currently, the most active Ethereum game is called Fomo3D: users pay to reset a 30 second countdown timer and if it ever reaches zero, the last user to pay wins all the money collected.} Blockchain is an ideal platform. For the other types of games, new layers of technology would have be added on a Blockchain. Data-feeds (called oracles) of either randomness or real world event outcomes requires additional trust and introduces finality risk, while confidential user state require additional cryptography.  
+
+Examining the most active Bitcoin scripts and Ethereum decentralized applications shows that gambling is quite popular. Players can audit the game to ensure that execution is fair, and the system can operate its own cryptocurrency to handle the finances (including holding the money in escrow to prevent losing parties from aborting before paying). This use case is best suited to gambling games that do not require randomness, private state, or knowledge of off-blockchain events. For the set of residual games,\footnote{Currently, the most active Ethereum game is called Fomo3D: users pay to reset a 30 second countdown timer and if it ever reaches zero, the last user to pay wins all the money collected.} Blockchain is an ideal platform. For the other types of games, new layers of technology would have be added on a Blockchain. Data feeds (called oracles) of either randomness or real world event outcomes requires additional trust and introduces finality risk, while confidential user state require additional cryptography.  
 
 \paragraph{IoT and smart property}
 % Jeremy: To do
