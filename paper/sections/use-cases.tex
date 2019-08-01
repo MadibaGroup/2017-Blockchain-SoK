@@ -12,7 +12,8 @@ As authors, we attempt to categorize in a way that is useful to the reader tryin
 
 Blockchain technology provides a unique set of capabilities that might be better suited for a system design than competing database technologies or distributed systems.
 However it does come with a relatively high overhead: replicating all past and present data and operations on the data at every node of the network in an auditable ledger.
-Based on our results and experience we recommend the use of the following questions to determine if Blockchain technology would be a good fit for a specific project (see Section~\ref{sec:sharedgov} for definitions).\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
+Based on our results and experience we recommend the use of the following questions to determine if Blockchain technology would be a good fit for a specific project (see Section~\ref{sec:sharedgov} for definitions).%\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
+\todo{Reference to a technical report?}
 
 \begin{enumerate}
 	\item Does the system require shared governance?
@@ -25,8 +26,6 @@ If the answer to both questions is no, then Blockchain's consensus protocol is l
 	\item Is it necessary to audit the system's provenance?
 	\item Is it necessary to prevent malicious data deletion?
 \end{enumerate}
-
-
 
 % =====
 
@@ -134,6 +133,7 @@ Blockchain technology could be used to timestamp documents. Still, timestamping 
 
 
 % Jeremy: Why is this removed? I don't disagree with its removal but want to confirm the motivation
+% Scott: Removed because this is largely based on work proposed at MIT Lincoln Lab. Only tangentially supported by the research.
 
 %\subsubsection{Fine-grained Access Control}
 %In practice, access control systems are often centralized. They are sometimes nominally distributed -- for example, requiring several written signatures on a form before a system administrator will grant a new permission -- but even these systems are essentially centralized as a single administrator can unilaterally grant nearly any privilege in the system.

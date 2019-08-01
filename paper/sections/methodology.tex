@@ -3,57 +3,68 @@
 \section{Methodology}
 \label{sec:method}
 
-To more holistically understand Blockchain technology, we conducted a rigorous textual analysis of Blockchain literature from non-academic sources (hereafter referred to as industry),\footnote{Here, we consider industry broadly: corporations, small and medium business, startups, and consortia.} including but not limited to source from the technology, financial, and healthcare industries.
-While there is valuable information to be learned from these sources, analyzing them has certain challenges that while also present in academic literature are usually less pronounced:
+To more holistically understand Blockchain technology, we conducted a rigorous textual analysis of Blockchain literature from non-academic sources (hereafter referred to as industry),
+%\footnote{Here, we consider industry broadly: corporations, small and medium business, startups, and consortia.}
+including but not limited to source from the technology, financial, and healthcare industries.
+While there is valuable information to be learned from these sources, analyzing them has certain challenges that while also present in academic literature are usually less pronounced: (a) a lack of precise of precise terminology and discussion, (b) inclusion of hype, and (c) researcher bias.
 
-\begin{enumerate}
-	\item \emph{Lack of precise terminology and discussion.}
-	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to white papers that are difficult to understand and provide muddled descriptions of capabilities and use cases.
-	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we  observed an accurate description of an idea that was phrased in such a way as to make it seem incorrect under cursory examination. Some of those ideas were assembled in ways that are interesting to academics, if one takes the time to work through the material.
-	In this regard, materials from industry represent a trove of useful information obscured by imprecise terminology and discussion.
-	
-	\item \emph{Inclusion of hype.}
-	Much of the material from industry includes visionary statements (i.e., hype) about how Blockchain technology will change business practices, power dynamics and the way the world works.
-	This hype is a mixture of realistic use cases that can benefit from Blockchain technology (e.g., anonymous payments~\cite{chaum1988untraceable}) and ideals that far transcend any technical solution (e.g., removing the need for governments).
-	Unfortunately, unlike what one would expect in academic literature, the materials from industry often intermingle hype with technical details. This at least partially explains why some in academia are quick to dismiss sources from industry.
-	
-	\item \emph{Researcher bias.}	
-	Researcher bias is an obvious problem in any literature review---regardless of whether the source is academia or industry---and one that is often not explicitly addressed in systemization papers.
-	The potential for bias is even stronger when reviewing materials from industry because the two issues described above (lack of precise terminology and hype) make it easy for researchers to dismiss out of hand ideas proposed by industry.
-%	Additionally, being aware of the academic pedigree of Blockchain technology can make it easy to overlook the interesting use cases enabled by the composition of existing primitives.
-	
-\end{enumerate}
+%\begin{enumerate}
+%	\item \emph{Lack of precise terminology and discussion.}
+%	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to white papers that are difficult to understand and provide muddled descriptions of capabilities and use cases.
+%	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we  observed an accurate description of an idea that was phrased in such a way as to make it seem incorrect under cursory examination. Some of those ideas were assembled in ways that are interesting to academics, if one takes the time to work through the material.
+%	In this regard, materials from industry represent a trove of useful information obscured by imprecise terminology and discussion.
+%	
+%	\item \emph{Inclusion of hype.}
+%	Much of the material from industry includes visionary statements (i.e., hype) about how Blockchain technology will change business practices, power dynamics and the way the world works.
+%	This hype is a mixture of realistic use cases that can benefit from Blockchain technology (e.g., anonymous payments~\cite{chaum1988untraceable}) and ideals that far transcend any technical solution (e.g., removing the need for governments).
+%	Unfortunately, unlike what one would expect in academic literature, the materials from industry often intermingle hype with technical details. This at least partially explains why some in academia are quick to dismiss sources from industry.
+%	
+%	\item \emph{Researcher bias.}	
+%	Researcher bias is an obvious problem in any literature review---regardless of whether the source is academia or industry---and one that is often not explicitly addressed in systemization papers.
+%	The potential for bias is even stronger when reviewing materials from industry because the two issues described above (lack of precise terminology and hype) make it easy for researchers to dismiss out of hand ideas proposed by industry.
+%%	Additionally, being aware of the academic pedigree of Blockchain technology can make it easy to overlook the interesting use cases enabled by the composition of existing primitives.
+%	
+%\end{enumerate}
 
-For these three reasons, it is tempting to avoid analyzing materials from industry,
+For these reasons, it is tempting to avoid analyzing materials from industry,
 % industry materials from a review of the literature on Blockchain technology as previous work has often done.
-however, taking that approach would sacrifice significant insights into BLockchain technology and its use cases.
-Instead we employ a well-established research method---\emph{grounded theory}~\cite{glaser1965constant,strauss1990basics,corbin1990grounded} (also known as the constant comparative method)---to rigorously analyze the data in a way that directly addresses each of these three problems.
-%As readers may be unaware of the grounded theory methodology, in this section we describe the methodology in more depth.
-
-Grounded theory is used to analyze qualitative data sources (e.g., user stories, interviews) and extract the underlying data and processes described across the myriad of gathered sources.\footnote{Grounded theory identifies data and processes that are supported across the body of sources and is not a method for creating a fine-grained breakdown of an individual document.}
+however, taking that approach would sacrifice significant insights into Blockchain technology and its use cases.
+Instead we employ a well-established research method---\emph{grounded theory}
+%~\cite{glaser1965constant,strauss1990basics,corbin1990grounded}
+(also known as the constant comparative method)---to rigorously analyze the data in a way that directly addresses each of the above issues.
+%Grounded theory is used to analyze qualitative data sources (e.g., user stories, interviews) and extract the underlying data and processes described across the myriad of gathered sources.
+%\footnote{Grounded theory identifies data and processes that are supported across the body of sources and is not a method for creating a fine-grained breakdown of an individual document.}
 In particular, grounded theory is designed to help researchers identify data and processes within qualitative data sources generated by humans and filled with imprecise terminology and descriptions.
 Additionally, grounded theory limits the impact of researcher bias, ensuring that the data and processes are derived from the data and not from the researchers' preconceived notions of what the data says.
 Grounded theory explicitly addresses the first and third problems we identified for evaluating materials from industry, and our hope was that it would also be able to separate the hype from the underlying data and processing. We believe these goals were satisfied based on our results. 
+%As readers may be unaware of the grounded theory methodology, in this section we describe the methodology in more depth.
 
-The idea of using grounded theory for literature review is not new~\cite{wolfswinkel2013using,yang2012descriptive} and this method has been used in thousands of studies examining qualitative data.\footnote{As evidence of its wide use, the top-cited paper describing grounded theory has 62,951 citations as of writing.}
-%TODO: This needs to be deanonymized when published.
-For these reasons---and based on our own experience with the method~\cite{ruoti2017weighing}---we were confident this method would allow us to successfully accomplish our research goals.
+%In the remainder of this section, we describe the data we gathered as well as the grounded theory process used to evaluate it.
 
-In the remainder of this section we first describe how we gathered industry materials for our grounded theory analysis.
-Next, we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
-Lastly, we describe an academic literature review we conducted to enhance the results of our grounded theory analysis.
+%The idea of using grounded theory for literature review is not new
+%%~\cite{wolfswinkel2013using,yang2012descriptive}
+%and this method has been used in thousands of studies examining qualitative data.
+%%\footnote{As evidence of its wide use, the top-cited paper describing grounded theory has 62,951 citations as of writing.}
+%%TODO: This needs to be deanonymized when published.
+%For these reasons---and based on our own experience with the method~\cite{ruoti2017weighing}---we were confident this method would allow us to successfully accomplish our research goals.
+
+%In the remainder of this section we first describe how we gathered industry materials for our grounded theory analysis.
+%Next, we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
+%Lastly, we describe an academic literature review we conducted to enhance the results of our grounded theory analysis.
 
 \subsection{Industry Material Gathering}
-Beginning in the summer of 2016 we began to gather documents published regarding Blockchain technology.
-This included both materials from industry and academia, though this section will focus on only the former.
+%Beginning in the summer of 2016
+We gathered documents published regarding Blockchain technolog, including both materials from industry and academia, though this section will focus on only the former.
 We gathered materials using a variety of methods:
 
 \begin{itemize}
-	\item Following RSS feeds that track news and publications related to Blockchain technology (e.g., CoinDesk\footnote{\url{https://coindesk.com}}).
-	\item Downloaded materials published by Blockchain consortiums (e.g., Hyperledger\footnote{\url{https://www.hyperledger.org/}}, Decentralized Identity Framework\footnote{\url{http://identity.foundation/}}) and their members (e.g., IBM, Microsoft, Gem).
+	\item Following RSS feeds that track news and publications related to Blockchain technology (e.g., CoinDesk).%\footnote{\url{https://coindesk.com}}).
+	\item Downloaded materials published by Blockchain consortiums (e.g., Hyperledger, Decentralized Identity Framework) and their members (e.g., IBM, Microsoft, Gem).
+%	\item Downloaded materials published by Blockchain consortiums (e.g., Hyperledger\footnote{\url{https://www.hyperledger.org/}}, Decentralized Identity Framework\footnote{\url{http://identity.foundation/}}) and their members (e.g., IBM, Microsoft, Gem).
 	\item Using Google to explore what was being said about Blockchain technology by major accounting firms, banks, and tech companies.
 	\item Browsing new articles and blog posts related to Blockchain technology. This included articles which gave lists of interesting Blockchain papers.
-	\item Reviewing submissions to the ONC Blockchain in Health Care Competition.\footnote{\url{https://www.healthit.gov/topic/grants-contracts/announcing-blockchain-challenge}}.
+	\item Reviewing submissions to the ONC Blockchain in Health Care Competition.
+	%\footnote{\url{https://www.healthit.gov/topic/grants-contracts/announcing-blockchain-challenge}}.
 \end{itemize}
 
 When reviewing these materials, we would also follow references and include those documents if we believed they were relevant.
@@ -66,52 +77,18 @@ In total, we collected 132 documents across three categories.
 \end{itemize}
 
 \subsection{Grounded Theory Data Analysis}
-After collecting our initial set of 104 documents, we analyzed them using grounded theory.
-This methodology splits analysis of the documents into four stages: open coding, axial coding, selective coding, and theory generation.
-Throughout the analysis of the documents we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
+Four members of our group used grounded theory to analyze the documents as we gathered them.
+We continued gathering and reviewing documents until each of us felt that the last 3--5 documents we had read revealed no new information regarding Blockchain technology; this is a commonly accepted stopping criteria in grounded theory that ensures that all core (i.e., not one-off) ideas have been identified.
+Throughout this analysis we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
 Additionally, we conducted intensive discussion between the various researchers to ensure that we were correctly understanding and evaluating the source material.
-As is often the case in grounded theory, these notes and discussion were every bit as important, if not more so, than the concepts, categories, and theories we generated.
+%As is often the case in grounded theory, these notes and discussion were every bit as important, if not more so, than the concepts, categories, and theories we generated.
 
-\subsubsection{Stage 1---Open Coding}
-In this first stage, documents were assigned to one of four reviewers.
-Each reviewer would read the document, assign codes to words and sentences in the document.
-These codes were generated using a mixture of open coding (assigning a code that summarizes the document's statement) and in situ coding (using the document's own words as the code).
-To ensure that we were assigning the correct codes, we paid careful attention to the context of each statement.
+Our analysis ultimately revealed a set of 68 highly-interconnected concepts that define Blockchain technology.
+These individual concepts are divided into five categories:
 
-In particular, reviewers made sure to code the following four concepts found in documents:
 \begin{itemize}
-	\item \emph{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
-	\item \emph{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
-	\item \emph{Limitations.} What inherent limitations are there when using Blockchain technology?
-	\item \emph{Use cases.} What applications or groups of applications (i.e., uses cases) benefit from the application of Blockchain technology?
-\end{itemize}
-
-At this stage of the grounded theory process, reviewers were instructed to avoid evaluating the validity of the coded concepts.
-Instead, every attempt was made to include all possible codes, helping to ensure that our results were grounded in the data and not reviewers' biases.
-
-The reviewers continued reviewing documents until each felt that the last 3--5 documents they had read had no concepts that had not already been brought up by previous documents.
-This is a commonly accepted stopping criteria in grounded theory and is indicative that all core (i.e., not truly one-off) ideas have been discovered.
-In total, this stage resulted in the creation of 641 codes.
-
-\subsubsection{Stage 2---Axial Coding}
-In the second stage, our research team used the constant comparative method to group codes into concepts.
-Specifically, we collapsed distinct codes referring to the same topic (e.g., one was an open code, the other in situ) into a single code, reducing the original set of 641 codes to a more manageable 68 concepts.
-As needed, we referred to the original documents to ensure that our understanding of the code was fresh, and that we were assigning it to the appropriate concept.
-Also, at this stage we continued to avoid evaluating the validity of concepts, ensuring that the ideas of the reviewed documents were fully reflected in the codes.
-
-\subsubsection{Interlude---Additional Open Coding.}
-After completing axial coding, one reviewer coded (i.e., open coding) another 28 documents (giving the total of 132 documents).
-These documents were all blog posts, representing the most up-to-date thinking on Blockchain technology.
-In this process, no new codes were discovered, indicating that our process had produced concepts that thoroughly describe Blockchain technology.
-
-\subsubsection{Stage 3---Selective Coding}
-In the third stage, two researchers transferred the concepts related to technical properties and applications onto sticky-notes.
-They then drew connecting lines between these concepts, describing how they related to one another.
-Based on these interconnections, concepts were divided into five different categories:
-
-%\begin{itemize}[label=$\blacksquare$]
-\begin{itemize}
-	\item \emph{Technical properties (Figures~\ref{fig:technical-properties},~\ref{fig:technical-properties-full}).}
+	\item \emph{Technical properties (Figure~\ref{fig:technical-properties}).}
+	%,~\ref{fig:technical-properties-full}).}
 	Technical properties are the components that make up of Blockchain technology. Examples include decentralized governance, a consensus protocol, and an append-only transaction ledger.
 	
 	\item \emph{Capabilities (Figure~\ref{fig:Capabilities}).}
@@ -126,35 +103,101 @@ Based on these interconnections, concepts were divided into five different categ
 	\item \emph{Normative properties (Figure~\ref{fig:normative-properties}).}
 	Normative properties represent what people hope to achieve using Blockchain technology. 
 	Importantly, these properties are not provided by the use of Blockchain technology---as are the technical properties and capabilities---but instead require the careful designs of larger systems that might only use Blockchain technology as a small piece of the overall system.
-	In general, normative properties strongly relate to the hype surrounding Blockchain technology.
-	Examples include public participation, trustlessness, and censorship resistance.
-		
+	In general, normative properties strongly relate to the hype surrounding Blockchain technology%.
+	and as such we do not discuss them further in this article.
+	%		Examples include public participation, trustlessness, and censorship resistance.
 \end{itemize}
 
-%TODO: Update with final counts for use cases.
-Our categorization resulted in 21 technical primitives, 14 technical properties, 12 normative properties, 13 capabilities, and 15 use cases.
-While we divide the concepts into these five categories, individual concepts are highly interconnected, both inter- and intra-category.
-This provides credence to the notion that Blockchain technology overall is a cohesive whole, with each its component concepts serving a purpose in the overall technology.
-
-%Figures for the technical properties, capabilities, and normative properties cateogires are given throughout the paper (see Figures~\ref{fig:technical-properties}, whereas primitives and use cases are discussed within the text of the paper.
-%Within the figures, arrows represent dependency relationships---i.e., the source concept is used to support the destination concept---and categories are color coded: technical primitives are green, technical properties are blue, normative properties are orange, and capabilities are purple.
-%In some cases, several concepts (e.g., open governance and consortium governance) derive from a single parent concept (e.g., governance) and this is represented by having a box for the parent concept that surrounds the children concepts.
-
-This is the first stage of our methodology where research expertise directly influenced the results.
-First, by its very nature drawing connections between concepts is subjective.
-In most cases these connections were directly motivated by explicit references in the text, but in several cases we drew connections that we felt were implicit within the text.
-Second, we identified several misconceptions that either shared no connections with the rest of the concepts or were obviously false (e.g., the assertion that cryptographic signatures provide confidentiality).
-In both of these situations, our research notes kept track of what was explicitly supported by the analyzed data and what was the result of researcher interpretation.
-
-\subsubsection{Stage 4---Theory Generation}
-In the fourth and final stage, we used the concepts, categories, and connections derived from the first three stages of our grounded theory, along with our research notes and researcher expertises to derive several theories (i.e., research results from our analysis) regarding Blockchain technology.
-First, we subdivided the technical properties into three categories that give a high-level description of what Blockchain technology is (see Section~\ref{sec:blockchain}).
-Second, we extracted Blockchain technology's capabilities (Section~\ref{sec:capabilities}), related challenges (Section~\ref{sec:challenges}), and use cases (Section~\ref{sec:use-cases}).
-Third, we found that there is a clean split between Blockchain technology's technological primitives and its normative properties (i.e., hype) (see Section~\ref{sec:normative}).
-%Third, we described how Blockchain technology differs from other distributed technologies (see Appendix~\ref{sec:distributed-comparison}) and identified criteria that help determine whether a given problem can benefit from the use of Blockchain technology (see Section~\ref{sec:should-i-use-it}).
-
-\subsection{Limitations / Research Artifacts}
-Due to the nature of grounded theory, our analysis of the data represents one view on that data.
-Different researchers coding the same data may have focused on different aspects leading to differences in categories, connections, and the theories they focused on.
-To address this limitation, the analyzed documents as well as the generated codes, concepts, category graphs, and research notes will be available at [blinded for peer review].
-We invite other researchers to review our work and to examine our collected documents for other interesting contributions.
+%\subsection{Grounded Theory Data Analysis}
+%After collecting our initial set of 104 documents, we analyzed them using grounded theory.
+%This methodology splits analysis of the documents into four stages: open coding, axial coding, selective coding, and theory generation.
+%Throughout the analysis of the documents we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
+%Additionally, we conducted intensive discussion between the various researchers to ensure that we were correctly understanding and evaluating the source material.
+%As is often the case in grounded theory, these notes and discussion were every bit as important, if not more so, than the concepts, categories, and theories we generated.
+%
+%\subsubsection{Stage 1---Open Coding}
+%In this first stage, documents were assigned to one of four reviewers who would read the document and assign codes to words and sentences in the document.
+%These codes were generated using a mixture of open coding (assigning a code that summarizes the document's statement) and in situ coding (using the document's own words as the code).
+%To ensure that we were assigning the correct codes, we paid careful attention to the context of each statement.
+%
+%In particular, reviewers made sure to code the following four concepts found in documents:
+%\begin{itemize}
+%	\item \emph{Properties.} What are the building blocks for Blockchain technology? What capabilities does it provide?
+%	\item \emph{Challenges.} What challenges must be addressed when building systems using Blockchain technology?
+%	\item \emph{Limitations.} What inherent limitations are there when using Blockchain technology?
+%	\item \emph{Use cases.} What applications or groups of applications (i.e., uses cases) benefit from the application of Blockchain technology?
+%\end{itemize}
+%
+%%At this stage of the grounded theory process, reviewers were instructed to avoid evaluating the validity of the coded concepts.
+%%Instead, every attempt was made to include all possible codes, helping to ensure that our results were grounded in the data and not reviewers' biases.
+%
+%The reviewers continued reviewing documents until each felt that the last 3--5 documents they had read had no concepts that had not already been brought up by previous documents.
+%This is a commonly accepted stopping criteria in grounded theory and is indicative that all core (i.e., not one-off) ideas have been discovered.
+%In total, this stage resulted in the creation of 641 codes.
+%
+%\subsubsection{Stage 2---Axial Coding}
+%In the second stage, our research team used the constant comparative method to group codes into concepts.
+%Specifically, we collapsed distinct codes referring to the same topic (e.g., one was an open code, the other in situ) into a single code, reducing the original set of 641 codes to a more manageable 68 concepts.
+%As needed, we referred to the original documents to ensure that our understanding of the code was fresh, and that we were assigning it to the appropriate concept.
+%Also, at this stage we continued to avoid evaluating the validity of concepts, ensuring that the ideas of the reviewed documents were fully reflected in the codes.
+%
+%\subsubsection{Interlude---Additional Open Coding.}
+%After completing axial coding, one reviewer coded (i.e., open coding) another 28 documents (giving the total of 132 documents).
+%These documents were all blog posts, representing the most up-to-date thinking on Blockchain technology.
+%In this process, no new codes were discovered, indicating that our process had produced concepts that thoroughly describe Blockchain technology.
+%
+%\subsubsection{Stage 3---Selective Coding}
+%In the third stage, two researchers transferred the concepts related to technical properties and applications onto sticky-notes.
+%They then drew connecting lines between these concepts, describing how they related to one another.
+%Based on these interconnections, concepts were divided into five different categories:
+%
+%%\begin{itemize}[label=$\blacksquare$]
+%\begin{itemize}
+%	\item \emph{Technical properties (Figures~\ref{fig:technical-properties},~\ref{fig:technical-properties-full}).}
+%	Technical properties are the components that make up of Blockchain technology. Examples include decentralized governance, a consensus protocol, and an append-only transaction ledger.
+%	
+%	\item \emph{Capabilities (Figure~\ref{fig:Capabilities}).}
+%	Capabilities are the high-level features provided by Blockchain technology's technical properties. Examples include automatic executions (i.e., smart contracts), internal auditability, and access control.
+%	
+%	\item \emph{Technical primitives.}
+%	Primitives are the building blocks used to construct the technical properties and capabilities of Blockchain technology. Examples include timestamps, hashchains, and peer-to-to-peer communication.
+%	
+%	\item \emph{Use cases.}
+%	Use cases are classes of systems that the literature identified as being good fits for Blockchain technology. Examples include crytocurrencies, supply chain management, and identity management.
+%	
+%	\item \emph{Normative properties (Figure~\ref{fig:normative-properties}).}
+%	Normative properties represent what people hope to achieve using Blockchain technology. 
+%	Importantly, these properties are not provided by the use of Blockchain technology---as are the technical properties and capabilities---but instead require the careful designs of larger systems that might only use Blockchain technology as a small piece of the overall system.
+%	In general, normative properties strongly relate to the hype surrounding Blockchain technology.
+%	Examples include public participation, trustlessness, and censorship resistance.
+%		
+%\end{itemize}
+%
+%%TODO: Update with final counts for use cases.
+%Our categorization resulted in 21 technical primitives, 14 technical properties, 12 normative properties, 13 capabilities, and 15 use cases.
+%While we divide the concepts into these five categories, individual concepts are highly interconnected, both inter- and intra-category.
+%This provides credence to the notion that Blockchain technology overall is a cohesive whole, with each its component concepts serving a purpose in the overall technology.
+%
+%%Figures for the technical properties, capabilities, and normative properties cateogires are given throughout the paper (see Figures~\ref{fig:technical-properties}, whereas primitives and use cases are discussed within the text of the paper.
+%%Within the figures, arrows represent dependency relationships---i.e., the source concept is used to support the destination concept---and categories are color coded: technical primitives are green, technical properties are blue, normative properties are orange, and capabilities are purple.
+%%In some cases, several concepts (e.g., open governance and consortium governance) derive from a single parent concept (e.g., governance) and this is represented by having a box for the parent concept that surrounds the children concepts.
+%
+%%This is the first stage of our methodology where research expertise directly influenced the results.
+%%First, by its very nature drawing connections between concepts is subjective.
+%%In most cases these connections were directly motivated by explicit references in the text, but in several cases we drew connections that we felt were implicit within the text.
+%%Second, we identified several misconceptions that either shared no connections with the rest of the concepts or were obviously false (e.g., the assertion that cryptographic signatures provide confidentiality).
+%%In both of these situations, our research notes kept track of what was explicitly supported by the analyzed data and what was the result of researcher interpretation.
+%
+%\subsubsection{Stage 4---Theory Generation}
+%In the fourth and final stage, we used the concepts, categories, and connections derived from the first three stages of our grounded theory, along with our research notes and researcher expertises to derive several theories (i.e., research results from our analysis) regarding Blockchain technology.
+%First, we subdivided the technical properties into three categories that give a high-level description of what Blockchain technology is (see Section~\ref{sec:blockchain}).
+%Second, we extracted Blockchain technology's capabilities (Section~\ref{sec:capabilities}), related challenges (Section~\ref{sec:challenges}), and use cases (Section~\ref{sec:use-cases}).
+%Third, we found that there is a clean split between Blockchain technology's technological primitives and its normative properties (i.e., hype) (see Section~\ref{sec:normative}).
+%%Third, we described how Blockchain technology differs from other distributed technologies (see Appendix~\ref{sec:distributed-comparison}) and identified criteria that help determine whether a given problem can benefit from the use of Blockchain technology (see Section~\ref{sec:should-i-use-it}).
+%
+%\subsection{Limitations / Research Artifacts}
+%Due to the nature of grounded theory, our analysis of the data represents one view on that data.
+%Different researchers coding the same data may have focused on different aspects leading to differences in categories, connections, and the theories they focused on.
+%To address this limitation, the analyzed documents as well as the generated codes, concepts, category graphs, and research notes will be available at [blinded for peer review].
+%\todo{We need the correct URL here}
+%We invite other researchers to review our work and to examine our collected documents for other interesting contributions.
