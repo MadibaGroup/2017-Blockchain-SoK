@@ -18,50 +18,67 @@
 \title{SoK: Blockchain Technology and Its Potential Use Cases}
 %TODO: This needs to be anonymized when submitted.
 
+\makeatletter
+\newcommand{\linebreakand}{%
+	\end{@IEEEauthorhalign}
+	\hfill\mbox{}\par
+	\mbox{}\hfill\begin{@IEEEauthorhalign}
+}
+\makeatother
+
+\makeatletter
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\makeatother
+
 \author{
-	Anonymous
-%	\IEEEauthorblockN{Scott Ruoti}
-%	\IEEEauthorblockA{
-%		University of Tennessee, Knoxville\\
-%		MIT Lincoln Laboratory\\
-%		\textit{ruoti@utk.edu}
-%	} \\
-%
-%	\IEEEauthorblockN{Jeremy Clark}
-%	\IEEEauthorblockA{
-%		Concordia University\\
-%		%\textit{}
-%	}
-%
-%	\and
-%	
-%	\IEEEauthorblockN{Ben Kaiser}
-%	\IEEEauthorblockA{
-%		Princeton\\
-%		MIT Lincoln Laboratory\\
-%		\hspace{\baselineskip}%\textit{}
-%	}\\
-%
-%	\IEEEauthorblockN{Robert Cunningham}
-%	\IEEEauthorblockA{
-%		Carnegie Mellon University\\
-%		Software Engineering Institute\\
-%		MIT Lincoln Laboratory\\
-%		%\textit{}
-%	}
-%
-%	
-%	\and
-%	
-%	\IEEEauthorblockN{Arkady Yerukhimovich}
-%	\IEEEauthorblockA{
-%		George Washington University\\
-%		MIT Lincoln Laboratory\\
-%		%\textit{}
-%	}
+%	Anonymous
+	\IEEEauthorblockN{Scott Ruoti}
+	\IEEEauthorblockA{
+		University of Tennessee, Knoxville\\
+		MIT Lincoln Laboratory\IEEEauthorrefmark{1}\\
+		ruoti@utk.edu
+	}
+
+	\and
+	
+	\IEEEauthorblockN{Ben Kaiser}
+	\IEEEauthorblockA{
+		Princeton\\
+		MIT Lincoln Laboratory\IEEEauthorrefmark{1}\\
+		bkaiswer@cs.princeton.edu
+	}
+
+	\and
+	
+	\IEEEauthorblockN{Arkady Yerukhimovich}
+	\IEEEauthorblockA{
+		George Washington University\\
+		MIT Lincoln Laboratory\IEEEauthorrefmark{1}\\
+		arkady@gwu.edu
+	}
+
+	\linebreakand
+
+	\IEEEauthorblockN{Jeremy Clark}
+	\IEEEauthorblockA{
+		Concordia University\\
+		j.clark@concordia.ca
+	}
+
+	\and
+
+	\IEEEauthorblockN{Robert Cunningham}
+	\IEEEauthorblockA{
+		Carnegie Mellon University\\
+		Software Engineering Institute\\
+		MIT Lincoln Laboratory\IEEEauthorrefmark{1}\\
+		robertkcunningham@cmu.edu
+	}	
 }
 
 \maketitle
+
+\blfootnote{\IEEEauthorrefmark{1}Prior affiliation where a large portion of this research was completed.}
 
 %====================================================================
 

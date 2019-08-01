@@ -32,7 +32,7 @@ By participating in both the governance and operation of the system (i.e., share
 Even if some of the miners become compromised, the uncompromised miners retain the ability to detect malicious actions by the compromised miners and to prevent them from interfering with the correct operation of the system.
 In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.\footnote{This property has often been called ``trustlessness''; this is incorrect as trust still exists but has simply been diffused among multiple parties.}
 
-Shared operation is enabled by the use of \emph{consensus protocols} (e.g., proof-of-work~\cite{DN93,back1997partial,NakamotoS8} or Byzantine fault tolerance~\cite{castro1999practical}), which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system.
+Shared operation is enabled by the use of \emph{consensus protocols}, which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system.
 The consensus protocols allow miners to view transactions and validate that the system is operating appropriately, an important consideration as the miners do not trust that only valid transactions will be submitted to the consensus protocol.
 Shared governance is provided by the ability of miners to configure their clients to only approve the transactions they believe are acceptable, effectively allowing them to vote for how the system should function.
 If there is disagreement regarding system functionality, it is possible for a Blockchain-based system to split, resulting in the creation of competing systems that include only a subset of each other's transactions.
@@ -50,14 +50,14 @@ Blockchain systems can be categorized based on who is allowed to act as a miner:
 	\item \emph{Open governance (i.e., permissionless Blockchains).}
 	Any party that is willing to participate in the consensus protocol is allowed to do so.
 	These systems are susceptible to Sybil attacks, so it is necessary for them to use consensus protocols in which miners prove ownership and/or expenditure of some finite resource rather than relying on proofs of identity.
-	Proof-of-work (demonstrating ownership of computing resources) and proof-of-stake (demonstrating ownership of digital assets stored by the Blockchain system) are the most common methods~\cite{Bano17,garay2018consensus}.
+	Proof-of-work~\cite{DN93,back1997partial,NakamotoS8} (demonstrating ownership of computing resources) and proof-of-stake~\cite{Bano17,garay2018consensus} (demonstrating ownership of digital assets stored by the Blockchain system) are the most common methods.
 	
 	\item \emph{Consortium governance (i.e., permissioned Blockchains).}
 	Only approved miners that can attest to their identity are allowed to participate in the consensus protocol.
 	The starting set of approved miners is defined at system initialization.
 	If this set never changes, it is known as a \emph{static consortium}.
 	Alternatively, in an \emph{agile consortium} miners change over time, either based on the rules of the system (e.g., random selection) or through consensus by the existing miners.
-	Because miners in a consortium have known identities, they can use Byzantine fault tolerant consensus protocols, which do not require the resource expenditure of the Sybil-resistant protocols used in open governance-based systems~\cite{Bano17,garay2018consensus}.		
+	Because miners in a consortium have known identities, they can use Byzantine fault tolerance-based consensus protocols, which do not require the resource expenditure of the Sybil-resistant protocols used in open governance-based systems~\cite{Bano17,garay2018consensus}.		
 \end{itemize}
 
 For each type of governance, there is a need to incentivize correct participant behavior.
@@ -133,7 +133,6 @@ If transactions are used to store information regarding digital or real-world re
 This can be used to track physical, off-chain assets (e.g., for supply chain management), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies or data files).
  
 \paragraph{Access Control and Pseudonymity}
-
 Data managed by a Blockchain system can have permissions applied to it that can control which users\footnote{Not all users of a system must be miners.} can operate on that data.
 While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
 In this paradigm, when data is created it is associated with a public key.
