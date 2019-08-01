@@ -8,28 +8,6 @@ We describe these use cases here.
 In many cases, an argument could be made that these are not independent use cases. Some use cases are subsumed by others, or two use cases might have a common abstraction that make them effectively the same.
 As authors, we attempt to categorize in a way that is useful to the reader trying to locate information about a particular use case. Before discussing the use cases themselves, we first discuss the general parameters of when a Blockchain is useful. 
 
-\subsection{Relationship to other distributed systems}
-
-Blockchain technology provides a unique set of capabilities that might be better suited for a system design than competing database technologies or distributed systems.
-However it does come with a relatively high overhead: replicating all past and present data and operations on the data at every node of the network in an auditable ledger.
-Based on our results and experience we recommend the use of the following questions to determine if Blockchain technology would be a good fit for a specific project (see Section~\ref{sec:sharedgov} for definitions).\footnote{In Appendix~\ref{sec:distributed-comparison} we discuss alternatives to Blockchain technology.}
-
-\begin{enumerate}
-	\item Does the system require shared governance?
-	\item Does the system require shared operation?
-\end{enumerate}
-
-If the answer to both questions is no, then Blockchain's consensus protocol is likely unnecessary overhead. If the answer to both questions is yes, then Blockchain technology is likely a good fit. This is due to the fact that meaningful shared governance \emph{and} operation requires miners to audit the operations of others and to be able to recover data that a malicious miner might try to delete (questions 3 and 4 below, respectively). If only shared governance or shared operation is needed, then the following two questions can be used to determine if the auditable ledger and replication, respectively, justifying the use of Blockchain technology if both are needed:
-
-\begin{enumerate}[start=3]
-	\item Is it necessary to audit the system's provenance?
-	\item Is it necessary to prevent malicious data deletion?
-\end{enumerate}
-
-
-
-% =====
-
 \subsection{Financial Use Cases}
 
 \paragraph{Electronic currencies and payments}
@@ -46,7 +24,7 @@ It is well-known that Blockchain technology can be used to build cryptocurrencie
 Blockchain technology enable electronic transactions that are resilient even when large values are at stake.
 Bitcoin has notable drawbacks that include scalability, performance and privacy.
 %There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency and scalable~\cite{}, partially offline~\cite{}, confidential~\cite{} and/or anonymous~\cite{}.
-There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency and scalable, partially offline, confidential, and/or anonymous (see Appendix~\ref{sec:academic}).
+There is ongoing research that demonstrates how Blockchain technology can be used to create payment systems that are low-latency and scalable, partially offline, confidential, and/or anonymous (see Section~\ref{sec:academic}).
 
 \paragraph{Asset trading}
 % Jeremy: previously Token tracking and trading

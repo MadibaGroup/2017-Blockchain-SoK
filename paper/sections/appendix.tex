@@ -1,40 +1,6 @@
+\clearpage
+\onecolumn
 \appendix
-
-\subsection{Relationship to other distributed systems}
-\label{sec:distributed-comparison}
-Blockchain technology fits within the broader family of distributed systems.
-At the highest level, Blockchain technology is a type of decentralized database.
-To help readers situate Blockchain technology within this greater ecosystem we have created a taxonomy and a flowchart based on that taxonomy (see Figure~\ref{fig:blockchainFlowchart}).
-
-\begin{figure*}
-	\centering
-	\includegraphics[width=.75\textwidth]{figures/BlockchainFlowchart}
-	\caption{Comparing decentralized databases}
-	\label{fig:blockchainFlowchart}
-\end{figure*}
-
-The first property in our taxonomy considers who has the authority to manage and update the database: \emph{what is the operation model?} In a singularly governed database (``Singular''), a single entity performs these tasks. Alternatively, the system can use a consensus protocol to allow for shared governance (``Shared'').
-
-Next, we consider the security model by asking \emph{where is the root of trust?}
-This refers to the entity or entities that must behave honestly in order for the system to be secure.
-In typical database systems, trust is rooted in the maintainer (``Maintainer'')---for example, using AWS cloud storage requires that you trust Amazon.
-Alternatively, trust can be rooted in the design of the system itself (``System''), though this is only possible if the system stores sufficient provenance for it to be audited to confirm that the system is functioning as intended.
-
-The next question is \emph{what is auditable?}
-In the worst case, nothing is auditable (``Nothing'').
-Systems can use an authenticated data structure~\cite{tamassia2003authenticated} to ensure that their current state can be audited (``Current state'').
-If the state also contains a history of the system (e.g., a ledger), then the use of an authenticated data structure allows for the provenance of the system to also be audited (``Provenance'').
-In both cases, it is necessary that these databases be monitored to ensure that they never enter an invalid state, even temporarily.
-In the case of shared operation, the operating entities act as monitors of the current sate during the consensus protocol.
-
-Finally, we can classify systems by asking \emph{what is it resilient against?}
-In particular, we considered with three resiliency properties---(1) is it resilient to accidental data loss (``Data loss''), (2) is it possible to detect that data has been malicious altered (``Detect''), (3) and is it possible to prevent malicious updates (``Prevent'').
-Replication is a simple solution to prevent against accidental data loss, but by itself it fails to prevent malicious data loss as the malicious changes to the database will also be replicated.
-In singular operation, external monitors can help detect malicious data changes, but can only do so after the data has been lost.
-In shared operation, the monitors are the operators and malicious deletions and modifications will not be replicated, preventing them from effecting the overall system.
-
-\input{sections/academic}
-
 
 \subsection{Technical Properties Full Diagram}
 

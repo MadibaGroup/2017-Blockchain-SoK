@@ -1,29 +1,29 @@
 % !TEX root = ../main.tex
 
-\subsection{Survey of Academic Research on Challenges}
+\section{Survey of Academic Research on Challenges}
 \label{sec:academic}
 As part of the grounded theory analysis, the data revealed several open research challenges related to Blockchain technology.
 In regards to these challenges, we surveyed the academic literature to identify what researchers are doing to address these challenges.
 In this section, we give a brief over of the results of our literature survey.
 This is not intended to be an exhaustive review of the space, but rather to highlight areas of substantial work.
 
-\subsubsection{Blockchain scalability}
+\subsection{Blockchain scalability}
 %As blockchain-based systems such as Bitcoin have grown, the increased number of transactions and users have raised questions about the scalability of such systems.  In particular, today's systems often waste large amounts of energy, have slow transactions with high transaction fees, and have trouble supporting high transaction volume.
 
-\paragraph{Power consumption and centralization of mining}
+\subsubsection{Power consumption and centralization of mining}
 %Most of today's permissionless blockchains are based on proof-of-work style consensus in which consensus is achieved by having miners solve computationally difficult puzzles to extend the blockchain.  This has led to the proliferation of specialized hardware devices dedicated to solving these computational puzzles.  However, such devices consume tremendous amounts of power in order to maintain these blockchains.  For example, according to one estimate\cite{Digiconomist}, as of April 2018 the energy consumed by Bitcoin miners was equivalent to the power usage of almost 5.5 million US households, and all signs indicate that it will continue to grow.
 
 To reduce the power consumption of open governance Blockchain systems that have traditionally relied on a proof-of-work-based consensus protocols, there have been several proposals to turn to other consensus mechanisms (for a more complete survey of this space see~\cite{Bano17}). The most popular of these proposals is proof of stake consensus, where parties' contribution to the consensus protocol is proportional to the total amount of stake they own in the system rather than the amount of work that they do. Today's proof of stake protocols (e.g.~\cite{FC:BenGabMiz16,eprint:BenPasShi16,CRYPTO:KRDO17,SOSP:GHMVZ17}) vary significantly in their model, assumptions, and performance guarantees.  Other suggestions for avoiding proofs of work include proof of space~\cite{CRYPTO:DFKP15, eprint:PPKAFG15} where miners use storage instead of computation, and proof of elapsed time~\cite{SSS:CXSGLS17} where trusted hardware (i.e., Intel SGX) is used in place of proofs of work.  It is not clear at this point which of these solution will be best suited for different Blockchain deployments.  
 
 Another unintended consequence of proof-of-work consensus is the centralization of mining power.  In order to reduce variance in their earnings, miners are incentivized to work together in large mining pools, pooling their computing power and sharing the profits among pool members.  Currently, almost 70\% of Bitcoin blocks are mined by the five largest mining pools \cite{BlockchainInfoPools} significantly limiting the actual decentralization achieved by Bitcoin~\cite{arxiv:GBERS18}. Of course, these pools are disincentivized to damage trust in Bitcoin (and thus reduce its value and their profits) by abusing their power to censor transactions or violate rules in other ways. But this centralization undoubtedly runs counter to the goals of open governance and may violate security notions that depend on decentralization.  One possible solution~\cite{CCS:MKKS15} is to discourage mining pool formation by making it impossible to enforce cooperation between the members.
 
-\paragraph{Increasing transaction rates}
+\subsubsection{Increasing transaction rates}
 Another challenge to the scalability of open governance Blockchain solutions is the increasing number of transactions.
 Current systems often have rather long wait times before a transaction can be confirmed  (e.g., Bitcoin can take several hours to confirm a transaction~\cite{BlockchainInfoTransactionConfTime}).  This makes these solutions less than ideal when immediate transactions are needed, such as when purchasing physical goods.
 
 A couple of different approaches have been proposed to deal with this issue.  First, a number of hybrid consensus algorithms (e.g.,~\cite{SOSP:GHMVZ17,OPODIS:AMNRS17,DISC:PasShi17,EC:PasShi18,NSDI:EGSR16}) aim to reduce transaction approval times through reducing or eliminating forks. Most of these work by using ``proof-of'' style protocols to elect a committee or a leader who then uses traditional byzantine fault-tolerant consensus. A second approach for improving transaction rates, especially for financial transactions, is to make use of payment-channel networks. Such networks set up pairwise channels between parties to allow transactions on these channels to occur ``off-chain'', i.e., without being recorded on the ledger; the ledger is then only used for conflict resolution.  Many different flavors of payment-channel networks achieving various properties have been proposed (e.g.~\cite{PooDry16, NDSS:HABSG17,CCS:KhaGer17,SYSTOR:LNEKPS18,CCS:MMKMR17,CCS:GreMie17}) and several such as the Lightning network~\cite{PooDry16} are in active development for financial transactions on top of Bitcoin.  
 
-\paragraph{Handling increased transaction volume}
+\subsubsection{Handling increased transaction volume}
 Another scalability challenge for popular Blockchain-based systems, such as Bitcoin and Ethereum, is the sheer volume of transactions that are being added to the ledger.  As more and more third-party services start to use these systems to store and execute their transactions, these systems have to verify and store transactions for a variety of unrelated operations. This can cause the storage and verification work required of miners to become prohibitively expensive.
 
 Proposed solutions for this problem include sharding (e.g.~\cite{CCS:LNZBGS16, FC:GenRenSir17}) to partition transactions based on the transaction type or service.
@@ -73,11 +73,11 @@ This allows different sets of miners to verify transactions for different servic
 %\item ~\cite{eprint:SomZoh18} - PHANTOM blockDAG protocols, blocks vote on which other blocks were mined honestly.  Generates robust full order of blocks that is eventually agreed upon by all nodes.
 %\end{enumerate}
 
-%\paragraph{Smart contract correctness}
-\subsubsection{Smart contract correctness and dispute resolution}
+%\subsubsection{Smart contract correctness}
+\subsection{Smart contract correctness and dispute resolution}
 %All executable code is subject to bugs: developer errors that can be taken advantage of to hijack program logic. This problem manifests in smart contracts, and when those contracts control the transference of valuable assets, the impact of a bug can be devastating. The immutability of blockchains exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious. This is because, by definition, any transactions on a blockchain upon which consensus is reached are considered legal - including ones due to buggy code and exploitations of such. If ``code is law'', as claimed by a blockchain-based investment fund called the Decentralized Autonomous Organization (DAO), then so are bugs. 
 
-%\paragraph{Eliminating bugs in smart contracts}
+%\subsubsection{Eliminating bugs in smart contracts}
 %This principle of ``code is law'' was put to the test in June 2016 when a bug in the contract allowed an attacker to drain the DAO of about \$80m in tokens. 
 %%Targeting a smart contract that first moved funds and then updated account balance, the attacker exploited a vulnerability to recursively execute the contract in between those two steps. %Repeatedly moving funds without ever checking account balances allowed the attacker to move more funds than were authorized. 
 %In response, the DAO developers implemented a "hard fork" from a state before the attack occurred. This created two blockchains: one in which the funds had never been drained and another in which the attacker still held their spoils \cite{Castillo16}. Of course, this rollback contradicts the perception that the blockchain is immutable and settled contracts are final; we will discuss this contradiction later as a key limitation of Blockchain technology. The challenge is how to ensure smart contract correctness to eliminate such attacks and to build in recovery mechanisms in case that fails.
@@ -96,7 +96,7 @@ Three different directions have been proposed for improving the correctness and 
 %\item~\cite{NDSS:KGDS18} - IBM Research - framework to validate correctness and fairness of smart contracts.  Found 94.6\% of smart-contracts are vulnerable.
 %\end{enumerate}
 
-%\paragraph{Dispute resolution and rollback of mistakes}
+%\subsubsection{Dispute resolution and rollback of mistakes}
 %Despite best efforts to eliminate mistakes in smart contract and transactions, a payment or asset transfer system must be able to reverse fraudulent or errant transactions. The immutability property of Blockchain means that transactions cannot be stricken from the ledger after consensus has been reached, so alternative means of dispute resolution must be explored. A new transaction reversing the effects of the disputed transaction could be added to the ledger, but decentralized governance makes arbitrating such a dispute difficult as there is no individual arbiter with the authority to determine which party is in the right when a dispute occurs.  Additionally, dispute resolution must be handled carefully to avoid introducing new vulnerabilities.  For example, several attacks were demonstrated against the Bitcoin refund mechanism~\cite{FC:MccShaHao16} necessitating further research to design secure refunds in Bitcoin~\cite{arxiv:AviSafSha18}.
 
 %\noindent
@@ -106,10 +106,10 @@ Three different directions have been proposed for improving the correctness and 
 %\item ~\cite{FC:MccShaHao16} - original paper showing refund attacks on Bitcoin
 %\end{enumerate}
 
-%\subsubsection{Stapling between on-chain transactions and real-world objects}
+%\subsection{Stapling between on-chain transactions and real-world objects}
 %Another challenge that arises in many Blockchain applications is that of establishing correspondence between on-chain digital tokens and off-chain goods that those tokens represent as well as off-chain information that can serve as input in transactions.  
 
-%\paragraph{Consistency of off-chain assets and corresponding on-chain tokens}
+%\subsubsection{Consistency of off-chain assets and corresponding on-chain tokens}
 %When a blockchain is used to track off-chain assets (physical or digital), those assets are typically represented on-chain by digital tokens. When dealing with digital assets, correspondence between the asset and its token can generally be maintained by code; for example, a smart contract can track transference of ownership for a digital media license. For physical assets, however, maintaining this consistency is a challenge. Real-world processes must be employed to ensure that whenever an asset's state or ownership is modified, the corresponding token is updated. These processes are an obvious point of failure as they rely on correct enforcement by trusted parties. The person in charge of maintaining the blockchain could attach two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario). The end user must also be trusted, as they may be able to separate the token and sell it while keeping the asset, freeing the token to be attached to an invalid asset (e.g., fake goods in luxury markets). 
 
 %\noindent
@@ -120,15 +120,15 @@ Three different directions have been proposed for improving the correctness and 
 
 
 
-%\subsubsection{Non-auditability of off-chain oracles}
+%\subsection{Non-auditability of off-chain oracles}
 %Smart contracts sometimes leverage off-chain oracles: online services that provide information in response to a request. For example, gambling contracts may determine which address to pay winnings to based on the result of some oracle request (e.g., sports scores, stock prices, weather forecasts, or other global events). If contract logic branches based on the response from an off-chain oracle, that contract is no longer verifiable after the fact because auditors cannot confirm that the response received from the oracle at audit time is the same response received when the contract was executed. There are legitimate reasons why an oracle response might change with time, so this is really an inherent limitation of Blockchain technology: smart contracts cannot "see" external events.
 %
 %One system tackling this problem is Town Crier~\cite{Zhang16}. It uses a trusted hardware back end (Intel SGX) to serve as an authenticated off-chain oracle for Ethereum smart contracts. This allows an auditor to later verify the oracle's response at the time at which the contract was executed. This solution sidesteps the limitation of oracle non-auditability by moving trust to a centralized location (the hardware platform providing authenticity), but it does not diffuse trust in the way our analysis reveals that Blockchain technology is expected to.
 
-\subsubsection{Key Management}
+\subsection{Key Management}
 Some recent work has also looked into cryptographic solutions to protect users' keys.  Techniques based on secure multi-party computation (MPC)~\cite{CCS:LinNof18,C:Lindell17} allow transactions to be signed without any party ever having access to the secret key.  Alternatively, the classic technique of threshold signatures (e.g.~\cite{PKC:Boldyreva03,EC:GJKR96,EC:Shoup00a}) allow users to split their keys into many pieces such that a large number of them must be compromised in order to ``steal'' a user's key.  However, much work remains to secure all the cryptographic keys inherent in real-world blockchain deployments.
 
-\subsubsection{Regulation}
+\subsection{Regulation}
 As applications of blockchain technology proliferate, they have drawn significant attention from the regulatory bodies around the world.  In the settings of cryptocurrencies, a number of concerns such as the prevalence of black-market transactions, tax evasion, money laundering, and terrorist financing have drawn calls to regulate how such cryptocurrencies can be used.  An excellent review article by Kiviat~\cite{Kiviat15} outlines some of the issues that arise in regulating blockchain transactions.  Additionally, as blockchain applications move to greater support of smart contracts, researchers have shown that criminal smart contracts are easily implementable in today's smart contract platforms~\cite{CCS:JueKosShi16} requiring regulation to avoid such criminal uses of blockchain.  
 
 %Another regulatory issue that has recently come to light is whether blockchain technology is compatible with European Union's General Data Protection Regulation (GDPR) that has recently been put into law in the EU.  GDPR requires that individuals have the ``right to be forgotten'', i.e., that they should be able to expunge outdated or invalid information about themselves from available records.  However, since any data stored on a blockchain is immutable, this seems to pose a challenge for GDPR compliance.  Much research within the technical and regulatory communities is needed to ensure that blockchain can comply with existing regulation and to prevent the many nefarious uses of this technology.
