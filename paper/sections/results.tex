@@ -13,7 +13,8 @@
 
 Our literature analysis finds three key groupings of technical properties related to Blockchain technology (see Figure~\ref{fig:technical-properties}):
 %.\footnote{A version of this chart that shows the technical primitives that support the technical properties is given in the Appendix (see Figure~\ref{fig:technical-properties-full}).}
-\textit{shared governance and operation}, \textit{verifiable state}, and {resilience to data loss}.
+\textit{shared governance and operation}, \textit{verifiable state}, and 
+\textit{resilience to data loss}.
 %By themselves, these property groups are nothing new, but used together they define \emph{Blockchain technology}, or \emph{Blockchain} for short.
 \snote{Add reference to technical report for full charts?}
 %In Appendix~\ref{sec:distributed-comparison} we describe how other distributed technologies compare to Blockchain technology.
@@ -28,15 +29,23 @@ Our literature analysis finds three key groupings of technical properties relate
 %Operation can be singular---a single entity executes the system (e.g., a trusted third party)---or shared---multiple entities collectively operate the system (e.g., through the use of a consensus protocol).
 %Note, distributed operation (i.e., operation on many machines) does not imply shared operation, as the owner/operator of all distributed nodes may still be a single entity.
 
-Blockchain technology was created to address the scenario in which a collection of parties----referred to hereafter as \emph{miners}---want to participate in a communal system but do not trust each other or any third party to operate the system singlehandedly.
+Blockchain technology addresses the scenario in which a collection of 
+parties----referred to hereafter as \emph{miners}---want to participate in a 
+communal system but do not trust each other or any third party to operate the 
+system singlehandedly.
 By participating in both the governance and operation of the system, each miner can be assured that the system is operating correctly.
 Even if some of the miners become compromised, the uncompromised miners retain the ability to detect malicious actions by the compromised miners and to prevent them from interfering with the correct operation of the system.
 In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.
 %\footnote{This property has often been called ``trustlessness''; this is incorrect as trust still exists but has simply been diffused among multiple parties.}
 
 Shared operation is enabled by the use of \emph{consensus protocols}, which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system.
-The consensus protocols allow miners to view transactions and validate that the system is operating appropriately, an important consideration as the miners do not trust that only valid transactions will be submitted to the consensus protocol.
-Shared governance is provided by the ability of miners to configure their clients to only approve the transactions they believe are acceptable, effectively allowing them to vote for how the system should function.
+The consensus protocols allow miners to view transactions and validate that the 
+system is operating appropriately. This is an important consideration, as the 
+miners do not trust that only valid transactions will be submitted to the 
+consensus protocol.
+Shared governance is possible because miners can configure their clients to 
+only approve the transactions they believe are acceptable, effectively allowing 
+them to vote for how the system should function.
 If there is disagreement regarding system functionality, it is possible for a Blockchain-based system to fork, resulting in the creation of competing systems that include only a subset of each other's transactions.
 Usually these forks are temporary, with miners either choosing to all adopt the same rules, but it is possible for a fork to result in the permanent creation of two non-interoperable Blockchain systems (e.g., Bitcoin Classic and Bitcoin Cash).
 
@@ -52,7 +61,9 @@ Blockchain systems can be categorized based on who is allowed to act as a miner:
 \begin{itemize}
 	\item \emph{Open governance (i.e., permissionless Blockchains).}
 	Any party that is willing to participate in the consensus protocol is allowed to do so.
-	These systems are susceptible to Sybil attacks, so it is necessary for them to use consensus protocols in which miners prove ownership and/or expenditure of some finite resource rather than relying on proofs of identity.
+	These systems are susceptible to Sybil attacks, so it is necessary to use 
+	consensus protocols in which miners prove ownership and/or expenditure of 
+	some finite resource rather than relying on proofs of identity.
 	Proof-of-work (demonstrating ownership of computing resources) and proof-of-stake (demonstrating ownership of digital assets stored by the Blockchain system) are the most common methods~\cite{Bano17,garay2018consensus}.
 	
 	\item \emph{Consortium governance (i.e., permissioned Blockchains).}
@@ -92,7 +103,9 @@ Regardless of the underlying structure, it is critical that all transactions are
 \subsection{Resilience to Data Loss}
 If the ledger was only stored in a single location, deleting or modifying that data store could be detected by all parties, but there would be no guarantee that the data could be restored.
 In Blockchain technology, the ledger is replicated among miners to address this single point of failure.
-When data does need to be restored---for example, when an individual miner's ledger was corrupted---the replicated data can be verified to ensure that it correctly represents the system state.
+When data does need to be restored---for example, if an individual miner's 
+ledger is corrupted---the replicated data can be verified to ensure that it 
+correctly represents the system state.
 
 %The cryptographically-authenticated append-only ledger is replicated among a set of miners and this replication is important for several reasons.
 %First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
@@ -107,7 +120,8 @@ When data does need to be restored---for example, when an individual miner's led
 Some Blockchain systems try to limit the amount of data any given miner needs to replicate by segmenting the data and assigning miners to handle governance and operations for only a subset of the system.
 This is known as \emph{sharding}, with individual segments of the data known as \emph{shards}.
 Sharding can drastically reduce the amount of data that miners need to store while also increasing the performance of the consensus protocol, which often scale based on the number of miners.
-Still, sharding comes with the drawback that miners are no longer able to audit the system as a whole.
+Still, sharding comes with the drawback that individual miners are no longer 
+able to audit the system as a whole.
 Additionally, by reducing the number of miners responsible for any given transaction, sharding also reduces the number of miners an adversary would need to compromise to attack that transaction.
 
 \section{What are Blockchain Technology's Capabilities?}
@@ -136,8 +150,10 @@ If transactions are used to store information regarding digital or real-world re
 This can be used to track physical, off-chain assets (e.g., for supply chain management), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies or data files).
  
 \paragraph{Access Control and Pseudonymity}
-Data tracked by a Blockchain system can be permissioned; while these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
-In this paradigm, when data is created it is associated with a public key.
+Access to data tracked by a Blockchain system can be controlled using a 
+traditional access control list (ACL) or a cryptographic permission system.
+To control access cryptographically, data must be associated with a public key 
+when it is created.
 The ability to update or delete this data is then granted to any users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the data).
 Ownership of the data can be transferred or shared by associating it with a new public key.
 
@@ -151,7 +167,8 @@ Still, this requires careful attention in the system design to use appropriate c
 \paragraph{Automatic Execution (Smart Contracts)}
 Blockchain transactions can also represent and store executable functions known as \emph{smart contracts}.
 These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
-The smart contracts themselves are executed by the miners with outputs being verified through the consensus protocol.
+The smart contracts themselves are executed by miners, and outputs are verified 
+through the consensus protocol.
 The computational power of these scripts is determined by the system's rules, ranging from supporting only basic functionality (e.g., verifying a signature in Bitcoin) to providing Turing-complete functionality (e.g., Ethereum).
 
 %Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
@@ -160,5 +177,6 @@ The computational power of these scripts is determined by the system's rules, ra
 %Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, or non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
 \paragraph{Data Discoverability}
-If users are allowed to read any record in a Blockchain's distributed data store, then it is trivial to search for records of interest.
+If users are allowed to read any record in a distributed data store maintained 
+by a Blockchain, then it is trivial to search for records of interest.
 This capability is nothing more than what is provided by having a read-only data lake, but still it was frequently discussed in the literature we reviewed.

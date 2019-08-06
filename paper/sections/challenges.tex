@@ -72,9 +72,18 @@ Our analysis of the literature revealed several challenges that need to be consi
 \snote{Add reference to technical report for academic survey?}
 
 \subsection{Scalability and Performance}
-Blockchain technology's decentralized governance and operation incur significant overhead: (1) the need to run a consensus protocol before state can be updated, (2) the need to store the full system provenance, and (3) the need for each miner to store the ledger in its entirety. Any attempt to remove this replication comes at the cost of resilience that Blockchain-based systems often rely upon.
-Additionally, most of today's open governance Blockchain systems are based on proof-of-work which bring additional challenges.
-These proof-of-work schemes require users to acquire hardware and expend electricity to participate in consensus, the real world cost of which can be tremendous---for example, it was estimated that as of April 2018 the energy consumed by Bitcoin miners alone was equivalent to the power usage of almost 5.5 million US households~\cite{Digiconomist}.
+Decentralized governance and operation incur three forms of overhead: (1) the 
+need to run a consensus protocol before state can be updated, (2) the need to 
+store the full system provenance, and (3) the need for each miner to store the 
+ledger in its entirety. %Any attempt to avoid this replication comes at the 
+%cost of the resilience that Blockchain-based systems often rely upon.
+Additionally, most of today's open governance Blockchain systems are based on 
+proof-of-work, which brings additional challenges.
+Users must acquire hardware and expend electricity to participate in consensus, 
+the real-world cost of which can be tremendous---for example, it was estimated 
+that as of April 2018 the energy consumed by Bitcoin miners alone was 
+equivalent to the power usage of almost 5.5 million US 
+households~\cite{Digiconomist}.
 
 %Another unintended consequence of proof-of-work is the centralization of mining power.  In order to reduce variance in their earnings, miners are incentivized to work together in large mining pools, pooling their computing power and sharing the profits among pool members. This phenomenon has emerged in all large-scale proof-of-work Blockchain systems\footnote{Currently almost 70\% of Bitcoin blocks are mined by the five largest mining pools~\cite{BlockchainInfoPools}}, and it is a problem because it inhibits decentralization~\cite{arxiv:GBERS18}.
 %Of course, these pools are disincentivized to damage trust in the system (and thus reduce its value and their profits) by abusing their power to censor transactions or violate rules in other ways. But this centralization undoubtedly runs counter to the normative property that Blockchain is decentralized and it may violate security notions that depend on decentralization.  
@@ -83,21 +92,31 @@ These proof-of-work schemes require users to acquire hardware and expend electri
 %The challenge of handling a huge number of transactions while achieving acceptable levels of throughput and latency remains a critical hurdle to the use of Blockchain solutions in performance-critical systems.
 
 \subsection{On-chain Correctness}
-All executable code is subject to bugs and smart contracts are no exception.
+All executable code is subject to bugs, and smart contracts are no exception.
 The immutability of a Blockchain's ledger exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious.
 Failure to act can be costly (e.g., the DAO attack~\cite{dao}), but so too can reversing transactions.
 %This is because, by definition, any transactions on a blockchain upon which consensus is reached are considered legal---including ones due to buggy code and exploitations of such.
-If the miners decide to rollback the ledger to erase a mistaken transaction than confidence in the Blockchain system may be lost.
-Alternatively, if miners can't agree what to do about errant transactions, it could lead to a fork in the Blockchain system.
-Rollback systems themselves can also be vulnerable~\cite{arxiv:AviSafSha18}.
+If miners decide to roll back the ledger to erase a mistaken transaction,  
+confidence in the Blockchain system may be lost. The rollback system itself 
+must be designed carefully, or there is risk of further 
+exploitation~\cite{arxiv:AviSafSha18}.
+Alternatively if miners can't agree what to do about errant transactions, it 
+could lead to a fork in the Blockchain system.
 
 %Despite best efforts to eliminate mistakes in smart contract and transactions, a payment or asset transfer system must be able to reverse fraudulent or errant transactions. For example, if a user pays for a physical real-world good using a cryptocurrency but is then never given the purchased item. A new transaction reversing the effects of the disputed transaction could be added to the ledger, but decentralized governance makes arbitrating such a dispute difficult as there is no individual arbiter with the authority to determine which party is in the right when a dispute occurs.  Additionally, dispute resolution must be handled carefully to avoid introducing new vulnerabilities.  For example, several attacks were demonstrated against the Bitcoin refund mechanism~\cite{FC:MccShaHao16} necessitating further research to design secure refunds in Bitcoin~\cite{arxiv:AviSafSha18}.
 
 \subsection{Off-chain stapling}
-Another challenge for applications is ensuring consistency between on-chain state and the off-chain reality it represents.
-When Blockchain technology is used to track off-chain assets (physical or digital), those assets are typically represented on-chain by a digital identifier, or \textit{token}.
-When dealing with digital assets, consistency can be maintained by code; for example, a smart contract can track transference of ownership for a digital media license.
-For physical assets, real-world processes must be employed to ensure consistency, an obvious point of failure as they rely on correct execution by trusted parties (something that Blockchain systems are often deployed to remove).
+Many Blockchain applications manage off-chain assets by representing them 
+on-chain using digital identifiers, or \textit{tokens}. A major challenge for 
+these application is ensuring consistency between on-chain state and the 
+off-chain reality it represents.
+When dealing with digital assets, consistency can be maintained by code; for 
+example, a smart contract can track transference of ownership for a digital 
+media license.
+For physical assets, real-world processes must be employed to ensure 
+consistency. These processes are an obvious point of failure as they rely on 
+correct execution by trusted parties (something that Blockchain systems are 
+often deployed to remove).
 %For example, a malicious entity could attach two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario).
 The end user must also be trusted, as they may be able to separate the token and sell it while keeping the asset, causing the token to be attached to an invalid asset (e.g., fake goods in luxury markets).
 
@@ -120,7 +139,8 @@ Such attacks aim to lower the number of participating miners or to fracture the 
 %Another major challenge is how to protect the privacy of the users and data stored on a Blockchain ledger.
 Data in a Blockchain ledger is public (at least to all miners) in order to enable verification, meaning that sensitive data is inherently non-private.
 Confidentiality can be provided by hosting a Blockchain system where only trusted entities can access it or by applying advanced cryptographic techniques that allow miners to verify the correctness of encrypted transactions (e.g., multi-party computation, functional encryption)~\cite{SP:KMSWP16}.
-Still, the use of cryptography limits auditability the ability to have meaningful shared governance.
+Still, the use of cryptography limits auditability and the ability to have 
+meaningful shared governance.
 
 Extreme care must be taken when trying to build an anonymous Blockchain system.
 While many existing Blockchain systems provide a notion of ``pseudonymity'' in which users are identified by their cryptographic keys instead of by their real-world names, this does not provide true anonymity as attacks that correlate transactions by the same pseudonyms together with other data external to the Blockchain system can effectively deanonymize users~\cite{DBLP:journals/corr/abs-1708-04748}.
@@ -128,16 +148,32 @@ While many existing Blockchain systems provide a notion of ``pseudonymity'' in w
 \subsection{Usability} %User Experience}
 % Jeremy: I toned this waaaaaay down. Ethereum has excellent tools now: linters, debuggers, static analysis tools. Even the etheruem wallet can compile and do basic debugging of Solidity code. However, beyond Ethereum things get messy and so that is the new point. 
 %For developers, development and analysis tools are critical to building secure applications in any domain.
-The availability of user-friendly developer tools varies significantly depending on the maturity of the target Blockchain platform. Some projects, like Ethereum have mature tools, while others have very little support. Many Blockchain platforms are currently geared towards expert users and lack the user experience-focused tools needed to allow for easier use by non-experts.
-Another major challenge of some Blockchain systems is that the require users to store, manage, and secure cryptographic keys; however, this is known to be a significant impediment for most users~\cite{ruoti2019usability}.
+The availability of user-friendly developer tools varies significantly 
+depending on the maturity of the Blockchain platform. Some projects like 
+Ethereum have mature tools, while others have very little support. Many 
+Blockchain platforms are currently geared towards expert users and lack the 
+user experience-focused tools needed to allow for easier use by non-experts.
+A related challenge is that some Blockchain systems require users to store, 
+manage, and secure cryptographic keys, which is known to be a significant 
+impediment for most users~\cite{ruoti2019usability}.
 % ~\cite{uss:WhiTyg99}.  A survey by Eskandari et al.~\cite{EBSC15} outlines these challenges as well as potential solutions for managing keys for Bitcoin.  They discuss solutions such as password-protected and password-derived keys as well as offline and air-gapped storage of the keys.  But, as the authors state all of these solutions have their drawbacks.
 
 %With a key management solution in place, a further challenge is obtaining transactions for auditing purposes---auditing is a much touted capability of blockchain across our dataset. In a decentralized environment, running a full node on the network, or relying on a entity that does (such as a blockchain explorer website or a lightweight user-client) is necessary. 
 
 \subsection{Legality and Regulation}
-Our analysis revealed wide-spread concern with regulatory issues surrounding cryptocurrencies, Blockchain-based assets, and other Blockchain applications.
-These concerns often arose when Blockchain systems touted benefits that arose not from the underlying technology, but rather because that technology is not yet well-regulated.
-For example, Blockchain-based money transfer services are generally orders of magnitude faster than similar bank-provided services, but this speed increase does not arise from the use of Blockchain (which generally has higher technical overhead) but because the Blockchain-based services were not complying with the time-consuming regulatory processes that the bank-provided services were (e.g., mandatory holding periods).
+Some of the benefits claimed by Blockchain systems are not derived from the 
+underlying technology, but rather from a lack of regulation compared to 
+competing services. 
+For example, Blockchain-based money transfer services are generally orders of 
+magnitude faster than similar bank-provided services, but this speed increase 
+does not arise from the use of Blockchain (which generally has higher technical 
+overhead) but because the Blockchain-based services were not complying with the 
+time-consuming regulatory processes that the bank-provided services were (e.g., 
+mandatory holding periods).
+Our analysis revealed widespread concern with regulatory issues surrounding 
+cryptocurrencies, Blockchain-based assets, and other Blockchain applications. 
+This is unstable from a risk perspective and will be untenable in the long run 
+as regulators catch up to these schemes.
 
 %It is important to note that regulation applies indirectly to technology, based on how the technology is used within a firm's operations.
 %Therefore, there will be no direct regulation of Bitcoin, for example, but rather regulation of firms that use Bitcoin according to how they are using it. 
