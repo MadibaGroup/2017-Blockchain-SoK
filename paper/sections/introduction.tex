@@ -1,35 +1,36 @@
 % !TEX root = ../main.tex
 
 \section{Introduction}
-%In 1982, David Chaum~\cite{Cha82} proposed using blind signatures to allow for untraceable electronic payments.
-%Later, Chaum, Fiat and Naor~\cite{chaum1988untraceable} expanded this idea into a fully fleshed out electronic cash system.
-%eCash was the first cryptocurrency---\ie ``a digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds operating independently of a [nation-state-controlled] central bank.''%\footnote{\url{https://en.oxforddictionaries.com/definition/cryptocurrency}}
-%However, early cryptocurrencies still required the presence of a central party to help manage the creation and transfer of funds.
 
-%Two decades after eCash was first proposed,
-In 2008, an author using the pseudonym Satoshi Nakamoto wrote a white paper describing Bitcoin, a new decentralized cryptocurrency~\cite{Nak08}.
-Unlike centralized cryptocurrencies which rely on a set of known entities to 
-operate, Bitcoin uses a proof-of-work-based scheme to allow the general public 
-to maintain the system. %~s\cite{DN93,back1997partial} 
-To incentivize public participation, Bitcoin pays participants (known as miners) for solving the proof-of-work puzzles.
-While Bitcoin's building blocks were not novel, the composition of these properties into a single system was a meaningful contribution~\cite{Narayanan17} which led the cryptocurrency to become the first to achieve widespread popularity and usage.
+In 2008, an author using the pseudonym Satoshi Nakamoto wrote a white paper describing Bitcoin, a new decentralized cryptocurrency~\cite{Nak08}. Unlike past attempts at forming a cryptocurrency--- attempts which relied on pre-established trusted entities for the system to operate correctly --- Bitcoin's design runs on the open internet with no one in charge, while maintaining uptight security. While the building blocks of Bitcoin were not novel, the composition of these properties into a single system was a meaningful contribution~\cite{Narayanan17} and Bitcoin became the first cryptocurrency to achieve widespread attention.
 
-At the peak of its popularity, Bitcoin's market capitalization reached \$835.69 billion (USD), though at the time of this writing it has seen a decrease in both its stature and market capitalization (\$182 billion).
-Nevertheless, there remains significant interest in the question of whether the technology underlying Bitcoin---known as \emph{Blockchain technology} or {Blockchain} for short---could be used to build other interesting cryptocurrencies or distributed systems.
-In particular, we have heard researchers, business executives, and government 
-leaders consistently ask the following three questions: (1) what exactly is 
-Blockchain technology, (2) what capabilities does it provide, and (3) what are 
-good applications for Blockchain technology. 
+In response to Bitcoin's success, the technology was quickly dissected to understand how it works and what is new. Its most innovative component has been labeled ``the blockchain,'' a decentralized approach for participants to agree upon and lock in data and computation.
+
+% Cite Bruce Schneier wired article
+If you read technology news, you are most commonly left with the cheery impression that blockchain technology reduces or even complete eliminates trust. The use cases of such an innovation stretch the imagination! Occasionally, you might get lucky and hear a contrarian take~\cite{}. The truth about trust is that it's complicated. Blockchain does eliminate specific, narrow reliances on trust, but it might shift it into new and different assumptions---assumptions that might be better or worst for each specific use case. Likewise, there are not a lot of single sentence talking points that will be accurate about blockchain technology's efficiency, security, cost, etc. 
+
+It is clear that we need a more nuanced discussion this technology. We frequently hear business executives, government leaders, investors, and researchers ask the following three questions: (1) what exactly is blockchain technology, (2) what capabilities does it provide, and (3) what are good applications? Our goal for this article is to thoroughly answer these questions, while providing a holistic overview of blockchain technology that separates `hype' from `reality' and proposes a useful lexicon for discussing the specifics of blockchain technology in the future.
+
+
+
+%We accomplish this goal by using grounded theory---a structured approach to gathering and analyzing qualitative data---to thoroughly analyze a large corpus of literature on Blockchain technology.
+%This method enables us to answer the above questions while limiting researcher bias, separating thought leadership from peddled hype and identifying  open research questions related to Blockchain technology.
+%We also discuss lessons learned from our analysis of this space using this approach.
+
+%The audience for this paper is broad as it aims to help researchers in a variety of areas come to a better understanding of Blockchain technology and identify whether it may be of use in their own research.
+
+
+
 %, and (4) how does it relate to 
 %other approache distributed technologies (e.g., distributed databases).
 %
 %Unfortunately, there is a lack of clarity regarding the answers to these questions in both the community and the literature, impeding the ability for researchers to properly understand, evaluate, and leverage Blockchain technology.
 %This lack of clarity stems at least in part from competing viewpoints and terminology regarding Blockchain technology, resulting in seemingly contradictory statements that can all be true in their respective contexts.
-In this article, 
+%In this article, 
 %we attempt to address this ambiguity and 
-we provide a holistic overview of Blockchain technology, set forth a common 
-lexicon for discussing Blockchain technology, and answer the three questions 
-identified above.
+%we provide a holistic overview of Blockchain technology, set forth a common 
+%lexicon for discussing Blockchain technology, and answer the three questions 
+i%dentified above.
 
 %\begin{table}
 %	\centering
@@ -67,9 +68,9 @@ identified above.
 %Ultimately, our technical analysis was successful at answering our three questions and in this paper we present those answers.
 %While some readers may find the results described in this article unsurprising or differing from their viewpoints regarding Blockchain technology, we believe that this paper will be helpful to the community at large and provide a common reference point for discussion on Blockchain technology.
 %While many of the results in this work might not be surprising to some readers, our experience suggests that knowledge of Blockchain technology is neither universal nor complete within the security community.
-Taken together, the results in this paper represent the most complete overview 
-of Blockchain technology and its potential use cases available in a single work.
-The results are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas.
+%Taken together, the results in this paper represent the most complete overview 
+%of Blockchain technology and its potential use cases available in a single work.
+%The results are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas.
 %Concretely, our key contributions are:
 
 %\begin{enumerate}
