@@ -5,95 +5,25 @@
 
 To accomplish our goals for this article, we started with a rigorous textual analysis of non-academic sources (hereafter referred to as `industry whitepapers') including but not limited to the technology, financial, and healthcare sectors; from startups to SMEs to Fortune 500 corporations. Academics have already systemized deep technical aspects of blockchain technology. Our analysis  systemizes a distinct set of knowledge---the institutional knowledge in industry---which helps complete the picture. Whatever industry might lack in technical knowledge, it makes up for in understanding market needs, true costs of deployment, the intricacies of existing and legacy systems, the stakeholders and their competing interests, and the regulatory landscape.
 
-%First, industry became heavily involved in Blockchain technology before academia and thus has had more time to fully consider its implications.
-
-%Second, industry literature tends to discuss and evaluate Blockchain technology holistically, which provides the broad perspective needed to answer questions one and two.
-
-%Finally, much of industry literature is written by use case experts who are well positioned to answer the third question.q2
-
 This analysis provides the basis for the results discussed in this article. While there is valuable information to be learned from industry, analyzing these sources also brings challenges including (a) inprecise terminology and errors in knowledge, (b) inclusion of hype, and (c) researcher bias.
 
-%To address these limitations, we analyzed literature produced by industry using grounded theory methodology~\cite{glaser1965constant,strauss1990basics,corbin1990grounded} (also known as the constant comparative method).
-%This allowed us to extract and separate valuable technical insights out from the hype and technical misunderstandings that permeate this body of work.
-%Based on this analysis of data from industry, interspersed with our own knowledge and a review of the academic literature, we are able to answer the three questions commonly asked in relation to Blockchain technology, as well as shed light on industry's understandings and misunderstandings of the technology. 
-
-%Ultimately, our technical analysis was successful at answering our three questions and in this paper we present those answers.
-%While some readers may find the results described in this article unsurprising or differing from their viewpoints regarding Blockchain technology, we believe that this paper will be helpful to the community at large and provide a common reference point for discussion on Blockchain technology.
-%While many of the results in this work might not be surprising to some readers, our experience suggests that knowledge of Blockchain technology is neither universal nor complete within the security community.
-%Taken together, the results in this paper represent the most complete overview 
-%of Blockchain technology and its potential use cases available in a single work.
-%The results are intended to serve as an aid for researchers as they field questions related to Blockchain and as they explore whether Blockchain technology is relevant to their personal research areas.
-
-
-
-%\begin{enumerate}
-%	\item \emph{Lack of precise terminology and discussion.}
-%	In our review of materials from industry, we found that the same concepts were often described using divergent and imprecise terminology, leading to white papers that are difficult to understand and provide muddled descriptions of capabilities and use cases.
-%	Additionally, while there is a fair bit of factually inaccurate information in materials from industry (e.g., several documents claimed cryptographic signatures provide confidentiality), in several cases we  observed an accurate description of an idea that was phrased in such a way as to make it seem incorrect under cursory examination. Some of those ideas were assembled in ways that are interesting to academics, if one takes the time to work through the material.
-%	In this regard, materials from industry represent a trove of useful information obscured by imprecise terminology and discussion.
-%	
-%	\item \emph{Inclusion of hype.}
-%	Much of the material from industry includes visionary statements (i.e., hype) about how Blockchain technology will change business practices, power dynamics and the way the world works.
-%	This hype is a mixture of realistic use cases that can benefit from Blockchain technology (e.g., anonymous payments~\cite{chaum1988untraceable}) and ideals that far transcend any technical solution (e.g., removing the need for governments).
-%	Unfortunately, unlike what one would expect in academic literature, the materials from industry often intermingle hype with technical details. This at least partially explains why some in academia are quick to dismiss sources from industry.
-%	
-%	\item \emph{Researcher bias.}	
-%	Researcher bias is an obvious problem in any literature review---regardless of whether the source is academia or industry---and one that is often not explicitly addressed in systemization papers.
-%	The potential for bias is even stronger when reviewing materials from industry because the two issues described above (lack of precise terminology and hype) make it easy for researchers to dismiss out of hand ideas proposed by industry.
-%%	Additionally, being aware of the academic pedigree of Blockchain technology can make it easy to overlook the interesting use cases enabled by the composition of existing primitives.
-%	
-%\end{enumerate}
-
-\jnote{Sidebar on grounded theory?}
+\jnote{Sidebar on grounded theory is a possibility}
 
 To address these limitations, we employed a well-established research 
-method---\emph{grounded 
-theory}~\cite{corbin1990grounded,wolfswinkel2013using}---to rigorously analyze 
-the data in a way that directly addresses each of the above issues.
-%~\cite{glaser1965constant,strauss1990basics,corbin1990grounded}
-%Grounded theory is used to analyze qualitative data sources (e.g., user stories, interviews) and extract the underlying data and processes described across the myriad of gathered sources.
-%\footnote{Grounded theory identifies data and processes that are supported across the body of sources and is not a method for creating a fine-grained breakdown of an individual document.}
-Grounded theory is designed to help researchers identify data and processes 
-within qualitative data sources generated by humans and filled with imprecise 
-terminology and descriptions.
-Additionally, grounded theory limits the impact of researcher bias, ensuring that the data and processes are derived from the data and not from the researchers' preconceived notions of what the data says.
-
-% JC: Let the reader decide:
-%Our hope was that it would also help separate hype from the underlying facts, 
-%and based on the clarity of our results, we believe it did so.
-
-%As readers may be unaware of the grounded theory methodology, in this section we describe the methodology in more depth.
-
-%In the remainder of this section, we describe the data we gathered as well as the grounded theory process used to evaluate it.
-
-%The idea of using grounded theory for literature review is not new
-%%~\cite{wolfswinkel2013using,yang2012descriptive}
-%and this method has been used in thousands of studies examining qualitative data.
-%%\footnote{As evidence of its wide use, the top-cited paper describing grounded theory has 62,951 citations as of writing.}
-%%TODO: This needs to be deanonymized when published.
-%For these reasons---and based on our own experience with the method~\cite{ruoti2017weighing}---we were confident this method would allow us to successfully accomplish our research goals.
-
-%In the remainder of this section we first describe how we gathered industry materials for our grounded theory analysis.
-%Next, we describe the grounded theory process in some detail, as it may be unfamiliar to readers in this field.
-%Lastly, we describe an academic literature review we conducted to enhance the results of our grounded theory analysis.
+method---\emph{grounded theory}~\cite{corbin1990grounded,wolfswinkel2013using}---to rigorously analyze the data in a way that directly addresses each of the above issues. Grounded theory is designed to help researchers identify data and processes within qualitative data sources generated by humans and filled with imprecise terminology and descriptions. Additionally, grounded theory limits the impact of researcher bias, ensuring that the data and processes are derived from the data and not from the researchers' preconceived notions of what the data says.
 
 \subsection{Materials}
-%Beginning in the summer of 2016
-%We gathered documents published regarding Blockchain technology, including both materials from industry and academia, though this section will focus on only the former.
+
 We gathered materials to analyze using a variety of methods:
 
 \begin{itemize}
 	\item Following RSS feeds that track news and publications related to 
-	Blockchain technology.% (e.g., 
-	%CoinDesk).%\footnote{\url{https://coindesk.com}}).
+	Blockchain technology.
 	\item Downloading materials published by Blockchain consortiums (e.g., 
-	Hyperledger, Decentralized Identity Framework).% and their members (e.g., 
-	%IBM, Microsoft, Gem).
-%	\item Downloaded materials published by Blockchain consortiums (e.g., Hyperledger\footnote{\url{https://www.hyperledger.org/}}, Decentralized Identity Framework\footnote{\url{http://identity.foundation/}}) and their members (e.g., IBM, Microsoft, Gem).
+	Hyperledger, Decentralized Identity Framework).
 	\item Reviewing documents from major accounting firms, banks, and tech companies.
-	\item Browsing news articles and blog posts related to Blockchain technology.% This included articles which gave lists of interesting Blockchain papers.
+	\item Browsing news articles and blog posts related to Blockchain technology.
 	\item Reviewing submissions to the ONC Blockchain in Health Care Competition.
-	%\footnote{\url{https://www.healthit.gov/topic/grants-contracts/announcing-blockchain-challenge}}.
 \end{itemize}
 
 When reviewing these materials, we would also follow references and include those documents if we believed they were relevant. In total, we collected 132 documents which can be split into three categories: high-level overviews, system designs, and commentaries.
@@ -107,50 +37,33 @@ When reviewing these materials, we would also follow references and include thos
 \subsection{Analysis}
 
 Four members of our group participated in the analysis of collected documents.
-We continued gathering and reviewing documents until each of us felt that the last 3--5 documents we had read revealed no new information; this is a commonly accepted stopping criteria in grounded theory that ensures that all core (i.e., not one-off) ideas have been identified. A longer version of this paper \textblue{CITE} contains the complete methological details (type of coding used at each stage and theory generation). As is often the case in grounded theory, the notes we took and regularly discussed amongst ourselves were every bit as important, if not more so, than the concepts, categories, and theories we generated.
-
-
-%Throughout this analysis we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
-%Additionally, we conducted intensive discussion between the various researchers to ensure that we were correctly understanding and evaluating the source material.
-%As is often the case in grounded theory, these notes and discussion were every bit as important, if not more so, than the concepts, categories, and theories we generated.
-
+We continued gathering and reviewing documents until each of us felt that the last 3--5 documents we had read revealed no new information; this is a commonly accepted stopping criteria in grounded theory that ensures that all core (i.e., not one-off) ideas have been identified. A technical companion to this paper contains the complete mythological details: type of coding used at each stage and theory generation~\cite{RKYCC19}. As is often the case in grounded theory, the notes we took and regularly discussed amongst ourselves were every bit as important, if not more so, than the concepts, categories, and theories we generated.
 
 \subsection{Results}
 
-Our analysis ultimately revealed a set of 68 interconnected concepts that  define Blockchain technology. These concepts are grouped into 5 broader categories:
+% JC: I updated 68 to 75 as the summation of the breakdown below 21 + 14 + 12 + 13+  15
+Our analysis ultimately revealed a set of 75 interconnected concepts that define Blockchain technology. These concepts are grouped into 5 broader categories:
 
 \begin{itemize}
-	\item \emph{Technical properties (Figure~\ref{fig:technical-properties}).}
-	%,~\ref{fig:technical-properties-full}).}
-	Technical properties are the components that make up blockchain technology. 
-	Examples include decentralized governance, a consensus protocol, and an 
-	append-only transaction ledger.
+
+\item \emph{Technical properties (Figure~\ref{fig:technical-properties}).} Technical properties are the components that make up blockchain technology. Examples include decentralized governance, a consensus protocol, and an append-only transaction ledger.
 	
-	\item \emph{Capabilities (Figure~\ref{fig:Capabilities}).}
-	Capabilities are the high-level features provided by the technical 
-	properties. Examples include automatic executions (i.e., smart contracts), 
-	internal auditability, and access control.
+\item \emph{Capabilities (Figure~\ref{fig:Capabilities}).} Capabilities are the high-level features provided by the technical properties. Examples include automatic executions of code (\ie smart contracts), internal auditability, and access control.
 	
-	\item \emph{Technical primitives.}
-	Primitives are the building blocks used to construct the technical properties and capabilities of blockchain technology. Examples include timestamps, hashchains, and peer-to-to-peer communication.
+\item \emph{Technical primitives.} Primitives are the building blocks used to construct the technical properties and capabilities of blockchain technology. Examples include timestamps, hashchains, and peer-to-to-peer communication.
 	
-	\item \emph{Use cases.}
-	Use cases are classes of systems that the literature identified as 
-	applications of blockchain technology. Examples include cryptocurrencies, 
-	supply chain management, and identity management.
+\item \emph{Use cases.} Use cases are classes of systems that the literature identified as applications of blockchain technology. Examples include cryptocurrencies, supply chain management, and identity management.
 	
-	\item \emph{Normative properties.} 
-	%(Figure~\ref{fig:normative-properties})
-	Normative properties represent what people hope to achieve using blockchain technology. 
-	Importantly, these properties are not provided by the use of blockchain 
-	technology as are the technical properties and capabilities. Rather they 
-	typically require the careful design of larger systems of which blockchain 
-	technology may only be a small component.
-	In general, normative properties strongly relate to the hype surrounding blockchain technology. Examples include public participation, trustlessness, and censorship resistance.
-	
+\item \emph{Normative properties.} Normative properties represent what people hope to achieve using blockchain technology. Importantly, these properties are not provided by the use of blockchain technology as are the technical properties and capabilities. In general, normative properties strongly relate to the hype surrounding blockchain technology. Examples include public participation, trustlessness, and censorship resistance.
+
 \end{itemize}
 
+While we divide the concepts into these five categories, individual concepts are highly interconnected, both inter- and intra-category. This provides credence to the notion that Blockchain technology overall is a cohesive whole, with each its component concepts serving a purpose in the overall technology.
+
+Our categorization resulted in 21 technical properties, 13 capabilities, 14 technical primitives, 15 use cases and 12 normative properties. For this article, we select the some interesting and useful highlight from our full analysis, and refer the interested reader to our technical companion article and data files for the rest~\cite{RKYCC19}.
+
 %\subsection{Grounded Theory Data Analysis}
+
 %After collecting our initial set of 104 documents, we analyzed them using grounded theory.
 %This methodology splits analysis of the documents into four stages: open coding, axial coding, selective coding, and theory generation.
 %Throughout the analysis of the documents we kept detailed research notes that outlined our thoughts as we reviewed and analyzed the literature.
