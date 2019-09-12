@@ -10,17 +10,13 @@
 	\label{fig:technical-properties}
 \end{figure}
 
-Our literature analysis finds three key groupings of technical properties related to Blockchain technology (see Figure~\ref{fig:technical-properties}):
-%.\footnote{A version of this chart that shows the technical primitives that support the technical properties is given in the Appendix (see Figure~\ref{fig:technical-properties-full}).}
-\textit{shared governance and operation}, \textit{verifiable state}, and 
-\textit{resilience to data loss}.
-%By themselves, these property groups are nothing new, but used together they define \emph{Blockchain technology}, or \emph{Blockchain} for short.
-\snote{Add reference to technical report for full charts?}
-\jnote{A technical companion to this paper contains the complete mythological details: type of coding used at each stage and theory generation~\cite{RKYCC19}}
-%In Appendix~\ref{sec:distributed-comparison} we describe how other distributed technologies compare to Blockchain technology.
+The first broad category of blockchain concepts are technical properties, which we subdivide into three key groups: \textit{shared governance and operation}, \textit{verifiable state}, and 
+\textit{resilience to data loss}. Figure~\ref{fig:technical-properties} shows the relationship between them.
 
 \subsection{Shared Governance and Operation}
 \label{sec:sharedgov}
+
+\jnote{While I personally understand this section, I don't think a general audience will. It might help to give examples (what is an example of a transaction, valid/invalid, a consensus rule, etc.) without losing the generality. It needs some polish to make it more relatable.}
 
 %Before describing how shared governance and operation defines Blockchain technology, it is important to define both of these concepts.
 %Governance is the process by which one or more entities (e.g., an individual, a company, a government agency) define how a system will operate---i.e., what operations are supported and how those operations function.
@@ -29,25 +25,10 @@ Our literature analysis finds three key groupings of technical properties relate
 %Operation can be singular---a single entity executes the system (e.g., a trusted third party)---or shared---multiple entities collectively operate the system (e.g., through the use of a consensus protocol).
 %Note, distributed operation (i.e., operation on many machines) does not imply shared operation, as the owner/operator of all distributed nodes may still be a single entity.
 
-Blockchain technology addresses the scenario in which a collection of 
-parties----referred to hereafter as \emph{miners}---want to participate in a 
-communal system but do not trust each other or any third party to operate the 
-system singlehandedly.
-By participating in both the governance and operation of the system, each miner can be assured that the system is operating correctly.
-Even if some of the miners become compromised, the uncompromised miners retain the ability to detect malicious actions by the compromised miners and to prevent them from interfering with the correct operation of the system.
-In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted.
-%\footnote{This property has often been called ``trustlessness''; this is incorrect as trust still exists but has simply been diffused among multiple parties.}
+Blockchain technology addresses the scenario in which a collection of entities want to participate in a communal system but do not trust each other or any third party to operate the  system singlehandedly. By operating networked devices---referred to hereafter as \emph{miners}---for both the governance and operation of the system, each entity can be assured that the system is operating correctly. Even if some number of the miners become compromised (within bounds), the uncompromised miners can reject the malicious actions taken by the compromised miners and preserve the correct operation of the system. In this regard, Blockchain technology provides \emph{diffused trust} wherein it is not individual miners but rather the collective of all miners that is trusted. This is often given the misnomer `trustlessness' --- trust still exists but has been diffused among multiple parties.
 
-Shared operation is enabled by the use of \emph{consensus protocols}, which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system.
-The consensus protocols allow miners to view transactions and validate that the 
-system is operating appropriately. This is an important consideration, as the 
-miners do not trust that only valid transactions will be submitted to the 
-consensus protocol.
-Shared governance is possible because miners can configure their clients to 
-only approve the transactions they believe are acceptable, effectively allowing 
-them to vote for how the system should function.
-If there is disagreement regarding system functionality, it is possible for a Blockchain-based system to fork, resulting in the creation of competing systems that include only a subset of each other's transactions.
-Usually these forks are temporary, with miners eventually choosing to all adopt the same rules, but it is possible for a fork to result in the permanent creation of two non-interoperable Blockchain systems (e.g., Bitcoin Classic and Bitcoin Cash).
+Shared operation is enabled by the use of \emph{consensus protocols}, which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system. The consensus protocols allow miners to view transactions and validate that the 
+system is operating appropriately. This is an important consideration as it is not only valid transactions that will be submitted to the consensus protocol. Shared governance is possible because miners  only approve the transactions they believe are acceptable, according to hardcoded software rules, effectively allowing them to vote for how the system should function. If there is disagreement regarding system functionality, it is possible for a blockchain-based system to fork, resulting in the creation of competing systems that include only a subset of each other's transactions. Usually these forks are temporary, with miners eventually choosing to all adopt the same rules, but it is possible for a fork to result in the permanent creation of two non-interoperable blockchain systems (\eg Bitcoin and Bitcoin Cash).
 
 %In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there are two types of forks that can occur.
 %In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
@@ -59,25 +40,25 @@ Blockchain systems can be categorized based on who is allowed to act as a miner:
 %\footnote{In our coding, we also identified the concept of private governance, which eschews the notion of miners. This concept is discussed later in Section~\ref{sec:private-blockchain}.}
 
 \begin{itemize}
-	\item \emph{Open governance (i.e., permissionless Blockchains).}
+
+	\item \emph{Open governance (i.e., permissionless blockchains).}
 	Any party that is willing to participate in the consensus protocol is allowed to do so.
 	These systems are susceptible to Sybil attacks, so it is necessary to use 
 	consensus protocols in which miners prove ownership and/or expenditure of 
 	some finite resource rather than relying on proofs of identity.
 	Proof-of-work (demonstrating ownership of computing resources) and proof-of-stake (demonstrating ownership of digital assets stored by the Blockchain system) are the most common methods~\cite{Bano17,garay2018consensus}.
 	
-	\item \emph{Consortium governance (i.e., permissioned Blockchains).}
+	\item \emph{Consortium governance (i.e., permissioned blockchains).}
 	Only approved miners that can attest to their identity are allowed to participate in the consensus protocol.
 	The starting set of approved miners is defined at system initialization.
 	If this set never changes, it is known as a \emph{static consortium}.
 	Alternatively, in an \emph{agile consortium} miners change over time, either based on the rules of the system (e.g., random selection) or through consensus by the existing miners.
-	Because miners in a consortium have known identities, they can use Byzantine fault tolerance-based consensus protocols, which do not require the resource expenditure of the Sybil-resistant protocols used in open governance-based systems~\cite{Bano17,garay2018consensus}.		
+	Because miners in a consortium have known identities, they can use Byzantine fault tolerance-based consensus protocols which do not require the resource expenditure of the Sybil-resistant protocols used in open governance-based systems~\cite{Bano17,garay2018consensus}.
+	
 \end{itemize}
 
 For each type of governance, there is a need to incentivize correct participant behavior.
-The first type of incentive is an \emph{intrinsic incentive}---i.e., miners maintain the system faithfully because they derive value from using it.
-Next, \emph{on-chain incentives} exist when the Blockchain system provides direct benefits to miners for faithful execution (e.g., minting currency and giving it to the miners).
-Finally, \emph{off-chain incentives} are any incentive that is not managed by the Blockchain system---for example, contractual obligations or individual reputation.
+The first type of incentive is an \emph{intrinsic incentive}---i.e., miners maintain the system faithfully because they derive value from using it. Next, \emph{on-chain incentives} exist when the Blockchain system provides direct benefits to miners for faithful execution (e.g., minting currency and giving it to the miners). Finally, \emph{off-chain incentives} are any incentive that is not managed by the Blockchain system---for example, contractual obligations or individual reputation.
 Importantly, off-chain incentives only apply to consortium governance as they inherently rely on knowing the identity of the miners.
 
 %Note, the literature sometimes refers to open and consortium governance Blockchain systems as \emph{permissionless} and \emph{permissioned} Blockchains, respectively.
@@ -85,7 +66,7 @@ Importantly, off-chain incentives only apply to consortium governance as they in
 %For example, an open governance Blockchain system can still implement permissions for how users can interact with assets tracked by the Blockchain; this is confusing if the system is also referred to as ``permissionless''.
 
 \subsection{Verifiable State}
-Miners adopt Blockchain technology because they want their trust to be rooted in the system---i.e., that the current state of the system accurately reflects the transactions that the consensus protocol allowed to execute in the past.
+Entities adopt blockchain technology because they want their trust to be rooted in the system---i.e., that the current state of the system accurately reflects the transactions that the consensus protocol allowed to execute in the past.
 To enable this trust, Blockchain technology writes all transactions to a cryptographically-verified append-only ledger~\cite{tamassia2003authenticated}, providing full system provenance and allowing miners (or outside parties) to audit the system's current state and past operations.
 In many systems, including Bitcoin, this ledger is colloquially referred to as the ``blockchain'', but we avoid that term as it unnecessarily confusing to discuss both Blockchain (big-B) technology and the blockchain (little-b) data structure.
 
@@ -124,7 +105,7 @@ Still, sharding comes with the drawback that individual miners are no longer
 able to audit the system as a whole.
 Additionally, by reducing the number of miners responsible for any given transaction, sharding also reduces the number of miners an adversary would need to compromise to attack that transaction.
 
-\section{Capabilities?}
+\section{Capabilities}
 \label{sec:capabilities}
 
 \begin{figure}

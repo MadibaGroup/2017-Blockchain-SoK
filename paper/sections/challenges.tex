@@ -62,16 +62,21 @@
 % Is this subset of challenges normative or positive?
 % Normative -- the set of challenges that ought to be studied
 % Positive -- the set of challenges that happened to be studied by others
+
 \section{Challenges and Limitations}
 \label{sec:challenges}
 
-Our analysis of the literature revealed several challenges that need to be considered when developing systems using Blockchain technology.
+Our analysis also reveals several challenges that need to be considered when developing systems using blockchain technology.
+
 %In this section, we describe these challenges and limitations.
 %In Appendix~\ref{sec:academic}, we survey academic research that is attempting to address some of the challenges.
 %Note that this section is focused on challenges facing Blockchain systems generally, not challenges facing specific applications such as Bitcoin or Ethereum).
-\snote{Add reference to technical report for academic survey?}
 
-\subsection{Scalability and Performance}
+% JC: Resolved below:
+%\snote{Add reference to technical report for academic survey?}
+
+\subsection{Scalability and performance}
+
 Decentralized governance and operation incur three forms of overhead: (1) the 
 need to run a consensus protocol before state can be updated, (2) the need to 
 store the full system provenance, and (3) the need for each miner to store the 
@@ -91,9 +96,10 @@ households~\cite{Digiconomist}.
 %Additionally, many design choices limit the performance of Blockchain systems.  Small block sizes can lead to extremely high transaction fees when miners are unwilling to add transactions that result in having to create more blocks.  On the other hand, larger block sizes can impede  throughput due to the increased latency of finalizing a transaction. %In Bitcoin, one must wait for six additional blocks to be confirmed before a transaction is considered final, which may be prohibitively long for applications where transactions need to clear immediately.
 %The challenge of handling a huge number of transactions while achieving acceptable levels of throughput and latency remains a critical hurdle to the use of Blockchain solutions in performance-critical systems.
 
-\subsection{On-chain Correctness}
+\subsection{On-chain correctness}
+
 All executable code is subject to bugs, and smart contracts are no exception.
-The immutability of a Blockchain's ledger exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious.
+The immutability of a blockchain's ledger exacerbates this challenge by impeding rollback of state changes, even those that are clearly malicious.
 Failure to act can be costly (e.g., the DAO attack~\cite{dao}), but so too can reversing transactions.
 %This is because, by definition, any transactions on a blockchain upon which consensus is reached are considered legal---including ones due to buggy code and exploitations of such.
 If miners decide to roll back the ledger to erase a mistaken transaction,  
@@ -106,7 +112,7 @@ could lead to a fork in the Blockchain system.
 %Despite best efforts to eliminate mistakes in smart contract and transactions, a payment or asset transfer system must be able to reverse fraudulent or errant transactions. For example, if a user pays for a physical real-world good using a cryptocurrency but is then never given the purchased item. A new transaction reversing the effects of the disputed transaction could be added to the ledger, but decentralized governance makes arbitrating such a dispute difficult as there is no individual arbiter with the authority to determine which party is in the right when a dispute occurs.  Additionally, dispute resolution must be handled carefully to avoid introducing new vulnerabilities.  For example, several attacks were demonstrated against the Bitcoin refund mechanism~\cite{FC:MccShaHao16} necessitating further research to design secure refunds in Bitcoin~\cite{arxiv:AviSafSha18}.
 
 \subsection{Off-chain stapling}
-Many Blockchain applications manage off-chain assets by representing them 
+Many blockchain applications manage off-chain assets by representing them 
 on-chain using digital identifiers, or \textit{tokens}. A major challenge for 
 these application is ensuring consistency between on-chain state and the 
 off-chain reality it represents.
@@ -115,7 +121,7 @@ example, a smart contract can track transference of ownership for a digital
 media license.
 For physical assets, real-world processes must be employed to ensure 
 consistency. These processes are an obvious point of failure as they rely on 
-correct execution by trusted parties (something that Blockchain systems are 
+correct execution by trusted parties (something that blockchain systems are 
 often deployed to remove).
 %For example, a malicious entity could attach two tokens to one asset, two assets to one token, or issue tokens that have no backing asset (e.g. stocks in a naked short selling scenario).
 The end user must also be trusted, as they may be able to separate the token and sell it while keeping the asset, causing the token to be attached to an invalid asset (e.g., fake goods in luxury markets).
@@ -128,7 +134,7 @@ While such information can be provided by \emph{off-chain oracles}, these are tr
 %If contract logic branches based on that response, the contract is no longer verifiable because auditors cannot confirm that the response received from the oracle at audit time is the same response received when the contract was executed. There are legitimate reasons why an oracle response might change with time, so this is really an inherent limitation of Blockchain technology: smart contracts cannot ``see'' external events.  Thus, additional mechanisms are needed to verify that these inputs cannot be forged.
 
 \subsection{Security}
-Due to its decentralized nature, Blockchain is potentially vulnerable to a number of security threats.
+Due to its decentralized nature, blockchain is potentially vulnerable to a number of security threats.
 Coordinated attacks by a majority (or often even a large minority) of the miners can reorder, remove, and change transactions from the ledger. 
 %Thus, it is critical that Blockchain applications provide the proper incentives to keep miners honest.
 % In particular, it is critical to design incentives such that the game theoretic behavior for selfish miners is to honestly maintain the state of the Blockchain system rather than to destroy it through forming such coalitions.
@@ -142,7 +148,7 @@ Confidentiality can be provided by hosting a Blockchain system where only truste
 Still, the use of cryptography limits auditability and the ability to have 
 meaningful shared governance.
 
-Extreme care must be taken when trying to build an anonymous Blockchain system.
+Extreme care must be taken when trying to build an anonymous blockchain system.
 While many existing Blockchain systems provide a notion of ``pseudonymity'' in which users are identified by their cryptographic keys instead of by their real-world names, this does not provide true anonymity as attacks that correlate transactions by the same pseudonyms together with other data external to the Blockchain system can effectively deanonymize users~\cite{DBLP:journals/corr/abs-1708-04748}.
 
 \subsection{Usability} %User Experience}
@@ -160,27 +166,27 @@ impediment for most users~\cite{ruoti2019usability}.
 
 %With a key management solution in place, a further challenge is obtaining transactions for auditing purposes---auditing is a much touted capability of blockchain across our dataset. In a decentralized environment, running a full node on the network, or relying on a entity that does (such as a blockchain explorer website or a lightweight user-client) is necessary. 
 
-\subsection{Legality and Regulation}
-Some of the benefits claimed by Blockchain systems are not derived from the 
+\subsection{Legality and regulation}
+Some of the benefits claimed by blockchain systems are not derived from the 
 underlying technology, but rather from a lack of regulation compared to 
 competing services. 
-For example, Blockchain-based money transfer services are generally orders of 
+For example, blockchain-based money transfer services are generally orders of 
 magnitude faster than similar bank-provided services, but this speed increase 
-does not arise from the use of Blockchain (which generally has higher technical 
-overhead) but because the Blockchain-based services are not complying with the 
+does not arise from the use of blockchain (which generally has higher technical 
+overhead) but because the blockchain-based services are not complying with the 
 time-consuming regulatory processes that are required of the bank-provided services (e.g., 
 mandatory holding periods).
 Our analysis revealed widespread concern with regulatory issues surrounding 
-cryptocurrencies, Blockchain-based assets, and other Blockchain applications. 
+cryptocurrencies, blockchain-based assets, and other blockchain applications. 
 This is unstable from a risk perspective and will be untenable in the long run 
 as regulators catch up to these schemes.
 
-%It is important to note that regulation applies indirectly to technology, based on how the technology is used within a firm's operations.
-%Therefore, there will be no direct regulation of Bitcoin, for example, but rather regulation of firms that use Bitcoin according to how they are using it. 
-%Consider the example of a Bitcoin exchange service that derives income from fees paid in Bitcoin: it will have to consider tax declarations as a business (\eg service taxes and capital gains), financial reporting as a money service business (\eg know your customer, anti-money laundering and anti-terrorist financing), generally acceptable accounting standards for audited financial reports (\eg reporting Bitcoin as an intangible asset on a balance sheet), and potentially additional regulation that applies to financial exchanges, banks, and/or custodians.
-%In most countries, each of these already broad categories are administered by different government branches.
-%Countries like the United States and Canada may require licensing or registration and have taken enforcement action against non-compliant firms.
-%An extreme case of regulation is prohibition of cryptocurrencies or Blockchain-assets. At the time of writing, the largest country to ban Bitcoin is Pakistan and the largest country to prohibit wide categories of cryptocurrency use is China.
+It is important to note that regulation applies indirectly to technology, based on how the technology is used within a firm's operations.
+Therefore, there will be no direct regulation of Bitcoin, for example, but rather regulation of firms that use Bitcoin according to how they are using it. 
+Consider the example of a Bitcoin exchange service that derives income from fees paid in Bitcoin: it will have to consider tax declarations as a business (\eg service taxes and capital gains), financial reporting as a money service business (\eg know your customer, anti-money laundering and anti-terrorist financing), generally acceptable accounting standards for audited financial reports (\eg reporting Bitcoin as an intangible asset on a balance sheet), and potentially additional regulation that applies to financial exchanges, banks, and/or custodians.
+In most countries, each of these already broad categories are administered by different government branches.
+Countries like the United States and Canada may require licensing or registration and have taken enforcement action against non-compliant firms.
+An extreme case of regulation is prohibition of cryptocurrencies or Blockchain-assets. At the time of writing, the largest country to ban Bitcoin is Pakistan and the largest country to prohibit wide categories of cryptocurrency use is China.
  
  
 %As applications of blockchain technology proliferate, they have drawn significant attention from the regulatory bodies around the world.  In the settings of cryptocurrencies, a number of concerns such as the prevalence of black-market transactions, tax evasion, money laundering, and terrorist financing have drawn calls to regulate how such cryptocurrencies can be used.  An excellent review article by Kiviat~\cite{Kiviat15} outlines some of the issues that arise in regulating blockchain transactions.  
