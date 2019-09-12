@@ -65,15 +65,18 @@ Importantly, off-chain incentives only apply to consortium governance as they in
 %For example, an open governance Blockchain system can still implement permissions for how users can interact with assets tracked by the Blockchain; this is confusing if the system is also referred to as ``permissionless''.
 
 \subsection{Verifiable State}
-Entities adopt blockchain technology because they want their trust to be rooted in the system---i.e., that the current state of the system accurately reflects the transactions that the consensus protocol allowed to execute in the past.
-To enable this trust, Blockchain technology writes all transactions to a cryptographically-verified append-only ledger~\cite{tamassia2003authenticated}, providing full system provenance and allowing miners (or outside parties) to audit the system's current state and past operations.
-In many systems, including Bitcoin, this ledger is colloquially referred to as the ``blockchain'', but we avoid that term as it unnecessarily confusing to discuss both Blockchain (big-B) technology and the blockchain (little-b) data structure.
 
-The first entry in the append-only ledger is known as the \emph{genesis block}.
-The genesis block is responsible for specifying the initial parameters for the system.
-Whenever a new transaction is approved by the miners, it is added to the ledger and cryptographically linked to one or more preceding transactions (or the genesis block for the first transaction)---for example, by signing the concatenation of the latest transaction and a hash of the transactions it is linked to.
-The resulting data structure can be either linear (e.g., Bitcoin's hash chain) or branching (e.g., a Merkle tree or directed acyclic graph).
-Regardless of the underlying structure, it is critical that all transactions are strictly ordered and that this ordering never changes after consensus is reached.
+Entities adopt blockchain technology because they want their trust to be rooted in the system---i.e., that the current state of the system accurately reflects the transactions that the consensus protocol allowed to execute in the past.
+To enable this trust, miners write all transactions to a cryptographically-verified append-only ledger~\cite{tamassia2003authenticated}, providing full system provenance and allowing miners (or outside parties) to audit the system's current state and past operations.
+In many systems, including Bitcoin, this ledger is colloquially referred to as ``the blockchain'' (we will avoid this term as it unnecessarily confusing to discuss both holistic blockchain technology and the blockchain data structure). All transactions are strictly ordered and after consensus is reached (and as long as it is maintained), this ordering never changes and transactions are never removed. Thus All miners who begins at the first entry (called the \emph{genesis block}) will process all the transactions in the same order and reach the same current state for the entire system.
+
+% JC: Below is quite Bitcoin-specific, Ethereum for example doesn't exactly work this way. It also seems to me to be unnecessary detail for the Queue version, so removing most of it for now.
+
+%The first entry in the append-only ledger is known as the \emph{genesis block}.
+%The genesis block is responsible for specifying the initial parameters for the system.
+%New transactions are added to the ledger and cryptographically linked to one or more preceding transactions (or the genesis block for the first transaction)---for example, by signing the concatenation of the latest transaction and a hash of the transactions it is linked to.
+%The resulting data structure can be either linear (e.g., Bitcoin's hash chain) or branching (e.g., a Merkle tree or directed acyclic graph).
+%Regardless of the underlying structure, it is critical that all transactions are strictly ordered and that this ordering never changes after consensus is reached.
 
 %Transactions stored in the append-only ledger can contain any data allowed by the consensus protocol, but in practice transactions are usually concerned with \emph{tokens}.
 %Tokens represent a resource that is either on-chain (e.g., cryptocurrency, a document) or off-chain (e.g., a diamond, a file stored in the cloud) and are used to track that resource within the Blockchain system.
@@ -81,11 +84,9 @@ Regardless of the underlying structure, it is critical that all transactions are
 %While there have been a variety of proposals for doing this (e.g., etching the token's identifier onto the physical items), effective stapling remains a challenge (see Section~\ref{sec:challenges}).
 
 \subsection{Resilience to Data Loss}
+
 If the ledger was only stored in a single location, deleting or modifying that data store could be detected by all parties, but there would be no guarantee that the data could be restored.
-In Blockchain technology, the ledger is replicated among miners to address this single point of failure.
-When data does need to be restored---for example, if an individual miner's 
-ledger is corrupted---the replicated data can be verified to ensure that it 
-correctly represents the system state.
+With blockchain technology, the contents of the ledger is replicated among all miners to address this single point of failure. When data does need to be restored---for example, if an individual miner's ledger is corrupted or a new miner joins---the replicated data can be verified to ensure that it correctly represents the system state.
 
 %The cryptographically-authenticated append-only ledger is replicated among a set of miners and this replication is important for several reasons.
 %First, during the consensus protocol it is necessary for miners to be aware of previous transactions that might invalidate the transaction being considered for approval.
@@ -100,9 +101,8 @@ correctly represents the system state.
 Some Blockchain systems try to limit the amount of data any given miner needs to replicate by segmenting the data and assigning miners to handle governance and operations for only a subset of the system.
 This is known as \emph{sharding}, with individual segments of the data known as \emph{shards}.
 Sharding can drastically reduce the amount of data that miners need to store while also increasing the performance of the consensus protocol, which often scale based on the number of miners.
-Still, sharding comes with the drawback that individual miners are no longer 
-able to audit the system as a whole.
-Additionally, by reducing the number of miners responsible for any given transaction, sharding also reduces the number of miners an adversary would need to compromise to attack that transaction.
+Still, sharding adds complexity to auditing the system as a whole.
+Additionally, by reducing the number of miners responsible for any given transaction, sharding also reduces the number of miners an adversary would need to deceive an end client about a transaction's existence.
 
 \section{Capabilities}
 \label{sec:capabilities}
@@ -130,12 +130,15 @@ If transactions are used to store information regarding digital or real-world re
 This can be used to track physical, off-chain assets (e.g., for supply chain management), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies or data files).
  
 \paragraph{Access Control and Pseudonymity}
+
+% JC: I find this section confusing still... :(
+
 Access to data tracked by a Blockchain system can be controlled using a 
 traditional access control list (ACL) or a cryptographic permission system.
 To control access cryptographically, data must be associated with a public key 
 when it is created.
 The ability to update or delete this data is then granted to any users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the data).
-Ownership of the data can be transferred or shared by associating it with a new public key.
+Ownership of the data can be expanded by associating it with a new public key.
 
 %On key benefit of access control using Blockchain is that the provenance of access control is automatically recorded.
 %This means that a full record of not only a user's permissions, but how they received those permissions, is stored.
@@ -145,11 +148,7 @@ Key-based (as opposed to ACL-based) ownership of data has another advantage: it 
 Still, this requires careful attention in the system design to use appropriate cryptographic techniques (e.g., zero-knowledge proofs, mix networks, or secure multi-party computation) to avoid linking real-world individuals to their keys and actions. This remains an open problem.
 
 \paragraph{Automatic Execution (Smart Contracts)}
-Blockchain transactions can also represent and store executable functions known as \emph{smart contracts}.
-These smart contracts can be executed automatically in response to a function call in later transactions, with both the inputs and outputs of the function recorded within the calling transaction.
-The smart contracts themselves are executed by miners, and outputs are verified 
-through the consensus protocol.
-The computational power of these scripts is determined by the system's rules, ranging from supporting only basic functionality (e.g., verifying a signature in Bitcoin) to providing Turing-complete functionality (e.g., Ethereum).
+In a general purpose blockchain, smart contracts or decentralized applications (DApps) are deployed with a transaction that stores the code for a set of functions and the initial state of the contract. These functions can then be called in subsequent transactions. The functions themselves are executed by the miners, and outputs are verified through the consensus protocol. Any entity can execute any function but the function itself might be programmed to fail if the conditions under which it is called are not what the designer intends. The computational power of the scripting language that can be used to specify a function varies from blockchain to blockchain, and there are  many nuances to ensure functions can be executed by each miner deterministically in a timely fashion. Bitcoin is known for a highly limited scripting language that enables little beyond financial transactions, while Ethereum strives for highly verbose code capable of general computation.
 
 %Smart contracts benefit from Blockchain technology's other capabilities (e.g., shared operation, auditability, and resilience).
 %For example, multiple miners execute and verify the output of a smart contract to help ensure that an adversary is unable to tamper with the result of a function.
@@ -158,5 +157,5 @@ The computational power of these scripts is determined by the system's rules, ra
 
 \paragraph{Data Discoverability}
 If users are allowed to read any record in a distributed data store maintained 
-by a Blockchain, then it is possible to search for records of interest.
+by a blockchain, then it is possible to search for records of interest.
 This capability is nothing more than what is provided by having a read-only data lake, but still it was frequently discussed in the literature we reviewed.
