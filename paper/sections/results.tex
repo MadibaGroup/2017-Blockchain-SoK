@@ -25,8 +25,12 @@ The first broad category of blockchain concepts are technical properties, which 
 
 Blockchain technology addresses the scenario in which a collection of entities want to participate in a communal system but do not trust each other or any third party to operate the system singlehandedly. By deciding on the system details (governance) and then deploying networked devices (referred to as \emph{miners}) to run the system, each entity can become assured of correct operation. If a small number of the miners become compromised (within bounds that are highly nuanced), the uncompromised miners can reject the malicious actions taken by the compromised miners and preserve the correct operation of the system. In this regard, blockchain technology provides \emph{diffused trust} where the collective of miners is trusted. This is often given the misnomer `trustlessness' --- trust still exists but has been diffused.
 
-Shared operation is enabled by the use of \emph{consensus protocols}, which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system. The consensus protocols allow miners to view transactions and validate that the 
-system is operating appropriately. This is an important consideration as it is not only valid transactions that will be submitted to the consensus protocol. Shared governance is possible because miners  only approve the transactions they believe are acceptable, according to hardcoded software rules, effectively allowing them to vote for how the system should function. If there is disagreement regarding system functionality, it is possible for a blockchain-based system to fork, resulting in the creation of competing systems that include only a subset of each other's transactions. Usually these forks are temporary, with miners eventually choosing to all adopt the same rules, but it is possible for a fork to result in the permanent creation of two non-interoperable blockchain systems (\eg Bitcoin and Bitcoin Cash).
+Shared operation is enabled by the use of \emph{consensus protocols} which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system. A transaction is sometimes what it sounds like, a financial transaction that moves a unit of value from one account to another, but more generally is a request that a certain function (the source code of which is already stored in the blockchain) be executed on a set of inputs given in the transaction. Shared governance exists over what valid transactions look like (\eg it is digitally signed by the sender) and how the system functions (\eg the size and number of operations in a transaction are less than a certain bound). Shared operation means every miner executes valid transactions to determine what the output should be, and consensus is taken amongst miners that only correct outputs of valid transactions are written to the blockchain (invalid or incorrectly executed transactions can be proposed but will be rejected by the miners).
+
+% JC: Omitting forks for now as this seems not that critical and require a lot of concepts to describe
+
+%The consensus protocols allow miners to view transactions and validate that the 
+%system is operating appropriately. This is an important consideration as it is not only valid transactions that will be submitted to the consensus protocol. Shared governance is possible because miners  only approve the transactions they believe are acceptable, according to hardcoded software rules, effectively allowing them to vote for how the system should function. If there is disagreement regarding system functionality, it is possible for a blockchain-based system to fork, resulting in the creation of competing systems that include only a subset of each other's transactions. Usually these forks are temporary, with miners eventually choosing to all adopt the same rules, but it is possible for a fork to result in the permanent creation of two non-interoperable blockchain systems (\eg Bitcoin and Bitcoin Cash).
 
 %In Blockchain systems that use a majority-voting consensus mechanism for transaction validation, there are two types of forks that can occur.
 %In a soft fork, transactions that validate with the modified rules will also validate with the original rules, but transactions that validate with the original rules might not validate with the modified rules.
@@ -41,17 +45,14 @@ Blockchain systems can be categorized based on who is allowed to act as a miner:
 
 	\item \emph{Open governance (i.e., permissionless blockchains).}
 	Any party that is willing to participate in the consensus protocol is allowed to do so.
-	These systems are susceptible to Sybil attacks, so it is necessary to use 
-	consensus protocols in which miners prove ownership and/or expenditure of 
-	some finite resource rather than relying on proofs of identity.
-	Proof-of-work (demonstrating ownership of computing resources) and proof-of-stake (demonstrating ownership of digital assets stored by the Blockchain system) are the most common methods~\cite{Bano17,garay2018consensus}.
+	Because identities systems generally require trusted third parties, open governance must address sybil attacks. This involves consensus protocols where miners prove ownership and/or expenditure of some costly, finite resource.
+	Proof-of-work (demonstrating ownership of computing resources) and proof-of-stake (staking  digital assets owned on the blockchain system) are two common methods~\cite{Bano17,garay2018consensus}.
 	
 	\item \emph{Consortium governance (i.e., permissioned blockchains).}
-	Only approved miners that can attest to their identity are allowed to participate in the consensus protocol.
-	The starting set of approved miners is defined at system initialization.
+	Participation in the consensus protocol is limited to miners approved on a whitelist, defined at system initialization.
 	If this set never changes, it is known as a \emph{static consortium}.
-	Alternatively, in an \emph{agile consortium} miners change over time, either based on the rules of the system (e.g., random selection) or through consensus by the existing miners.
-	Because miners in a consortium have known identities, they can use Byzantine fault tolerance-based consensus protocols which do not require the resource expenditure of the Sybil-resistant protocols used in open governance-based systems~\cite{Bano17,garay2018consensus}.
+	Alternatively, in an \emph{agile consortium} miners change over time, either based on the rules of the system (\eg random selection) or through consensus by the existing miners.
+	Because each miner in a consortium is mapped to a known identity, a traditional byzantine fault tolerant protocol (from distributed systems) can be used. This sidesteps the wasteful resource expenditure of sybil-resistant protocols like proof of work~\cite{Bano17,garay2018consensus}.
 	
 \end{itemize}
 
