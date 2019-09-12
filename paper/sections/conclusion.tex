@@ -1,34 +1,33 @@
 % !TEX root = ../main.tex
 
-\snote{Add reference to technical report describing how Blockchain fits into the overall set of distributed systems? }
+\section{Application}
 
-\jnote{Would make a good sidebar }
+Ultimately, blockchain technology is not a panacea but it is a useful tool when the overhead is justified by the system's needs. A good place to start is the follow questions. 
 
+% %Before describing how shared governance and operation defines Blockchain technology, it is important to define both of these concepts.
+%Governance is the process by which one or more entities (e.g., an individual, a company, a government agency) define how a system will operate---i.e., what operations are supported and how those operations function.
+%Governance can be singular---a single entity (e.g., a developer, a company) defines the system---or it can be shared---multiple entities work together to define the system (e.g., IETF, RFC).
+%Operation refers to the number of parties that actually operate a system.
+%Operation can be singular---a single entity executes the system (e.g., a trusted third party)---or shared---multiple entities collectively operate the system (e.g., through the use of a consensus protocol).
+%Note, distributed operation (i.e., operation on many machines) does not imply shared operation, as the owner/operator of all distributed nodes may still be a single entity.
 
-\section{Conclusion}
-
-Ultimately, blockchain technology is neither a panacea nor worthless. Instead it is a useful tool in a system developer's toolkit that can be applied when its overhead is justified by the system's needs.
-Even though Blockchain technology does not solve all the problems that its  proponents claim it does, we believe that it is a meaningful technology that  will continue to be used in industry and is deserving of some attention by researchers.
-
-Based on our results and experience, we recommend the use of the following 
-questions to determine if Blockchain technology would be a good fit for a 
-specific project.
+%Based on our results and experience, we recommend the use of the following 
+%questions to determine if Blockchain technology would be a good fit for a 
+%specific project.
 
 \begin{enumerate}
 	\item Does the system require shared governance?
 	\item Does the system require shared operation?
 \end{enumerate}
 
-\jnote{The text that differentiated these concepts got cut, perhaps we can recap it in a sentence or two here.}
-
-If the answer to both questions is no, then blockchain's consensus protocol is  likely unnecessary overhead. If the answer to both questions is yes, then blockchain technology is likely a good fit. This is due to the fact that  meaningful shared governance \emph{and} operation requires miners to audit the operations of others and to be able to recover data that a malicious miner might try to delete.
-
-If only shared governance or shared operation is needed, then the following two questions can be used.
+Governance is the process by which one or more entities (e.g., an individual, a company, a government agency) define how a system will operate and operation is the day-to-day deployment of the system. If both answers are no, the overhead of a blockchain is unnecessary. If both answers are yes, there is a good fit. If only one of shared governance or shared operation is needed, then the following two questions can be considered.
 
 \begin{enumerate}[start=3]
 	\item Is it necessary to audit the system's provenance?
 	\item Is it necessary to prevent malicious data deletion?
 \end{enumerate}
 
-If auditability and data replication are critical, blockchain technology should be considered. 
+If auditability and data replication are critical, blockchain technology should be considered. This is due to the fact that meaningful shared governance \emph{and} operation requires miners to audit the operations of others and to be able to recover data that a malicious miner might try to delete.
+
+Even though Blockchain technology does not solve all the problems that its proponents claim it does, we believe that it is a meaningful technology that will continue to be used in industry and is deserving of further research and experimentation.
 
