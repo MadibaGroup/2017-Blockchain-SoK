@@ -72,9 +72,6 @@ Our analysis also reveals several challenges that need to be considered when dev
 %In Appendix~\ref{sec:academic}, we survey academic research that is attempting to address some of the challenges.
 %Note that this section is focused on challenges facing Blockchain systems generally, not challenges facing specific applications such as Bitcoin or Ethereum).
 
-% JC: Resolved below:
-%\snote{Add reference to technical report for academic survey?}
-
 \subsection{Scalability and performance}
 
 Decentralized governance and operation incur three forms of overhead: (1) the 
@@ -145,7 +142,7 @@ Such attacks aim to lower the number of participating miners or to fracture the 
 %Another major challenge is how to protect the privacy of the users and data stored on a Blockchain ledger.
 Data in a Blockchain ledger is public (at least to all miners) in order to enable verification, meaning that sensitive data is inherently non-private.
 Confidentiality can be provided by hosting a Blockchain system where only trusted entities can access it or by applying advanced cryptographic techniques that allow miners to verify the correctness of encrypted transactions (e.g., zero-knowledge proofs, secure multi-party computation, and functional encryption)~\cite{SP:KMSWP16}.
-Still, the use of cryptography limits auditability and the ability to have 
+Still, encrypting data in the blockchain limits auditability and the ability to have 
 meaningful shared governance.
 
 Extreme care must be taken when trying to build an anonymous blockchain system.

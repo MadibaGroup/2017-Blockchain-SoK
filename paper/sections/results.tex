@@ -23,9 +23,11 @@ The first broad category of blockchain concepts are technical properties, which 
 %Operation can be singular---a single entity executes the system (e.g., a trusted third party)---or shared---multiple entities collectively operate the system (e.g., through the use of a consensus protocol).
 %Note, distributed operation (i.e., operation on many machines) does not imply shared operation, as the owner/operator of all distributed nodes may still be a single entity.
 
-Blockchain technology addresses the scenario in which a collection of entities want to participate in a communal system but do not trust each other or any third party to operate the system singlehandedly. By deciding on the system details (governance) and then deploying networked devices (referred to as \emph{miners}) to run the system, each entity can become assured of correct operation. If a small number of the miners become compromised (within bounds that are highly nuanced), the uncompromised miners can reject the malicious actions taken by the compromised miners and preserve the correct operation of the system. In this regard, blockchain technology provides \emph{diffused trust} where the collective of miners is trusted. This is often given the misnomer `trustlessness' --- trust still exists but has been diffused.
+Blockchain technology addresses the scenario in which a collection of entities (for example, individuals or companies) want to participate in a communal system but do not trust each other or any third party to operate the system single-handedly. By deciding on the system details (governance) and then deploying networked devices (referred to as \emph{miners}) to run the system, each entity can become assured of correct operation. If a small number of the miners become compromised (within bounds that are highly nuanced), the uncompromised miners can reject the malicious actions taken by the compromised miners and preserve the correct operation of the system. In this regard, blockchain technology provides \emph{diffused trust} where the collective of miners is trusted. This is often given the misnomer `trustlessness' --- trust still exists but has been diffused.
 
-Shared operation is enabled by the use of \emph{consensus protocols} which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system. A transaction is sometimes what it sounds like, a financial transaction that moves a unit of value from one account to another, but more generally is a request that a certain function (the source code of which is already stored in the blockchain) be executed on a set of inputs given in the transaction. Shared governance exists over what valid transactions look like (\eg it is digitally signed by the sender) and how the system functions (\eg the size and number of operations in a transaction are less than a certain bound). Shared operation means every miner executes valid transactions to determine what the output should be, and consensus is taken amongst miners that only correct outputs of valid transactions are written to the blockchain (invalid or incorrectly executed transactions can be proposed but will be rejected by the miners).
+% SR: Transactions include both functions stored on the blockchain and those defined by the system.
+
+Shared operation is enabled by the use of \emph{consensus protocols} which are used by the miners to agree upon which operations---known as \emph{transactions}---will be executed by the system. A transaction is sometimes what it sounds like, a financial transaction that moves a unit of value from one account to another, but more generally is a request that a certain function (which itself may be stored in the blockchain) be executed on a set of inputs given in the transaction. Shared governance exists over what valid transactions look like (\eg it is digitally signed by the sender) and how the system functions (\eg the size and number of operations in a transaction are less than a certain bound). Shared operation means every miner validates transactions, and consensus among miners is used to ensure that only correct outputs of valid transactions are written to the blockchain (invalid or incorrectly executed transactions can be proposed but will be rejected by the miners).
 
 % JC: Omitting forks for now as this seems not that critical and require a lot of concepts to describe
 
@@ -130,15 +132,13 @@ If transactions are used to store information regarding digital or real-world re
 This can be used to track physical, off-chain assets (e.g., for supply chain management), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies or data files).
  
 \paragraph{Access Control and Pseudonymity}
-
 % JC: I find this section confusing still... :(
-
-Access to data tracked by a Blockchain system can be controlled using a 
-traditional access control list (ACL) or a cryptographic permission system.
-To control access cryptographically, data must be associated with a public key 
-when it is created.
-The ability to update or delete this data is then granted to any users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the data).
-Ownership of the data can be expanded by associating it with a new public key.
+% SR: This is over simplified somewhat and coule be improved for the full version, but is inline with other simplifications in the Queue version.
+Data stored in a blockchain may have limitations regarding which users can use it as an input to a transaction or modify it as part of the operation of the transaction.
+For example, a financial asset should only be a valid input to a transaction if the owner of that asset approves its use.
+On approach to providing this functionality is storing access control lists (ACLs) in the blockchain and having the appropriate users prove their identity to the miners (e.g., using Kerberos or OAuth 2.0) as part of the transaction validation process.
+More commonly, access control in a blockchain system is implemented cryptographically: data is associated with a public key when it is created and the ability to use or modify this data as part of transaction is granted only to users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the data).
+Ownership of the data can be expanded or transferred by associating it with a new public key.
 
 %On key benefit of access control using Blockchain is that the provenance of access control is automatically recorded.
 %This means that a full record of not only a user's permissions, but how they received those permissions, is stored.
@@ -156,6 +156,5 @@ In a general purpose blockchain, smart contracts or decentralized applications (
 %Still, smart contracts suffer from problems common to all programs (e.g., bugs, security flaws, complexity, or non-termination) and a failure to recognize this reality can lead to disastrous consequences.\footnote{This is best exemplified by the debate over ``code is law'' and the DAO attack: \url{https://www.coindesk.com/understanding-dao-hack-journalists/}.}
 
 \paragraph{Data Discoverability}
-If users are allowed to read any record in a distributed data store maintained 
-by a blockchain, then it is possible to search for records of interest.
+If users are allowed to read any record stored in a blockchain, then it is possible to search for records of interest.
 This capability is nothing more than what is provided by having a read-only data lake, but still it was frequently discussed in the literature we reviewed.
