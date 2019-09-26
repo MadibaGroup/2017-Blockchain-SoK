@@ -136,8 +136,8 @@ This can be used to track physical, off-chain assets (e.g., for supply chain man
 % SR: This is over simplified somewhat and coule be improved for the full version, but is inline with other simplifications in the Queue version.
 Data stored in a blockchain may have limitations regarding which users can use it as an input to a transaction or modify it as part of the operation of the transaction.
 For example, a financial asset should only be a valid input to a transaction if the owner of that asset approves its use.
-On approach to providing this functionality is storing access control lists (ACLs) in the blockchain and having the appropriate users prove their identity to the miners (e.g., using Kerberos or OAuth 2.0) as part of the transaction validation process.
-More commonly, access control in a blockchain system is implemented cryptographically: data is associated with a public key when it is created and the ability to use or modify this data as part of transaction is granted only to users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the data).
+One approach to providing this functionality is storing access control lists (ACLs) in the blockchain and having the appropriate users prove their identity to the miners (e.g., using Kerberos or OAuth 2.0) as part of the transaction validation process.
+More commonly, access control in a blockchain system is implemented cryptographically: data is associated with a public key when it is created and the ability to use or modify this data as part of transaction is granted only to users that can prove knowledge of the corresponding private key (e.g., by generating a signature over the transaction that validates with the public key attached to the data).
 Ownership of the data can be expanded or transferred by associating it with a new public key.
 
 %On key benefit of access control using Blockchain is that the provenance of access control is automatically recorded.
