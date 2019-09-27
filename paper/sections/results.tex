@@ -133,11 +133,12 @@ If transactions are used to store information regarding digital or real-world re
 This can be used to track physical, off-chain assets (e.g., for supply chain management), digital, off-chain assets (e.g., copyrighted digital media), or digital, on-chain assets (e.g., cryptocurrencies or data files).
  
 \paragraph{Access Control and Pseudonymity}
-Data managed by a Blockchain system can have permissions applied to it that can control which users\footnote{Not all users of a system must be miners.} can operate on that data.
-While these permissions could be tracked using traditional access control paradigms, most often they are regulated cryptographically.
-In this paradigm, when data is created it is associated with a public key.
-The ability to update or delete this data is then granted to any users that can prove knowledge of the corresponding private key (e.g., by generating a signature that validates with the public key attached to the data).
-Ownership of the data can be transferred or shared by associating it with a new public key.
+Data stored in a blockchain may have limitations regarding which users can use it as an input to a transaction or modify it as part of the operation of the transaction.
+For example, a financial asset should only be a valid input to a transaction if the owner of that asset approves its use.
+One approach to providing this functionality is storing access control lists (ACLs) in the blockchain and having the appropriate users prove their identity to the miners (e.g., using Kerberos or OAuth 2.0) as part of the transaction validation process.
+
+More commonly, access control in a blockchain system is implemented cryptographically: data is associated with a public key when it is created and the ability to use or modify this data as part of transaction is granted only to users that can prove knowledge of the corresponding private key (e.g., by generating a signature over the transaction that validates with the public key attached to the data).
+Ownership of the data can be expanded or transferred by associating it with a new public key.
 
 On key benefit of access control using Blockchain is that the provenance of access control is automatically recorded.
 This means that a full record of not only a user's permissions, but how they received those permissions, is stored.
